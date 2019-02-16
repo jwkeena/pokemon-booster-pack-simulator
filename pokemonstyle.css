@@ -69,8 +69,8 @@ body {
 
     .pack, .card1, .card2, .card3, .card4, .card5, .card6, .card7, .card8, .card9, .card10, .card11, .card12 {
         display: inline-block; /*puts all cards in a row. Idea from https://codepen.io/roppazvan/pen/EZVLEy*/
-        padding-left: 10px; /* prevents cards from being stacked on top of each other*/
-        padding-right: 335px; /*same*/
+        padding-left: 0px; /* prevents cards from being stacked on top of each other*/
+        padding-right: 325px; /*same*/
         -webkit-transition: -webkit-transform 1s;
         -moz-transition: -moz-transform 1s;
         -o-transition: -o-transform 1s;

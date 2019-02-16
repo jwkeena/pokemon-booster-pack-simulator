@@ -280,15 +280,15 @@ function newPackJungle(){
     changePackArt();
     if (packArt === 1) {
         document.getElementById("boosterPackFront").src="jungle1.jpg";
-        document.getElementById("boosterPackBack").src="jungleback.jpg";
+        document.getElementById("boosterPackBack").src="basesetback.jpg";
     }
     if (packArt === 2) {
         document.getElementById("boosterPackFront").src="jungle2.jpg";
-        document.getElementById("boosterPackBack").src="jungleback.jpg";
+        document.getElementById("boosterPackBack").src="basesetback.jpg";
     }
     if (packArt === 3) {
         document.getElementById("boosterPackFront").src="jungle3.jpg";
-        document.getElementById("boosterPackBack").src="jungleback.jpg";
+        document.getElementById("boosterPackBack").src="basesetback.jpg";
     }
 
     //Rare distribution

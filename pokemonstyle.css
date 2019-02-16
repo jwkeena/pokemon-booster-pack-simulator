@@ -17,6 +17,18 @@ a:visited {
     color: yellow;
 }
 
+a:link {
+    color: yellow;
+}
+
+a:active {
+    color: yellow;
+}
+
+a:hover {
+    color: yellow;
+}
+
 body {
     background-image: linear-gradient(to right, red, orange, goldenrod, gold);
     text-align: center;

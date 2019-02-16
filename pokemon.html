@@ -1,0 +1,292 @@
+<!--Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
+    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Linking CSS-->
+    <link type="text/css" rel="stylesheet" href="pokemonstyle.css">
+
+    <!--Share Buttons-->
+    <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5c67578c7056550011c4a3c0&product='inline-share-buttons' async='async'></script>
+    
+    <title>Pokemon Booster Pack Simulator</title>
+</head>
+<body>
+
+    <div id="topBar">
+        <div class="topBarLeft">
+            [version 1.0] 
+        </div>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            POKEMON BOOSTER PACK SIMULATOR
+        <div class="topBarRight">
+            [90s nostalgia edition]
+        </div>
+     
+    </div>  
+
+    <p id="instructions">
+        press a button to generate a new set of cards, then click each card to open your pack!
+    </p>
+
+    <button class="button" onclick="newPackBase()">Base Set</button>
+    <button class="button" onclick="newPackJungle()">Jungle</button>
+    <button class="button" onclick="newPackFossil()">Fossil</button>
+    <button class="button" onclick="newPackBase2()">Base Set 2</button>
+    <button class="button" onclick="newPackTeamRocket()">Team Rocket</button>
+    <button class="button" onclick="newPackGymHeroes()">Gym Heroes</button>
+    <button class="button" onclick="newPackGymChallenge()">Gym Challenge</button>
+    <button class="button" onclick="newPackNeoGenesis()">Neo Genesis</button>
+    <button class="button" onclick="newPackNeoDiscovery()">Neo Discovery</button>
+    <button class="button" onclick="newPackNeoRevelation()">Neo Revelation</button>
+    <button class="button" onclick="newPackNeoDestiny()">Neo Destiny</button>
+
+    <div class = "row">
+
+    <div id = "myDiv" class = "pack" onclick="flip0()">
+        <div class = "front">
+            <img id = "boosterPackFront" src="1stblastoise.jpg"></a>
+        </div>
+        <div class = "back">
+            <img id = "boosterPackBack" src="basesetback.jpg">
+        </div>
+    </div>
+
+    <div id = "myDiv1" class = "card1" onclick="flip1()">
+        <div class = "front1">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back1">
+            <img id="randomCard1" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+
+    <div id = "myDiv2" class = "card2" onclick="flip2()">
+        <div class = "front2">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back2">
+            <img id="randomCard2" src="cardback.jpg" height="455"></a>
+        </div>
+    </div> 
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div id = "myDiv3" class = "card3" onclick="flip3()">
+        <div class = "front3">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back3">
+            <img id="randomCard3" src="cardback.jpg" height="455"></a>
+        </div>
+    </div> 
+
+    <div id = "myDiv4" class = "card4" onclick="flip4()">
+        <div class = "front4">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back4">
+            <img id="randomCard4" src="cardback.jpg" height="455"></a>
+        </div>
+    </div> 
+
+    <div id = "myDiv5" class = "card5" onclick="flip5()">
+        <div class = "front5">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back5">
+            <img id="randomCard5" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    <div id = "myDiv6" class = "card6" onclick="flip6()">
+        <div class = "front6">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back6">
+            <img id="randomCard6" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+
+    <div id = "myDiv7" class = "card7" onclick="flip7()">
+        <div class = "front7">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back7">
+            <img id="randomCard7" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+
+    <div id = "myDiv8" class = "card8" onclick="flip8()">
+        <div class = "front8">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back8">
+            <img id="randomCard8" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    <div id = "myDiv9" class = "card9" onclick="flip9()">
+        <div class = "front9">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back9">
+            <img id="randomCard9" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+
+    <div id = "myDiv10" class = "card10" onclick="flip10()">
+        <div class = "front10">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back10">
+            <img id="randomCard10" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+
+    <div id = "myDiv11" class = "card11" onclick="flip11()">
+        <div class = "front11">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back11">
+            <img id="randomCard11" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+    
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<button id="flipAll" onclick="flipAll()">Flip All</button>
+<button id="resetAll" onclick="resetAll()">Reset</button>
+
+<br>
+<br>
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5c67578c7056550011c4a3c0&product='inline-share-buttons' async='async'></script>
+<br>
+<script type="text/javascript" src="//counter.websiteout.net/js/7/0/0/0"></script>
+<br>
+
+<div id="bottomBar">
+    programming and design by justin keena (code available at <a href = "https://github.com/jwkeena?tab=repositories">github</a>), 
+    card images from <a href = "https://www.pkmncards.com">pkmncards</a>, 
+    most booster pack images from <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_Trading_Card_Game_expansions"> bulbapedia</a>
+</div>  
+
+<!--linking Javascript-->
+<script type="text/javascript" src="pokemonjavascript.js"></script>
+</body>
+</html>

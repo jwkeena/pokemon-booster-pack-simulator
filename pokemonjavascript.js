@@ -176,7 +176,48 @@ Array.prototype.shuffle = function() {
     return this;
 }
 
+//Picks random set to open
+function randomPack() {
+    let randomSet = Math.floor(Math.random()*10 + 1);
+    switch(randomSet) {
+        case 1:
+            newPackBase();
+            break;
+        case 2:
+            newPackJungle();
+            break;
+        case 3:
+            newPackFossil();
+            break;
+        case 4:
+            newPackBase2();
+            break;
+        case 5:
+            newPackTeamRocket();
+            break;
+        case 6:
+            newPackGymHeroes();
+            break;
+        case 7:
+            newPackGymChallenge();
+            break;
+        case 8:
+            newPackNeoGenesis();
+            break;
+        case 9:
+            newPackNeoDiscovery();
+            break;
+        case 10:
+            newPackNeoRevelation();
+            break;
+        case 11:
+            newPackNeoDestiny();
+            break;
+    }
+}
+
 //Cycles through the booster pack art
+//For sets with three variants
 let packArt = 0
 function changePackArt() {
     if (packArt === 3) {
@@ -186,6 +227,7 @@ function changePackArt() {
     }
 }
 
+//For sets with four variants
 let packArt2 = 0
 function changePackArt2() {
     if (packArt2 === 4) {

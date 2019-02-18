@@ -176,7 +176,7 @@ Array.prototype.shuffle = function() {
     return this;
 }
 
-//Picks random set to open
+//Enables random set button
 function randomPack() {
     let randomSet = Math.floor(Math.random()*10 + 1);
     switch(randomSet) {
@@ -216,7 +216,7 @@ function randomPack() {
     }
 }
 
-//Picks same set
+//Enables the same set button
 let currentSet = 0
 function sameSet() {
     switch(currentSet) { 
@@ -277,6 +277,7 @@ function changePackArt2() {
     }
 }
 
+//All newPack functions
 function newPackBase() {
     //Flips all cards over to starting position
     resetAll();
@@ -300,25 +301,36 @@ function newPackBase() {
         document.getElementById("boosterPackBack").src="basesetback.jpg";
     }
     
-    //Counts the number of rares in the nested rares array
-    let numOfRares = baseLinks[0].length;
-    //Picks a number between 0 and the total number of rares. Do NOT add 1 to Math.floor so that index position 0 can be chosen later. Adding 1 can result in blank cards
-    let randomRare = Math.floor(Math.random()*numOfRares);
-    //Picks a random rare from the nested array based on the random number just chosen
-    let newRare = baseLinks[0][randomRare];
-    //Stores the value in the first position of the shuffled IDs array
-    let newId1 = cardOrderArray[0];
-    //Reassigns the value just stored as the new ID of the rare, thus putting it in a randomized position 
-    document.getElementById(newId1).src = newRare;
+    //Determines whether a holo or non-holo is pulled at a 33% chance
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        //Counts the number of holo rares in the nested holos array
+        let numOfHolos = baseLinks[0].length;
+        //Picks a number between 0 and the total number of rares. Do NOT add 1 to Math.floor so that index position 0 can be chosen later. Adding 1 can result in blank cards
+        let randomHolo = Math.floor(Math.random()*numOfHolos);
+        //Picks a random holo from the nested array based on the random number just chosen
+        let newHolo = baseLinks[0][randomHolo];
+        //Stores the value in the first position of the shuffled IDs array
+        let newId1 = cardOrderArray[0];
+        //Reassigns the value just stored as the new ID of the rare, thus putting it in a randomized position 
+        document.getElementById(newId1).src = newHolo;
+    } else {
+        //Same process for non-holo (nested array is changed)
+        let numOfRares = baseLinks[1].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = baseLinks[1][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    }
 
     //Same process, for 3 uncommons
-    let numOfUncommons = baseLinks[1].length;
+    let numOfUncommons = baseLinks[2].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon3 = Math.floor(Math.random()*numOfUncommons);
-    let newUncommon1 = baseLinks[1][randomUncommon1];
-    let newUncommon2 = baseLinks[1][randomUncommon2];
-    let newUncommon3 = baseLinks[1][randomUncommon3];
+    let newUncommon1 = baseLinks[2][randomUncommon1];
+    let newUncommon2 = baseLinks[2][randomUncommon2];
+    let newUncommon3 = baseLinks[2][randomUncommon3];
     let newId2= cardOrderArray[1];
     let newId3= cardOrderArray[2];
     let newId4= cardOrderArray[3];
@@ -339,19 +351,19 @@ function newPackBase() {
     }
 
     //Same process, for 6 uncommons
-    let numOfCommons = baseLinks[2].length;
+    let numOfCommons = baseLinks[3].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
-    let newCommon1 = baseLinks[2][randomCommon1];
-    let newCommon2 = baseLinks[2][randomCommon2];
-    let newCommon3 = baseLinks[2][randomCommon3];
-    let newCommon4 = baseLinks[2][randomCommon4];
-    let newCommon5 = baseLinks[2][randomCommon5];
-    let newCommon6 = baseLinks[2][randomCommon6];
+    let newCommon1 = baseLinks[3][randomCommon1];
+    let newCommon2 = baseLinks[3][randomCommon2];
+    let newCommon3 = baseLinks[3][randomCommon3];
+    let newCommon4 = baseLinks[3][randomCommon4];
+    let newCommon5 = baseLinks[3][randomCommon5];
+    let newCommon6 = baseLinks[3][randomCommon6];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
@@ -378,9 +390,9 @@ function newPackBase() {
     }
 
     //Energy choice
-    let numOfEnergy = baseLinks[3].length;
+    let numOfEnergy = baseLinks[4].length;
     let randomEnergy = Math.floor(Math.random()*numOfEnergy);
-    let newEnergy = baseLinks[3][randomEnergy];
+    let newEnergy = baseLinks[4][randomEnergy];
     let newId11 = cardOrderArray[10];
     document.getElementById(newId11).src = newEnergy;
 
@@ -405,20 +417,29 @@ function newPackJungle(){
     }
 
     //Rare distribution
-    let numOfRares = jungleLinks[0].length;
-    let randomRare = Math.floor(Math.random()*numOfRares);
-    let newRare = jungleLinks[0][randomRare];
-    let newId1 = cardOrderArray[0];
-    document.getElementById(newId1).src = newRare;
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        let numOfRares = jungleLinks[0].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = jungleLinks[0][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    } else {
+        let numOfRares = jungleLinks[1].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = jungleLinks[1][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    }
 
     //Uncommon distribution
-    let numOfUncommons = jungleLinks[1].length;
+    let numOfUncommons = jungleLinks[2].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon3 = Math.floor(Math.random()*numOfUncommons);
-    let newUncommon1 = jungleLinks[1][randomUncommon1];
-    let newUncommon2 = jungleLinks[1][randomUncommon2];
-    let newUncommon3 = jungleLinks[1][randomUncommon3];
+    let newUncommon1 = jungleLinks[2][randomUncommon1];
+    let newUncommon2 = jungleLinks[2][randomUncommon2];
+    let newUncommon3 = jungleLinks[2][randomUncommon3];
     let newId2= cardOrderArray[1];
     let newId3= cardOrderArray[2];
     let newId4= cardOrderArray[3];
@@ -439,7 +460,7 @@ function newPackJungle(){
     }
 
     //Common distribution
-    let numOfCommons = jungleLinks[2].length;
+    let numOfCommons = jungleLinks[3].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
@@ -447,13 +468,13 @@ function newPackJungle(){
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
     let randomCommon7 = Math.floor(Math.random()*numOfCommons);
-    let newCommon1 = jungleLinks[2][randomCommon1];
-    let newCommon2 = jungleLinks[2][randomCommon2];
-    let newCommon3 = jungleLinks[2][randomCommon3];
-    let newCommon4 = jungleLinks[2][randomCommon4];
-    let newCommon5 = jungleLinks[2][randomCommon5];
-    let newCommon6 = jungleLinks[2][randomCommon6];
-    let newCommon7 = jungleLinks[2][randomCommon7];
+    let newCommon1 = jungleLinks[3][randomCommon1];
+    let newCommon2 = jungleLinks[3][randomCommon2];
+    let newCommon3 = jungleLinks[3][randomCommon3];
+    let newCommon4 = jungleLinks[3][randomCommon4];
+    let newCommon5 = jungleLinks[3][randomCommon5];
+    let newCommon6 = jungleLinks[3][randomCommon6];
+    let newCommon7 = jungleLinks[3][randomCommon7];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
@@ -501,20 +522,29 @@ function newPackFossil(){
     }
 
     //Rare distribution
-    let numOfRares = fossilLinks[0].length;
-    let randomRare = Math.floor(Math.random()*numOfRares);
-    let newRare = fossilLinks[0][randomRare];
-    let newId1 = cardOrderArray[0];
-    document.getElementById(newId1).src = newRare;
-
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        let numOfRares = fossilLinks[0].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = fossilLinks[0][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    } else {
+        let numOfRares = fossilLinks[1].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = fossilLinks[1][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    }
+    
     //Uncommon distribution
-    let numOfUncommons = fossilLinks[1].length;
+    let numOfUncommons = fossilLinks[2].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon3 = Math.floor(Math.random()*numOfUncommons);
-    let newUncommon1 = fossilLinks[1][randomUncommon1];
-    let newUncommon2 = fossilLinks[1][randomUncommon2];
-    let newUncommon3 = fossilLinks[1][randomUncommon3];
+    let newUncommon1 = fossilLinks[2][randomUncommon1];
+    let newUncommon2 = fossilLinks[2][randomUncommon2];
+    let newUncommon3 = fossilLinks[2][randomUncommon3];
     let newId2= cardOrderArray[1];
     let newId3= cardOrderArray[2];
     let newId4= cardOrderArray[3];
@@ -535,7 +565,7 @@ function newPackFossil(){
     }
 
     //Common distribution
-    let numOfCommons = fossilLinks[2].length;
+    let numOfCommons = fossilLinks[3].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
@@ -543,13 +573,13 @@ function newPackFossil(){
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
     let randomCommon7 = Math.floor(Math.random()*numOfCommons);
-    let newCommon1 = fossilLinks[2][randomCommon1];
-    let newCommon2 = fossilLinks[2][randomCommon2];
-    let newCommon3 = fossilLinks[2][randomCommon3];
-    let newCommon4 = fossilLinks[2][randomCommon4];
-    let newCommon5 = fossilLinks[2][randomCommon5];
-    let newCommon6 = fossilLinks[2][randomCommon6];
-    let newCommon7 = fossilLinks[2][randomCommon7];
+    let newCommon1 = fossilLinks[3][randomCommon1];
+    let newCommon2 = fossilLinks[3][randomCommon2];
+    let newCommon3 = fossilLinks[3][randomCommon3];
+    let newCommon4 = fossilLinks[3][randomCommon4];
+    let newCommon5 = fossilLinks[3][randomCommon5];
+    let newCommon6 = fossilLinks[3][randomCommon6];
+    let newCommon7 = fossilLinks[3][randomCommon7];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
@@ -601,20 +631,31 @@ function newPackBase2(){
     }
 
     //Rare distribution
-    let numOfRares = base2Links[0].length;
-    let randomRare = Math.floor(Math.random()*numOfRares);
-    let newRare = base2Links[0][randomRare];
-    let newId1 = cardOrderArray[0];
-    document.getElementById(newId1).src = newRare;
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        let numOfRares = base2Links[0].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = base2Links[0][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    } else {
+        let numOfRares = base2Links[1].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = base2Links[1][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    }
+    
+
 
     //Uncommon distribution
-    let numOfUncommons = base2Links[1].length;
+    let numOfUncommons = base2Links[2].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon3 = Math.floor(Math.random()*numOfUncommons);
-    let newUncommon1 = base2Links[1][randomUncommon1];
-    let newUncommon2 = base2Links[1][randomUncommon2];
-    let newUncommon3 = base2Links[1][randomUncommon3];
+    let newUncommon1 = base2Links[2][randomUncommon1];
+    let newUncommon2 = base2Links[2][randomUncommon2];
+    let newUncommon3 = base2Links[2][randomUncommon3];
     let newId2= cardOrderArray[1];
     let newId3= cardOrderArray[2];
     let newId4= cardOrderArray[3];
@@ -635,19 +676,19 @@ function newPackBase2(){
     }
 
     //Common distribution
-    let numOfCommons = base2Links[2].length;
+    let numOfCommons = base2Links[3].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
-    let newCommon1 = base2Links[2][randomCommon1];
-    let newCommon2 = base2Links[2][randomCommon2];
-    let newCommon3 = base2Links[2][randomCommon3];
-    let newCommon4 = base2Links[2][randomCommon4];
-    let newCommon5 = base2Links[2][randomCommon5];
-    let newCommon6 = base2Links[2][randomCommon6];
+    let newCommon1 = base2Links[3][randomCommon1];
+    let newCommon2 = base2Links[3][randomCommon2];
+    let newCommon3 = base2Links[3][randomCommon3];
+    let newCommon4 = base2Links[3][randomCommon4];
+    let newCommon5 = base2Links[3][randomCommon5];
+    let newCommon6 = base2Links[3][randomCommon6];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
@@ -674,9 +715,9 @@ function newPackBase2(){
     }
 
     //Energy choice
-    let numOfEnergy = base2Links[3].length;
+    let numOfEnergy = base2Links[4].length;
     let randomEnergy = Math.floor(Math.random()*numOfEnergy);
-    let newEnergy = base2Links[3][randomEnergy];
+    let newEnergy = base2Links[4][randomEnergy];
     let newId11 = cardOrderArray[10];
     document.getElementById(newId11).src = newEnergy;
 }
@@ -704,20 +745,29 @@ function newPackTeamRocket(){
     }
 
     //Rare distribution
-    let numOfRares = teamRocketLinks[0].length;
-    let randomRare = Math.floor(Math.random()*numOfRares);
-    let newRare = teamRocketLinks[0][randomRare];
-    let newId1 = cardOrderArray[0];
-    document.getElementById(newId1).src = newRare;
-
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        let numOfRares = teamRocketLinks[0].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = teamRocketLinks[0][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    } else {
+        let numOfRares = teamRocketLinks[1].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = teamRocketLinks[1][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    }
+    
     //Uncommon distribution
-    let numOfUncommons = teamRocketLinks[1].length;
+    let numOfUncommons = teamRocketLinks[2].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon3 = Math.floor(Math.random()*numOfUncommons);
-    let newUncommon1 = teamRocketLinks[1][randomUncommon1];
-    let newUncommon2 = teamRocketLinks[1][randomUncommon2];
-    let newUncommon3 = teamRocketLinks[1][randomUncommon3];
+    let newUncommon1 = teamRocketLinks[2][randomUncommon1];
+    let newUncommon2 = teamRocketLinks[2][randomUncommon2];
+    let newUncommon3 = teamRocketLinks[2][randomUncommon3];
     let newId2= cardOrderArray[1];
     let newId3= cardOrderArray[2];
     let newId4= cardOrderArray[3];
@@ -738,7 +788,7 @@ function newPackTeamRocket(){
     }
 
     //Common distribution
-    let numOfCommons = teamRocketLinks[2].length;
+    let numOfCommons = teamRocketLinks[3].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
@@ -746,13 +796,13 @@ function newPackTeamRocket(){
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
     let randomCommon7 = Math.floor(Math.random()*numOfCommons);
-    let newCommon1 = teamRocketLinks[2][randomCommon1];
-    let newCommon2 = teamRocketLinks[2][randomCommon2];
-    let newCommon3 = teamRocketLinks[2][randomCommon3];
-    let newCommon4 = teamRocketLinks[2][randomCommon4];
-    let newCommon5 = teamRocketLinks[2][randomCommon5];
-    let newCommon6 = teamRocketLinks[2][randomCommon6];
-    let newCommon7 = teamRocketLinks[2][randomCommon7];
+    let newCommon1 = teamRocketLinks[3][randomCommon1];
+    let newCommon2 = teamRocketLinks[3][randomCommon2];
+    let newCommon3 = teamRocketLinks[3][randomCommon3];
+    let newCommon4 = teamRocketLinks[3][randomCommon4];
+    let newCommon5 = teamRocketLinks[3][randomCommon5];
+    let newCommon6 = teamRocketLinks[3][randomCommon6];
+    let newCommon7 = teamRocketLinks[3][randomCommon7];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
@@ -804,20 +854,29 @@ function newPackGymHeroes(){
     }
 
     //Rare distribution
-    let numOfRares = gymHeroesLinks[0].length;
-    let randomRare = Math.floor(Math.random()*numOfRares);
-    let newRare = gymHeroesLinks[0][randomRare];
-    let newId1 = cardOrderArray[0];
-    document.getElementById(newId1).src = newRare;
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        let numOfRares = gymHeroesLinks[0].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = gymHeroesLinks[0][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    } else {
+        let numOfRares = gymHeroesLinks[1].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = gymHeroesLinks[1][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    }
 
     //Uncommon distribution
-    let numOfUncommons = gymHeroesLinks[1].length;
+    let numOfUncommons = gymHeroesLinks[3].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon3 = Math.floor(Math.random()*numOfUncommons);
-    let newUncommon1 = gymHeroesLinks[1][randomUncommon1];
-    let newUncommon2 = gymHeroesLinks[1][randomUncommon2];
-    let newUncommon3 = gymHeroesLinks[1][randomUncommon3];
+    let newUncommon1 = gymHeroesLinks[2][randomUncommon1];
+    let newUncommon2 = gymHeroesLinks[2][randomUncommon2];
+    let newUncommon3 = gymHeroesLinks[2][randomUncommon3];
     let newId2= cardOrderArray[1];
     let newId3= cardOrderArray[2];
     let newId4= cardOrderArray[3];
@@ -838,19 +897,19 @@ function newPackGymHeroes(){
     }
 
     //Common distribution
-    let numOfCommons = gymHeroesLinks[2].length;
+    let numOfCommons = gymHeroesLinks[3].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
-    let newCommon1 = gymHeroesLinks[2][randomCommon1];
-    let newCommon2 = gymHeroesLinks[2][randomCommon2];
-    let newCommon3 = gymHeroesLinks[2][randomCommon3];
-    let newCommon4 = gymHeroesLinks[2][randomCommon4];
-    let newCommon5 = gymHeroesLinks[2][randomCommon5];
-    let newCommon6 = gymHeroesLinks[2][randomCommon6];
+    let newCommon1 = gymHeroesLinks[3][randomCommon1];
+    let newCommon2 = gymHeroesLinks[3][randomCommon2];
+    let newCommon3 = gymHeroesLinks[3][randomCommon3];
+    let newCommon4 = gymHeroesLinks[3][randomCommon4];
+    let newCommon5 = gymHeroesLinks[3][randomCommon5];
+    let newCommon6 = gymHeroesLinks[3][randomCommon6];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
@@ -877,9 +936,9 @@ function newPackGymHeroes(){
     }
 
     //Energy choice
-    let numOfEnergy = gymHeroesLinks[3].length;
+    let numOfEnergy = gymHeroesLinks[4].length;
     let randomEnergy = Math.floor(Math.random()*numOfEnergy);
-    let newEnergy = gymHeroesLinks[3][randomEnergy];
+    let newEnergy = gymHeroesLinks[4][randomEnergy];
     let newId11 = cardOrderArray[10];
     document.getElementById(newId11).src = newEnergy;
 }
@@ -907,20 +966,29 @@ function newPackGymChallenge(){
     }
 
     //Rare distribution
-    let numOfRares = gymChallengeLinks[0].length;
-    let randomRare = Math.floor(Math.random()*numOfRares);
-    let newRare = gymChallengeLinks[0][randomRare];
-    let newId1 = cardOrderArray[0];
-    document.getElementById(newId1).src = newRare;
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        let numOfRares = gymChallengeLinks[0].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = gymChallengeLinks[0][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    } else {
+        let numOfRares = gymChallengeLinks[1].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = gymChallengeLinks[1][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    }
 
     //Uncommon distribution
-    let numOfUncommons = gymChallengeLinks[1].length;
+    let numOfUncommons = gymChallengeLinks[2].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon3 = Math.floor(Math.random()*numOfUncommons);
-    let newUncommon1 = gymChallengeLinks[1][randomUncommon1];
-    let newUncommon2 = gymChallengeLinks[1][randomUncommon2];
-    let newUncommon3 = gymChallengeLinks[1][randomUncommon3];
+    let newUncommon1 = gymChallengeLinks[2][randomUncommon1];
+    let newUncommon2 = gymChallengeLinks[2][randomUncommon2];
+    let newUncommon3 = gymChallengeLinks[2][randomUncommon3];
     let newId2= cardOrderArray[1];
     let newId3= cardOrderArray[2];
     let newId4= cardOrderArray[3];
@@ -941,19 +1009,19 @@ function newPackGymChallenge(){
     }
 
     //Common distribution
-    let numOfCommons = gymChallengeLinks[2].length;
+    let numOfCommons = gymChallengeLinks[3].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
-    let newCommon1 = gymChallengeLinks[2][randomCommon1];
-    let newCommon2 = gymChallengeLinks[2][randomCommon2];
-    let newCommon3 = gymChallengeLinks[2][randomCommon3];
-    let newCommon4 = gymChallengeLinks[2][randomCommon4];
-    let newCommon5 = gymChallengeLinks[2][randomCommon5];
-    let newCommon6 = gymChallengeLinks[2][randomCommon6];
+    let newCommon1 = gymChallengeLinks[3][randomCommon1];
+    let newCommon2 = gymChallengeLinks[3][randomCommon2];
+    let newCommon3 = gymChallengeLinks[3][randomCommon3];
+    let newCommon4 = gymChallengeLinks[3][randomCommon4];
+    let newCommon5 = gymChallengeLinks[3][randomCommon5];
+    let newCommon6 = gymChallengeLinks[3][randomCommon6];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
@@ -980,9 +1048,9 @@ function newPackGymChallenge(){
     }
 
     //Energy choice
-    let numOfEnergy = gymChallengeLinks[3].length;
+    let numOfEnergy = gymChallengeLinks[4].length;
     let randomEnergy = Math.floor(Math.random()*numOfEnergy);
-    let newEnergy = gymChallengeLinks[3][randomEnergy];
+    let newEnergy = gymChallengeLinks[4][randomEnergy];
     let newId11 = cardOrderArray[10];
     document.getElementById(newId11).src = newEnergy;
 }
@@ -1010,20 +1078,29 @@ function newPackNeoGenesis(){
     }
 
     //Rare distribution
-    let numOfRares = neoGenesisLinks[0].length;
-    let randomRare = Math.floor(Math.random()*numOfRares);
-    let newRare = neoGenesisLinks[0][randomRare];
-    let newId1 = cardOrderArray[0];
-    document.getElementById(newId1).src = newRare;
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        let numOfRares = neoGenesisLinks[0].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = neoGenesisLinks[0][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    } else {
+        let numOfRares = neoGenesisLinks[1].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = neoGenesisLinks[1][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    }
 
     //Uncommon distribution
-    let numOfUncommons = neoGenesisLinks[1].length;
+    let numOfUncommons = neoGenesisLinks[2].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon3 = Math.floor(Math.random()*numOfUncommons);
-    let newUncommon1 = neoGenesisLinks[1][randomUncommon1];
-    let newUncommon2 = neoGenesisLinks[1][randomUncommon2];
-    let newUncommon3 = neoGenesisLinks[1][randomUncommon3];
+    let newUncommon1 = neoGenesisLinks[2][randomUncommon1];
+    let newUncommon2 = neoGenesisLinks[2][randomUncommon2];
+    let newUncommon3 = neoGenesisLinks[2][randomUncommon3];
     let newId2= cardOrderArray[1];
     let newId3= cardOrderArray[2];
     let newId4= cardOrderArray[3];
@@ -1044,19 +1121,19 @@ function newPackNeoGenesis(){
     }
 
     //Common distribution
-    let numOfCommons = neoGenesisLinks[2].length;
+    let numOfCommons = neoGenesisLinks[3].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
-    let newCommon1 = neoGenesisLinks[2][randomCommon1];
-    let newCommon2 = neoGenesisLinks[2][randomCommon2];
-    let newCommon3 = neoGenesisLinks[2][randomCommon3];
-    let newCommon4 = neoGenesisLinks[2][randomCommon4];
-    let newCommon5 = neoGenesisLinks[2][randomCommon5];
-    let newCommon6 = neoGenesisLinks[2][randomCommon6];
+    let newCommon1 = neoGenesisLinks[3][randomCommon1];
+    let newCommon2 = neoGenesisLinks[3][randomCommon2];
+    let newCommon3 = neoGenesisLinks[3][randomCommon3];
+    let newCommon4 = neoGenesisLinks[3][randomCommon4];
+    let newCommon5 = neoGenesisLinks[3][randomCommon5];
+    let newCommon6 = neoGenesisLinks[3][randomCommon6];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
@@ -1083,9 +1160,9 @@ function newPackNeoGenesis(){
     }
 
     //Energy choice
-    let numOfEnergy = neoGenesisLinks[3].length;
+    let numOfEnergy = neoGenesisLinks[4].length;
     let randomEnergy = Math.floor(Math.random()*numOfEnergy);
-    let newEnergy = neoGenesisLinks[3][randomEnergy];
+    let newEnergy = neoGenesisLinks[4][randomEnergy];
     let newId11 = cardOrderArray[10];
     document.getElementById(newId11).src = newEnergy;
 }
@@ -1113,20 +1190,29 @@ function newPackNeoDiscovery(){
     }
 
     //Rare distribution
-    let numOfRares = neoDiscoveryLinks[0].length;
-    let randomRare = Math.floor(Math.random()*numOfRares);
-    let newRare = neoDiscoveryLinks[0][randomRare];
-    let newId1 = cardOrderArray[0];
-    document.getElementById(newId1).src = newRare;
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        let numOfRares = neoDiscoveryLinks[0].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = neoDiscoveryLinks[0][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    } else {
+        let numOfRares = neoDiscoveryLinks[1].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = neoDiscoveryLinks[1][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    }
 
     //Uncommon distribution
-    let numOfUncommons = neoDiscoveryLinks[1].length;
+    let numOfUncommons = neoDiscoveryLinks[2].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon3 = Math.floor(Math.random()*numOfUncommons);
-    let newUncommon1 = neoDiscoveryLinks[1][randomUncommon1];
-    let newUncommon2 = neoDiscoveryLinks[1][randomUncommon2];
-    let newUncommon3 = neoDiscoveryLinks[1][randomUncommon3];
+    let newUncommon1 = neoDiscoveryLinks[2][randomUncommon1];
+    let newUncommon2 = neoDiscoveryLinks[2][randomUncommon2];
+    let newUncommon3 = neoDiscoveryLinks[2][randomUncommon3];
     let newId2= cardOrderArray[1];
     let newId3= cardOrderArray[2];
     let newId4= cardOrderArray[3];
@@ -1147,7 +1233,7 @@ function newPackNeoDiscovery(){
         }
 
     //Common distribution
-    let numOfCommons = neoDiscoveryLinks[2].length;
+    let numOfCommons = neoDiscoveryLinks[3].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
@@ -1155,13 +1241,13 @@ function newPackNeoDiscovery(){
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
     let randomCommon7 = Math.floor(Math.random()*numOfCommons);
-    let newCommon1 = neoDiscoveryLinks[2][randomCommon1];
-    let newCommon2 = neoDiscoveryLinks[2][randomCommon2];
-    let newCommon3 = neoDiscoveryLinks[2][randomCommon3];
-    let newCommon4 = neoDiscoveryLinks[2][randomCommon4];
-    let newCommon5 = neoDiscoveryLinks[2][randomCommon5];
-    let newCommon6 = neoDiscoveryLinks[2][randomCommon6];
-    let newCommon7 = neoDiscoveryLinks[2][randomCommon7];
+    let newCommon1 = neoDiscoveryLinks[3][randomCommon1];
+    let newCommon2 = neoDiscoveryLinks[3][randomCommon2];
+    let newCommon3 = neoDiscoveryLinks[3][randomCommon3];
+    let newCommon4 = neoDiscoveryLinks[3][randomCommon4];
+    let newCommon5 = neoDiscoveryLinks[3][randomCommon5];
+    let newCommon6 = neoDiscoveryLinks[3][randomCommon6];
+    let newCommon7 = neoDiscoveryLinks[3][randomCommon7];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
@@ -1213,20 +1299,29 @@ function newPackNeoRevelation(){
     }
 
     //Rare distribution
-    let numOfRares = neoRevelationLinks[0].length;
-    let randomRare = Math.floor(Math.random()*numOfRares);
-    let newRare = neoRevelationLinks[0][randomRare];
-    let newId1 = cardOrderArray[0];
-    document.getElementById(newId1).src = newRare;
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        let numOfRares = neoRevelationLinks[0].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = neoRevelationLinks[0][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    } else {
+        let numOfRares = neoRevelationLinks[1].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = neoRevelationLinks[1][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    }
 
     //Uncommon distribution
-    let numOfUncommons = neoRevelationLinks[1].length;
+    let numOfUncommons = neoRevelationLinks[2].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon3 = Math.floor(Math.random()*numOfUncommons);
-    let newUncommon1 = neoRevelationLinks[1][randomUncommon1];
-    let newUncommon2 = neoRevelationLinks[1][randomUncommon2];
-    let newUncommon3 = neoRevelationLinks[1][randomUncommon3];
+    let newUncommon1 = neoRevelationLinks[2][randomUncommon1];
+    let newUncommon2 = neoRevelationLinks[2][randomUncommon2];
+    let newUncommon3 = neoRevelationLinks[2][randomUncommon3];
     let newId2= cardOrderArray[1];
     let newId3= cardOrderArray[2];
     let newId4= cardOrderArray[3];
@@ -1247,7 +1342,7 @@ function newPackNeoRevelation(){
     }
 
     //Common distribution
-    let numOfCommons = neoRevelationLinks[2].length;
+    let numOfCommons = neoRevelationLinks[3].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
@@ -1255,13 +1350,13 @@ function newPackNeoRevelation(){
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
     let randomCommon7 = Math.floor(Math.random()*numOfCommons);
-    let newCommon1 = neoRevelationLinks[2][randomCommon1];
-    let newCommon2 = neoRevelationLinks[2][randomCommon2];
-    let newCommon3 = neoRevelationLinks[2][randomCommon3];
-    let newCommon4 = neoRevelationLinks[2][randomCommon4];
-    let newCommon5 = neoRevelationLinks[2][randomCommon5];
-    let newCommon6 = neoRevelationLinks[2][randomCommon6];
-    let newCommon7 = neoRevelationLinks[2][randomCommon7];
+    let newCommon1 = neoRevelationLinks[3][randomCommon1];
+    let newCommon2 = neoRevelationLinks[3][randomCommon2];
+    let newCommon3 = neoRevelationLinks[3][randomCommon3];
+    let newCommon4 = neoRevelationLinks[3][randomCommon4];
+    let newCommon5 = neoRevelationLinks[3][randomCommon5];
+    let newCommon6 = neoRevelationLinks[3][randomCommon6];
+    let newCommon7 = neoRevelationLinks[3][randomCommon7];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
@@ -1313,20 +1408,29 @@ function newPackNeoDestiny(){
     }
 
     //Rare distribution
-    let numOfRares = neoDestinyLinks[0].length;
-    let randomRare = Math.floor(Math.random()*numOfRares);
-    let newRare = neoDestinyLinks[0][randomRare];
-    let newId1 = cardOrderArray[0];
-    document.getElementById(newId1).src = newRare;
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        let numOfRares = neoDestinyLinks[0].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = neoDestinyLinks[0][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    } else {
+        let numOfRares = neoDestinyLinks[1].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = neoDestinyLinks[1][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
+    }
 
     //Uncommon distribution
-    let numOfUncommons = neoDestinyLinks[1].length;
+    let numOfUncommons = neoDestinyLinks[2].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon3 = Math.floor(Math.random()*numOfUncommons);
-    let newUncommon1 = neoDestinyLinks[1][randomUncommon1];
-    let newUncommon2 = neoDestinyLinks[1][randomUncommon2];
-    let newUncommon3 = neoDestinyLinks[1][randomUncommon3];
+    let newUncommon1 = neoDestinyLinks[2][randomUncommon1];
+    let newUncommon2 = neoDestinyLinks[2][randomUncommon2];
+    let newUncommon3 = neoDestinyLinks[2][randomUncommon3];
     let newId2= cardOrderArray[1];
     let newId3= cardOrderArray[2];
     let newId4= cardOrderArray[3];
@@ -1347,7 +1451,7 @@ function newPackNeoDestiny(){
     }
 
     //Common distribution
-    let numOfCommons = neoDestinyLinks[2].length;
+    let numOfCommons = neoDestinyLinks[3].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
@@ -1355,13 +1459,13 @@ function newPackNeoDestiny(){
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
     let randomCommon7 = Math.floor(Math.random()*numOfCommons);
-    let newCommon1 = neoDestinyLinks[2][randomCommon1];
-    let newCommon2 = neoDestinyLinks[2][randomCommon2];
-    let newCommon3 = neoDestinyLinks[2][randomCommon3];
-    let newCommon4 = neoDestinyLinks[2][randomCommon4];
-    let newCommon5 = neoDestinyLinks[2][randomCommon5];
-    let newCommon6 = neoDestinyLinks[2][randomCommon6];
-    let newCommon7 = neoDestinyLinks[2][randomCommon7];
+    let newCommon1 = neoDestinyLinks[3][randomCommon1];
+    let newCommon2 = neoDestinyLinks[3][randomCommon2];
+    let newCommon3 = neoDestinyLinks[3][randomCommon3];
+    let newCommon4 = neoDestinyLinks[3][randomCommon4];
+    let newCommon5 = neoDestinyLinks[3][randomCommon5];
+    let newCommon6 = neoDestinyLinks[3][randomCommon6];
+    let newCommon7 = neoDestinyLinks[3][randomCommon7];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
@@ -1393,7 +1497,7 @@ function newPackNeoDestiny(){
 //Arrays of all card sets
 const baseLinks = [
 
-    //Rares at index 0
+    //Holos at index 0
     ['https://pkmncards.com/wp-content/uploads/alakazam-base-set-bs-1.jpg',
     'https://pkmncards.com/wp-content/uploads/blastoise-base-set-bs-2.jpg',
     'https://pkmncards.com/wp-content/uploads/chansey-base-set-bs-3.jpg',
@@ -1409,8 +1513,10 @@ const baseLinks = [
     'https://pkmncards.com/wp-content/uploads/poliwrath-base-set-bs-13.jpg',
     'https://pkmncards.com/wp-content/uploads/raichu-base-set-bs-14.jpg',
     'https://pkmncards.com/wp-content/uploads/venusaur-base-set-bs-15.jpg',
-    'https://pkmncards.com/wp-content/uploads/zapdos-base-set-bs-16.jpg',
-    'https://pkmncards.com/wp-content/uploads/beedrill-base-set-bs-17.jpg',
+    'https://pkmncards.com/wp-content/uploads/zapdos-base-set-bs-16.jpg'],
+
+    //Rares at index 1
+    ['https://pkmncards.com/wp-content/uploads/beedrill-base-set-bs-17.jpg',
     'https://pkmncards.com/wp-content/uploads/dragonair-base-set-bs-18.jpg',
     'https://pkmncards.com/wp-content/uploads/dugtrio-base-set-bs-19.jpg',
     'https://pkmncards.com/wp-content/uploads/electabuzz-base-set-bs-20.jpg',
@@ -1427,7 +1533,7 @@ const baseLinks = [
     'https://pkmncards.com/wp-content/uploads/scoop-up-base-set-bs-78.jpg',
     'https://pkmncards.com/wp-content/uploads/super-energy-removal-base-set-bs-79.jpg'],
 
-    //Uncommons at index 1
+    //Uncommons at index 2
     ['https://pkmncards.com/wp-content/uploads/arcanine-base-set-bs-23.jpg',
     'https://pkmncards.com/wp-content/uploads/charmeleon-base-set-bs-24.jpg',
     'https://pkmncards.com/wp-content/uploads/dewgong-base-set-bs-25.jpg',
@@ -1461,7 +1567,7 @@ const baseLinks = [
     'https://pkmncards.com/wp-content/uploads/super-potion-base-set-bs-90.jpg',
     'https://pkmncards.com/wp-content/uploads/double-colorless-energy-base-set-bs-96.jpg'],
 
-    //Commons at index 2
+    //Commons at index 3
     ['https://pkmncards.com/wp-content/uploads/abra-base-set-bs-43.jpg',
     'https://pkmncards.com/wp-content/uploads/bulbasaur-base-set-bs-44.jpg',
     'https://pkmncards.com/wp-content/uploads/caterpie-base-set-bs-45.jpg',
@@ -1495,7 +1601,7 @@ const baseLinks = [
     'https://pkmncards.com/wp-content/uploads/potion-base-set-bs-94.jpg',
     'https://pkmncards.com/wp-content/uploads/switch-base-set-bs-95.jpg'],
 
-    //Energy cards at index 3
+    //Energy cards at index 4
     ['https://pkmncards.com/wp-content/uploads/fighting-energy-base-set-bs-97.jpg',
     'https://pkmncards.com/wp-content/uploads/fire-energy-base-set-bs-98.jpg',
     'https://pkmncards.com/wp-content/uploads/grass-energy-base-set-bs-99.jpg',
@@ -1507,7 +1613,7 @@ const baseLinks = [
 
 const jungleLinks = [
 
-    //Rares at index 0
+    //Holos at index 0
     ['https://pkmncards.com/wp-content/uploads/clefable-jungle-ju-1.jpg',
     'https://pkmncards.com/wp-content/uploads/electrode-jungle-ju-2.jpg',
     'https://pkmncards.com/wp-content/uploads/flareon-jungle-ju-3.jpg',
@@ -1523,8 +1629,10 @@ const jungleLinks = [
     'https://pkmncards.com/wp-content/uploads/venomoth-jungle-ju-13.jpg',
     'https://pkmncards.com/wp-content/uploads/victreebel-jungle-ju-14.jpg',
     'https://pkmncards.com/wp-content/uploads/vileplume-jungle-ju-15.jpg',
-    'https://pkmncards.com/wp-content/uploads/wigglytuff-jungle-ju-16.jpg',
-    'https://pkmncards.com/wp-content/uploads/clefable-jungle-ju-17.jpg',
+    'https://pkmncards.com/wp-content/uploads/wigglytuff-jungle-ju-16.jpg'],
+
+    //Rares at index 1
+    ['https://pkmncards.com/wp-content/uploads/clefable-jungle-ju-17.jpg',
     'https://pkmncards.com/wp-content/uploads/electrode-jungle-ju-18-normal.jpg',
     'https://pkmncards.com/wp-content/uploads/flareon-jungle-ju-19.jpg',
     'https://pkmncards.com/wp-content/uploads/jolteon-jungle-ju-20.jpg',
@@ -1541,7 +1649,7 @@ const jungleLinks = [
     'https://pkmncards.com/wp-content/uploads/vileplume-jungle-ju-31.jpg',
     'https://pkmncards.com/wp-content/uploads/wigglytuff-jungle-ju-32.jpg'],
 
-    //Uncommons at index 1
+    //Uncommons at index 2
     ['https://pkmncards.com/wp-content/uploads/butterfree-jungle-ju-33.jpg',
     'https://pkmncards.com/wp-content/uploads/dodrio-jungle-ju-34.jpg',
     'https://pkmncards.com/wp-content/uploads/exeggutor-jungle-ju-35.jpg',
@@ -1559,7 +1667,7 @@ const jungleLinks = [
     'https://pkmncards.com/wp-content/uploads/tauros-jungle-ju-47.jpg',
     'https://pkmncards.com/wp-content/uploads/weepinbell-jungle-ju-48.jpg'],
 
-    //Commons at index 2
+    //Commons at index 3
     ['https://pkmncards.com/wp-content/uploads/bellsprout-jungle-ju-49.jpg',
     'https://pkmncards.com/wp-content/uploads/cubone-jungle-ju-50.jpg',
     'https://pkmncards.com/wp-content/uploads/eevee-jungle-ju-51.jpg',
@@ -1581,7 +1689,7 @@ const jungleLinks = [
 
 const fossilLinks = [
 
-    //Rares at index 0
+    //Holos at index 0
     ['https://pkmncards.com/wp-content/uploads/aerodactyl-fossil-fo-1.jpg',
     'https://pkmncards.com/wp-content/uploads/articuno-fossil-fo-2.jpg',
     'https://pkmncards.com/wp-content/uploads/ditto-fossil-fo-3.jpg',
@@ -1596,8 +1704,10 @@ const fossilLinks = [
     'https://pkmncards.com/wp-content/uploads/moltres-fossil-fo-12.jpg',
     'https://pkmncards.com/wp-content/uploads/muk-fossil-fo-13.jpg',
     'https://pkmncards.com/wp-content/uploads/raichu-fossil-fo-14.jpg',
-    'https://pkmncards.com/wp-content/uploads/zapdos-fossil-fo-15.jpg',
-    'https://pkmncards.com/wp-content/uploads/aerodactyl-fossil-fo-16.jpg',
+    'https://pkmncards.com/wp-content/uploads/zapdos-fossil-fo-15.jpg'],    
+
+    //Rares at index 1
+    ['https://pkmncards.com/wp-content/uploads/aerodactyl-fossil-fo-16.jpg',
     'https://pkmncards.com/wp-content/uploads/articuno-fossil-fo-17.jpg',
     'https://pkmncards.com/wp-content/uploads/ditto-fossil-fo-18.jpg',
     'https://pkmncards.com/wp-content/uploads/dragonite-fossil-fo-19.jpg',
@@ -1611,9 +1721,9 @@ const fossilLinks = [
     'https://pkmncards.com/wp-content/uploads/moltres-fossil-fo-27.jpg',
     'https://pkmncards.com/wp-content/uploads/muk-fossil-fo-28.jpg',
     'https://pkmncards.com/wp-content/uploads/raichu-fossil-fo-29.jpg',
-    'https://pkmncards.com/wp-content/uploads/zapdos-fossil-fo-30.jpg'],    
+    'https://pkmncards.com/wp-content/uploads/zapdos-fossil-fo-30.jpg'],
 
-    //Uncommons at index 1
+    //Uncommons at index 2
     ['https://pkmncards.com/wp-content/uploads/arbok-fossil-fo-31.jpg',
     'https://pkmncards.com/wp-content/uploads/cloyster-fossil-fo-32.jpg',
     'https://pkmncards.com/wp-content/uploads/gastly-fossil-fo-33.jpg',
@@ -1631,7 +1741,7 @@ const fossilLinks = [
     'https://pkmncards.com/wp-content/uploads/weezing-fossil-fo-45.jpg',
     'https://pkmncards.com/wp-content/uploads/mr.-fuji-fossil-fo-58.jpg'],
 
-    //Commons at index 2
+    //Commons at index 3
     ['https://pkmncards.com/wp-content/uploads/ekans-fossil-fo-46.jpg',
     'https://pkmncards.com/wp-content/uploads/geodude-fossil-fo-47.jpg',
     'https://pkmncards.com/wp-content/uploads/grimer-fossil-fo-48.jpg',
@@ -1653,7 +1763,7 @@ const fossilLinks = [
 
 const base2Links = [
 
-    //Rares at index 0
+    //Holos at index 0
     ['https://pkmncards.com/wp-content/uploads/alakazam-base-set-2-b2-1.jpg',
     'https://pkmncards.com/wp-content/uploads/blastoise-base-set-2-b2-2.jpg',
     'https://pkmncards.com/wp-content/uploads/chansey-base-set-2-b2-3.jpg',
@@ -1673,8 +1783,10 @@ const base2Links = [
     'https://pkmncards.com/wp-content/uploads/scyther-base-set-2-b2-17.jpg',
     'https://pkmncards.com/wp-content/uploads/venusaur-base-set-2-b2-18.jpg',
     'https://pkmncards.com/wp-content/uploads/wigglytuff-base-set-2-b2-19.jpg',
-    'https://pkmncards.com/wp-content/uploads/zapdos-base-set-2-b2-20.jpg',
-    'https://pkmncards.com/wp-content/uploads/beedrill-base-set-2-b2-21.jpg',
+    'https://pkmncards.com/wp-content/uploads/zapdos-base-set-2-b2-20.jpg'],
+
+    //Rares at index 1
+    ['https://pkmncards.com/wp-content/uploads/beedrill-base-set-2-b2-21.jpg',
     'https://pkmncards.com/wp-content/uploads/dragonair-base-set-2-b2-22.jpg',
     'https://pkmncards.com/wp-content/uploads/dugtrio-base-set-2-b2-23.jpg',
     'https://pkmncards.com/wp-content/uploads/electabuzz-base-set-2-b2-24.jpg',
@@ -1695,7 +1807,7 @@ const base2Links = [
     'https://pkmncards.com/wp-content/uploads/scoop-up-base-set-2-b2-107.jpg',
     'https://pkmncards.com/wp-content/uploads/super-energy-removal-base-set-2-b2-108.jpg'],
 
-    //Uncommons at index 1
+    //Uncommons at index 2
     ['https://pkmncards.com/wp-content/uploads/arcanine-base-set-2-b2-33.jpg',
     'https://pkmncards.com/wp-content/uploads/butterfree-base-set-2-b2-34.jpg',
     'https://pkmncards.com/wp-content/uploads/charmeleon-base-set-2-b2-35.jpg',
@@ -1739,7 +1851,7 @@ const base2Links = [
     'https://pkmncards.com/wp-content/uploads/super-potion-base-set-2-b2-117.jpg',
     'https://pkmncards.com/wp-content/uploads/double-colorless-energy-base-set-2-b2-124.jpg'],
 
-    //Commons at index 2
+    //Commons at index 3
     ['https://pkmncards.com/wp-content/uploads/abra-base-set-2-b2-65.jpg',
     'https://pkmncards.com/wp-content/uploads/bellsprout-base-set-2-b2-66.jpg',
     'https://pkmncards.com/wp-content/uploads/bulbasaur-base-set-2-b2-67.jpg',
@@ -1783,7 +1895,7 @@ const base2Links = [
     'https://pkmncards.com/wp-content/uploads/potion-base-set-2-b2-122.jpg',
     'https://pkmncards.com/wp-content/uploads/switch-base-set-2-b2-123.jpg'],
 
-    //Energy at index 3
+    //Energy at index 4
     ['https://pkmncards.com/wp-content/uploads/fighting-energy-base-set-2-b2-125.jpg',
     'https://pkmncards.com/wp-content/uploads/fire-energy-base-set-2-b2-126.jpg',
     'https://pkmncards.com/wp-content/uploads/grass-energy-base-set-2-b2-127.jpg',
@@ -1795,7 +1907,7 @@ const base2Links = [
 
 const teamRocketLinks = [
 
-    //Rares at index 0
+    //Holos at index 0
     ['https://pkmncards.com/wp-content/uploads/dark-alakazam-team-rocket-tr-1.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-arbok-team-rocket-tr-2.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-blastoise-team-rocket-tr-3.jpg',
@@ -1813,7 +1925,10 @@ const teamRocketLinks = [
     'https://pkmncards.com/wp-content/uploads/here-comes-team-rocket-team-rocket-tr-15.jpg',
     'https://pkmncards.com/wp-content/uploads/rockets-sneak-attack-team-rocket-tr-16.jpg',
     'https://pkmncards.com/wp-content/uploads/rainbow-energy-team-rocket-tr-17.jpg',
-    'https://pkmncards.com/wp-content/uploads/dark-alakazam-team-rocket-tr-18.jpg',
+    'https://pkmncards.com/wp-content/uploads/dark-raichu-team-rocket-tr-83.jpg'],
+
+    //Rares at index 1
+    ['https://pkmncards.com/wp-content/uploads/dark-alakazam-team-rocket-tr-18.jpg',
     'https://pkmncards.com/card/dark-arbok-team-rocket-tr-19/',
     'https://pkmncards.com/wp-content/uploads/dark-arbok-team-rocket-tr-19.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-blastoise-team-rocket-tr-20.jpg',
@@ -1830,10 +1945,9 @@ const teamRocketLinks = [
     'https://pkmncards.com/wp-content/uploads/dark-weezing-team-rocket-tr-31.jpg',
     'https://pkmncards.com/wp-content/uploads/here-comes-team-rocket-team-rocket-tr-71.jpg',
     'https://pkmncards.com/wp-content/uploads/rockets-sneak-attack-team-rocket-tr-72.jpg',
-    'https://pkmncards.com/wp-content/uploads/rainbow-energy-team-rocket-tr-80.jpg',
-    'https://pkmncards.com/wp-content/uploads/dark-raichu-team-rocket-tr-83.jpg'],
+    'https://pkmncards.com/wp-content/uploads/rainbow-energy-team-rocket-tr-80.jpg'],
 
-    //Uncommons at index 1
+    //Uncommons at index 2
     ['https://pkmncards.com/wp-content/uploads/dark-charmeleon-team-rocket-tr-32.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-dragonair-team-rocket-tr-33.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-electrode-team-rocket-tr-34.jpg',
@@ -1859,7 +1973,7 @@ const teamRocketLinks = [
     'https://pkmncards.com/wp-content/uploads/full-heal-energy-team-rocket-tr-81.jpg',
     'https://pkmncards.com/wp-content/uploads/potion-energy-team-rocket-tr-82.jpg'],
 
-    //Commons at index 2
+    //Commons at index 3
     ['https://pkmncards.com/wp-content/uploads/abra-team-rocket-tr-49.jpg',
     'https://pkmncards.com/wp-content/uploads/charmander-team-rocket-tr-50.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-raticate-team-rocket-tr-51.jpg',
@@ -1889,7 +2003,7 @@ const teamRocketLinks = [
 
 const gymHeroesLinks = [
 
-    //Rares at index 0
+    //Holos at index 0
     ['https://pkmncards.com/wp-content/uploads/blaines-moltres-gym-heroes-1.jpg',
     'https://pkmncards.com/wp-content/uploads/brocks-rhydon-gym-heroes-2.jpg',
     'https://pkmncards.com/wp-content/uploads/erikas-clefable-gym-heroes-3.jpg',
@@ -1908,8 +2022,10 @@ const gymHeroesLinks = [
     'https://pkmncards.com/wp-content/uploads/erika-gym-heroes-16.jpg',
     'https://pkmncards.com/wp-content/uploads/lt.-surge-gym-heroes-17.jpg',
     'https://pkmncards.com/wp-content/uploads/misty-gym-heroes-18.jpg',
-    'https://pkmncards.com/wp-content/uploads/the-rockets-trap-gym-heroes-19.jpg',
-    'https://pkmncards.com/wp-content/uploads/brocks-golem-gym-heroes-20.jpg',
+    'https://pkmncards.com/wp-content/uploads/the-rockets-trap-gym-heroes-19.jpg'],
+
+    //Rares at index 1
+    ['https://pkmncards.com/wp-content/uploads/brocks-golem-gym-heroes-20.jpg',
     'https://pkmncards.com/wp-content/uploads/brocks-onix-gym-heroes-21.jpg',
     'https://pkmncards.com/wp-content/uploads/brocks-rhyhorn-gym-heroes-22.jpg',
     'https://pkmncards.com/wp-content/uploads/brocks-sandslash-gym-heroes-23.jpg',
@@ -1933,7 +2049,7 @@ const gymHeroesLinks = [
     'https://pkmncards.com/wp-content/uploads/no-removal-gym-gym-heroes-103.jpg',
     'https://pkmncards.com/wp-content/uploads/the-rockets-training-gym-gym-heroes-104.jpg'],
 
-    //Uncommons at index 1
+    //Uncommons at index 2
     ['https://pkmncards.com/wp-content/uploads/blaines-growlithe-gym-heroes-35.jpg',
     'https://pkmncards.com/wp-content/uploads/blaines-kangaskhan-gym-heroes-36.jpg',
     'https://pkmncards.com/wp-content/uploads/blaines-magmar-gym-heroes-37.jpg',
@@ -1977,7 +2093,7 @@ const gymHeroesLinks = [
     'https://pkmncards.com/wp-content/uploads/tickling-machine-gym-heroes-119.jpg',
     'https://pkmncards.com/wp-content/uploads/vermilion-city-gym-gym-heroes-120.jpg'],
 
-    //Commons at index 2
+    //Commons at index 3
     ['https://pkmncards.com/wp-content/uploads/blaines-charmander-gym-heroes-61.jpg',
     'https://pkmncards.com/wp-content/uploads/blaines-growlithe-gym-heroes-62.jpg',
     'https://pkmncards.com/wp-content/uploads/blaines-ponyta-gym-heroes-63.jpg',
@@ -2021,7 +2137,7 @@ const gymHeroesLinks = [
     'https://pkmncards.com/wp-content/uploads/sabrinas-gaze-gym-heroes-125.jpg',
     'https://pkmncards.com/wp-content/uploads/trash-exchange-gym-heroes-126.jpg'],
 
-    //Energy at index 3
+    //Energy at index 4
     ['https://pkmncards.com/wp-content/uploads/fighting-energy-gym-heroes-127.jpg',
     'https://pkmncards.com/wp-content/uploads/fire-energy-gym-heroes-128.jpg',
     'https://pkmncards.com/wp-content/uploads/grass-energy-gym-heroes-129.jpg',
@@ -2033,7 +2149,7 @@ const gymHeroesLinks = [
 
 const gymChallengeLinks = [
 
-    //Rares at index 0
+    //Holos at index 0
     ['https://pkmncards.com/wp-content/uploads/blaines-arcanine-gym-challenge-1.jpg',
     'https://pkmncards.com/wp-content/uploads/blaines-charizard-gym-challenge-2.jpg',
     'https://pkmncards.com/wp-content/uploads/brocks-ninetales-gym-challenge-3.jpg',
@@ -2053,8 +2169,10 @@ const gymChallengeLinks = [
     'https://pkmncards.com/wp-content/uploads/blaine-gym-challenge-17.jpg',
     'https://pkmncards.com/wp-content/uploads/giovanni-gym-challenge-18.jpg',
     'https://pkmncards.com/wp-content/uploads/koga-gym-challenge-19.jpg',
-    'https://pkmncards.com/wp-content/uploads/sabrina-gym-challenge-20.jpg',
-    'https://pkmncards.com/wp-content/uploads/blaines-ninetales-gym-challenge-21.jpg',
+    'https://pkmncards.com/wp-content/uploads/sabrina-gym-challenge-20.jpg'],
+
+    //Rares at index 1
+    ['https://pkmncards.com/wp-content/uploads/blaines-ninetales-gym-challenge-21.jpg',
     'https://pkmncards.com/wp-content/uploads/brocks-dugtrio-gym-challenge-22.jpg',
     'https://pkmncards.com/wp-content/uploads/giovannis-nidoqueen-gym-challenge-23.jpg',
     'https://pkmncards.com/wp-content/uploads/giovannis-pinsir-gym-challenge-24.jpg',
@@ -2076,7 +2194,7 @@ const gymChallengeLinks = [
     'https://pkmncards.com/wp-content/uploads/resistance-gym-gym-challenge-109.jpg',
     'https://pkmncards.com/wp-content/uploads/sabrina-gym-challenge-110.jpg'],
 
-    //Uncommons at index 1
+    //Uncommons at index 2
     ['https://pkmncards.com/wp-content/uploads/blaines-charmeleon-gym-challenge-31.jpg',
     'https://pkmncards.com/wp-content/uploads/blaines-dodrio-gym-challenge-32.jpg',
     'https://pkmncards.com/wp-content/uploads/blaines-rapidash-gym-challenge-33.jpg',
@@ -2120,7 +2238,7 @@ const gymChallengeLinks = [
     'https://pkmncards.com/wp-content/uploads/saffron-city-gym-gym-challenge-122.jpg',
     'https://pkmncards.com/wp-content/uploads/viridian-city-gym-gym-challenge-123.jpg'],
 
-    //Commons at index 2
+    //Commons at index 3
     ['https://pkmncards.com/wp-content/uploads/blaines-charmander-gym-challenge-60.jpg',
     'https://pkmncards.com/wp-content/uploads/blaines-doduo-gym-challenge-61.jpg',
     'https://pkmncards.com/wp-content/uploads/blaines-growlithe-gym-challenge-62.jpg',
@@ -2165,7 +2283,7 @@ const gymChallengeLinks = [
     'https://pkmncards.com/wp-content/uploads/transparent-walls-gym-challenge-125.jpg',
     'https://pkmncards.com/wp-content/uploads/warp-point-gym-challenge-126.jpg'],
 
-    //Energy at index 3
+    //Energy at index 4
     ['https://pkmncards.com/wp-content/uploads/fighting-energy-gym-challenge-127.jpg',
     'https://pkmncards.com/wp-content/uploads/fire-energy-gym-challenge-128.jpg',
     'https://pkmncards.com/wp-content/uploads/grass-energy-gym-challenge-129.jpg',
@@ -2177,7 +2295,7 @@ const gymChallengeLinks = [
 
 const neoGenesisLinks = [
 
-    //Rares at index 0
+    //Holos at index 0
     ['https://pkmncards.com/wp-content/uploads/ampharos-neo-genesis-1.jpg',
     'https://pkmncards.com/wp-content/uploads/azumarill-neo-genesis-2.jpg',
     'https://pkmncards.com/wp-content/uploads/bellossom-neo-genesis-3.jpg',
@@ -2196,8 +2314,10 @@ const neoGenesisLinks = [
     'https://pkmncards.com/wp-content/uploads/togetic-neo-genesis-16.jpg',
     'https://pkmncards.com/wp-content/uploads/typhlosion-neo-genesis-17.jpg',
     'https://pkmncards.com/wp-content/uploads/typhlosion-neo-genesis-18.jpg',
-    'https://pkmncards.com/wp-content/uploads/metal-energy-neo-genesis-19.jpg',
-    'https://pkmncards.com/wp-content/uploads/cleffa-neo-genesis-20.jpg',
+    'https://pkmncards.com/wp-content/uploads/metal-energy-neo-genesis-19.jpg'],
+
+    //Rares at index 1
+    ['https://pkmncards.com/wp-content/uploads/cleffa-neo-genesis-20.jpg',
     'https://pkmncards.com/wp-content/uploads/donphan-neo-genesis-21.jpg',
     'https://pkmncards.com/wp-content/uploads/elekid-neo-genesis-22.jpg',
     'https://pkmncards.com/wp-content/uploads/magby-neo-genesis-23.jpg',
@@ -2214,7 +2334,7 @@ const neoGenesisLinks = [
     'https://pkmncards.com/wp-content/uploads/darkness-energy-neo-genesis-104.jpg',
     'https://pkmncards.com/wp-content/uploads/recycle-energy-neo-genesis-105.jpg'],
 
-    //Uncommons at index 1
+    //Uncommons at index 2
     ['https://pkmncards.com/wp-content/uploads/aipom-neo-genesis-26.jpg',
     'https://pkmncards.com/wp-content/uploads/ariados-neo-genesis-27.jpg',
     'https://pkmncards.com/wp-content/uploads/bayleef-neo-genesis-28.jpg',
@@ -2251,7 +2371,7 @@ const neoGenesisLinks = [
     'https://pkmncards.com/wp-content/uploads/sprout-tower-neo-genesis-97.jpg',
     'https://pkmncards.com/wp-content/uploads/super-scoop-up-neo-genesis-98.jpg'],
 
-    //Commons at index 2
+    //Commons at index 3
     ['https://pkmncards.com/wp-content/uploads/chikorita-neo-genesis-53.jpg',
     'https://pkmncards.com/wp-content/uploads/chikorita-neo-genesis-54.jpg',
     'https://pkmncards.com/wp-content/uploads/chinchou-neo-genesis-55.jpg',
@@ -2288,7 +2408,7 @@ const neoGenesisLinks = [
     'https://pkmncards.com/wp-content/uploads/pokemon-march-neo-genesis-102.jpg',
     'https://pkmncards.com/wp-content/uploads/super-rod-neo-genesis-103.jpg'],
 
-    //Energy at index 3
+    //Energy at index 4
     ['https://pkmncards.com/wp-content/uploads/fighting-energy-neo-genesis-106.jpg',
     'https://pkmncards.com/wp-content/uploads/fire-energy-neo-genesis-107.jpg',
     'https://pkmncards.com/wp-content/uploads/grass-energy-neo-genesis-108.jpg',
@@ -2300,7 +2420,26 @@ const neoGenesisLinks = [
 
 const neoDiscoveryLinks = [
 
-    //Rares at index 0
+    //Holos at index 0
+    ['https://pkmncards.com/wp-content/uploads/yanma-neo-discovery-17.jpg',
+    'https://pkmncards.com/wp-content/uploads/wobbuffet-neo-discovery-16.jpg',
+    'https://pkmncards.com/wp-content/uploads/ursaring-neo-discovery-15.jpg',
+    'https://pkmncards.com/wp-content/uploads/unown-a-neo-discovery-14.jpg',
+    'https://pkmncards.com/wp-content/uploads/umbreon-neo-discovery-13.jpg',
+    'https://pkmncards.com/wp-content/uploads/tyranitar-neo-discovery-12.jpg',
+    'https://pkmncards.com/wp-content/uploads/smeargle-neo-discovery-11.jpg',
+    'https://pkmncards.com/wp-content/uploads/scizor-neo-discovery-10.jpg',
+    'https://pkmncards.com/wp-content/uploads/poliwrath-neo-discovery-9.jpg',
+    'https://pkmncards.com/wp-content/uploads/politoed-neo-discovery-8.jpg',
+    'https://pkmncards.com/wp-content/uploads/magnemite-neo-discovery-7.jpg',
+    'https://pkmncards.com/wp-content/uploads/kabutops-neo-discovery-6.jpg',
+    'https://pkmncards.com/wp-content/uploads/houndour-neo-discovery-5.jpg',
+    'https://pkmncards.com/wp-content/uploads/houndoom-neo-discovery-4.jpg',
+    'https://pkmncards.com/wp-content/uploads/hitmontop-neo-discovery-3.jpg',
+    'https://pkmncards.com/wp-content/uploads/forretress-neo-discovery-2.jpg',
+    'https://pkmncards.com/wp-content/uploads/espeon-neo-discovery-1.jpg'],
+        
+    //Rares at index 1
     ['https://pkmncards.com/wp-content/uploads/yanma-neo-discovery-36.jpg',
     'https://pkmncards.com/wp-content/uploads/wobbuffet-neo-discovery-35.jpg',
     'https://pkmncards.com/wp-content/uploads/ursaring-neo-discovery-34.jpg',
@@ -2319,26 +2458,9 @@ const neoDiscoveryLinks = [
     'https://pkmncards.com/wp-content/uploads/forretress-neo-discovery-21.jpg',
     'https://pkmncards.com/wp-content/uploads/espeon-neo-discovery-20.jpg',
     'https://pkmncards.com/wp-content/uploads/butterfree-neo-discovery-19.jpg',
-    'https://pkmncards.com/wp-content/uploads/beedrill-neo-discovery-18.jpg',
-    'https://pkmncards.com/wp-content/uploads/yanma-neo-discovery-17.jpg',
-    'https://pkmncards.com/wp-content/uploads/wobbuffet-neo-discovery-16.jpg',
-    'https://pkmncards.com/wp-content/uploads/ursaring-neo-discovery-15.jpg',
-    'https://pkmncards.com/wp-content/uploads/unown-a-neo-discovery-14.jpg',
-    'https://pkmncards.com/wp-content/uploads/umbreon-neo-discovery-13.jpg',
-    'https://pkmncards.com/wp-content/uploads/tyranitar-neo-discovery-12.jpg',
-    'https://pkmncards.com/wp-content/uploads/smeargle-neo-discovery-11.jpg',
-    'https://pkmncards.com/wp-content/uploads/scizor-neo-discovery-10.jpg',
-    'https://pkmncards.com/wp-content/uploads/poliwrath-neo-discovery-9.jpg',
-    'https://pkmncards.com/wp-content/uploads/politoed-neo-discovery-8.jpg',
-    'https://pkmncards.com/wp-content/uploads/magnemite-neo-discovery-7.jpg',
-    'https://pkmncards.com/wp-content/uploads/kabutops-neo-discovery-6.jpg',
-    'https://pkmncards.com/wp-content/uploads/houndour-neo-discovery-5.jpg',
-    'https://pkmncards.com/wp-content/uploads/houndoom-neo-discovery-4.jpg',
-    'https://pkmncards.com/wp-content/uploads/hitmontop-neo-discovery-3.jpg',
-    'https://pkmncards.com/wp-content/uploads/forretress-neo-discovery-2.jpg',
-    'https://pkmncards.com/wp-content/uploads/espeon-neo-discovery-1.jpg'],
+    'https://pkmncards.com/wp-content/uploads/beedrill-neo-discovery-18.jpg'],
 
-    //Uncommons at index 1
+    //Uncommons at index 2
     ['https://pkmncards.com/wp-content/uploads/energy-ark-neo-discovery-75.jpg',
     'https://pkmncards.com/wp-content/uploads/ruin-wall-neo-discovery-74.jpg',
     'https://pkmncards.com/wp-content/uploads/hyper-devolution-spray-neo-discovery-73.jpg',
@@ -2359,7 +2481,7 @@ const neoDiscoveryLinks = [
     'https://pkmncards.com/wp-content/uploads/eevee-neo-discovery-38.jpg',
     'https://pkmncards.com/wp-content/uploads/corsola-neo-discovery-37.jpg'],
 
-    //Commons at index 2
+    //Commons at index 3
     ['https://pkmncards.com/wp-content/uploads/fossil-egg-neo-discovery-72.jpg',
     'https://pkmncards.com/wp-content/uploads/wooper-neo-discovery-71.jpg',
     'https://pkmncards.com/wp-content/uploads/weedle-neo-discovery-70.jpg',
@@ -2385,23 +2507,8 @@ const neoDiscoveryLinks = [
 
 const neoRevelationLinks = [
 
-    //Rares at index 0
-    ['https://pkmncards.com/wp-content/uploads/shining-magikarp-neo-revelation-66.jpg',
-    'https://pkmncards.com/wp-content/uploads/shining-gyarados-neo-revelation-65.jpg',
-    'https://pkmncards.com/wp-content/uploads/suicune-neo-revelation-27.jpg',
-    'https://pkmncards.com/wp-content/uploads/sudowoodo-neo-revelation-26.jpg',
-    'https://pkmncards.com/wp-content/uploads/starmie-neo-revelation-25.jpg',
-    'https://pkmncards.com/wp-content/uploads/sneasel-neo-revelation-24.jpg',
-    'https://pkmncards.com/wp-content/uploads/skarmory-neo-revelation-23.jpg',
-    'https://pkmncards.com/wp-content/uploads/raikou-neo-revelation-22.jpg',
-    'https://pkmncards.com/wp-content/uploads/raichu-neo-revelation-21.jpg',
-    'https://pkmncards.com/wp-content/uploads/lugia-neo-revelation-20.jpg',
-    'https://pkmncards.com/wp-content/uploads/kingdra-neo-revelation-19.jpg',
-    'https://pkmncards.com/wp-content/uploads/ho-oh-neo-revelation-18.jpg',
-    'https://pkmncards.com/wp-content/uploads/entei-neo-revelation-17.jpg',
-    'https://pkmncards.com/wp-content/uploads/celebi-neo-revelation-16.jpg',
-    'https://pkmncards.com/wp-content/uploads/aerodactyl-neo-revelation-15.jpg',
-    'https://pkmncards.com/wp-content/uploads/suicune-neo-revelation-14.jpg',
+    //Holos at index 0
+    ['https://pkmncards.com/wp-content/uploads/suicune-neo-revelation-14.jpg',
     'https://pkmncards.com/wp-content/uploads/raikou-neo-revelation-13.jpg',
     'https://pkmncards.com/wp-content/uploads/porygon2-neo-revelation-12.jpg',
     'https://pkmncards.com/wp-content/uploads/misdreavus-neo-revelation-11.jpg',
@@ -2414,9 +2521,26 @@ const neoRevelationLinks = [
     'https://pkmncards.com/wp-content/uploads/crobat-neo-revelation-4.jpg',
     'https://pkmncards.com/wp-content/uploads/celebi-neo-revelation-3.jpg',
     'https://pkmncards.com/wp-content/uploads/blissey-neo-revelation-2.jpg',
-    'https://pkmncards.com/wp-content/uploads/ampharos-neo-revelation-1.jpg'],
+    'https://pkmncards.com/wp-content/uploads/ampharos-neo-revelation-1.jpg',
+    'https://pkmncards.com/wp-content/uploads/shining-magikarp-neo-revelation-66.jpg',
+    'https://pkmncards.com/wp-content/uploads/shining-gyarados-neo-revelation-65.jpg'],
+    
+    //Rares at index 1
+    ['https://pkmncards.com/wp-content/uploads/suicune-neo-revelation-27.jpg',
+    'https://pkmncards.com/wp-content/uploads/sudowoodo-neo-revelation-26.jpg',
+    'https://pkmncards.com/wp-content/uploads/starmie-neo-revelation-25.jpg',
+    'https://pkmncards.com/wp-content/uploads/sneasel-neo-revelation-24.jpg',
+    'https://pkmncards.com/wp-content/uploads/skarmory-neo-revelation-23.jpg',
+    'https://pkmncards.com/wp-content/uploads/raikou-neo-revelation-22.jpg',
+    'https://pkmncards.com/wp-content/uploads/raichu-neo-revelation-21.jpg',
+    'https://pkmncards.com/wp-content/uploads/lugia-neo-revelation-20.jpg',
+    'https://pkmncards.com/wp-content/uploads/kingdra-neo-revelation-19.jpg',
+    'https://pkmncards.com/wp-content/uploads/ho-oh-neo-revelation-18.jpg',
+    'https://pkmncards.com/wp-content/uploads/entei-neo-revelation-17.jpg',
+    'https://pkmncards.com/wp-content/uploads/celebi-neo-revelation-16.jpg',
+    'https://pkmncards.com/wp-content/uploads/aerodactyl-neo-revelation-15.jpg'],
 
-    //Uncommons at index 1
+    //Uncommons at index 2
     ['https://pkmncards.com/wp-content/uploads/rockets-hideout-neo-revelation-63.jpg',
     'https://pkmncards.com/wp-content/uploads/pokemon-breeder-fields-neo-revelation-62.jpg',
     'https://pkmncards.com/wp-content/uploads/healing-field-neo-revelation-61.jpg',
@@ -2435,7 +2559,7 @@ const neoRevelationLinks = [
     'https://pkmncards.com/wp-content/uploads/golbat-neo-revelation-29.jpg',
     'https://pkmncards.com/wp-content/uploads/flaaffy-neo-revelation-28.jpg'],
 
-    //Commons at index 2
+    //Commons at index 3
     ['https://pkmncards.com/wp-content/uploads/old-rod-neo-revelation-64.jpg',
     'https://pkmncards.com/wp-content/uploads/zubat-neo-revelation-59.jpg',
     'https://pkmncards.com/wp-content/uploads/unown-k-neo-revelation-58.jpg',
@@ -2461,7 +2585,7 @@ const neoRevelationLinks = [
 
 const neoDestinyLinks = [
 
-    //Rares at index 0
+    //Holos at index 0
     ['https://pkmncards.com/wp-content/uploads/shining-tyranitar-neo-destiny-113.jpg',
     'https://pkmncards.com/wp-content/uploads/shining-steelix-neo-destiny-112.jpg',
     'https://pkmncards.com/wp-content/uploads/shining-raichu-neo-destiny-111.jpg',
@@ -2469,26 +2593,7 @@ const neoDestinyLinks = [
     'https://pkmncards.com/wp-content/uploads/shining-mewtwo-neo-destiny-109.jpg',
     'https://pkmncards.com/wp-content/uploads/shining-kabutops-neo-destiny-108.jpg',
     'https://pkmncards.com/wp-content/uploads/shining-charizard-neo-destiny-107.jpg',
-    'https://pkmncards.com/wp-content/uploads/shining-celebi-neo-destiny-106.jpg',    
-    'https://pkmncards.com/wp-content/uploads/though-wave-machine-neo-destiny-96.jpg',
-    'https://pkmncards.com/wp-content/uploads/radio-tower-neo-destiny-95.jpg',
-    'https://pkmncards.com/wp-content/uploads/impostor-professor-oaks-invention-neo-destiny-94.jpg',
-    'https://pkmncards.com/wp-content/uploads/exp.all-neo-destiny-93.jpg',
-    'https://pkmncards.com/wp-content/uploads/broken-ground-gym-neo-destiny-92.jpg',
-    'https://pkmncards.com/wp-content/uploads/unown-x-neo-destiny-30.jpg',
-    'https://pkmncards.com/wp-content/uploads/unown-w-neo-destiny-29.jpg',
-    'https://pkmncards.com/wp-content/uploads/unown-h-neo-destiny-28.jpg',
-    'https://pkmncards.com/wp-content/uploads/unown-g-neo-destiny-27.jpg',
-    'https://pkmncards.com/wp-content/uploads/light-piloswine-neo-destiny-26.jpg',
-    'https://pkmncards.com/wp-content/uploads/light-machamp-neo-destiny-25.jpg',
-    'https://pkmncards.com/wp-content/uploads/light-ledian-neo-destiny-24.jpg',
-    'https://pkmncards.com/wp-content/uploads/light-lanturn-neo-destiny-23.jpg',
-    'https://pkmncards.com/wp-content/uploads/light-dragonair-neo-destiny-22.jpg',
-    'https://pkmncards.com/wp-content/uploads/dark-ursaring-neo-destiny-21.jpg',
-    'https://pkmncards.com/wp-content/uploads/dark-slowking-neo-destiny-20.jpg',
-    'https://pkmncards.com/wp-content/uploads/dark-omastar-neo-destiny-19.jpg',
-    'https://pkmncards.com/wp-content/uploads/dark-magcargo-neo-destiny-18.jpg',
-    'https://pkmncards.com/wp-content/uploads/dark-ariados-neo-destiny-17.jpg',
+    'https://pkmncards.com/wp-content/uploads/shining-celebi-neo-destiny-106.jpg', 
     'https://pkmncards.com/wp-content/uploads/miracle-energy-neo-destiny-16.jpg',
     'https://pkmncards.com/wp-content/uploads/light-togetic-neo-destiny-15.jpg',
     'https://pkmncards.com/wp-content/uploads/light-dragonite-neo-destiny-14.jpg',
@@ -2506,7 +2611,28 @@ const neoDestinyLinks = [
     'https://pkmncards.com/wp-content/uploads/dark-crobat-neo-destiny-2.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-ampharos-neo-destiny-1.jpg'],
 
-    //Uncommons at index 1
+    //Rares at index 1
+    ['https://pkmncards.com/wp-content/uploads/though-wave-machine-neo-destiny-96.jpg',
+    'https://pkmncards.com/wp-content/uploads/radio-tower-neo-destiny-95.jpg',
+    'https://pkmncards.com/wp-content/uploads/impostor-professor-oaks-invention-neo-destiny-94.jpg',
+    'https://pkmncards.com/wp-content/uploads/exp.all-neo-destiny-93.jpg',
+    'https://pkmncards.com/wp-content/uploads/broken-ground-gym-neo-destiny-92.jpg',
+    'https://pkmncards.com/wp-content/uploads/unown-x-neo-destiny-30.jpg',
+    'https://pkmncards.com/wp-content/uploads/unown-w-neo-destiny-29.jpg',
+    'https://pkmncards.com/wp-content/uploads/unown-h-neo-destiny-28.jpg',
+    'https://pkmncards.com/wp-content/uploads/unown-g-neo-destiny-27.jpg',
+    'https://pkmncards.com/wp-content/uploads/light-piloswine-neo-destiny-26.jpg',
+    'https://pkmncards.com/wp-content/uploads/light-machamp-neo-destiny-25.jpg',
+    'https://pkmncards.com/wp-content/uploads/light-ledian-neo-destiny-24.jpg',
+    'https://pkmncards.com/wp-content/uploads/light-lanturn-neo-destiny-23.jpg',
+    'https://pkmncards.com/wp-content/uploads/light-dragonair-neo-destiny-22.jpg',
+    'https://pkmncards.com/wp-content/uploads/dark-ursaring-neo-destiny-21.jpg',
+    'https://pkmncards.com/wp-content/uploads/dark-slowking-neo-destiny-20.jpg',
+    'https://pkmncards.com/wp-content/uploads/dark-omastar-neo-destiny-19.jpg',
+    'https://pkmncards.com/wp-content/uploads/dark-magcargo-neo-destiny-18.jpg',
+    'https://pkmncards.com/wp-content/uploads/dark-ariados-neo-destiny-17.jpg'],
+
+    //Uncommons at index 2
     ['https://pkmncards.com/wp-content/uploads/team-rockets-evil-deeds-neo-destiny-103.jpg',
     'https://pkmncards.com/wp-content/uploads/pokemon-personality-test-neo-destiny-102.jpg',
     'https://pkmncards.com/wp-content/uploads/magnifier-neo-destiny-101.jpg',
@@ -2545,7 +2671,7 @@ const neoDestinyLinks = [
     'https://pkmncards.com/wp-content/uploads/dark-croconaw-neo-destiny-32.jpg',
     'https://pkmncards.com/wp-content/uploads/chansey-neo-destiny-31.jpg'],
 
-    //Commons at index 2
+    //Commons at index 3
     ['https://pkmncards.com/wp-content/uploads/mail-from-bill-neo-destiny-105.jpg',
     'https://pkmncards.com/wp-content/uploads/heal-powder-neo-destiny-104.jpg',
     'https://pkmncards.com/wp-content/uploads/vulpix-neo-destiny-91.jpg',

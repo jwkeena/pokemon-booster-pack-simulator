@@ -1505,7 +1505,6 @@ const baseLinks = [
     'https://pkmncards.com/wp-content/uploads/clefairy-base-set-bs-5.jpg',
     'https://pkmncards.com/wp-content/uploads/gyarados-base-set-bs-6.jpg',
     'https://pkmncards.com/wp-content/uploads/hitmonchan-base-set-bs-7.jpg',
-    'https://pkmncards.com/wp-content/uploads/machamp-base-set-bs-8.jpg',
     'https://pkmncards.com/wp-content/uploads/magneton-base-set-bs-9.jpg',
     'https://pkmncards.com/wp-content/uploads/mewtwo-base-set-bs-10.jpg',
     'https://pkmncards.com/wp-content/uploads/nidoking-base-set-bs-11.jpg',

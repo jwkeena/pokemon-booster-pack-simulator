@@ -135,7 +135,7 @@ function reset11() {
     element.classList.remove("flipped");
  }
 
- function resetAll() {
+function resetAll() {
     reset0();
     reset1();
     reset2();
@@ -216,6 +216,46 @@ function randomPack() {
     }
 }
 
+//Picks same set
+let currentSet = 0
+function sameSet() {
+    switch(currentSet) { 
+    case 1:
+        newPackBase();
+        break;
+    case 2:
+        newPackJungle();
+        break;
+    case 3:
+        newPackFossil();
+        break;
+    case 4:
+        newPackBase2();
+        break;
+    case 5:
+        newPackTeamRocket();
+        break;
+    case 6:
+        newPackGymHeroes();
+        break;
+    case 7:
+        newPackGymChallenge();
+        break;
+    case 8:
+        newPackNeoGenesis();
+        break;
+    case 9:
+        newPackNeoDiscovery();
+        break;
+    case 10:
+        newPackNeoRevelation();
+        break;
+    case 11:
+        newPackNeoDestiny();
+        break;
+    }
+}
+
 //Cycles through the booster pack art
 //For sets with three variants
 let packArt = 0
@@ -237,7 +277,14 @@ function changePackArt2() {
     }
 }
 
-function newPackBase(){
+function newPackBase() {
+    //Flips all cards over to starting position
+    resetAll();
+    //Shuffles the IDs of cards in the pack using the shuffle method created above
+    cardOrderArray.shuffle();
+    //Prepares same set button
+    currentSet = 1;
+    
     //Changes front and back of first image to indicate the type of pack chosen
     changePackArt();
     if (packArt === 1) {
@@ -253,11 +300,6 @@ function newPackBase(){
         document.getElementById("boosterPackBack").src="basesetback.jpg";
     }
     
-    //Flips all cards over to starting position
-    resetAll();
-    //Shuffles the IDs of cards in the pack using the shuffle method created above
-    cardOrderArray.shuffle();
-
     //Counts the number of rares in the nested rares array
     let numOfRares = baseLinks[0].length;
     //Picks a number between 0 and the total number of rares. Do NOT add 1 to Math.floor so that index position 0 can be chosen later. Adding 1 can result in blank cards
@@ -284,7 +326,19 @@ function newPackBase(){
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
 
-    //Same process, for 7 uncommons
+    //Prevents duplicate uncommons by repeating function if duplicate is found
+    let currentUncommons = [newUncommon1, newUncommon2, newUncommon3]
+    for (let i = 0; i < 3; i++) {
+        let j = 1 + i
+            for (j; j < currentUncommons.length; j++) {
+                if (currentUncommons[i] === currentUncommons[j]) {
+                    newPackBase();
+                    return;
+            }
+        }
+    }
+
+    //Same process, for 6 uncommons
     let numOfCommons = baseLinks[2].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
@@ -292,34 +346,51 @@ function newPackBase(){
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
-    let randomCommon7 = Math.floor(Math.random()*numOfCommons);
     let newCommon1 = baseLinks[2][randomCommon1];
     let newCommon2 = baseLinks[2][randomCommon2];
     let newCommon3 = baseLinks[2][randomCommon3];
     let newCommon4 = baseLinks[2][randomCommon4];
     let newCommon5 = baseLinks[2][randomCommon5];
     let newCommon6 = baseLinks[2][randomCommon6];
-    let newCommon7 = baseLinks[2][randomCommon7];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
     let newId8 = cardOrderArray[7];
     let newId9 = cardOrderArray[8];
     let newId10 = cardOrderArray[9];
-    let newId11 = cardOrderArray[10];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
     document.getElementById(newId8).src = newCommon4;
     document.getElementById(newId9).src = newCommon5;
     document.getElementById(newId10).src = newCommon6;
-    document.getElementById(newId11).src = newCommon7;
+
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6]
+    for (let i = 0; i < 6; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    newPackBase();
+                    return;
+            }
+        }
+    }
+
+    //Energy choice
+    let numOfEnergy = baseLinks[3].length;
+    let randomEnergy = Math.floor(Math.random()*numOfEnergy);
+    let newEnergy = baseLinks[3][randomEnergy];
+    let newId11 = cardOrderArray[10];
+    document.getElementById(newId11).src = newEnergy;
+
 }
 
 function newPackJungle(){
     resetAll();
     cardOrderArray.shuffle();
     changePackArt();
+    currentSet = 2;
     if (packArt === 1) {
         document.getElementById("boosterPackFront").src="jungle1.jpg";
         document.getElementById("boosterPackBack").src="basesetback.jpg";
@@ -355,6 +426,18 @@ function newPackJungle(){
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
 
+    //Prevents duplicate uncommons
+    let currentUncommons = [newUncommon1, newUncommon2, newUncommon3]
+    for (let i = 0; i < 3; i++) {
+        let j = 1 + i
+            for (j; j < currentUncommons.length; j++) {
+                if (currentUncommons[i] === currentUncommons[j]) {
+                    newPackJungle();
+                    return;
+            }
+        }
+    }
+
     //Common distribution
     let numOfCommons = jungleLinks[2].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
@@ -385,12 +468,25 @@ function newPackJungle(){
     document.getElementById(newId9).src = newCommon5;
     document.getElementById(newId10).src = newCommon6;
     document.getElementById(newId11).src = newCommon7;
+
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6, newCommon7]
+    for (let i = 0; i < 7; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    newPackJungle();
+                    return;
+            }
+        }
+    }
 }
 
 function newPackFossil(){
     resetAll();
     cardOrderArray.shuffle();
     changePackArt();
+    currentSet = 3;
     if (packArt === 1) {
         document.getElementById("boosterPackFront").src="fossil1.jpg";
         document.getElementById("boosterPackBack").src="basesetback.jpg";
@@ -426,6 +522,18 @@ function newPackFossil(){
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
 
+    //Prevents duplicate uncommons
+    let currentUncommons = [newUncommon1, newUncommon2, newUncommon3]
+    for (let i = 0; i < 3; i++) {
+        let j = 1 + i
+            for (j; j < currentUncommons.length; j++) {
+                if (currentUncommons[i] === currentUncommons[j]) {
+                    newPackFossil();
+                    return;
+            }
+        }
+    }
+
     //Common distribution
     let numOfCommons = fossilLinks[2].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
@@ -456,12 +564,25 @@ function newPackFossil(){
     document.getElementById(newId9).src = newCommon5;
     document.getElementById(newId10).src = newCommon6;
     document.getElementById(newId11).src = newCommon7;
+
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6, newCommon7]
+    for (let i = 0; i < 7; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    newPackFossil();
+                    return;
+            }
+        }
+    }
 }
 
 function newPackBase2(){
     resetAll();
     cardOrderArray.shuffle();
     changePackArt2();
+    currentSet = 4;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="baseset2_1.jpg";
         document.getElementById("boosterPackBack").src="basesetback.jpg";
@@ -501,6 +622,18 @@ function newPackBase2(){
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
 
+    //Prevents duplicate uncommons
+    let currentUncommons = [newUncommon1, newUncommon2, newUncommon3]
+    for (let i = 0; i < 3; i++) {
+        let j = 1 + i
+            for (j; j < currentUncommons.length; j++) {
+                if (currentUncommons[i] === currentUncommons[j]) {
+                    newPackBase2();
+                    return;
+            }
+        }
+    }
+
     //Common distribution
     let numOfCommons = base2Links[2].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
@@ -509,34 +642,50 @@ function newPackBase2(){
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
-    let randomCommon7 = Math.floor(Math.random()*numOfCommons);
     let newCommon1 = base2Links[2][randomCommon1];
     let newCommon2 = base2Links[2][randomCommon2];
     let newCommon3 = base2Links[2][randomCommon3];
     let newCommon4 = base2Links[2][randomCommon4];
     let newCommon5 = base2Links[2][randomCommon5];
     let newCommon6 = base2Links[2][randomCommon6];
-    let newCommon7 = base2Links[2][randomCommon7];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
     let newId8 = cardOrderArray[7];
     let newId9 = cardOrderArray[8];
     let newId10 = cardOrderArray[9];
-    let newId11 = cardOrderArray[10];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
     document.getElementById(newId8).src = newCommon4;
     document.getElementById(newId9).src = newCommon5;
-    document.getElementById(newId10).src = newCommon6;
-    document.getElementById(newId11).src = newCommon7;
+    document.getElementById(newId10).src = newCommon6
+    
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6]
+    for (let i = 0; i < 6; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    newPackBase2();
+                    return;
+            }
+        }
+    }
+
+    //Energy choice
+    let numOfEnergy = base2Links[3].length;
+    let randomEnergy = Math.floor(Math.random()*numOfEnergy);
+    let newEnergy = base2Links[3][randomEnergy];
+    let newId11 = cardOrderArray[10];
+    document.getElementById(newId11).src = newEnergy;
 }
 
 function newPackTeamRocket(){
     resetAll();
     cardOrderArray.shuffle();
     changePackArt2();
+    currentSet = 5;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="teamrocket1.jpg";
         document.getElementById("boosterPackBack").src="basesetback.jpg";
@@ -576,6 +725,18 @@ function newPackTeamRocket(){
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
 
+    //Prevents duplicate uncommons
+    let currentUncommons = [newUncommon1, newUncommon2, newUncommon3]
+    for (let i = 0; i < 3; i++) {
+        let j = 1 + i
+            for (j; j < currentUncommons.length; j++) {
+                if (currentUncommons[i] === currentUncommons[j]) {
+                    newPackTeamRocket();
+                    return;
+            }
+        }
+    }
+
     //Common distribution
     let numOfCommons = teamRocketLinks[2].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
@@ -606,12 +767,25 @@ function newPackTeamRocket(){
     document.getElementById(newId9).src = newCommon5;
     document.getElementById(newId10).src = newCommon6;
     document.getElementById(newId11).src = newCommon7;
+
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6, newCommon7]
+    for (let i = 0; i < 7; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    newPackTeamRocket();
+                    return;
+            }
+        }
+    }
 }
 
 function newPackGymHeroes(){
     resetAll();
     cardOrderArray.shuffle();
     changePackArt2();
+    currentSet = 6;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="gymheroes1.jpg";
         document.getElementById("boosterPackBack").src="basesetback.jpg";
@@ -651,6 +825,18 @@ function newPackGymHeroes(){
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
 
+    //Prevents duplicate uncommons
+    let currentUncommons = [newUncommon1, newUncommon2, newUncommon3]
+    for (let i = 0; i < 3; i++) {
+        let j = 1 + i
+            for (j; j < currentUncommons.length; j++) {
+                if (currentUncommons[i] === currentUncommons[j]) {
+                    newPackGymHeroes();
+                    return;
+            }
+        }
+    }
+
     //Common distribution
     let numOfCommons = gymHeroesLinks[2].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
@@ -659,34 +845,50 @@ function newPackGymHeroes(){
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
-    let randomCommon7 = Math.floor(Math.random()*numOfCommons);
     let newCommon1 = gymHeroesLinks[2][randomCommon1];
     let newCommon2 = gymHeroesLinks[2][randomCommon2];
     let newCommon3 = gymHeroesLinks[2][randomCommon3];
     let newCommon4 = gymHeroesLinks[2][randomCommon4];
     let newCommon5 = gymHeroesLinks[2][randomCommon5];
     let newCommon6 = gymHeroesLinks[2][randomCommon6];
-    let newCommon7 = gymHeroesLinks[2][randomCommon7];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
     let newId8 = cardOrderArray[7];
     let newId9 = cardOrderArray[8];
     let newId10 = cardOrderArray[9];
-    let newId11 = cardOrderArray[10];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
     document.getElementById(newId8).src = newCommon4;
     document.getElementById(newId9).src = newCommon5;
     document.getElementById(newId10).src = newCommon6;
-    document.getElementById(newId11).src = newCommon7;
+
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6]
+    for (let i = 0; i < 6; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    newPackGymHeroes();
+                    return;
+            }
+        }
+    }
+
+    //Energy choice
+    let numOfEnergy = gymHeroesLinks[3].length;
+    let randomEnergy = Math.floor(Math.random()*numOfEnergy);
+    let newEnergy = gymHeroesLinks[3][randomEnergy];
+    let newId11 = cardOrderArray[10];
+    document.getElementById(newId11).src = newEnergy;
 }
 
 function newPackGymChallenge(){
     resetAll();
     cardOrderArray.shuffle();
     changePackArt2();
+    currentSet = 7;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="gymchallenge1.jpg";
         document.getElementById("boosterPackBack").src="basesetback.jpg";
@@ -726,6 +928,18 @@ function newPackGymChallenge(){
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
 
+    //Prevents duplicate uncommons
+    let currentUncommons = [newUncommon1, newUncommon2, newUncommon3]
+    for (let i = 0; i < 3; i++) {
+        let j = 1 + i
+            for (j; j < currentUncommons.length; j++) {
+                if (currentUncommons[i] === currentUncommons[j]) {
+                    newPackGymChallenge();
+                    return;
+            }
+        }
+    }
+
     //Common distribution
     let numOfCommons = gymChallengeLinks[2].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
@@ -734,34 +948,50 @@ function newPackGymChallenge(){
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
-    let randomCommon7 = Math.floor(Math.random()*numOfCommons);
     let newCommon1 = gymChallengeLinks[2][randomCommon1];
     let newCommon2 = gymChallengeLinks[2][randomCommon2];
     let newCommon3 = gymChallengeLinks[2][randomCommon3];
     let newCommon4 = gymChallengeLinks[2][randomCommon4];
     let newCommon5 = gymChallengeLinks[2][randomCommon5];
     let newCommon6 = gymChallengeLinks[2][randomCommon6];
-    let newCommon7 = gymChallengeLinks[2][randomCommon7];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
     let newId8 = cardOrderArray[7];
     let newId9 = cardOrderArray[8];
     let newId10 = cardOrderArray[9];
-    let newId11 = cardOrderArray[10];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
     document.getElementById(newId8).src = newCommon4;
     document.getElementById(newId9).src = newCommon5;
     document.getElementById(newId10).src = newCommon6;
-    document.getElementById(newId11).src = newCommon7;
+
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6]
+    for (let i = 0; i < 6; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    newPackGymChallenge();
+                    return;
+            }
+        }
+    }
+
+    //Energy choice
+    let numOfEnergy = gymChallengeLinks[3].length;
+    let randomEnergy = Math.floor(Math.random()*numOfEnergy);
+    let newEnergy = gymChallengeLinks[3][randomEnergy];
+    let newId11 = cardOrderArray[10];
+    document.getElementById(newId11).src = newEnergy;
 }
 
 function newPackNeoGenesis(){
     resetAll();
     cardOrderArray.shuffle();
     changePackArt2();
+    currentSet = 8;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="neogenesis1.jpg";
         document.getElementById("boosterPackBack").src="basesetback.jpg";
@@ -801,6 +1031,18 @@ function newPackNeoGenesis(){
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
 
+    //Prevents duplicate uncommons
+    let currentUncommons = [newUncommon1, newUncommon2, newUncommon3]
+    for (let i = 0; i < 3; i++) {
+        let j = 1 + i
+            for (j; j < currentUncommons.length; j++) {
+                if (currentUncommons[i] === currentUncommons[j]) {
+                    newPackNeoGenesis();
+                    return;
+            }
+        }
+    }
+
     //Common distribution
     let numOfCommons = neoGenesisLinks[2].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
@@ -809,34 +1051,50 @@ function newPackNeoGenesis(){
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
-    let randomCommon7 = Math.floor(Math.random()*numOfCommons);
     let newCommon1 = neoGenesisLinks[2][randomCommon1];
     let newCommon2 = neoGenesisLinks[2][randomCommon2];
     let newCommon3 = neoGenesisLinks[2][randomCommon3];
     let newCommon4 = neoGenesisLinks[2][randomCommon4];
     let newCommon5 = neoGenesisLinks[2][randomCommon5];
     let newCommon6 = neoGenesisLinks[2][randomCommon6];
-    let newCommon7 = neoGenesisLinks[2][randomCommon7];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
     let newId8 = cardOrderArray[7];
     let newId9 = cardOrderArray[8];
     let newId10 = cardOrderArray[9];
-    let newId11 = cardOrderArray[10];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
     document.getElementById(newId8).src = newCommon4;
     document.getElementById(newId9).src = newCommon5;
     document.getElementById(newId10).src = newCommon6;
-    document.getElementById(newId11).src = newCommon7;
+
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6]
+    for (let i = 0; i < 6; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    newPackNeoGenesis();
+                    return;
+            }
+        }
+    }
+
+    //Energy choice
+    let numOfEnergy = neoGenesisLinks[3].length;
+    let randomEnergy = Math.floor(Math.random()*numOfEnergy);
+    let newEnergy = neoGenesisLinks[3][randomEnergy];
+    let newId11 = cardOrderArray[10];
+    document.getElementById(newId11).src = newEnergy;
 }
 
 function newPackNeoDiscovery(){
     resetAll();
     cardOrderArray.shuffle();
     changePackArt2();
+    currentSet = 9;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="neodiscovery1.jpg";
         document.getElementById("boosterPackBack").src="basesetback.jpg";
@@ -876,6 +1134,18 @@ function newPackNeoDiscovery(){
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
 
+        //Prevents duplicate uncommons
+        let currentUncommons = [newUncommon1, newUncommon2, newUncommon3]
+        for (let i = 0; i < 3; i++) {
+            let j = 1 + i
+                for (j; j < currentUncommons.length; j++) {
+                    if (currentUncommons[i] === currentUncommons[j]) {
+                        newPackNeoDiscovery();
+                        return;
+                }
+            }
+        }
+
     //Common distribution
     let numOfCommons = neoDiscoveryLinks[2].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
@@ -906,12 +1176,25 @@ function newPackNeoDiscovery(){
     document.getElementById(newId9).src = newCommon5;
     document.getElementById(newId10).src = newCommon6;
     document.getElementById(newId11).src = newCommon7;
+
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6, newCommon7]
+    for (let i = 0; i < 7; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    newPackNeoDiscovery();
+                    return;
+            }
+        }
+    }
 }
 
 function newPackNeoRevelation(){
     resetAll();
     cardOrderArray.shuffle();
     changePackArt2();
+    currentSet = 10;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="neorevelation1.jpg";
         document.getElementById("boosterPackBack").src="basesetback.jpg";
@@ -951,6 +1234,18 @@ function newPackNeoRevelation(){
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
 
+    //Prevents duplicate uncommons
+    let currentUncommons = [newUncommon1, newUncommon2, newUncommon3]
+    for (let i = 0; i < 3; i++) {
+        let j = 1 + i
+            for (j; j < currentUncommons.length; j++) {
+                if (currentUncommons[i] === currentUncommons[j]) {
+                    newPackNeoRevelation();
+                    return;
+            }
+        }
+    }
+
     //Common distribution
     let numOfCommons = neoRevelationLinks[2].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
@@ -981,12 +1276,25 @@ function newPackNeoRevelation(){
     document.getElementById(newId9).src = newCommon5;
     document.getElementById(newId10).src = newCommon6;
     document.getElementById(newId11).src = newCommon7;
+
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6, newCommon7]
+    for (let i = 0; i < 7; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    newPackNeoRevelation();
+                    return;
+            }
+        }
+    }
 }
 
 function newPackNeoDestiny(){
     resetAll();
     cardOrderArray.shuffle();
     changePackArt2();
+    currentSet = 11;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="neodestiny1.jpg";
         document.getElementById("boosterPackBack").src="neodestinyback.jpg";
@@ -1026,6 +1334,18 @@ function newPackNeoDestiny(){
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
 
+    //Prevents duplicate uncommons
+    let currentUncommons = [newUncommon1, newUncommon2, newUncommon3]
+    for (let i = 0; i < 3; i++) {
+        let j = 1 + i
+            for (j; j < currentUncommons.length; j++) {
+                if (currentUncommons[i] === currentUncommons[j]) {
+                    newPackNeoDestiny();
+                    return;
+            }
+        }
+    }
+
     //Common distribution
     let numOfCommons = neoDestinyLinks[2].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
@@ -1056,6 +1376,18 @@ function newPackNeoDestiny(){
     document.getElementById(newId9).src = newCommon5;
     document.getElementById(newId10).src = newCommon6;
     document.getElementById(newId11).src = newCommon7;
+
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6, newCommon7]
+    for (let i = 0; i < 7; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    newPackNeoDestiny();
+                    return;
+            }
+        }
+    }
 }
 
 //Arrays of all card sets
@@ -1161,13 +1493,15 @@ const baseLinks = [
     'https://pkmncards.com/wp-content/uploads/energy-removal-base-set-bs-92.jpg',
     'https://pkmncards.com/wp-content/uploads/gust-of-wind-base-set-bs-93.jpg',
     'https://pkmncards.com/wp-content/uploads/potion-base-set-bs-94.jpg',
-    'https://pkmncards.com/wp-content/uploads/switch-base-set-bs-95.jpg',
-    'https://pkmncards.com/wp-content/uploads/fighting-energy-base-set-bs-97.jpg',
+    'https://pkmncards.com/wp-content/uploads/switch-base-set-bs-95.jpg'],
+
+    //Energy cards at index 3
+    ['https://pkmncards.com/wp-content/uploads/fighting-energy-base-set-bs-97.jpg',
     'https://pkmncards.com/wp-content/uploads/fire-energy-base-set-bs-98.jpg',
     'https://pkmncards.com/wp-content/uploads/grass-energy-base-set-bs-99.jpg',
     'https://pkmncards.com/wp-content/uploads/lightning-energy-base-set-bs-100.jpg',
     'https://pkmncards.com/wp-content/uploads/psychic-energy-base-set-bs-101.jpg',
-    'https://pkmncards.com/wp-content/uploads/water-energy-base-set-bs-102.jpg'],
+    'https://pkmncards.com/wp-content/uploads/water-energy-base-set-bs-102.jpg']
 
 ]
 
@@ -1447,13 +1781,15 @@ const base2Links = [
     'https://pkmncards.com/wp-content/uploads/gust-of-wind-base-set-2-b2-120.jpg',
     'https://pkmncards.com/wp-content/uploads/poke-ball-base-set-2-b2-121.jpg',
     'https://pkmncards.com/wp-content/uploads/potion-base-set-2-b2-122.jpg',
-    'https://pkmncards.com/wp-content/uploads/switch-base-set-2-b2-123.jpg',
-    'https://pkmncards.com/wp-content/uploads/fighting-energy-base-set-2-b2-125.jpg',
+    'https://pkmncards.com/wp-content/uploads/switch-base-set-2-b2-123.jpg'],
+
+    //Energy at index 3
+    ['https://pkmncards.com/wp-content/uploads/fighting-energy-base-set-2-b2-125.jpg',
     'https://pkmncards.com/wp-content/uploads/fire-energy-base-set-2-b2-126.jpg',
     'https://pkmncards.com/wp-content/uploads/grass-energy-base-set-2-b2-127.jpg',
     'https://pkmncards.com/wp-content/uploads/lightning-energy-base-set-2-b2-128.jpg',
     'https://pkmncards.com/wp-content/uploads/psychic-energy-base-set-2-b2-129.jpg',
-    'https://pkmncards.com/wp-content/uploads/water-energy-base-set-2-b2-130.jpg'],
+    'https://pkmncards.com/wp-content/uploads/water-energy-base-set-2-b2-130.jpg']
 
 ]
 
@@ -1683,13 +2019,15 @@ const gymHeroesLinks = [
     'https://pkmncards.com/wp-content/uploads/mistys-duel-gym-heroes-123.jpg',
     'https://pkmncards.com/wp-content/uploads/narrow-gym-gym-heroes-124.jpg',
     'https://pkmncards.com/wp-content/uploads/sabrinas-gaze-gym-heroes-125.jpg',
-    'https://pkmncards.com/wp-content/uploads/trash-exchange-gym-heroes-126.jpg',
-    'https://pkmncards.com/wp-content/uploads/fighting-energy-gym-heroes-127.jpg',
+    'https://pkmncards.com/wp-content/uploads/trash-exchange-gym-heroes-126.jpg'],
+
+    //Energy at index 3
+    ['https://pkmncards.com/wp-content/uploads/fighting-energy-gym-heroes-127.jpg',
     'https://pkmncards.com/wp-content/uploads/fire-energy-gym-heroes-128.jpg',
     'https://pkmncards.com/wp-content/uploads/grass-energy-gym-heroes-129.jpg',
     'https://pkmncards.com/wp-content/uploads/lightning-energy-gym-heroes-130.jpg',
     'https://pkmncards.com/wp-content/uploads/psychic-energy-gym-heroes-131.jpg',
-    'https://pkmncards.com/wp-content/uploads/water-energy-gym-heroes-132.jpg'],
+    'https://pkmncards.com/wp-content/uploads/water-energy-gym-heroes-132.jpg']
 
 ]
 
@@ -1825,13 +2163,15 @@ const gymChallengeLinks = [
     'https://pkmncards.com/wp-content/uploads/sabrinas-psyduck-gym-challenge-99.jpg',
     'https://pkmncards.com/wp-content/uploads/fervor-gym-challenge-124.jpg',
     'https://pkmncards.com/wp-content/uploads/transparent-walls-gym-challenge-125.jpg',
-    'https://pkmncards.com/wp-content/uploads/warp-point-gym-challenge-126.jpg',
-    'https://pkmncards.com/wp-content/uploads/fighting-energy-gym-challenge-127.jpg',
+    'https://pkmncards.com/wp-content/uploads/warp-point-gym-challenge-126.jpg'],
+
+    //Energy at index 3
+    ['https://pkmncards.com/wp-content/uploads/fighting-energy-gym-challenge-127.jpg',
     'https://pkmncards.com/wp-content/uploads/fire-energy-gym-challenge-128.jpg',
     'https://pkmncards.com/wp-content/uploads/grass-energy-gym-challenge-129.jpg',
     'https://pkmncards.com/wp-content/uploads/lightning-energy-gym-challenge-130.jpg',
     'https://pkmncards.com/wp-content/uploads/psychic-energy-gym-challenge-131.jpg',
-    'https://pkmncards.com/wp-content/uploads/water-energy-gym-challenge-132.jpg'],
+    'https://pkmncards.com/wp-content/uploads/water-energy-gym-challenge-132.jpg']
 
 ]
 
@@ -1946,13 +2286,15 @@ const neoGenesisLinks = [
     'https://pkmncards.com/wp-content/uploads/double-gust-neo-genesis-100.jpg',
     'https://pkmncards.com/wp-content/uploads/moo-moo-milk-neo-genesis-101.jpg',
     'https://pkmncards.com/wp-content/uploads/pokemon-march-neo-genesis-102.jpg',
-    'https://pkmncards.com/wp-content/uploads/super-rod-neo-genesis-103.jpg',
-    'https://pkmncards.com/wp-content/uploads/fighting-energy-neo-genesis-106.jpg',
+    'https://pkmncards.com/wp-content/uploads/super-rod-neo-genesis-103.jpg'],
+
+    //Energy at index 3
+    ['https://pkmncards.com/wp-content/uploads/fighting-energy-neo-genesis-106.jpg',
     'https://pkmncards.com/wp-content/uploads/fire-energy-neo-genesis-107.jpg',
     'https://pkmncards.com/wp-content/uploads/grass-energy-neo-genesis-108.jpg',
     'https://pkmncards.com/wp-content/uploads/lightning-energy-neo-genesis-109.jpg',
     'https://pkmncards.com/wp-content/uploads/psychic-energy-neo-genesis-110.jpg',
-    'https://pkmncards.com/wp-content/uploads/water-energy-neo-genesis-111.jpg'],
+    'https://pkmncards.com/wp-content/uploads/water-energy-neo-genesis-111.jpg']
 
 ]
 

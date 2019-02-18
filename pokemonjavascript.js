@@ -752,6 +752,11 @@ function newPackTeamRocket(){
         let newRare = teamRocketLinks[0][randomRare];
         let newId1 = cardOrderArray[0];
         document.getElementById(newId1).src = newRare;
+        //Chance of Dark Raichu
+        let chanceOfDarkRaichu = Math.floor(Math.random()*20);
+        if (chanceOfDarkRaichu === 1) {
+            document.getElementById(newId1).src = 'https://pkmncards.com/wp-content/uploads/dark-raichu-team-rocket-tr-83.jpg'
+        }
     } else {
         let numOfRares = teamRocketLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
@@ -1299,13 +1304,21 @@ function newPackNeoRevelation(){
     }
 
     //Rare distribution
-    let chanceOfHolo = Math.floor(Math.random()*3);
+     let chanceOfHolo = Math.floor(Math.random()*3);
     if (chanceOfHolo === 1) {
         let numOfRares = neoRevelationLinks[0].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = neoRevelationLinks[0][randomRare];
         let newId1 = cardOrderArray[0];
         document.getElementById(newId1).src = newRare;
+        //Chance of Shining Magikarp or Gyarados (compounds to 1:18 packs)
+        let chanceOfShining = Math.floor(Math.random()*6);
+        if (chanceOfShining === 5) {
+            document.getElementById(newId1).src = 'https://pkmncards.com/wp-content/uploads/shining-magikarp-neo-revelation-66.jpg';
+        }
+        if (chanceOfShining === 4) {
+            document.getElementById(newId1).src = 'https://pkmncards.com/wp-content/uploads/shining-gyarados-neo-revelation-65.jpg';
+        }
     } else {
         let numOfRares = neoRevelationLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
@@ -1313,6 +1326,7 @@ function newPackNeoRevelation(){
         let newId1 = cardOrderArray[0];
         document.getElementById(newId1).src = newRare;
     }
+    
 
     //Uncommon distribution
     let numOfUncommons = neoRevelationLinks[2].length;
@@ -1410,27 +1424,38 @@ function newPackNeoDestiny(){
     //Rare distribution
     let chanceOfHolo = Math.floor(Math.random()*3);
     if (chanceOfHolo === 1) {
-        let numOfRares = neoDestinyLinks[0].length;
-        let randomRare = Math.floor(Math.random()*numOfRares);
-        let newRare = neoDestinyLinks[0][randomRare];
-        let newId1 = cardOrderArray[0];
-        document.getElementById(newId1).src = newRare;
-    } else {
         let numOfRares = neoDestinyLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = neoDestinyLinks[1][randomRare];
         let newId1 = cardOrderArray[0];
         document.getElementById(newId1).src = newRare;
+
+        //Chance of Shining Pokemon (compounds to 1:18 packs)
+        let chanceOfShining = Math.floor(Math.random()*4);
+        if (chanceOfShining === 2) {
+            let numOfShinies = neoDestinyLinks[0].length;
+            let randomShiny = Math.floor(Math.random()*numOfShinies);
+            let newShiny = neoDestinyLinks[0][randomShiny];
+            let newId1 = cardOrderArray[0];
+            document.getElementById(newId1).src = newShiny;
+        }
+
+    } else {
+        let numOfRares = neoDestinyLinks[2].length;
+        let randomRare = Math.floor(Math.random()*numOfRares);
+        let newRare = neoDestinyLinks[2][randomRare];
+        let newId1 = cardOrderArray[0];
+        document.getElementById(newId1).src = newRare;
     }
 
     //Uncommon distribution
-    let numOfUncommons = neoDestinyLinks[2].length;
+    let numOfUncommons = neoDestinyLinks[3].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
     let randomUncommon3 = Math.floor(Math.random()*numOfUncommons);
-    let newUncommon1 = neoDestinyLinks[2][randomUncommon1];
-    let newUncommon2 = neoDestinyLinks[2][randomUncommon2];
-    let newUncommon3 = neoDestinyLinks[2][randomUncommon3];
+    let newUncommon1 = neoDestinyLinks[3][randomUncommon1];
+    let newUncommon2 = neoDestinyLinks[3][randomUncommon2];
+    let newUncommon3 = neoDestinyLinks[3][randomUncommon3];
     let newId2= cardOrderArray[1];
     let newId3= cardOrderArray[2];
     let newId4= cardOrderArray[3];
@@ -1451,7 +1476,7 @@ function newPackNeoDestiny(){
     }
 
     //Common distribution
-    let numOfCommons = neoDestinyLinks[3].length;
+    let numOfCommons = neoDestinyLinks[4].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
@@ -1459,13 +1484,13 @@ function newPackNeoDestiny(){
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
     let randomCommon7 = Math.floor(Math.random()*numOfCommons);
-    let newCommon1 = neoDestinyLinks[3][randomCommon1];
-    let newCommon2 = neoDestinyLinks[3][randomCommon2];
-    let newCommon3 = neoDestinyLinks[3][randomCommon3];
-    let newCommon4 = neoDestinyLinks[3][randomCommon4];
-    let newCommon5 = neoDestinyLinks[3][randomCommon5];
-    let newCommon6 = neoDestinyLinks[3][randomCommon6];
-    let newCommon7 = neoDestinyLinks[3][randomCommon7];
+    let newCommon1 = neoDestinyLinks[4][randomCommon1];
+    let newCommon2 = neoDestinyLinks[4][randomCommon2];
+    let newCommon3 = neoDestinyLinks[4][randomCommon3];
+    let newCommon4 = neoDestinyLinks[4][randomCommon4];
+    let newCommon5 = neoDestinyLinks[4][randomCommon5];
+    let newCommon6 = neoDestinyLinks[4][randomCommon6];
+    let newCommon7 = neoDestinyLinks[4][randomCommon7];
     let newId5 = cardOrderArray[4];
     let newId6 = cardOrderArray[5];
     let newId7 = cardOrderArray[6];
@@ -1923,12 +1948,10 @@ const teamRocketLinks = [
     'https://pkmncards.com/wp-content/uploads/dark-weezing-team-rocket-tr-14.jpg',
     'https://pkmncards.com/wp-content/uploads/here-comes-team-rocket-team-rocket-tr-15.jpg',
     'https://pkmncards.com/wp-content/uploads/rockets-sneak-attack-team-rocket-tr-16.jpg',
-    'https://pkmncards.com/wp-content/uploads/rainbow-energy-team-rocket-tr-17.jpg',
-    'https://pkmncards.com/wp-content/uploads/dark-raichu-team-rocket-tr-83.jpg'],
+    'https://pkmncards.com/wp-content/uploads/rainbow-energy-team-rocket-tr-17.jpg'],
 
     //Rares at index 1
     ['https://pkmncards.com/wp-content/uploads/dark-alakazam-team-rocket-tr-18.jpg',
-    'https://pkmncards.com/card/dark-arbok-team-rocket-tr-19/',
     'https://pkmncards.com/wp-content/uploads/dark-arbok-team-rocket-tr-19.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-blastoise-team-rocket-tr-20.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-charizard-team-rocket-tr-21.jpg',
@@ -2520,9 +2543,7 @@ const neoRevelationLinks = [
     'https://pkmncards.com/wp-content/uploads/crobat-neo-revelation-4.jpg',
     'https://pkmncards.com/wp-content/uploads/celebi-neo-revelation-3.jpg',
     'https://pkmncards.com/wp-content/uploads/blissey-neo-revelation-2.jpg',
-    'https://pkmncards.com/wp-content/uploads/ampharos-neo-revelation-1.jpg',
-    'https://pkmncards.com/wp-content/uploads/shining-magikarp-neo-revelation-66.jpg',
-    'https://pkmncards.com/wp-content/uploads/shining-gyarados-neo-revelation-65.jpg'],
+    'https://pkmncards.com/wp-content/uploads/ampharos-neo-revelation-1.jpg'],
     
     //Rares at index 1
     ['https://pkmncards.com/wp-content/uploads/suicune-neo-revelation-27.jpg',
@@ -2584,7 +2605,7 @@ const neoRevelationLinks = [
 
 const neoDestinyLinks = [
 
-    //Holos at index 0
+    //Shinies at index 0
     ['https://pkmncards.com/wp-content/uploads/shining-tyranitar-neo-destiny-113.jpg',
     'https://pkmncards.com/wp-content/uploads/shining-steelix-neo-destiny-112.jpg',
     'https://pkmncards.com/wp-content/uploads/shining-raichu-neo-destiny-111.jpg',
@@ -2592,8 +2613,11 @@ const neoDestinyLinks = [
     'https://pkmncards.com/wp-content/uploads/shining-mewtwo-neo-destiny-109.jpg',
     'https://pkmncards.com/wp-content/uploads/shining-kabutops-neo-destiny-108.jpg',
     'https://pkmncards.com/wp-content/uploads/shining-charizard-neo-destiny-107.jpg',
-    'https://pkmncards.com/wp-content/uploads/shining-celebi-neo-destiny-106.jpg', 
-    'https://pkmncards.com/wp-content/uploads/miracle-energy-neo-destiny-16.jpg',
+    'https://pkmncards.com/wp-content/uploads/shining-celebi-neo-destiny-106.jpg'], 
+
+
+    //Holos at index 1
+    ['https://pkmncards.com/wp-content/uploads/miracle-energy-neo-destiny-16.jpg',
     'https://pkmncards.com/wp-content/uploads/light-togetic-neo-destiny-15.jpg',
     'https://pkmncards.com/wp-content/uploads/light-dragonite-neo-destiny-14.jpg',
     'https://pkmncards.com/wp-content/uploads/light-azumarill-neo-destiny-13.jpg',
@@ -2610,7 +2634,7 @@ const neoDestinyLinks = [
     'https://pkmncards.com/wp-content/uploads/dark-crobat-neo-destiny-2.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-ampharos-neo-destiny-1.jpg'],
 
-    //Rares at index 1
+    //Rares at index 2
     ['https://pkmncards.com/wp-content/uploads/though-wave-machine-neo-destiny-96.jpg',
     'https://pkmncards.com/wp-content/uploads/radio-tower-neo-destiny-95.jpg',
     'https://pkmncards.com/wp-content/uploads/impostor-professor-oaks-invention-neo-destiny-94.jpg',
@@ -2631,7 +2655,7 @@ const neoDestinyLinks = [
     'https://pkmncards.com/wp-content/uploads/dark-magcargo-neo-destiny-18.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-ariados-neo-destiny-17.jpg'],
 
-    //Uncommons at index 2
+    //Uncommons at index 3
     ['https://pkmncards.com/wp-content/uploads/team-rockets-evil-deeds-neo-destiny-103.jpg',
     'https://pkmncards.com/wp-content/uploads/pokemon-personality-test-neo-destiny-102.jpg',
     'https://pkmncards.com/wp-content/uploads/magnifier-neo-destiny-101.jpg',
@@ -2670,7 +2694,7 @@ const neoDestinyLinks = [
     'https://pkmncards.com/wp-content/uploads/dark-croconaw-neo-destiny-32.jpg',
     'https://pkmncards.com/wp-content/uploads/chansey-neo-destiny-31.jpg'],
 
-    //Commons at index 3
+    //Commons at index 4
     ['https://pkmncards.com/wp-content/uploads/mail-from-bill-neo-destiny-105.jpg',
     'https://pkmncards.com/wp-content/uploads/heal-powder-neo-destiny-104.jpg',
     'https://pkmncards.com/wp-content/uploads/vulpix-neo-destiny-91.jpg',

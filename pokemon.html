@@ -9,9 +9,9 @@
 
     <!--Share Buttons
     <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5c67578c7056550011c4a3c0&product='inline-share-buttons' async='async'></script>
- -->
+    -->
 
- <!--Redirect to mobile, courtesy of https://css-tricks.com/snippets/javascript/redirect-mobile-devices/ -->
+    <!--Redirect to mobile, courtesy of https://css-tricks.com/snippets/javascript/redirect-mobile-devices/ -->
 <script type="text/javascript">
     if (screen.width <= 699) {
         document.location = "mobile.html";
@@ -35,24 +35,24 @@
 
 <div class = "row">
 
-    <button id="button1" onclick="randomPack()">RANDOM PACK</button>
+    <button id="button1" onclick="resetAll();setTimeout(randomPack, 701)">RANDOM PACK</button>
     <div class="dropdown">
         <button id="button2">CHOOSE SET</button>
         <div class="dropdown-content">
-            <a href="#" onclick="newPackBase()">base set</a>
-            <a href="#" onclick="newPackJungle()">jungle</a>
-            <a href="#" onclick="newPackFossil()">fossil</a>
-            <a href="#" onclick="newPackBase2()">base set 2</a>
-            <a href="#" onclick="newPackTeamRocket()">team rocket</a>
-            <a href="#" onclick="newPackGymHeroes()">gym heroes</a>
-            <a href="#" onclick="newPackGymChallenge()">gym challenge</a>
-            <a href="#" onclick="newPackNeoGenesis()">neo genesis</a>
-            <a href="#" onclick="newPackNeoDiscovery()">neo discovery</a>
-            <a href="#" onclick="newPackNeoRevelation()">neo revelation</a>
-            <a href="#" onclick="newPackNeoDestiny()">neo destiny</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackBase, 701)">base set</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackJungle, 701)">jungle</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackFossil, 701)">fossil</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackBase2, 701)">base set 2</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackTeamRocket, 701)">team rocket</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackGymHeroes, 701)">gym heroes</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackGymChallenge, 701)">gym challenge</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackNeoGenesis, 701)">neo genesis</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackNeoDiscovery, 701)">neo discovery</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackNeoRevelation, 701)">neo revelation</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackNeoDestiny, 701)">neo destiny</a>
         </div>
     </div>
-    <button id="button3" onclick="sameSet()">SAME SET</button>
+    <button id="button3" onclick="resetAll();setTimeout(sameSet, 701)">SAME SET</button>
     <button id="button4" onclick="flipAll()">FLIP ALL</button>
     <button id="button5" onclick="toggleShuffle()">SHUFFLE (OFF)</button>
 
@@ -257,24 +257,24 @@
 <br>
 <br>
 
-<button id="button6" onclick="randomPack()">RANDOM PACK</button>
+<button id="button6" onclick="resetAll();setTimeout(randomPack, 701)">RANDOM PACK</button>
 <div class="dropup">
     <button id="button7">CHOOSE SET</button>
-    <div class="dropup-content">
-        <a href="#" onclick="newPackBase()">base set</a>
-        <a href="#" onclick="newPackJungle()">jungle</a>
-        <a href="#" onclick="newPackFossil()">fossil</a>
-        <a href="#" onclick="newPackBase2()">base set 2</a>
-        <a href="#" onclick="newPackTeamRocket()">team rocket</a>
-        <a href="#" onclick="newPackGymHeroes()">gym heroes</a>
-        <a href="#" onclick="newPackGymChallenge()">gym challenge</a>
-        <a href="#" onclick="newPackNeoGenesis()">neo genesis</a>
-        <a href="#" onclick="newPackNeoDiscovery()">neo discovery</a>
-        <a href="#" onclick="newPackNeoRevelation()">neo revelation</a>
-        <a href="#" onclick="newPackNeoDestiny()">neo destiny</a>
+    <div class="dropdown-content">
+        <a href="#" onclick="resetAll();setTimeout(newPackBase, 701)">base set</a>
+        <a href="#" onclick="resetAll();setTimeout(newPackJungle, 701)">jungle</a>
+        <a href="#" onclick="resetAll();setTimeout(newPackFossil, 701)">fossil</a>
+        <a href="#" onclick="resetAll();setTimeout(newPackBase2, 701)">base set 2</a>
+        <a href="#" onclick="resetAll();setTimeout(newPackTeamRocket, 701)">team rocket</a>
+        <a href="#" onclick="resetAll();setTimeout(newPackGymHeroes, 701)">gym heroes</a>
+        <a href="#" onclick="resetAll();setTimeout(newPackGymChallenge, 701)">gym challenge</a>
+        <a href="#" onclick="resetAll();setTimeout(newPackNeoGenesis, 701)">neo genesis</a>
+        <a href="#" onclick="resetAll();setTimeout(newPackNeoDiscovery, 701)">neo discovery</a>
+        <a href="#" onclick="resetAll();setTimeout(newPackNeoRevelation, 701)">neo revelation</a>
+        <a href="#" onclick="resetAll();setTimeout(newPackNeoDestiny, 701)">neo destiny</a>
     </div>
 </div>
-<button id="button8" onclick="sameSet()">SAME SET</button>
+<button id="button8" onclick="resetAll();setTimeout(sameSet, 701)">SAME SET</button>
 <button id="button9" onclick="flipAll()">FLIP ALL</button>
 <button id="button10" onclick="toggleShuffle()">SHUFFLE (OFF)</button>
 

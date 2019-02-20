@@ -97,10 +97,10 @@ a:visited, a:link, a:active, a:hover {
     display: inline-block; /*puts all cards in a row. Idea from https://codepen.io/roppazvan/pen/EZVLEy*/
     padding-left: 0px; /* prevents cards from being stacked on top of each other*/
     padding-right: 340px; /*same*/
-    -webkit-transition: -webkit-transform 1s;
-    -moz-transition: -moz-transform 1s;
-    -o-transition: -o-transform 1s;
-    transition: transform 1s;
+    -webkit-transition: -webkit-transform .5s;
+    -moz-transition: -moz-transform .5s;
+    -o-transition: -o-transform .5s;
+    transition: transform .5s;
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -o-transform-style: preserve-3d;

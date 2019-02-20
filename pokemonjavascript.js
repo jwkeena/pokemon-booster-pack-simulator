@@ -256,6 +256,36 @@ function sameSet() {
     }
 }
 
+//Shuffle starts in off position
+//Toggles shuffle array method on or off
+let currentShuffle = 0
+function toggleShuffle() {
+    var topButton = document.getElementById("button5");
+    var bottomButton = document.getElementById("button10");
+    switch(currentShuffle) {
+        //If shuffle button is hit, the suffle function is turned on
+        case 0:
+            ++currentShuffle;
+            topButton.innerHTML = "SHUFFLE (ON)";
+            topButton.style.color = "rgb(0,0,255)";
+            topButton.style.backgroundColor = "rgb(255,255,0)";
+            bottomButton.innerHTML = "SHUFFLE (ON)";
+            bottomButton.style.color = "rgb(0,0,255)";
+            bottomButton.style.backgroundColor = "rgb(255,255,0)";
+            break;
+        //If the shuffle button is hit again, the shuffle function is turned off
+        case 1:
+            --currentShuffle;
+            topButton.innerHTML = "SHUFFLE (OFF)";
+            topButton.style.color = "rgb(255,255,0)";
+            topButton.style.backgroundColor = "rgb(0,0,255)";
+            bottomButton.innerHTML = "SHUFFLE (OFF)";
+            bottomButton.style.color = "rgb(255,255,0)";
+            bottomButton.style.backgroundColor = "rgb(0,0,255)";
+            break;
+    }
+}
+
 //Cycles through the booster pack art
 //For sets with three variants
 let packArt = 0
@@ -281,8 +311,23 @@ function changePackArt2() {
 function newPackBase() {
     //Flips all cards over to starting position
     resetAll();
-    //Shuffles the IDs of cards in the pack using the shuffle method created above
-    cardOrderArray.shuffle();
+    //Shuffles the IDs of cards if user chooses to shuffle; otherwise reverts to fixed order
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9',
+            'randomCard10',
+            'randomCard11'];
+        }
     //Prepares same set button
     currentSet = 1;
     
@@ -311,7 +356,7 @@ function newPackBase() {
         //Picks a random holo from the nested array based on the random number just chosen
         let newHolo = baseLinks[0][randomHolo];
         //Stores the value in the first position of the shuffled IDs array
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[7];
         //Reassigns the value just stored as the new ID of the rare, thus putting it in a randomized position 
         document.getElementById(newId1).src = newHolo;
     } else {
@@ -319,7 +364,7 @@ function newPackBase() {
         let numOfRares = baseLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = baseLinks[1][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[7];
         document.getElementById(newId1).src = newRare;
     }
 
@@ -331,9 +376,9 @@ function newPackBase() {
     let newUncommon1 = baseLinks[2][randomUncommon1];
     let newUncommon2 = baseLinks[2][randomUncommon2];
     let newUncommon3 = baseLinks[2][randomUncommon3];
-    let newId2= cardOrderArray[1];
-    let newId3= cardOrderArray[2];
-    let newId4= cardOrderArray[3];
+    let newId2 = cardOrderArray[8];
+    let newId3 = cardOrderArray[9];
+    let newId4 = cardOrderArray[10];
     document.getElementById(newId2).src = newUncommon1;
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
@@ -357,29 +402,25 @@ function newPackBase() {
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
-    let randomCommon6 = Math.floor(Math.random()*numOfCommons);
     let newCommon1 = baseLinks[3][randomCommon1];
     let newCommon2 = baseLinks[3][randomCommon2];
     let newCommon3 = baseLinks[3][randomCommon3];
     let newCommon4 = baseLinks[3][randomCommon4];
     let newCommon5 = baseLinks[3][randomCommon5];
-    let newCommon6 = baseLinks[3][randomCommon6];
-    let newId5 = cardOrderArray[4];
-    let newId6 = cardOrderArray[5];
-    let newId7 = cardOrderArray[6];
-    let newId8 = cardOrderArray[7];
-    let newId9 = cardOrderArray[8];
-    let newId10 = cardOrderArray[9];
+    let newId5 = cardOrderArray[0];
+    let newId6 = cardOrderArray[2];
+    let newId7 = cardOrderArray[4];
+    let newId8 = cardOrderArray[5];
+    let newId9 = cardOrderArray[6];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
     document.getElementById(newId8).src = newCommon4;
     document.getElementById(newId9).src = newCommon5;
-    document.getElementById(newId10).src = newCommon6;
 
     //Prevents duplicate commons
-    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6]
-    for (let i = 0; i < 6; i++) {
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5]
+    for (let i = 0; i < 5; i++) {
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
@@ -391,16 +432,40 @@ function newPackBase() {
 
     //Energy choice
     let numOfEnergy = baseLinks[4].length;
-    let randomEnergy = Math.floor(Math.random()*numOfEnergy);
-    let newEnergy = baseLinks[4][randomEnergy];
-    let newId11 = cardOrderArray[10];
-    document.getElementById(newId11).src = newEnergy;
+    let randomEnergy1 = Math.floor(Math.random()*numOfEnergy);
+    let randomEnergy2 = Math.floor(Math.random()*numOfEnergy);
+    let newEnergy1 = baseLinks[4][randomEnergy1];
+    let newEnergy2 = baseLinks[4][randomEnergy2];
+    let newId10 = cardOrderArray[1];
+    let newId11 = cardOrderArray[3];
+    document.getElementById(newId10).src = newEnergy1;
+    document.getElementById(newId11).src = newEnergy2;
 
+    //Prevents duplicate energy
+    if (newEnergy1 === newEnergy2) {
+        newPackBase();
+        return;
+    }
 }
 
 function newPackJungle(){
     resetAll();
-    cardOrderArray.shuffle();
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9',
+            'randomCard10',
+            'randomCard11'];
+            }
     changePackArt();
     currentSet = 2;
     if (packArt === 1) {
@@ -422,13 +487,13 @@ function newPackJungle(){
         let numOfRares = jungleLinks[0].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = jungleLinks[0][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[7];
         document.getElementById(newId1).src = newRare;
     } else {
         let numOfRares = jungleLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = jungleLinks[1][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[7];
         document.getElementById(newId1).src = newRare;
     }
 
@@ -440,9 +505,9 @@ function newPackJungle(){
     let newUncommon1 = jungleLinks[2][randomUncommon1];
     let newUncommon2 = jungleLinks[2][randomUncommon2];
     let newUncommon3 = jungleLinks[2][randomUncommon3];
-    let newId2= cardOrderArray[1];
-    let newId3= cardOrderArray[2];
-    let newId4= cardOrderArray[3];
+    let newId2 = cardOrderArray[8];
+    let newId3 = cardOrderArray[9];
+    let newId4 = cardOrderArray[10];
     document.getElementById(newId2).src = newUncommon1;
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
@@ -475,13 +540,13 @@ function newPackJungle(){
     let newCommon5 = jungleLinks[3][randomCommon5];
     let newCommon6 = jungleLinks[3][randomCommon6];
     let newCommon7 = jungleLinks[3][randomCommon7];
-    let newId5 = cardOrderArray[4];
-    let newId6 = cardOrderArray[5];
-    let newId7 = cardOrderArray[6];
-    let newId8 = cardOrderArray[7];
-    let newId9 = cardOrderArray[8];
-    let newId10 = cardOrderArray[9];
-    let newId11 = cardOrderArray[10];
+    let newId5 = cardOrderArray[0];
+    let newId6 = cardOrderArray[1];
+    let newId7 = cardOrderArray[2];
+    let newId8 = cardOrderArray[3];
+    let newId9 = cardOrderArray[4];
+    let newId10 = cardOrderArray[5];
+    let newId11 = cardOrderArray[6];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
@@ -505,7 +570,22 @@ function newPackJungle(){
 
 function newPackFossil(){
     resetAll();
-    cardOrderArray.shuffle();
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9',
+            'randomCard10',
+            'randomCard11'];
+        }
     changePackArt();
     currentSet = 3;
     if (packArt === 1) {
@@ -527,13 +607,13 @@ function newPackFossil(){
         let numOfRares = fossilLinks[0].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = fossilLinks[0][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[7];
         document.getElementById(newId1).src = newRare;
     } else {
         let numOfRares = fossilLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = fossilLinks[1][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[7];
         document.getElementById(newId1).src = newRare;
     }
     
@@ -545,9 +625,9 @@ function newPackFossil(){
     let newUncommon1 = fossilLinks[2][randomUncommon1];
     let newUncommon2 = fossilLinks[2][randomUncommon2];
     let newUncommon3 = fossilLinks[2][randomUncommon3];
-    let newId2= cardOrderArray[1];
-    let newId3= cardOrderArray[2];
-    let newId4= cardOrderArray[3];
+    let newId2= cardOrderArray[8];
+    let newId3= cardOrderArray[9];
+    let newId4= cardOrderArray[10];
     document.getElementById(newId2).src = newUncommon1;
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
@@ -580,13 +660,13 @@ function newPackFossil(){
     let newCommon5 = fossilLinks[3][randomCommon5];
     let newCommon6 = fossilLinks[3][randomCommon6];
     let newCommon7 = fossilLinks[3][randomCommon7];
-    let newId5 = cardOrderArray[4];
-    let newId6 = cardOrderArray[5];
-    let newId7 = cardOrderArray[6];
-    let newId8 = cardOrderArray[7];
-    let newId9 = cardOrderArray[8];
-    let newId10 = cardOrderArray[9];
-    let newId11 = cardOrderArray[10];
+    let newId5 = cardOrderArray[0];
+    let newId6 = cardOrderArray[1];
+    let newId7 = cardOrderArray[2];
+    let newId8 = cardOrderArray[3];
+    let newId9 = cardOrderArray[4];
+    let newId10 = cardOrderArray[5];
+    let newId11 = cardOrderArray[6];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
@@ -610,7 +690,22 @@ function newPackFossil(){
 
 function newPackBase2(){
     resetAll();
-    cardOrderArray.shuffle();
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9',
+            'randomCard10',
+            'randomCard11'];
+        }
     changePackArt2();
     currentSet = 4;
     if (packArt2 === 1) {
@@ -636,18 +731,16 @@ function newPackBase2(){
         let numOfRares = base2Links[0].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = base2Links[0][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[8];
         document.getElementById(newId1).src = newRare;
     } else {
         let numOfRares = base2Links[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = base2Links[1][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[8];
         document.getElementById(newId1).src = newRare;
     }
     
-
-
     //Uncommon distribution
     let numOfUncommons = base2Links[2].length;
     let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
@@ -656,9 +749,9 @@ function newPackBase2(){
     let newUncommon1 = base2Links[2][randomUncommon1];
     let newUncommon2 = base2Links[2][randomUncommon2];
     let newUncommon3 = base2Links[2][randomUncommon3];
-    let newId2= cardOrderArray[1];
-    let newId3= cardOrderArray[2];
-    let newId4= cardOrderArray[3];
+    let newId2= cardOrderArray[0];
+    let newId3= cardOrderArray[1];
+    let newId4= cardOrderArray[2];
     document.getElementById(newId2).src = newUncommon1;
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
@@ -682,29 +775,25 @@ function newPackBase2(){
     let randomCommon3 = Math.floor(Math.random()*numOfCommons);
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
-    let randomCommon6 = Math.floor(Math.random()*numOfCommons);
     let newCommon1 = base2Links[3][randomCommon1];
     let newCommon2 = base2Links[3][randomCommon2];
     let newCommon3 = base2Links[3][randomCommon3];
     let newCommon4 = base2Links[3][randomCommon4];
     let newCommon5 = base2Links[3][randomCommon5];
-    let newCommon6 = base2Links[3][randomCommon6];
-    let newId5 = cardOrderArray[4];
-    let newId6 = cardOrderArray[5];
-    let newId7 = cardOrderArray[6];
-    let newId8 = cardOrderArray[7];
-    let newId9 = cardOrderArray[8];
-    let newId10 = cardOrderArray[9];
+    let newId5 = cardOrderArray[3];
+    let newId6 = cardOrderArray[4];
+    let newId7 = cardOrderArray[5];
+    let newId8 = cardOrderArray[6];
+    let newId9 = cardOrderArray[7];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
     document.getElementById(newId8).src = newCommon4;
     document.getElementById(newId9).src = newCommon5;
-    document.getElementById(newId10).src = newCommon6
     
     //Prevents duplicate commons
-    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6]
-    for (let i = 0; i < 6; i++) {
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5]
+    for (let i = 0; i < 5; i++) {
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
@@ -716,15 +805,40 @@ function newPackBase2(){
 
     //Energy choice
     let numOfEnergy = base2Links[4].length;
-    let randomEnergy = Math.floor(Math.random()*numOfEnergy);
-    let newEnergy = base2Links[4][randomEnergy];
+    let randomEnergy1 = Math.floor(Math.random()*numOfEnergy);
+    let randomEnergy2 = Math.floor(Math.random()*numOfEnergy);
+    let newEnergy1 = base2Links[4][randomEnergy1];
+    let newEnergy2 = base2Links[4][randomEnergy2];
+    let newId10 = cardOrderArray[9];
     let newId11 = cardOrderArray[10];
-    document.getElementById(newId11).src = newEnergy;
+    document.getElementById(newId10).src = newEnergy1;
+    document.getElementById(newId11).src = newEnergy2;
+
+    //Prevents duplicate energy
+    if (newEnergy1 === newEnergy2) {
+        newPackBase2();
+        return;
+    }
 }
 
 function newPackTeamRocket(){
     resetAll();
-    cardOrderArray.shuffle();
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9',
+            'randomCard10',
+            'randomCard11'];
+        }
     changePackArt2();
     currentSet = 5;
     if (packArt2 === 1) {
@@ -750,7 +864,7 @@ function newPackTeamRocket(){
         let numOfRares = teamRocketLinks[0].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = teamRocketLinks[0][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[7];
         document.getElementById(newId1).src = newRare;
         //Chance of Dark Raichu
         let chanceOfDarkRaichu = Math.floor(Math.random()*20);
@@ -761,7 +875,7 @@ function newPackTeamRocket(){
         let numOfRares = teamRocketLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = teamRocketLinks[1][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[7];
         document.getElementById(newId1).src = newRare;
     }
     
@@ -773,9 +887,9 @@ function newPackTeamRocket(){
     let newUncommon1 = teamRocketLinks[2][randomUncommon1];
     let newUncommon2 = teamRocketLinks[2][randomUncommon2];
     let newUncommon3 = teamRocketLinks[2][randomUncommon3];
-    let newId2= cardOrderArray[1];
-    let newId3= cardOrderArray[2];
-    let newId4= cardOrderArray[3];
+    let newId2= cardOrderArray[8];
+    let newId3= cardOrderArray[9];
+    let newId4= cardOrderArray[10];
     document.getElementById(newId2).src = newUncommon1;
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
@@ -800,32 +914,28 @@ function newPackTeamRocket(){
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
-    let randomCommon7 = Math.floor(Math.random()*numOfCommons);
     let newCommon1 = teamRocketLinks[3][randomCommon1];
     let newCommon2 = teamRocketLinks[3][randomCommon2];
     let newCommon3 = teamRocketLinks[3][randomCommon3];
     let newCommon4 = teamRocketLinks[3][randomCommon4];
     let newCommon5 = teamRocketLinks[3][randomCommon5];
     let newCommon6 = teamRocketLinks[3][randomCommon6];
-    let newCommon7 = teamRocketLinks[3][randomCommon7];
-    let newId5 = cardOrderArray[4];
-    let newId6 = cardOrderArray[5];
-    let newId7 = cardOrderArray[6];
-    let newId8 = cardOrderArray[7];
-    let newId9 = cardOrderArray[8];
-    let newId10 = cardOrderArray[9];
-    let newId11 = cardOrderArray[10];
+    let newId5 = cardOrderArray[0];
+    let newId6 = cardOrderArray[1];
+    let newId7 = cardOrderArray[2];
+    let newId8 = cardOrderArray[3];
+    let newId9 = cardOrderArray[4];
+    let newId10 = cardOrderArray[5];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
     document.getElementById(newId8).src = newCommon4;
     document.getElementById(newId9).src = newCommon5;
     document.getElementById(newId10).src = newCommon6;
-    document.getElementById(newId11).src = newCommon7;
 
     //Prevents duplicate commons
-    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6, newCommon7]
-    for (let i = 0; i < 7; i++) {
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6]
+    for (let i = 0; i < 6; i++) {
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
@@ -838,7 +948,22 @@ function newPackTeamRocket(){
 
 function newPackGymHeroes(){
     resetAll();
-    cardOrderArray.shuffle();
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9',
+            'randomCard10',
+            'randomCard11'];
+        }
     changePackArt2();
     currentSet = 6;
     if (packArt2 === 1) {
@@ -864,13 +989,13 @@ function newPackGymHeroes(){
         let numOfRares = gymHeroesLinks[0].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = gymHeroesLinks[0][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[6];
         document.getElementById(newId1).src = newRare;
     } else {
         let numOfRares = gymHeroesLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = gymHeroesLinks[1][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[6];
         document.getElementById(newId1).src = newRare;
     }
 
@@ -882,9 +1007,9 @@ function newPackGymHeroes(){
     let newUncommon1 = gymHeroesLinks[2][randomUncommon1];
     let newUncommon2 = gymHeroesLinks[2][randomUncommon2];
     let newUncommon3 = gymHeroesLinks[2][randomUncommon3];
-    let newId2= cardOrderArray[1];
-    let newId3= cardOrderArray[2];
-    let newId4= cardOrderArray[3];
+    let newId2= cardOrderArray[7];
+    let newId3= cardOrderArray[8];
+    let newId4= cardOrderArray[9];
     document.getElementById(newId2).src = newUncommon1;
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
@@ -915,12 +1040,12 @@ function newPackGymHeroes(){
     let newCommon4 = gymHeroesLinks[3][randomCommon4];
     let newCommon5 = gymHeroesLinks[3][randomCommon5];
     let newCommon6 = gymHeroesLinks[3][randomCommon6];
-    let newId5 = cardOrderArray[4];
-    let newId6 = cardOrderArray[5];
-    let newId7 = cardOrderArray[6];
-    let newId8 = cardOrderArray[7];
-    let newId9 = cardOrderArray[8];
-    let newId10 = cardOrderArray[9];
+    let newId5 = cardOrderArray[0];
+    let newId6 = cardOrderArray[1];
+    let newId7 = cardOrderArray[2];
+    let newId8 = cardOrderArray[3];
+    let newId9 = cardOrderArray[4];
+    let newId10 = cardOrderArray[5];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
@@ -950,7 +1075,22 @@ function newPackGymHeroes(){
 
 function newPackGymChallenge(){
     resetAll();
-    cardOrderArray.shuffle();
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9',
+            'randomCard10',
+            'randomCard11'];
+        }
     changePackArt2();
     currentSet = 7;
     if (packArt2 === 1) {
@@ -976,13 +1116,13 @@ function newPackGymChallenge(){
         let numOfRares = gymChallengeLinks[0].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = gymChallengeLinks[0][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[6];
         document.getElementById(newId1).src = newRare;
     } else {
         let numOfRares = gymChallengeLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = gymChallengeLinks[1][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[6];
         document.getElementById(newId1).src = newRare;
     }
 
@@ -994,9 +1134,9 @@ function newPackGymChallenge(){
     let newUncommon1 = gymChallengeLinks[2][randomUncommon1];
     let newUncommon2 = gymChallengeLinks[2][randomUncommon2];
     let newUncommon3 = gymChallengeLinks[2][randomUncommon3];
-    let newId2= cardOrderArray[1];
-    let newId3= cardOrderArray[2];
-    let newId4= cardOrderArray[3];
+    let newId2= cardOrderArray[7];
+    let newId3= cardOrderArray[8];
+    let newId4= cardOrderArray[9];
     document.getElementById(newId2).src = newUncommon1;
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
@@ -1027,12 +1167,12 @@ function newPackGymChallenge(){
     let newCommon4 = gymChallengeLinks[3][randomCommon4];
     let newCommon5 = gymChallengeLinks[3][randomCommon5];
     let newCommon6 = gymChallengeLinks[3][randomCommon6];
-    let newId5 = cardOrderArray[4];
-    let newId6 = cardOrderArray[5];
-    let newId7 = cardOrderArray[6];
-    let newId8 = cardOrderArray[7];
-    let newId9 = cardOrderArray[8];
-    let newId10 = cardOrderArray[9];
+    let newId5 = cardOrderArray[0];
+    let newId6 = cardOrderArray[1];
+    let newId7 = cardOrderArray[2];
+    let newId8 = cardOrderArray[3];
+    let newId9 = cardOrderArray[4];
+    let newId10 = cardOrderArray[5];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
@@ -1041,8 +1181,8 @@ function newPackGymChallenge(){
     document.getElementById(newId10).src = newCommon6;
 
     //Prevents duplicate commons
-    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6]
-    for (let i = 0; i < 6; i++) {
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5]
+    for (let i = 0; i < 5; i++) {
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
@@ -1062,7 +1202,22 @@ function newPackGymChallenge(){
 
 function newPackNeoGenesis(){
     resetAll();
-    cardOrderArray.shuffle();
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9',
+            'randomCard10',
+            'randomCard11'];
+        }
     changePackArt2();
     currentSet = 8;
     if (packArt2 === 1) {
@@ -1088,13 +1243,13 @@ function newPackNeoGenesis(){
         let numOfRares = neoGenesisLinks[0].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = neoGenesisLinks[0][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[1];
         document.getElementById(newId1).src = newRare;
     } else {
         let numOfRares = neoGenesisLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = neoGenesisLinks[1][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[1];
         document.getElementById(newId1).src = newRare;
     }
 
@@ -1106,9 +1261,9 @@ function newPackNeoGenesis(){
     let newUncommon1 = neoGenesisLinks[2][randomUncommon1];
     let newUncommon2 = neoGenesisLinks[2][randomUncommon2];
     let newUncommon3 = neoGenesisLinks[2][randomUncommon3];
-    let newId2= cardOrderArray[1];
-    let newId3= cardOrderArray[2];
-    let newId4= cardOrderArray[3];
+    let newId2= cardOrderArray[2];
+    let newId3= cardOrderArray[3];
+    let newId4= cardOrderArray[4];
     document.getElementById(newId2).src = newUncommon1;
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
@@ -1139,12 +1294,12 @@ function newPackNeoGenesis(){
     let newCommon4 = neoGenesisLinks[3][randomCommon4];
     let newCommon5 = neoGenesisLinks[3][randomCommon5];
     let newCommon6 = neoGenesisLinks[3][randomCommon6];
-    let newId5 = cardOrderArray[4];
-    let newId6 = cardOrderArray[5];
-    let newId7 = cardOrderArray[6];
-    let newId8 = cardOrderArray[7];
-    let newId9 = cardOrderArray[8];
-    let newId10 = cardOrderArray[9];
+    let newId5 = cardOrderArray[5];
+    let newId6 = cardOrderArray[6];
+    let newId7 = cardOrderArray[7];
+    let newId8 = cardOrderArray[8];
+    let newId9 = cardOrderArray[9];
+    let newId10 = cardOrderArray[10];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
@@ -1168,13 +1323,28 @@ function newPackNeoGenesis(){
     let numOfEnergy = neoGenesisLinks[4].length;
     let randomEnergy = Math.floor(Math.random()*numOfEnergy);
     let newEnergy = neoGenesisLinks[4][randomEnergy];
-    let newId11 = cardOrderArray[10];
+    let newId11 = cardOrderArray[0];
     document.getElementById(newId11).src = newEnergy;
 }
 
 function newPackNeoDiscovery(){
     resetAll();
-    cardOrderArray.shuffle();
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9',
+            'randomCard10',
+            'randomCard11'];
+        }
     changePackArt2();
     currentSet = 9;
     if (packArt2 === 1) {
@@ -1200,13 +1370,13 @@ function newPackNeoDiscovery(){
         let numOfRares = neoDiscoveryLinks[0].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = neoDiscoveryLinks[0][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[3];
         document.getElementById(newId1).src = newRare;
     } else {
         let numOfRares = neoDiscoveryLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = neoDiscoveryLinks[1][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[3];
         document.getElementById(newId1).src = newRare;
     }
 
@@ -1218,9 +1388,9 @@ function newPackNeoDiscovery(){
     let newUncommon1 = neoDiscoveryLinks[2][randomUncommon1];
     let newUncommon2 = neoDiscoveryLinks[2][randomUncommon2];
     let newUncommon3 = neoDiscoveryLinks[2][randomUncommon3];
-    let newId2= cardOrderArray[1];
-    let newId3= cardOrderArray[2];
-    let newId4= cardOrderArray[3];
+    let newId2= cardOrderArray[0];
+    let newId3= cardOrderArray[1];
+    let newId4= cardOrderArray[2];
     document.getElementById(newId2).src = newUncommon1;
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
@@ -1283,7 +1453,22 @@ function newPackNeoDiscovery(){
 
 function newPackNeoRevelation(){
     resetAll();
-    cardOrderArray.shuffle();
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9',
+            'randomCard10',
+            'randomCard11'];
+        }
     changePackArt2();
     currentSet = 10;
     if (packArt2 === 1) {
@@ -1309,7 +1494,7 @@ function newPackNeoRevelation(){
         let numOfRares = neoRevelationLinks[0].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = neoRevelationLinks[0][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[7];
         document.getElementById(newId1).src = newRare;
         //Chance of Shining Magikarp or Gyarados (compounds to 1:18 packs)
         let chanceOfShining = Math.floor(Math.random()*6);
@@ -1323,7 +1508,7 @@ function newPackNeoRevelation(){
         let numOfRares = neoRevelationLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = neoRevelationLinks[1][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[7];
         document.getElementById(newId1).src = newRare;
     }
     
@@ -1336,9 +1521,9 @@ function newPackNeoRevelation(){
     let newUncommon1 = neoRevelationLinks[2][randomUncommon1];
     let newUncommon2 = neoRevelationLinks[2][randomUncommon2];
     let newUncommon3 = neoRevelationLinks[2][randomUncommon3];
-    let newId2= cardOrderArray[1];
-    let newId3= cardOrderArray[2];
-    let newId4= cardOrderArray[3];
+    let newId2= cardOrderArray[8];
+    let newId3= cardOrderArray[9];
+    let newId4= cardOrderArray[10];
     document.getElementById(newId2).src = newUncommon1;
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
@@ -1371,13 +1556,13 @@ function newPackNeoRevelation(){
     let newCommon5 = neoRevelationLinks[3][randomCommon5];
     let newCommon6 = neoRevelationLinks[3][randomCommon6];
     let newCommon7 = neoRevelationLinks[3][randomCommon7];
-    let newId5 = cardOrderArray[4];
-    let newId6 = cardOrderArray[5];
-    let newId7 = cardOrderArray[6];
-    let newId8 = cardOrderArray[7];
-    let newId9 = cardOrderArray[8];
-    let newId10 = cardOrderArray[9];
-    let newId11 = cardOrderArray[10];
+    let newId5 = cardOrderArray[0];
+    let newId6 = cardOrderArray[1];
+    let newId7 = cardOrderArray[2];
+    let newId8 = cardOrderArray[3];
+    let newId9 = cardOrderArray[4];
+    let newId10 = cardOrderArray[5];
+    let newId11 = cardOrderArray[6];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
@@ -1401,7 +1586,22 @@ function newPackNeoRevelation(){
 
 function newPackNeoDestiny(){
     resetAll();
-    cardOrderArray.shuffle();
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9',
+            'randomCard10',
+            'randomCard11'];
+        }
     changePackArt2();
     currentSet = 11;
     if (packArt2 === 1) {
@@ -1427,7 +1627,7 @@ function newPackNeoDestiny(){
         let numOfRares = neoDestinyLinks[1].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = neoDestinyLinks[1][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[7];
         document.getElementById(newId1).src = newRare;
 
         //Chance of Shining Pokemon (compounds to 1:18 packs)
@@ -1436,7 +1636,7 @@ function newPackNeoDestiny(){
             let numOfShinies = neoDestinyLinks[0].length;
             let randomShiny = Math.floor(Math.random()*numOfShinies);
             let newShiny = neoDestinyLinks[0][randomShiny];
-            let newId1 = cardOrderArray[0];
+            let newId1 = cardOrderArray[7];
             document.getElementById(newId1).src = newShiny;
         }
 
@@ -1444,7 +1644,7 @@ function newPackNeoDestiny(){
         let numOfRares = neoDestinyLinks[2].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
         let newRare = neoDestinyLinks[2][randomRare];
-        let newId1 = cardOrderArray[0];
+        let newId1 = cardOrderArray[7];
         document.getElementById(newId1).src = newRare;
     }
 
@@ -1456,9 +1656,9 @@ function newPackNeoDestiny(){
     let newUncommon1 = neoDestinyLinks[3][randomUncommon1];
     let newUncommon2 = neoDestinyLinks[3][randomUncommon2];
     let newUncommon3 = neoDestinyLinks[3][randomUncommon3];
-    let newId2= cardOrderArray[1];
-    let newId3= cardOrderArray[2];
-    let newId4= cardOrderArray[3];
+    let newId2= cardOrderArray[8];
+    let newId3= cardOrderArray[9];
+    let newId4= cardOrderArray[10];
     document.getElementById(newId2).src = newUncommon1;
     document.getElementById(newId3).src = newUncommon2;
     document.getElementById(newId4).src = newUncommon3;
@@ -1491,13 +1691,13 @@ function newPackNeoDestiny(){
     let newCommon5 = neoDestinyLinks[4][randomCommon5];
     let newCommon6 = neoDestinyLinks[4][randomCommon6];
     let newCommon7 = neoDestinyLinks[4][randomCommon7];
-    let newId5 = cardOrderArray[4];
-    let newId6 = cardOrderArray[5];
-    let newId7 = cardOrderArray[6];
-    let newId8 = cardOrderArray[7];
-    let newId9 = cardOrderArray[8];
-    let newId10 = cardOrderArray[9];
-    let newId11 = cardOrderArray[10];
+    let newId5 = cardOrderArray[0];
+    let newId6 = cardOrderArray[1];
+    let newId7 = cardOrderArray[2];
+    let newId8 = cardOrderArray[3];
+    let newId9 = cardOrderArray[4];
+    let newId10 = cardOrderArray[5];
+    let newId11 = cardOrderArray[6];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;

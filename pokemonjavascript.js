@@ -1,78 +1,173 @@
 // Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
 // Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator
 
+
+//Sets variables for the flip all button to only affect unflipped cards
+let cardIsFlipped1 = 0
+let cardIsFlipped2 = 0
+let cardIsFlipped3 = 0
+let cardIsFlipped4 = 0
+let cardIsFlipped5 = 0
+let cardIsFlipped6 = 0
+let cardIsFlipped7 = 0
+let cardIsFlipped8 = 0
+let cardIsFlipped9 = 0
+let cardIsFlipped10 = 0
+let cardIsFlipped11 = 0
+
+//For flipping the booster pack image
 function flip0() {
     let element = document.getElementById('myDiv');
     element.classList.toggle("flipped");
 }
 
+//When card is clicked, its CSS flipping animation is triggered
+//The computer also logs that it has been flipped by changing thhe cardIsFlipped variable
 function flip1() {
     let element = document.getElementById('myDiv1');
     element.classList.toggle("flipped");
+    if (cardIsFlipped1 === 0){
+        ++cardIsFlipped1;
+    } else {
+        --cardIsFlipped1;
+    }
 }
 
 function flip2() {
     let element = document.getElementById('myDiv2');
     element.classList.toggle("flipped");
- }
+    if (cardIsFlipped2 === 0){
+        ++cardIsFlipped2;
+    } else {
+        --cardIsFlipped2;
+    }
+}
 
 function flip3() {
     let element = document.getElementById('myDiv3');
     element.classList.toggle("flipped");
- }
+    if (cardIsFlipped3 === 0){
+        ++cardIsFlipped3;
+    } else {
+        --cardIsFlipped3;
+    }
+}
 
 function flip4() {
     let element = document.getElementById('myDiv4');
     element.classList.toggle("flipped");
- }
+    if (cardIsFlipped4 === 0){
+        ++cardIsFlipped4;
+    } else {
+        --cardIsFlipped4;
+    }
+}
 
 function flip5() {
     let element = document.getElementById('myDiv5');
     element.classList.toggle("flipped");
- }
+    if (cardIsFlipped5 === 0){
+        ++cardIsFlipped5;
+    } else {
+        --cardIsFlipped5;
+    }
+}
 
  function flip6() {
     let element = document.getElementById('myDiv6');
     element.classList.toggle("flipped");
- }
+    if (cardIsFlipped6 === 0){
+        ++cardIsFlipped6;
+    } else {
+        --cardIsFlipped6;
+    }
+}
 
 function flip7() {
     let element = document.getElementById('myDiv7');
     element.classList.toggle("flipped");
- }
+    if (cardIsFlipped7 === 0){
+        ++cardIsFlipped7;
+    } else {
+        --cardIsFlipped7;
+    }
+}
 
 function flip8() {
     let element = document.getElementById('myDiv8');
     element.classList.toggle("flipped");
+    if (cardIsFlipped8 === 0){
+        ++cardIsFlipped8;
+    } else {
+        --cardIsFlipped8;
+    }
  }
 
 function flip9() {
     let element = document.getElementById('myDiv9');
     element.classList.toggle("flipped");
+    if (cardIsFlipped9 === 0){
+        ++cardIsFlipped9;
+    } else {
+        --cardIsFlipped9;
+    }
  }
 
 function flip10() {
     let element = document.getElementById('myDiv10');
     element.classList.toggle("flipped");
+    if (cardIsFlipped10 === 0){
+        ++cardIsFlipped10;
+    } else {
+        --cardIsFlipped10;
+    }
  }
 
 function flip11() {
     let element = document.getElementById('myDiv11');
     element.classList.toggle("flipped");
+    if (cardIsFlipped11 === 0){
+        ++cardIsFlipped11;
+    } else {
+        --cardIsFlipped11;
+    }
  }
 
+//Only flips cards if they haven't been flipped already
 function flipAll() {
-    flip1()
-    flip2()
-    flip3()
-    flip4()
-    flip5()
-    flip6()
-    flip7()
-    flip8()
-    flip9()
-    flip10()
-    flip11()
+    if (cardIsFlipped1 === 0) {
+        flip1();
+        }
+    if (cardIsFlipped2 === 0) {
+        flip2();
+        }
+    if (cardIsFlipped3 === 0) {
+        flip3();
+        }
+    if (cardIsFlipped4 === 0) {
+        flip4();
+        }
+    if (cardIsFlipped5 === 0) {
+        flip5();
+        }
+    if (cardIsFlipped6 === 0) {
+        flip6();
+        }
+    if (cardIsFlipped7 === 0) {
+        flip7();
+        }
+    if (cardIsFlipped8 === 0) {
+        flip8();
+        }
+    if (cardIsFlipped9 === 0) {
+        flip9();
+        }
+    if (cardIsFlipped10 === 0) {
+        flip10();
+        }
+    if (cardIsFlipped11 === 0) {
+        flip11();
+        }
 }
 
 function reset0() {
@@ -83,56 +178,67 @@ function reset0() {
 function reset1() {
     const element = document.getElementById('myDiv1');
     element.classList.remove("flipped");
+    cardIsFlipped1 = 0;
 }
 
 function reset2() {
     const element = document.getElementById('myDiv2');
     element.classList.remove("flipped");
+    cardIsFlipped2 = 0;
  }
 
 function reset3() {
     const element = document.getElementById('myDiv3');
     element.classList.remove("flipped");
+    cardIsFlipped3 = 0;
  }
 
 function reset4() {
     const element = document.getElementById('myDiv4');
     element.classList.remove("flipped");
+    cardIsFlipped4 = 0;
  }
 
 function reset5() {
     const element = document.getElementById('myDiv5');
     element.classList.remove("flipped");
+    cardIsFlipped5 = 0;
  }
 
- function reset6() {
+function reset6() {
     const element = document.getElementById('myDiv6');
     element.classList.remove("flipped");
+    cardIsFlipped6 = 0;
  }
 
 function reset7() {
     const element = document.getElementById('myDiv7');
     element.classList.remove("flipped");
+    cardIsFlipped7 = 0;
  }
 
 function reset8() {
     const element = document.getElementById('myDiv8');
     element.classList.remove("flipped");
+    cardIsFlipped8 = 0;
  }
 
 function reset9() {
     const element = document.getElementById('myDiv9');
     element.classList.remove("flipped");
+    cardIsFlipped9 = 0;
  }
 
 function reset10() {
     const element = document.getElementById('myDiv10');
     element.classList.remove("flipped");
+    cardIsFlipped10 = 0;
  }
 
 function reset11() {
     const element = document.getElementById('myDiv11');
     element.classList.remove("flipped");
+    cardIsFlipped11 = 0;
  }
 
 function resetAll() {
@@ -176,7 +282,7 @@ Array.prototype.shuffle = function() {
     return this;
 }
 
-//Enables random set button
+//Enables random pack button
 function randomPack() {
     let randomSet = Math.floor(Math.random()*10 + 1);
     switch(randomSet) {
@@ -309,8 +415,6 @@ function changePackArt2() {
 
 //All newPack functions
 function newPackBase() {
-    //Flips all cards over to starting position
-    resetAll();
     //Shuffles the IDs of cards if user chooses to shuffle; otherwise reverts to fixed order
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
@@ -449,7 +553,6 @@ function newPackBase() {
 }
 
 function newPackJungle(){
-    resetAll();
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -569,7 +672,6 @@ function newPackJungle(){
 }
 
 function newPackFossil(){
-    resetAll();
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -689,7 +791,6 @@ function newPackFossil(){
 }
 
 function newPackBase2(){
-    resetAll();
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -822,7 +923,6 @@ function newPackBase2(){
 }
 
 function newPackTeamRocket(){
-    resetAll();
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -947,7 +1047,6 @@ function newPackTeamRocket(){
 }
 
 function newPackGymHeroes(){
-    resetAll();
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -1074,7 +1173,6 @@ function newPackGymHeroes(){
 }
 
 function newPackGymChallenge(){
-    resetAll();
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -1201,7 +1299,6 @@ function newPackGymChallenge(){
 }
 
 function newPackNeoGenesis(){
-    resetAll();
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -1328,7 +1425,6 @@ function newPackNeoGenesis(){
 }
 
 function newPackNeoDiscovery(){
-    resetAll();
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -1452,7 +1548,6 @@ function newPackNeoDiscovery(){
 }
 
 function newPackNeoRevelation(){
-    resetAll();
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -1585,7 +1680,6 @@ function newPackNeoRevelation(){
 }
 
 function newPackNeoDestiny(){
-    resetAll();
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {

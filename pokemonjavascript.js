@@ -73,7 +73,7 @@ function flip5() {
     }
 }
 
- function flip6() {
+function flip6() {
     let element = document.getElementById('myDiv6');
     element.classList.toggle("flipped");
     if (cardIsFlipped6 === 0){
@@ -269,6 +269,15 @@ let cardOrderArray = [
 'randomCard10',
 'randomCard11'];
 
+let baseSetCommonsArray = [
+    'randomCard1', 
+    'randomCard2', 
+    'randomCard3', 
+    'randomCard4', 
+    'randomCard5', 
+    'randomCard6', 
+    'randomCard7']
+
 //Creates a method within the Array object to shuffle an array via the Fisher-Yates shuffle
 //Thanks to https://www.youtube.com/watch?v=tLxBwSL3lPQ&list=LLW-9kdTXKEKCyK43u9SqarQ&index=6&t=0s for explaining this so well
 Array.prototype.shuffle = function() {
@@ -359,6 +368,8 @@ function sameSet() {
     case 11:
         newPackNeoDestiny();
         break;
+    case 12:
+        newCharizard();
     }
 }
 
@@ -431,6 +442,8 @@ function newPackBase() {
             'randomCard9',
             'randomCard10',
             'randomCard11'];
+        //Randomizes order of the commons and energy (this is unique to this set, since other sets have fixed energy positions)
+        baseSetCommonsArray.shuffle();
         }
     //Prepares same set button
     currentSet = 1;
@@ -439,15 +452,15 @@ function newPackBase() {
     changePackArt();
     if (packArt === 1) {
         document.getElementById("boosterPackFront").src="1stcharizard.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="basesetback1.jpg";
     }
     if (packArt === 2) {
         document.getElementById("boosterPackFront").src="1stvenusaur.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="basesetback2.jpg";
     }
     if (packArt === 3) {
         document.getElementById("boosterPackFront").src="1stblastoise.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="basesetback3.jpg";
     }
     
     //Determines whether a holo or non-holo is pulled at a 33% chance
@@ -499,7 +512,7 @@ function newPackBase() {
         }
     }
 
-    //Same process, for 6 uncommons
+    //Same process, for 5 uncommons
     let numOfCommons = baseLinks[3].length;
     let randomCommon1 = Math.floor(Math.random()*numOfCommons);
     let randomCommon2 = Math.floor(Math.random()*numOfCommons);
@@ -511,16 +524,29 @@ function newPackBase() {
     let newCommon3 = baseLinks[3][randomCommon3];
     let newCommon4 = baseLinks[3][randomCommon4];
     let newCommon5 = baseLinks[3][randomCommon5];
-    let newId5 = cardOrderArray[0];
-    let newId6 = cardOrderArray[2];
-    let newId7 = cardOrderArray[4];
-    let newId8 = cardOrderArray[5];
-    let newId9 = cardOrderArray[6];
-    document.getElementById(newId5).src = newCommon1;
-    document.getElementById(newId6).src = newCommon2;
-    document.getElementById(newId7).src = newCommon3;
-    document.getElementById(newId8).src = newCommon4;
-    document.getElementById(newId9).src = newCommon5;
+    if (currentShuffle === 1) { 
+        let newId5 = cardOrderArray[0];
+        let newId6 = cardOrderArray[1];
+        let newId7 = cardOrderArray[2];
+        let newId8 = cardOrderArray[3];
+        let newId9 = cardOrderArray[4];
+        document.getElementById(newId5).src = newCommon1;
+        document.getElementById(newId6).src = newCommon2;
+        document.getElementById(newId7).src = newCommon3;
+        document.getElementById(newId8).src = newCommon4;
+        document.getElementById(newId9).src = newCommon5;
+    } else { 
+        let newId5 = baseSetCommonsArray[0];
+        let newId6 = baseSetCommonsArray[1];
+        let newId7 = baseSetCommonsArray[2];
+        let newId8 = baseSetCommonsArray[3];
+        let newId9 = baseSetCommonsArray[4]; 
+        document.getElementById(newId5).src = newCommon1;
+        document.getElementById(newId6).src = newCommon2;
+        document.getElementById(newId7).src = newCommon3;
+        document.getElementById(newId8).src = newCommon4;
+        document.getElementById(newId9).src = newCommon5;
+    }
 
     //Prevents duplicate commons
     let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5]
@@ -534,16 +560,23 @@ function newPackBase() {
         }
     }
 
-    //Energy choice
+    //Chooses 2 energy
     let numOfEnergy = baseLinks[4].length;
     let randomEnergy1 = Math.floor(Math.random()*numOfEnergy);
     let randomEnergy2 = Math.floor(Math.random()*numOfEnergy);
     let newEnergy1 = baseLinks[4][randomEnergy1];
     let newEnergy2 = baseLinks[4][randomEnergy2];
-    let newId10 = cardOrderArray[1];
-    let newId11 = cardOrderArray[3];
-    document.getElementById(newId10).src = newEnergy1;
-    document.getElementById(newId11).src = newEnergy2;
+    if (currentShuffle === 1) { 
+        let newId10 = cardOrderArray[5];
+        let newId11 = cardOrderArray[6]; 
+        document.getElementById(newId10).src = newEnergy1;
+        document.getElementById(newId11).src = newEnergy2;
+    } else {
+        let newId10 = baseSetCommonsArray[5];
+        let newId11 = baseSetCommonsArray[6];
+        document.getElementById(newId10).src = newEnergy1;
+        document.getElementById(newId11).src = newEnergy2;
+    }
 
     //Prevents duplicate energy
     if (newEnergy1 === newEnergy2) {
@@ -573,15 +606,15 @@ function newPackJungle(){
     currentSet = 2;
     if (packArt === 1) {
         document.getElementById("boosterPackFront").src="jungle1.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="jungleback.jpg";
     }
     if (packArt === 2) {
         document.getElementById("boosterPackFront").src="jungle2.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="jungleback.jpg";
     }
     if (packArt === 3) {
         document.getElementById("boosterPackFront").src="jungle3.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="jungleback.jpg";
     }
 
     //Rare distribution
@@ -692,15 +725,15 @@ function newPackFossil(){
     currentSet = 3;
     if (packArt === 1) {
         document.getElementById("boosterPackFront").src="fossil1.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="fossilback.jpg";
     }
     if (packArt === 2) {
         document.getElementById("boosterPackFront").src="fossil2.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="fossilback.jpg";
     }
     if (packArt === 3) {
         document.getElementById("boosterPackFront").src="fossil3.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="fossilback.jpg";
     }
 
     //Rare distribution
@@ -811,19 +844,19 @@ function newPackBase2(){
     currentSet = 4;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="baseset2_1.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="base2back1.jpg";
     }
     if (packArt2 === 2) {
         document.getElementById("boosterPackFront").src="baseset2_2.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="base2back2.jpg";
     }
     if (packArt2 === 3) {
         document.getElementById("boosterPackFront").src="baseset2_3.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="base2back3.jpg";
     }
     if (packArt2 === 4) {
         document.getElementById("boosterPackFront").src="baseset2_4.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="base2back4.jpg";
     }
 
     //Rare distribution
@@ -943,19 +976,19 @@ function newPackTeamRocket(){
     currentSet = 5;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="teamrocket1.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="teamrocketback.jpg";
     }
     if (packArt2 === 2) {
         document.getElementById("boosterPackFront").src="teamrocket2.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="teamrocketback.jpg";
     }
     if (packArt2 === 3) {
         document.getElementById("boosterPackFront").src="teamrocket3.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="teamrocketback.jpg";
     }
     if (packArt2 === 4) {
         document.getElementById("boosterPackFront").src="teamrocket4.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="teamrocketback.jpg";
     }
 
     //Rare distribution
@@ -1067,19 +1100,19 @@ function newPackGymHeroes(){
     currentSet = 6;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="gymheroes1.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="gymheroesback.jpg";
     }
     if (packArt2 === 2) {
         document.getElementById("boosterPackFront").src="gymheroes2.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="gymheroesback.jpg";
     }
     if (packArt2 === 3) {
         document.getElementById("boosterPackFront").src="gymheroes3.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="gymheroesback.jpg";
     }
     if (packArt2 === 4) {
         document.getElementById("boosterPackFront").src="gymheroes4.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="gymheroesback.jpg";
     }
 
     //Rare distribution
@@ -1193,19 +1226,19 @@ function newPackGymChallenge(){
     currentSet = 7;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="gymchallenge1.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="gymchallengeback.jpg";
     }
     if (packArt2 === 2) {
         document.getElementById("boosterPackFront").src="gymchallenge2.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="gymchallengeback.jpg";
     }
     if (packArt2 === 3) {
         document.getElementById("boosterPackFront").src="gymchallenge3.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="gymchallengeback.jpg";
     }
     if (packArt2 === 4) {
         document.getElementById("boosterPackFront").src="gymchallenge4.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="gymchallengeback.jpg";
     }
 
     //Rare distribution
@@ -1319,19 +1352,19 @@ function newPackNeoGenesis(){
     currentSet = 8;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="neogenesis1.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="neogenesisback1.jpg";
     }
     if (packArt2 === 2) {
         document.getElementById("boosterPackFront").src="neogenesis2.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="neogenesisback2.jpg";
     }
     if (packArt2 === 3) {
         document.getElementById("boosterPackFront").src="neogenesis3.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="neogenesisback1.jpg";
     }
     if (packArt2 === 4) {
         document.getElementById("boosterPackFront").src="neogenesis4.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="neogenesisback2.jpg";
     }
 
     //Rare distribution
@@ -1445,15 +1478,15 @@ function newPackNeoDiscovery(){
     currentSet = 9;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="neodiscovery1.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="neodiscoveryback.jpg";
     }
     if (packArt2 === 2) {
         document.getElementById("boosterPackFront").src="neodiscovery2.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="neodiscoveryback.jpg";
     }
     if (packArt2 === 3) {
         document.getElementById("boosterPackFront").src="neodiscovery3.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="neodiscoveryback.jpg";
     }
     if (packArt2 === 4) {
         document.getElementById("boosterPackFront").src="neodiscovery4.jpg";
@@ -1568,19 +1601,19 @@ function newPackNeoRevelation(){
     currentSet = 10;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="neorevelation1.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="neorevelationback.jpg";
     }
     if (packArt2 === 2) {
         document.getElementById("boosterPackFront").src="neorevelation2.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="neorevelationback.jpg";
     }
     if (packArt2 === 3) {
         document.getElementById("boosterPackFront").src="neorevelation3.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="neorevelationback.jpg";
     }
     if (packArt2 === 4) {
         document.getElementById("boosterPackFront").src="neorevelation4.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="neorevelationback.jpg";
     }
 
     //Rare distribution
@@ -1700,19 +1733,19 @@ function newPackNeoDestiny(){
     currentSet = 11;
     if (packArt2 === 1) {
         document.getElementById("boosterPackFront").src="neodestiny1.jpg";
-        document.getElementById("boosterPackBack").src="neodestinyback.jpg";
+        document.getElementById("boosterPackBack").src="neodestinyback1.jpg";
     }
     if (packArt2 === 2) {
         document.getElementById("boosterPackFront").src="neodestiny2.jpg";
-        document.getElementById("boosterPackBack").src="neodestinyback.jpg";
+        document.getElementById("boosterPackBack").src="neodestinyback2.jpg";
     }
     if (packArt2 === 3) {
         document.getElementById("boosterPackFront").src="neodestiny3.jpg";
-        document.getElementById("boosterPackBack").src="neodestinyback.jpg";
+        document.getElementById("boosterPackBack").src="neodestinyback3.jpg";
     }
     if (packArt2 === 4) {
         document.getElementById("boosterPackFront").src="neodestiny4.jpg";
-        document.getElementById("boosterPackBack").src="neodestinyback.jpg";
+        document.getElementById("boosterPackBack").src="neodestinyback2.jpg";
     }
 
     //Rare distribution
@@ -1811,6 +1844,107 @@ function newPackNeoDestiny(){
             }
         }
     }
+}
+
+//Easter egg! Well, more like Charizard egg
+function easterEgg() {
+    //Changes site logo
+    document.getElementById("logo").src = "charizardlogo.png"
+    //Changes logo id so that it can't be clicked again
+    document.getElementById("logo").id = "newLogo";
+
+    //Adds Charizard pack button at the top 
+    var charizardButton = document.createElement("button");
+    var buttonText = document.createTextNode("CLICK FOR CHARIZARD");
+    charizardButton.appendChild(buttonText);
+    document.body.appendChild(charizardButton);
+    span = document.getElementById("charizardButtonLocation");
+    span.appendChild(charizardButton);
+
+    //Adds newCharizard function to button just created
+    charizardButton.setAttribute("onclick", "resetAll();setTimeout(newCharizard, 501)");
+    charizardButton.id="charizardButton"
+
+    //Changes pack art to base set Charizard
+    document.getElementById("boosterPackFront").src="1stcharizard.jpg";
+    document.getElementById("boosterPackBack").src="basesetback.jpg";
+}
+
+function newCharizard() {
+    currentSet = 12;
+    //Picks 11 Charizards OR all base set Charizard
+    let randomNumber = Math.floor(Math.random()*2);
+    if (randomNumber === 1) {
+        document.getElementById('randomCard1').src = 'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg';
+        document.getElementById('randomCard2').src = 'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg';
+        document.getElementById('randomCard3').src = 'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg';
+        document.getElementById('randomCard4').src = 'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg';
+        document.getElementById('randomCard5').src = 'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg';
+        document.getElementById('randomCard6').src = 'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg';
+        document.getElementById('randomCard7').src = 'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg';
+        document.getElementById('randomCard8').src = 'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg';
+        document.getElementById('randomCard9').src = 'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg';
+        document.getElementById('randomCard10').src = 'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg';
+        document.getElementById('randomCard11').src = 'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg';
+    } else {
+        let numOfCharizards = onlyCharizards.length;
+        let randomCharizard1 = Math.floor(Math.random()*numOfCharizards);
+        let randomCharizard2 = Math.floor(Math.random()*numOfCharizards);
+        let randomCharizard3 = Math.floor(Math.random()*numOfCharizards);
+        let randomCharizard4 = Math.floor(Math.random()*numOfCharizards);
+        let randomCharizard5 = Math.floor(Math.random()*numOfCharizards);
+        let randomCharizard6 = Math.floor(Math.random()*numOfCharizards);
+        let randomCharizard7 = Math.floor(Math.random()*numOfCharizards);
+        let randomCharizard8 = Math.floor(Math.random()*numOfCharizards);
+        let randomCharizard9 = Math.floor(Math.random()*numOfCharizards);
+        let randomCharizard10 = Math.floor(Math.random()*numOfCharizards);
+        let randomCharizard11 = Math.floor(Math.random()*numOfCharizards);
+        let newCharizard1 = onlyCharizards[randomCharizard1];
+        let newCharizard2 = onlyCharizards[randomCharizard2];
+        let newCharizard3 = onlyCharizards[randomCharizard3];
+        let newCharizard4 = onlyCharizards[randomCharizard4];
+        let newCharizard5 = onlyCharizards[randomCharizard5];
+        let newCharizard6 = onlyCharizards[randomCharizard6];
+        let newCharizard7 = onlyCharizards[randomCharizard7];
+        let newCharizard8 = onlyCharizards[randomCharizard8];
+        let newCharizard9 = onlyCharizards[randomCharizard9];
+        let newCharizard10 = onlyCharizards[randomCharizard10];
+        let newCharizard11 = onlyCharizards[randomCharizard11];
+        let newId1 = cardOrderArray[0];
+        let newId2 = cardOrderArray[1];
+        let newId3 = cardOrderArray[2];
+        let newId4 = cardOrderArray[3];
+        let newId5 = cardOrderArray[4];
+        let newId6 = cardOrderArray[5];
+        let newId7 = cardOrderArray[6];
+        let newId8 = cardOrderArray[7];
+        let newId9 = cardOrderArray[8];
+        let newId10 = cardOrderArray[9];
+        let newId11 = cardOrderArray[10];
+        document.getElementById(newId1).src = newCharizard1;
+        document.getElementById(newId2).src = newCharizard2;
+        document.getElementById(newId3).src = newCharizard3;
+        document.getElementById(newId4).src = newCharizard4;
+        document.getElementById(newId5).src = newCharizard5;
+        document.getElementById(newId6).src = newCharizard6;
+        document.getElementById(newId7).src = newCharizard7;
+        document.getElementById(newId8).src = newCharizard8;
+        document.getElementById(newId9).src = newCharizard9;
+        document.getElementById(newId10).src = newCharizard10;
+        document.getElementById(newId11).src = newCharizard11;
+    
+        //Prevents duplicate Charizards
+        let currentCharizards = [newCharizard1, newCharizard2, newCharizard3, newCharizard4, newCharizard5, newCharizard6, newCharizard7, newCharizard8, newCharizard9, newCharizard10, newCharizard11]
+        for (let i = 0; i < 11; i++) {
+            let j = 1 + i
+                for (j; j < currentCharizards.length; j++) {
+                    if (currentCharizards[i] === currentCharizards[j]) {
+                        onlyCharizards();
+                        return;
+                }
+            }
+        }
+    }    
 }
 
 //Arrays of all card sets
@@ -3022,6 +3156,60 @@ const neoDestinyLinks = [
     'https://pkmncards.com/wp-content/uploads/dratini-neo-destiny-63.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-octillery-neo-destiny-62.jpg',
     'https://pkmncards.com/wp-content/uploads/cyndaquil-neo-destiny-61.jpg'],
+
+]
+
+const onlyCharizards = [
+
+    'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-base-set-2-b2-4.jpg',
+    'https://pkmncards.com/wp-content/uploads/shining-charizard-neo-destiny-107.jpg',
+    'https://pkmncards.com/wp-content/uploads/dark-charizard-team-rocket-tr-4.jpg',
+    'https://pkmncards.com/wp-content/uploads/dark-charizard-team-rocket-tr-21.jpg',
+    'https://pkmncards.com/wp-content/uploads/blaines-charizard-gym-challenge-2.jpg',
+    'https://pkmncards.com/wp-content/uploads/158-sun-moon-promos-charizard.png',
+    'https://pkmncards.com/wp-content/uploads/014-team-up-charizard.png',
+    'https://pkmncards.com/wp-content/uploads/p09-box-topper-charizard.jpg',
+    'https://pkmncards.com/wp-content/uploads/003-dragon-majesty-charizard.jpg',
+    'https://pkmncards.com/wp-content/uploads/060-sun-moon-promos-charizard-gx.png',
+    'https://pkmncards.com/wp-content/uploads/charizard-gx-burning-shadows-bus-150.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-gx-burning-shadows-bus-20.jpg',
+    'https://pkmncards.com/wp-content/uploads/m-charizard-ex-evolutions-evo-101.jpg',
+    'https://pkmncards.com/wp-content/uploads/m-charizard-ex-evolutions-evo-13.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-ex-evolutions-evo-12.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-evolutions-evo-11.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-ex-xy-promos-xy121.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-generations-RC5.jpg',
+    'https://pkmncards.com/wp-content/uploads/m-charizard-ex-generations-12.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-ex-generations-11.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-ex-xy-promos-xy29.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-ex-xy-promos-xy17-ptcgo-1.png',
+    'https://pkmncards.com/wp-content/uploads/m-charizard-ex-flashfire-flf-108-ptcgo-1.png',
+    'https://pkmncards.com/wp-content/uploads/m-charizard-ex-flashfire-flf-107-ptcgo-1.png',
+    'https://pkmncards.com/wp-content/uploads/charizard-ex-flashfire-flf-100-ptcgo-1.png',
+    'https://pkmncards.com/wp-content/uploads/m-charizard-ex-flashfire-flf-69-ptcgo-1.png',
+    'https://pkmncards.com/wp-content/uploads/m-charizard-ex-flashfire-flf-13-ptcgo-1.png',
+    'https://pkmncards.com/wp-content/uploads/charizard-ex-flashfire-flf-12-ptcgo-1.png',
+    'https://pkmncards.com/wp-content/uploads/charizard-ex-flashfire-flf-11-ptcgo-1.png',
+    'https://pkmncards.com/wp-content/uploads/charizard-legendary-treasures-ltr-19-ptcgo-1.png',
+    'https://pkmncards.com/wp-content/uploads/charizard-plasma-storm-pls-136-ptcgo-1.png',
+    'https://pkmncards.com/wp-content/uploads/charizard-boundaries-crossed-bcr-20-ptcgo-1.png',
+    'https://pkmncards.com/wp-content/uploads/charizard-g-lv.x-diamond-pearl-promos-dp45.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-arceus-ar-1.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-g-lv.x-supreme-victors-sv-143.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-g-supreme-victors-sv-20.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-stormfront-sf-103.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-secret-wonders-sw-3.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-power-keepers-pk-6.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-star-dragon-frontiers-df-100.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-delta-crystal-guardians-cg-4.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-ex-firered-leafgreen-rg-105.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-dragon-dr-100.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-skyridge-sk-146.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-expedition-ex-40.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-expedition-ex-39.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-expedition-ex-6.jpg',
+    'https://pkmncards.com/wp-content/uploads/charizard-legendary-collection-lc-3.jpg'
 
 ]
 

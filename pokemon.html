@@ -22,19 +22,39 @@
 </head>
 <body onload="newPackBase()">
     <div id="topBar">
-        <div class="topBarLeft">
-            [version 2.0] 
+        
+        <div class = "topBarLeft">
+            [version 3.0] 
         </div>
-        <div class="topBarRight">
+
+        <button id = "resetButton" class = "topBarMiddle" onclick="resetCounts()">reset</button>
+        <span class = "topBarMiddle" id = "counter"></span>
+        <span class = "topBarMiddle" id = "packsOpened"> | packs opened: 0 | </span>
+        <span id = "surpriseButtonLocation"></span>  
+        <span class = "topBarMiddle" id = "countdown">countdown: 100 |</span>
+
+        <div class ="topBarRight">
             [<a href="mobile.html">mobile</a>]
         </div> 
+      
     </div> 
 
-    <img id = "logo" src = "logo3.png"> <!--Thanks to https://textcraft.net/style/Textcraft/pokemon-->
-    <br>
+    <img id = "logo" src = "logo.png"> <!--Thanks to https://textcraft.net/style/Textcraft/pokemon-->
+    
+    <br>   
 
-<span id="charizardButtonLocation"> 
-</span>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+    
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="modalImg">
+    
+</div>
+
+<span id = "charizardButtonLocation"></span>
 
 <div class = "row">
 
@@ -76,6 +96,7 @@
         </div>
         <div class = "back1">
             <img id="randomCard1" src="cardback.jpg" height="455"></a>
+        
         </div>
     </div>
 
@@ -263,7 +284,7 @@
 <button id="button6" onclick="resetAll();setTimeout(randomPack, 501)">RANDOM PACK</button>
 <div class="dropup">
     <button id="button7">CHOOSE SET</button>
-    <div class="dropdown-content">
+    <div class="dropup-content">
         <a href="#" onclick="resetAll();setTimeout(newPackBase, 501)">base set</a>
         <a href="#" onclick="resetAll();setTimeout(newPackJungle, 501)">jungle</a>
         <a href="#" onclick="resetAll();setTimeout(newPackFossil, 501)">fossil</a>
@@ -294,8 +315,7 @@
 
 <div id="bottomBar">
     programming and design by justin keena (code available at <a href = "https://github.com/jwkeena?tab=repositories">github</a>), 
-    card images from <a href = "https://www.pkmncards.com">pkmncards</a>, 
-    most booster pack images from <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_Trading_Card_Game_expansions"> bulbapedia</a>. looking for <a onclick = "easterEgg()" href="#bottomBar">charizard?</a>
+    card images from <a href = "https://www.pkmncards.com">pkmncards</a>
 </div>  
 
 <!--linking Javascript-->

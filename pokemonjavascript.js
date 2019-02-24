@@ -22,116 +22,297 @@ function flip0() {
 }
 
 //When card is clicked, its CSS flipping animation is triggered
-//The computer also logs that it has been flipped by changing thhe cardIsFlipped variable
+//The computer also logs that it has been flipped by changing the cardIsFlipped variable
+//cardIsFlipped 0 = unfllipped card; cardIsFlipped 1 = flipped card (waiting for modal), 2 = card being reflipped
 function flip1() {
     let element = document.getElementById('myDiv1');
-    element.classList.toggle("flipped");
     if (cardIsFlipped1 === 0){
+        element.classList.toggle("flipped");
         ++cardIsFlipped1;
-    } else {
-        --cardIsFlipped1;
+        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
+            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
+            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+                decreaseCountdown();
+                increasePacksOpened();
+                return;
+            }
+        return;
+    } 
+    if (cardIsFlipped1 === 1) {
+        ++cardIsFlipped1;
+
+        return;
+    } 
+    if (cardIsFlipped1 === 2) {
+        element.classList.toggle("flipped");
+        cardIsFlipped1 = 0;
+        return;
     }
 }
 
 function flip2() {
     let element = document.getElementById('myDiv2');
-    element.classList.toggle("flipped");
     if (cardIsFlipped2 === 0){
+        element.classList.toggle("flipped");
         ++cardIsFlipped2;
-    } else {
-        --cardIsFlipped2;
+        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
+            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
+            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+                decreaseCountdown();
+                increasePacksOpened();
+                return;
+            }
+        return;
+    } 
+    if (cardIsFlipped2 === 1) {
+        ++cardIsFlipped2;
+
+        return;
+    } 
+    if (cardIsFlipped2 === 2) {
+        element.classList.toggle("flipped");
+        cardIsFlipped2 = 0;
+        return;
     }
 }
 
 function flip3() {
     let element = document.getElementById('myDiv3');
-    element.classList.toggle("flipped");
     if (cardIsFlipped3 === 0){
+        element.classList.toggle("flipped");
         ++cardIsFlipped3;
-    } else {
-        --cardIsFlipped3;
+        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
+            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
+            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+                decreaseCountdown();
+                increasePacksOpened();
+                return;
+            }
+        return;
+    } 
+    if (cardIsFlipped3 === 1) {
+        ++cardIsFlipped3;
+        return;
+    } 
+    if (cardIsFlipped3 === 2) {
+        element.classList.toggle("flipped");
+        cardIsFlipped3 = 0;
+        return;
     }
 }
 
 function flip4() {
     let element = document.getElementById('myDiv4');
-    element.classList.toggle("flipped");
     if (cardIsFlipped4 === 0){
+        element.classList.toggle("flipped");
         ++cardIsFlipped4;
-    } else {
-        --cardIsFlipped4;
+        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
+            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
+            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+                decreaseCountdown();
+                increasePacksOpened();
+                return;
+            }
+        return;
+    } 
+    if (cardIsFlipped4 === 1) {
+        ++cardIsFlipped4;
+        return;
+    } 
+    if (cardIsFlipped4 === 2) {
+        element.classList.toggle("flipped");
+        cardIsFlipped4 = 0;
+        return;
     }
 }
 
 function flip5() {
     let element = document.getElementById('myDiv5');
-    element.classList.toggle("flipped");
     if (cardIsFlipped5 === 0){
+        element.classList.toggle("flipped");
         ++cardIsFlipped5;
-    } else {
-        --cardIsFlipped5;
+        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
+            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
+            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+                decreaseCountdown();
+                increasePacksOpened();
+                return;
+            }
+        return;
+    } 
+    if (cardIsFlipped5 === 1) {
+        ++cardIsFlipped5;
+        return;
+    } 
+    if (cardIsFlipped5 === 2) {
+        element.classList.toggle("flipped");
+        cardIsFlipped5 = 0;
+        return;
     }
 }
 
 function flip6() {
     let element = document.getElementById('myDiv6');
-    element.classList.toggle("flipped");
     if (cardIsFlipped6 === 0){
+        element.classList.toggle("flipped");
         ++cardIsFlipped6;
-    } else {
-        --cardIsFlipped6;
+        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
+            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
+            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+                decreaseCountdown();
+                increasePacksOpened();
+                return;
+            }
+        return;
+    } 
+    if (cardIsFlipped6 === 1) {
+        ++cardIsFlipped6;
+        return;
+    } 
+    if (cardIsFlipped6 === 2) {
+        element.classList.toggle("flipped");
+        cardIsFlipped6 = 0;
+        return;
     }
 }
 
 function flip7() {
     let element = document.getElementById('myDiv7');
-    element.classList.toggle("flipped");
     if (cardIsFlipped7 === 0){
+        element.classList.toggle("flipped");
         ++cardIsFlipped7;
-    } else {
-        --cardIsFlipped7;
+        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
+            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
+            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+                decreaseCountdown();
+                increasePacksOpened();
+                return;
+            }
+        return;
+    } 
+    if (cardIsFlipped7 === 1) {
+        ++cardIsFlipped7;
+        return;
+    } 
+    if (cardIsFlipped7 === 2) {
+        element.classList.toggle("flipped");
+        cardIsFlipped7 = 0;
+        return;
     }
 }
 
 function flip8() {
     let element = document.getElementById('myDiv8');
-    element.classList.toggle("flipped");
     if (cardIsFlipped8 === 0){
+        element.classList.toggle("flipped");
         ++cardIsFlipped8;
-    } else {
-        --cardIsFlipped8;
+        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
+            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
+            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+                decreaseCountdown();
+                increasePacksOpened();
+                return;
+            }
+        return;
+    } 
+    if (cardIsFlipped8 === 1) {
+        ++cardIsFlipped8;
+        return;
+    } 
+    if (cardIsFlipped8 === 2) {
+        element.classList.toggle("flipped");
+        cardIsFlipped8 = 0;
+        return;
     }
- }
+}
 
 function flip9() {
     let element = document.getElementById('myDiv9');
-    element.classList.toggle("flipped");
     if (cardIsFlipped9 === 0){
+        element.classList.toggle("flipped");
         ++cardIsFlipped9;
-    } else {
-        --cardIsFlipped9;
-    }
- }
+        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
+            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
+            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+                decreaseCountdown();
+                increasePacksOpened();
+                return;
+            }
+        return;
+    } 
+    if (cardIsFlipped9 === 1) {
+        ++cardIsFlipped9;
+        return;
+    } 
+    if (cardIsFlipped9 === 2) {
+        element.classList.toggle("flipped");
+        cardIsFlipped9 = 0;
+        return;
+    }   
+}
 
 function flip10() {
     let element = document.getElementById('myDiv10');
-    element.classList.toggle("flipped");
     if (cardIsFlipped10 === 0){
+        element.classList.toggle("flipped");
         ++cardIsFlipped10;
-    } else {
-        --cardIsFlipped10;
+        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
+            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
+            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+                decreaseCountdown();
+                increasePacksOpened();
+                return;
+            }
+        return;
+    } 
+    if (cardIsFlipped10 === 1) {
+        ++cardIsFlipped10;
+        return;
+    } 
+    if (cardIsFlipped10 === 2) {
+        element.classList.toggle("flipped");
+        cardIsFlipped10 = 0;
+        return;
     }
- }
+
+}
 
 function flip11() {
     let element = document.getElementById('myDiv11');
-    element.classList.toggle("flipped");
     if (cardIsFlipped11 === 0){
+        element.classList.toggle("flipped");
         ++cardIsFlipped11;
-    } else {
-        --cardIsFlipped11;
+        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
+            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
+            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+                decreaseCountdown();
+                increasePacksOpened();
+                return;
+            }
+        return;
+    } 
+    if (cardIsFlipped11 === 1) {
+        ++cardIsFlipped11;
+        return;
+    } 
+    if (cardIsFlipped11 === 2) {
+        element.classList.toggle("flipped");
+        cardIsFlipped11 = 0;
+        return;
     }
- }
+
+}
 
 //Only flips cards if they haven't been flipped already
 function flipAll() {
@@ -168,6 +349,118 @@ function flipAll() {
     if (cardIsFlipped11 === 0) {
         flip11();
         }
+    if (foundCharizard === 1) {
+        flip0();
+        }
+}
+
+//Sets up image choices for for modal window
+var modal = document.getElementById("myModal");
+var modalImg = document.getElementById("modalImg");
+var img1 = document.getElementById("randomCard1");
+var img2 = document.getElementById("randomCard2");
+var img3 = document.getElementById("randomCard3");
+var img4 = document.getElementById("randomCard4");
+var img5 = document.getElementById("randomCard5");
+var img6 = document.getElementById("randomCard6");
+var img7 = document.getElementById("randomCard7");
+var img8 = document.getElementById("randomCard8");
+var img9 = document.getElementById("randomCard9");
+var img10 = document.getElementById("randomCard10");
+var img11 = document.getElementById("randomCard11");
+
+img1.onclick = function () {
+    if (cardIsFlipped1 === 1) {
+    modal.style.display="block";
+    modalImg.src = this.src;
+    return;
+    }
+}
+
+img2.onclick = function () {
+if (cardIsFlipped2 === 1) {
+    modal.style.display="block";
+    modalImg.src = this.src;
+    return;
+    }
+}
+
+img3.onclick = function () {
+if (cardIsFlipped3 === 1) {
+    modal.style.display="block";
+    modalImg.src = this.src;
+    return;
+    }
+}
+
+img4.onclick = function () {
+if (cardIsFlipped4 === 1) {
+    modal.style.display="block";
+    modalImg.src = this.src;
+    return;
+    }
+}
+
+img5.onclick = function () {
+if (cardIsFlipped5 === 1) {
+    modal.style.display="block";
+    modalImg.src = this.src;
+    return;
+    }
+}
+
+img6.onclick = function () {
+if (cardIsFlipped6 === 1) {
+    modal.style.display="block";
+    modalImg.src = this.src;
+    return;
+    }
+}
+
+img7.onclick = function () {
+if (cardIsFlipped7 === 1) {
+    modal.style.display="block";
+    modalImg.src = this.src;
+    return;
+    }
+}
+
+img8.onclick = function () {
+if (cardIsFlipped8 === 1) {
+    modal.style.display="block";
+    modalImg.src = this.src;
+    return;
+    }
+}
+
+img9.onclick = function () {
+if (cardIsFlipped9 === 1) {
+    modal.style.display="block";
+    modalImg.src = this.src;
+    return;
+    }
+}
+
+img10.onclick = function () {
+if (cardIsFlipped10 === 1) {
+    modal.style.display="block";
+    modalImg.src = this.src;
+    return;
+    }
+}
+
+img11.onclick = function () {
+if (cardIsFlipped11 === 1) {
+    modal.style.display="block";
+    modalImg.src = this.src;
+    return;
+    }
+}
+
+//Closes modal
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function () {
+    modal.style.display = "none";
 }
 
 function reset0() {
@@ -185,61 +478,61 @@ function reset2() {
     const element = document.getElementById('myDiv2');
     element.classList.remove("flipped");
     cardIsFlipped2 = 0;
- }
+}
 
 function reset3() {
     const element = document.getElementById('myDiv3');
     element.classList.remove("flipped");
     cardIsFlipped3 = 0;
- }
+}
 
 function reset4() {
     const element = document.getElementById('myDiv4');
     element.classList.remove("flipped");
     cardIsFlipped4 = 0;
- }
+}
 
 function reset5() {
     const element = document.getElementById('myDiv5');
     element.classList.remove("flipped");
     cardIsFlipped5 = 0;
- }
+}
 
 function reset6() {
     const element = document.getElementById('myDiv6');
     element.classList.remove("flipped");
     cardIsFlipped6 = 0;
- }
+}
 
 function reset7() {
     const element = document.getElementById('myDiv7');
     element.classList.remove("flipped");
     cardIsFlipped7 = 0;
- }
+}
 
 function reset8() {
     const element = document.getElementById('myDiv8');
     element.classList.remove("flipped");
     cardIsFlipped8 = 0;
- }
+}
 
 function reset9() {
     const element = document.getElementById('myDiv9');
     element.classList.remove("flipped");
     cardIsFlipped9 = 0;
- }
+}
 
 function reset10() {
     const element = document.getElementById('myDiv10');
     element.classList.remove("flipped");
     cardIsFlipped10 = 0;
- }
+}
 
 function reset11() {
     const element = document.getElementById('myDiv11');
     element.classList.remove("flipped");
     cardIsFlipped11 = 0;
- }
+}
 
 function resetAll() {
     reset0();
@@ -369,7 +662,7 @@ function sameSet() {
         newPackNeoDestiny();
         break;
     case 12:
-        newCharizard();
+        universalCharizards();
     }
 }
 
@@ -426,6 +719,12 @@ function changePackArt2() {
 
 //All newPack functions
 function newPackBase() {
+    //Increases pack counter
+    increaseCounter();
+
+    //Ensures that the flip all button won't flip the pack art
+    foundCharizard = 0;
+    
     //Shuffles the IDs of cards if user chooses to shuffle; otherwise reverts to fixed order
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
@@ -506,6 +805,7 @@ function newPackBase() {
         let j = 1 + i
             for (j; j < currentUncommons.length; j++) {
                 if (currentUncommons[i] === currentUncommons[j]) {
+                    --counter;
                     newPackBase();
                     return;
             }
@@ -554,6 +854,7 @@ function newPackBase() {
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
                     newPackBase();
                     return;
             }
@@ -580,12 +881,15 @@ function newPackBase() {
 
     //Prevents duplicate energy
     if (newEnergy1 === newEnergy2) {
+        --counter;
         newPackBase();
         return;
     }
 }
 
 function newPackJungle(){
+    increaseCounter();
+    foundCharizard = 0
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -654,6 +958,7 @@ function newPackJungle(){
         let j = 1 + i
             for (j; j < currentUncommons.length; j++) {
                 if (currentUncommons[i] === currentUncommons[j]) {
+                    --counter;
                     newPackJungle();
                     return;
             }
@@ -697,6 +1002,7 @@ function newPackJungle(){
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
                     newPackJungle();
                     return;
             }
@@ -705,6 +1011,8 @@ function newPackJungle(){
 }
 
 function newPackFossil(){
+    increaseCounter();
+    foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -773,6 +1081,7 @@ function newPackFossil(){
         let j = 1 + i
             for (j; j < currentUncommons.length; j++) {
                 if (currentUncommons[i] === currentUncommons[j]) {
+                    --counter;
                     newPackFossil();
                     return;
             }
@@ -816,6 +1125,7 @@ function newPackFossil(){
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
                     newPackFossil();
                     return;
             }
@@ -824,6 +1134,8 @@ function newPackFossil(){
 }
 
 function newPackBase2(){
+    increaseCounter();
+    foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -896,6 +1208,7 @@ function newPackBase2(){
         let j = 1 + i
             for (j; j < currentUncommons.length; j++) {
                 if (currentUncommons[i] === currentUncommons[j]) {
+                    --counter;
                     newPackBase2();
                     return;
             }
@@ -931,6 +1244,7 @@ function newPackBase2(){
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
                     newPackBase2();
                     return;
             }
@@ -950,12 +1264,15 @@ function newPackBase2(){
 
     //Prevents duplicate energy
     if (newEnergy1 === newEnergy2) {
+        --counter;
         newPackBase2();
         return;
     }
 }
 
 function newPackTeamRocket(){
+    increaseCounter();
+    foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -1033,6 +1350,7 @@ function newPackTeamRocket(){
         let j = 1 + i
             for (j; j < currentUncommons.length; j++) {
                 if (currentUncommons[i] === currentUncommons[j]) {
+                    --counter;
                     newPackTeamRocket();
                     return;
             }
@@ -1072,6 +1390,7 @@ function newPackTeamRocket(){
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
                     newPackTeamRocket();
                     return;
             }
@@ -1080,6 +1399,8 @@ function newPackTeamRocket(){
 }
 
 function newPackGymHeroes(){
+    increaseCounter();
+    foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -1152,6 +1473,7 @@ function newPackGymHeroes(){
         let j = 1 + i
             for (j; j < currentUncommons.length; j++) {
                 if (currentUncommons[i] === currentUncommons[j]) {
+                    --counter;
                     newPackGymHeroes();
                     return;
             }
@@ -1191,6 +1513,7 @@ function newPackGymHeroes(){
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
                     newPackGymHeroes();
                     return;
             }
@@ -1206,6 +1529,8 @@ function newPackGymHeroes(){
 }
 
 function newPackGymChallenge(){
+    increaseCounter();
+    foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -1278,6 +1603,7 @@ function newPackGymChallenge(){
         let j = 1 + i
             for (j; j < currentUncommons.length; j++) {
                 if (currentUncommons[i] === currentUncommons[j]) {
+                    --counter;
                     newPackGymChallenge();
                     return;
             }
@@ -1317,6 +1643,7 @@ function newPackGymChallenge(){
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
                     newPackGymChallenge();
                     return;
             }
@@ -1332,6 +1659,8 @@ function newPackGymChallenge(){
 }
 
 function newPackNeoGenesis(){
+    increaseCounter();
+    foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -1404,6 +1733,7 @@ function newPackNeoGenesis(){
         let j = 1 + i
             for (j; j < currentUncommons.length; j++) {
                 if (currentUncommons[i] === currentUncommons[j]) {
+                    --counter;
                     newPackNeoGenesis();
                     return;
             }
@@ -1443,6 +1773,7 @@ function newPackNeoGenesis(){
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
                     newPackNeoGenesis();
                     return;
             }
@@ -1458,6 +1789,8 @@ function newPackNeoGenesis(){
 }
 
 function newPackNeoDiscovery(){
+    increaseCounter();
+    foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -1530,6 +1863,7 @@ function newPackNeoDiscovery(){
             let j = 1 + i
                 for (j; j < currentUncommons.length; j++) {
                     if (currentUncommons[i] === currentUncommons[j]) {
+                        --counter;
                         newPackNeoDiscovery();
                         return;
                 }
@@ -1573,6 +1907,7 @@ function newPackNeoDiscovery(){
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
                     newPackNeoDiscovery();
                     return;
             }
@@ -1581,6 +1916,8 @@ function newPackNeoDiscovery(){
 }
 
 function newPackNeoRevelation(){
+    increaseCounter();
+    foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -1617,7 +1954,7 @@ function newPackNeoRevelation(){
     }
 
     //Rare distribution
-     let chanceOfHolo = Math.floor(Math.random()*3);
+    let chanceOfHolo = Math.floor(Math.random()*3);
     if (chanceOfHolo === 1) {
         let numOfRares = neoRevelationLinks[0].length;
         let randomRare = Math.floor(Math.random()*numOfRares);
@@ -1662,6 +1999,7 @@ function newPackNeoRevelation(){
         let j = 1 + i
             for (j; j < currentUncommons.length; j++) {
                 if (currentUncommons[i] === currentUncommons[j]) {
+                    --counter;
                     newPackNeoRevelation();
                     return;
             }
@@ -1705,6 +2043,7 @@ function newPackNeoRevelation(){
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
                     newPackNeoRevelation();
                     return;
             }
@@ -1713,6 +2052,8 @@ function newPackNeoRevelation(){
 }
 
 function newPackNeoDestiny(){
+    increaseCounter();
+    foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
     } else {
@@ -1741,11 +2082,11 @@ function newPackNeoDestiny(){
     }
     if (packArt2 === 3) {
         document.getElementById("boosterPackFront").src="neodestiny3.jpg";
-        document.getElementById("boosterPackBack").src="neodestinyback3.jpg";
+        document.getElementById("boosterPackBack").src="neodestinyback2.jpg";
     }
     if (packArt2 === 4) {
         document.getElementById("boosterPackFront").src="neodestiny4.jpg";
-        document.getElementById("boosterPackBack").src="neodestinyback2.jpg";
+        document.getElementById("boosterPackBack").src="neodestinyback4.jpg";
     }
 
     //Rare distribution
@@ -1796,6 +2137,7 @@ function newPackNeoDestiny(){
         let j = 1 + i
             for (j; j < currentUncommons.length; j++) {
                 if (currentUncommons[i] === currentUncommons[j]) {
+                    --counter;
                     newPackNeoDestiny();
                     return;
             }
@@ -1839,6 +2181,7 @@ function newPackNeoDestiny(){
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
                     newPackNeoDestiny();
                     return;
             }
@@ -1846,32 +2189,109 @@ function newPackNeoDestiny(){
     }
 }
 
-//Easter egg! Well, more like Charizard egg
-function easterEgg() {
-    //Changes site logo
-    document.getElementById("logo").src = "charizardlogo.png"
-    //Changes logo id so that it can't be clicked again
-    document.getElementById("logo").id = "newLogo";
+let counter = 0;
+let packsOpened = 0;
+let countdown = 100;
 
-    //Adds Charizard pack button at the top 
-    var charizardButton = document.createElement("button");
-    var buttonText = document.createTextNode("CLICK FOR CHARIZARD");
-    charizardButton.appendChild(buttonText);
-    document.body.appendChild(charizardButton);
-    span = document.getElementById("charizardButtonLocation");
-    span.appendChild(charizardButton);
+function resetCounts() {
 
-    //Adds newCharizard function to button just created
-    charizardButton.setAttribute("onclick", "resetAll();setTimeout(newCharizard, 501)");
-    charizardButton.id="charizardButton"
+    foundCharizard = 0;
 
-    //Changes pack art to base set Charizard
-    document.getElementById("boosterPackFront").src="1stcharizard.jpg";
-    document.getElementById("boosterPackBack").src="basesetback.jpg";
+    counter = 0;
+    var element1 = document.getElementById("counter");
+    element1.innerHTML = "| packs generated: " + counter;
+
+    packsOpened = 0;
+    var element2 = document.getElementById("packsOpened");
+    element2.innerHTML = " | packs opened: " + packsOpened + " | ";
+
+    countdown = 100;
+    var element3 = document.getElementById("countdown");
+    element3.innerHTML = "countdown: " + countdown + " |";
+
+    if (counter === 0) {
+        var surpriseButton = document.getElementById("surpriseButton");
+        surpriseButton.parentNode.removeChild(surpriseButton)
+    } else {
+        return;
+    }
+
+    document.getElementById("logo").src = "logo.png";
 }
 
-function newCharizard() {
+function increaseCounter() {
+    ++counter;
+    var element = document.getElementById("counter");
+    element.innerHTML = "| packs generated: " + counter;
+}
+
+function increasePacksOpened() {
+    ++packsOpened;
+    var element = document.getElementById("packsOpened");
+    element.innerHTML = " | packs opened: " + packsOpened + " | ";
+}
+
+function decreaseCountdown(){
+    --countdown;
+    var element = document.getElementById("countdown");
+    if (countdown === 0) {
+        var surpriseButton = document.createElement("button");
+        var buttonText = document.createTextNode("reward");
+        surpriseButton.appendChild(buttonText);
+        document.body.appendChild(surpriseButton);
+        span = document.getElementById("surpriseButtonLocation");
+        span.appendChild(surpriseButton);
+
+        //Adds easterEgg function to button just created
+        surpriseButton.setAttribute("onclick", "easterEgg();");
+        surpriseButton.id="surpriseButton";
+
+        //Deletes countdown
+        element.innerHTML = ""
+
+        return;
+    } 
+    if (countdown < 0 ) {
+        element.innerHTML = ""
+        return;
+    }
+    if (countdown > 0 ) {
+        element.innerHTML = "countdown: " + countdown + " |"
+        return;
+    }
+}
+
+let foundCharizard = 0;
+
+//Easter egg! Well, more like Charizard egg
+function easterEgg() {
+
+    //Changes site logo
+    document.getElementById("logo").src = "charizardlogo.png"
+
+    //Changes pack art to a base holo Charizard
+    var front = document.getElementById("boosterPackFront");
+    var back = document.getElementById("boosterPackBack");
+    //var surpriseButton = document.getElementById("surpriseButton");
+
+    if (counter >= 10) {
+        front.src = "cardback.jpg";
+        back.src = "https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg";
+        // surpriseButton.parentNode.removeChild(surpriseButton)
+    } else {
+        return;
+    }
+   
+    resetAll();
+    setTimeout(universalCharizards, 501);
+}
+
+function universalCharizards() {
+    increaseCounter();
     currentSet = 12;
+    foundCharizard = 0;
+    ++foundCharizard;
+
     //Picks 11 Charizards OR all base set Charizard
     let randomNumber = Math.floor(Math.random()*2);
     if (randomNumber === 1) {
@@ -1939,7 +2359,8 @@ function newCharizard() {
             let j = 1 + i
                 for (j; j < currentCharizards.length; j++) {
                     if (currentCharizards[i] === currentCharizards[j]) {
-                        onlyCharizards();
+                        --counter;
+                        universalCharizards();
                         return;
                 }
             }

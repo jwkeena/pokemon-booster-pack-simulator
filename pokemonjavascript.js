@@ -458,10 +458,17 @@ if (cardIsFlipped11 === 1) {
     }
 }
 
-//Closes modal
+//Closes modal if x is clicked
 var span = document.getElementsByClassName("close")[0];
 span.onclick = function () {
     modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 
 function reset0() {
@@ -2238,6 +2245,7 @@ function newPackNeoDestiny(){
 let counter = 0;
 let packsOpened = 0;
 let countdown = 100;
+let charizardCount = 0;
 
 function resetCounts() {
 
@@ -2256,6 +2264,10 @@ function resetCounts() {
     countdown = 100;
     var element3 = document.getElementById("countdown");
     element3.innerHTML = "countdown: " + countdown + " |";
+
+    charizardCount = 0;
+    var element4 = document.getElementById("charizardCounter");
+    element.innerHTML = "";
 
     if (counter === 0) {
         var rewardButton = document.getElementById("rewardButton");
@@ -2298,17 +2310,19 @@ function decreaseCountdown(){
 
         //Deletes countdown
         element.innerHTML = ""
-
-        return;
     } 
     if (countdown < 0 ) {
         element.innerHTML = ""
-        return;
     }
     if (countdown > 0 ) {
         element.innerHTML = "countdown: " + countdown + " |"
-        return;
     }
+}
+
+function increaseCharizardCount() {
+    charizardCount = charizardCount + 12;
+    element = document.getElementById("charizardCounter");
+    element.innerHTML = "charizards generated: " + charizardCount + " |";
 }
 
 let foundCharizard = 0;
@@ -2334,6 +2348,7 @@ function easterEgg() {
 
 function universalCharizards() {
     increaseCounter();
+    increaseCharizardCount();
     document.getElementById("logo").src = "charizardlogo.png";
     currentSet = 12;
     foundCharizard = 1;

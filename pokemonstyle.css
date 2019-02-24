@@ -85,7 +85,7 @@ a:visited, a:link, a:active, a:hover {
 }
 
 /* Add Animation - Zoom in the Modal */
-.modal-content { 
+.modal-content, #caption { 
     animation-name: zoom;
     animation-duration: 0.6s;
 }
@@ -148,8 +148,7 @@ to {transform:scale(1)}
     transform: rotateY( 180deg );
 }
 
-.pack, .card1, .card2, .card3, .card4, .card5, .card6, 
-.card7, .card8, .card9, .card10, .card11, .card12 {
+.pack, .card1, .card2, .card3, .card4, .card5, .card6, .card7, .card8, .card9, .card10, .card11, .card12 {
     display: inline-block; /*puts all cards in a row. Idea from https://codepen.io/roppazvan/pen/EZVLEy*/
     padding-left: 0px; /* prevents cards from being stacked on top of each other*/
     padding-right: 325px; /*same*/
@@ -167,8 +166,7 @@ to {transform:scale(1)}
     transform-origin: 50% 50%;
 }
 
-.pack div, .card1 div, .card2 div, .card3 div, .card4 div, .card5 div, 
-.card6 div, .card7 div, .card8 div, .card9 div, .card10 div, .card11 div {
+.pack div, .card1 div, .card2 div, .card3 div, .card4 div, .card5 div, .card6 div, .card7 div, .card8 div, .card9 div, .card10 div, .card11 div {
     position: absolute; /* This keeps the front behind the back*/
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;

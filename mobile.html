@@ -9,259 +9,83 @@
     
         <!--Share Buttons
         <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5c67578c7056550011c4a3c0&product='inline-share-buttons' async='async'></script>
-     -->
+        -->
         <title>Pokemon Booster Pack Simulator</title>
     </head>
     <body onload="newPackBase()">
-        <div id="topBar">
-            [version 2.0] 
-        </div> 
     
-        <img src = "logo3.png"> <!--Thanks to https://textcraft.net/style/Textcraft/pokemon-->
-        <br>
+    
+    <div id = "topBar">
+        <button id = "resetButton" class = "topBarMiddle" onclick="resetCounts()">reset</button>
+        <span class = "topBarMiddle" id = "counter"></span>
+        <span class = "topBarMiddle" id = "packsOpened"> | packs opened: 0 | </span>
+        <span id = "rewardButtonLocation"></span>  
+        <span class = "topBarMiddle" id = "countdown">countdown: 100 |</span>
+    </div>
+    
+    <img src = "logo.png"> <!--Thanks to https://textcraft.net/style/Textcraft/pokemon-->
+    <br>
+        
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+    
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="modalImg">
+    
+    </div>
+    
+    <span id = "charizardButtonLocation"></span>
     
     <div class = "row">
     
-        <button id="button1" onclick="resetAll();setTimeout(randomPack, 1001)">RANDOM PACK</button>
+     <button id="button1" onclick="resetAll();setTimeout(randomPack, 501)">RANDOM PACK</button>
         <div class="dropdown">
             <button id="button2">CHOOSE SET</button>
             <div class="dropdown-content">
-                <a href="#" onclick="resetAll();setTimeout(newPackBase, 1001)">base set</a>
-                <a href="#" onclick="resetAll();setTimeout(newPackJungle, 1001)">jungle</a>
-                <a href="#" onclick="resetAll();setTimeout(newPackFossil, 1001)">fossil</a>
-                <a href="#" onclick="resetAll();setTimeout(newPackBase2, 1001)">base set 2</a>
-                <a href="#" onclick="resetAll();setTimeout(newPackTeamRocket, 1001)">team rocket</a>
-                <a href="#" onclick="resetAll();setTimeout(newPackGymHeroes, 1001)">gym heroes</a>
-                <a href="#" onclick="resetAll();setTimeout(newPackGymChallenge, 1001)">gym challenge</a>
-                <a href="#" onclick="resetAll();setTimeout(newPackNeoGenesis, 1001)">neo genesis</a>
-                <a href="#" onclick="resetAll();setTimeout(newPackNeoDiscovery, 1001)">neo discovery</a>
-                <a href="#" onclick="resetAll();setTimeout(newPackNeoRevelation, 1001)">neo revelation</a>
-                <a href="#" onclick="resetAll();setTimeout(newPackNeoDestiny, 1001)">neo destiny</a>
+                <a href="#" onclick="resetAll();setTimeout(newPackBase, 501)">base set</a>
+                <a href="#" onclick="resetAll();setTimeout(newPackJungle, 501)">jungle</a>
+                <a href="#" onclick="resetAll();setTimeout(newPackFossil, 501)">fossil</a>
+                <a href="#" onclick="resetAll();setTimeout(newPackBase2, 501)">base set 2</a>
+                <a href="#" onclick="resetAll();setTimeout(newPackTeamRocket, 501)">team rocket</a>
+                <a href="#" onclick="resetAll();setTimeout(newPackGymHeroes, 501)">gym heroes</a>
+                <a href="#" onclick="resetAll();setTimeout(newPackGymChallenge, 501)">gym challenge</a>
+                <a href="#" onclick="resetAll();setTimeout(newPackNeoGenesis, 501)">neo genesis</a>
+                <a href="#" onclick="resetAll();setTimeout(newPackNeoDiscovery, 501)">neo discovery</a>
+                <a href="#" onclick="resetAll();setTimeout(newPackNeoRevelation, 501)">neo revelation</a>
+                <a href="#" onclick="resetAll();setTimeout(newPackNeoDestiny, 501)">neo destiny</a>
             </div>
         </div>
-        <br>
-        <button id="button3" onclick="resetAll();setTimeout(sameSet, 1001)">SAME SET</button>
+    
+    <br>
+    
+        <button id="button3" onclick="resetAll();setTimeout(sameSet, 501)">SAME SET</button>
         <button id="button4" onclick="flipAll()">FLIP ALL</button>
-
-        <br>
-        
+    
+    <br>
+    
         <button id="button5" onclick="toggleShuffle()">SHUFFLE (OFF)</button>
-
-        <br>
     
-        <div id = "myDiv" class = "pack" onclick="flip0()">
-            <div class = "front">
-                <img id = "boosterPackFront" src="1stcharizard.jpg"></a>
-            </div>
-            <div class = "back">
-                <img id = "boosterPackBack" src="basesetback.jpg">
-            </div>
+    <br>
+    
+    <div id = "myDiv" class = "pack" onclick="flip0()">
+        <div class = "front">
+            <img id = "boosterPackFront" src="1stcharizard.jpg"></a>
         </div>
-    
-        <div id = "myDiv1" class = "card1" onclick="flip1()">
-            <div class = "front1">
-                <img src="cardback.jpg" height="455"></a>
-            </div>
-            <div class = "back1">
-                <img id="randomCard1" src="cardback.jpg" height="455"></a>
-            </div>
+        <div class = "back">
+            <img id = "boosterPackBack" src="basesetback1.jpg">
         </div>
+    </div>
     
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    
-        <div id = "myDiv2" class = "card2" onclick="flip2()">
-            <div class = "front2">
-                <img src="cardback.jpg" height="455"></a>
-            </div>
-            <div class = "back2">
-                <img id="randomCard2" src="cardback.jpg" height="455"></a>
-            </div>
-        </div> 
-    
-        <div id = "myDiv3" class = "card3" onclick="flip3()">
-            <div class = "front3">
-                <img src="cardback.jpg" height="455"></a>
-            </div>
-            <div class = "back3">
-                <img id="randomCard3" src="cardback.jpg" height="455"></a>
-            </div>
-        </div> 
-    
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    
-        <div id = "myDiv4" class = "card4" onclick="flip4()">
-            <div class = "front4">
-                <img src="cardback.jpg" height="455"></a>
-            </div>
-            <div class = "back4">
-                <img id="randomCard4" src="cardback.jpg" height="455"></a>
-            </div>
-        </div> 
-    
-        <div id = "myDiv5" class = "card5" onclick="flip5()">
-            <div class = "front5">
-                <img src="cardback.jpg" height="455"></a>
-            </div>
-            <div class = "back5">
-                <img id="randomCard5" src="cardback.jpg" height="455"></a>
-            </div>
+    <div id = "myDiv1" class = "card1" onclick="flip1()">
+        <div class = "front1">
+            <img src="cardback.jpg" height="455"></a>
         </div>
-    
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    
-        <div id = "myDiv6" class = "card6" onclick="flip6()">
-            <div class = "front6">
-                <img src="cardback.jpg" height="455"></a>
-            </div>
-            <div class = "back6">
-                <img id="randomCard6" src="cardback.jpg" height="455"></a>
-            </div>
+        <div class = "back1">
+            <img id="randomCard1" src="cardback.jpg" height="455"></a>
         </div>
-    
-        <div id = "myDiv7" class = "card7" onclick="flip7()">
-            <div class = "front7">
-                <img src="cardback.jpg" height="455"></a>
-            </div>
-            <div class = "back7">
-                <img id="randomCard7" src="cardback.jpg" height="455"></a>
-            </div>
-        </div>
-    
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    
-        <div id = "myDiv8" class = "card8" onclick="flip8()">
-            <div class = "front8">
-                <img src="cardback.jpg" height="455"></a>
-            </div>
-            <div class = "back8">
-                <img id="randomCard8" src="cardback.jpg" height="455"></a>
-            </div>
-        </div>
-    
-        <div id = "myDiv9" class = "card9" onclick="flip9()">
-            <div class = "front9">
-                <img src="cardback.jpg" height="455"></a>
-            </div>
-            <div class = "back9">
-                <img id="randomCard9" src="cardback.jpg" height="455"></a>
-            </div>
-        </div>
-    
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    
-        <div id = "myDiv10" class = "card10" onclick="flip10()">
-            <div class = "front10">
-                <img src="cardback.jpg" height="455"></a>
-            </div>
-            <div class = "back10">
-                <img id="randomCard10" src="cardback.jpg" height="455"></a>
-            </div>
-        </div>
-    
-        <div id = "myDiv11" class = "card11" onclick="flip11()">
-            <div class = "front11">
-                <img src="cardback.jpg" height="455"></a>
-            </div>
-            <div class = "back11">
-                <img id="randomCard11" src="cardback.jpg" height="455"></a>
-            </div>
-        </div>
-        
     </div>
     
     <br>
@@ -285,27 +109,224 @@
     <br>
     <br>
     
-    <button id="button6" onclick="resetAll();setTimeout(randomPack, 1001)">RANDOM PACK</button>
+    <div id = "myDiv2" class = "card2" onclick="flip2()">
+        <div class = "front2">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back2">
+            <img id="randomCard2" src="cardback.jpg" height="455"></a>
+        </div>
+    </div> 
+    
+    <div id = "myDiv3" class = "card3" onclick="flip3()">
+        <div class = "front3">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back3">
+            <img id="randomCard3" src="cardback.jpg" height="455"></a>
+        </div>
+    </div> 
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div id = "myDiv4" class = "card4" onclick="flip4()">
+        <div class = "front4">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back4">
+            <img id="randomCard4" src="cardback.jpg" height="455"></a>
+        </div>
+    </div> 
+    
+    <div id = "myDiv5" class = "card5" onclick="flip5()">
+        <div class = "front5">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back5">
+            <img id="randomCard5" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div id = "myDiv6" class = "card6" onclick="flip6()">
+        <div class = "front6">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back6">
+            <img id="randomCard6" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+    
+    <div id = "myDiv7" class = "card7" onclick="flip7()">
+        <div class = "front7">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back7">
+            <img id="randomCard7" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div id = "myDiv8" class = "card8" onclick="flip8()">
+        <div class = "front8">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back8">
+            <img id="randomCard8" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+    
+    <div id = "myDiv9" class = "card9" onclick="flip9()">
+        <div class = "front9">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back9">
+            <img id="randomCard9" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div id = "myDiv10" class = "card10" onclick="flip10()">
+        <div class = "front10">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back10">
+            <img id="randomCard10" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+    
+    <div id = "myDiv11" class = "card11" onclick="flip11()">
+        <div class = "front11">
+            <img src="cardback.jpg" height="455"></a>
+        </div>
+        <div class = "back11">
+            <img id="randomCard11" src="cardback.jpg" height="455"></a>
+        </div>
+    </div>
+    
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <button id="button6" onclick="resetAll();setTimeout(randomPack, 501)">RANDOM PACK</button>
     <div class="dropup">
         <button id="button7">CHOOSE SET</button>
-        <div class="dropdown-content">
-            <a href="#" onclick="resetAll();setTimeout(newPackBase, 1001)">base set</a>
-            <a href="#" onclick="resetAll();setTimeout(newPackJungle, 1001)">jungle</a>
-            <a href="#" onclick="resetAll();setTimeout(newPackFossil, 1001)">fossil</a>
-            <a href="#" onclick="resetAll();setTimeout(newPackBase2, 1001)">base set 2</a>
-            <a href="#" onclick="resetAll();setTimeout(newPackTeamRocket, 1001)">team rocket</a>
-            <a href="#" onclick="resetAll();setTimeout(newPackGymHeroes, 1001)">gym heroes</a>
-            <a href="#" onclick="resetAll();setTimeout(newPackGymChallenge, 1001)">gym challenge</a>
-            <a href="#" onclick="resetAll();setTimeout(newPackNeoGenesis, 1001)">neo genesis</a>
-            <a href="#" onclick="resetAll();setTimeout(newPackNeoDiscovery, 1001)">neo discovery</a>
-            <a href="#" onclick="resetAll();setTimeout(newPackNeoRevelation, 1001)">neo revelation</a>
-            <a href="#" onclick="resetAll();setTimeout(newPackNeoDestiny, 1001)">neo destiny</a>
+        <div class="dropup-content">
+            <a href="#" onclick="resetAll();setTimeout(newPackBase, 501)">base set</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackJungle, 501)">jungle</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackFossil, 501)">fossil</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackBase2, 501)">base set 2</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackTeamRocket, 501)">team rocket</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackGymHeroes, 501)">gym heroes</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackGymChallenge, 501)">gym challenge</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackNeoGenesis, 501)">neo genesis</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackNeoDiscovery, 501)">neo discovery</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackNeoRevelation, 501)">neo revelation</a>
+            <a href="#" onclick="resetAll();setTimeout(newPackNeoDestiny, 501)">neo destiny</a>
         </div>
     </div>
     
     <br>
     
-    <button id="button8" onclick="resetAll();setTimeout(sameSet, 1001)">SAME SET</button>
+    <button id="button8" onclick="resetAll();setTimeout(sameSet, 501)">SAME SET</button>
     <button id="button9" onclick="flipAll()">FLIP ALL</button>
     
     <br>
@@ -314,18 +335,16 @@
     
     <br>
     <br>
-<!-- 
+    <!-- 
     <script type="text/javascript" src="//counter.websiteout.net/js/13/0/0/1"></script>    
     <br>
     <br>
--->
+    -->
     
     <div id="bottomBar">
-        programming and design by justin keena (code available at <a href = "https://github.com/jwkeena?tab=repositories">github</a>), 
-        <br>
-        card images from <a href = "https://www.pkmncards.com">pkmncards</a>, 
-        <br>
-        most booster pack images from <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_Trading_Card_Game_expansions"> bulbapedia</a>
+    programming and design by justin keena (code available at <a href = "https://github.com/jwkeena?tab=repositories">github</a>), 
+    <br>
+    card images from <a href = "https://www.pkmncards.com">pkmncards</a>
     </div>  
     
     <!--linking Javascript-->

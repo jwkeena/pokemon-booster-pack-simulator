@@ -24,6 +24,7 @@ function flip0() {
 //When card is clicked, its CSS flipping animation is triggered
 //The computer also logs that it has been flipped by changing the cardIsFlipped variable
 //cardIsFlipped 0 = unfllipped card; cardIsFlipped 1 = flipped card (waiting for modal), 2 = card being reflipped
+//Checks if all cards have been flipped, and then affects the counter and countdown accordingly
 function flip1() {
     let element = document.getElementById('myDiv1');
     if (cardIsFlipped1 === 0){
@@ -586,7 +587,11 @@ Array.prototype.shuffle = function() {
 
 //Enables random pack button
 function randomPack() {
-    let randomSet = Math.floor(Math.random()*10 + 1);
+    if (foundCharizard === 1) {
+        randomSet = Math.floor(Math.random()*12 + 1);
+    } else {
+        randomSet = Math.floor(Math.random()*11 + 1);
+    }
     switch(randomSet) {
         case 1:
             newPackBase();
@@ -620,6 +625,9 @@ function randomPack() {
             break;
         case 11:
             newPackNeoDestiny();
+            break;
+        case 12:
+            universalCharizards();
             break;
     }
 }
@@ -663,6 +671,7 @@ function sameSet() {
         break;
     case 12:
         universalCharizards();
+        break;
     }
 }
 
@@ -719,8 +728,14 @@ function changePackArt2() {
 
 //All newPack functions
 function newPackBase() {
+
     //Increases pack counter
     increaseCounter();
+
+    //Changes logo art back to normal when non-Charizard packs are opened
+    if (foundCharizard === 1) {
+        document.getElementById("logo").src = "logo.png";
+    }
 
     //Ensures that the flip all button won't flip the pack art
     foundCharizard = 0;
@@ -744,6 +759,7 @@ function newPackBase() {
         //Randomizes order of the commons and energy (this is unique to this set, since other sets have fixed energy positions)
         baseSetCommonsArray.shuffle();
         }
+
     //Prepares same set button
     currentSet = 1;
     
@@ -889,6 +905,9 @@ function newPackBase() {
 
 function newPackJungle(){
     increaseCounter();
+    if (foundCharizard === 1) {
+        document.getElementById("logo").src = "logo.png";
+    }
     foundCharizard = 0
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
@@ -1012,6 +1031,9 @@ function newPackJungle(){
 
 function newPackFossil(){
     increaseCounter();
+    if (foundCharizard === 1) {
+        document.getElementById("logo").src = "logo.png";
+    }
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
@@ -1135,6 +1157,9 @@ function newPackFossil(){
 
 function newPackBase2(){
     increaseCounter();
+    if (foundCharizard === 1) {
+        document.getElementById("logo").src = "logo.png";
+    }
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
@@ -1272,6 +1297,9 @@ function newPackBase2(){
 
 function newPackTeamRocket(){
     increaseCounter();
+    if (foundCharizard === 1) {
+        document.getElementById("logo").src = "logo.png";
+    }
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
@@ -1400,6 +1428,9 @@ function newPackTeamRocket(){
 
 function newPackGymHeroes(){
     increaseCounter();
+    if (foundCharizard === 1) {
+        document.getElementById("logo").src = "logo.png";
+    }
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
@@ -1530,6 +1561,9 @@ function newPackGymHeroes(){
 
 function newPackGymChallenge(){
     increaseCounter();
+    if (foundCharizard === 1) {
+        document.getElementById("logo").src = "logo.png";
+    }
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
@@ -1660,6 +1694,9 @@ function newPackGymChallenge(){
 
 function newPackNeoGenesis(){
     increaseCounter();
+    if (foundCharizard === 1) {
+        document.getElementById("logo").src = "logo.png";
+    }
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
@@ -1790,6 +1827,9 @@ function newPackNeoGenesis(){
 
 function newPackNeoDiscovery(){
     increaseCounter();
+    if (foundCharizard === 1) {
+        document.getElementById("logo").src = "logo.png";
+    }
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
@@ -1823,7 +1863,7 @@ function newPackNeoDiscovery(){
     }
     if (packArt2 === 4) {
         document.getElementById("boosterPackFront").src="neodiscovery4.jpg";
-        document.getElementById("boosterPackBack").src="basesetback.jpg";
+        document.getElementById("boosterPackBack").src="neodiscoveryback.jpg";
     }
 
     //Rare distribution
@@ -1917,6 +1957,9 @@ function newPackNeoDiscovery(){
 
 function newPackNeoRevelation(){
     increaseCounter();
+    if (foundCharizard === 1) {
+        document.getElementById("logo").src = "logo.png";
+    }
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
@@ -2053,6 +2096,9 @@ function newPackNeoRevelation(){
 
 function newPackNeoDestiny(){
     increaseCounter();
+    if (foundCharizard === 1) {
+        document.getElementById("logo").src = "logo.png";
+    }
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
@@ -2197,6 +2243,8 @@ function resetCounts() {
 
     foundCharizard = 0;
 
+    currentSet = 1;
+
     counter = 0;
     var element1 = document.getElementById("counter");
     element1.innerHTML = "| packs generated: " + counter;
@@ -2210,13 +2258,15 @@ function resetCounts() {
     element3.innerHTML = "countdown: " + countdown + " |";
 
     if (counter === 0) {
-        var surpriseButton = document.getElementById("surpriseButton");
-        surpriseButton.parentNode.removeChild(surpriseButton)
-    } else {
-        return;
+        var rewardButton = document.getElementById("rewardButton");
+        rewardButton.parentNode.removeChild(rewardButton)
     }
 
     document.getElementById("logo").src = "logo.png";
+
+    resetAll();
+    setTimeout(newPackBase, 501);
+
 }
 
 function increaseCounter() {
@@ -2235,16 +2285,16 @@ function decreaseCountdown(){
     --countdown;
     var element = document.getElementById("countdown");
     if (countdown === 0) {
-        var surpriseButton = document.createElement("button");
+        var rewardButton = document.createElement("button");
         var buttonText = document.createTextNode("reward");
-        surpriseButton.appendChild(buttonText);
-        document.body.appendChild(surpriseButton);
-        span = document.getElementById("surpriseButtonLocation");
-        span.appendChild(surpriseButton);
+        rewardButton.appendChild(buttonText);
+        document.body.appendChild(rewardButton);
+        span = document.getElementById("rewardButtonLocation");
+        span.appendChild(rewardButton);
 
         //Adds easterEgg function to button just created
-        surpriseButton.setAttribute("onclick", "easterEgg();");
-        surpriseButton.id="surpriseButton";
+        rewardButton.setAttribute("onclick", "easterEgg();");
+        rewardButton.id="rewardButton";
 
         //Deletes countdown
         element.innerHTML = ""
@@ -2268,29 +2318,25 @@ function easterEgg() {
 
     //Changes site logo
     document.getElementById("logo").src = "charizardlogo.png"
-
-    //Changes pack art to a base holo Charizard
     var front = document.getElementById("boosterPackFront");
     var back = document.getElementById("boosterPackBack");
-    //var surpriseButton = document.getElementById("surpriseButton");
-
-    if (counter >= 10) {
-        front.src = "cardback.jpg";
-        back.src = "https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg";
-        // surpriseButton.parentNode.removeChild(surpriseButton)
-    } else {
-        return;
-    }
+    front.src = "cardback.jpg";
+    back.src = "https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg";
+    
+    //Deletes reward button
+    // var rewardButton = document.getElementById("rewardButton");
+    // rewardButton.parentNode.removeChild(rewardButton)
    
     resetAll();
     setTimeout(universalCharizards, 501);
+
 }
 
 function universalCharizards() {
     increaseCounter();
+    document.getElementById("logo").src = "charizardlogo.png";
     currentSet = 12;
-    foundCharizard = 0;
-    ++foundCharizard;
+    foundCharizard = 1;
 
     //Picks 11 Charizards OR all base set Charizard
     let randomNumber = Math.floor(Math.random()*2);
@@ -3582,7 +3628,7 @@ const neoDestinyLinks = [
 
 const onlyCharizards = [
 
-    'https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg',
+    //Missing base set Charizard since I always give it in first position
     'https://pkmncards.com/wp-content/uploads/charizard-base-set-2-b2-4.jpg',
     'https://pkmncards.com/wp-content/uploads/shining-charizard-neo-destiny-107.jpg',
     'https://pkmncards.com/wp-content/uploads/dark-charizard-team-rocket-tr-4.jpg',

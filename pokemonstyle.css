@@ -49,7 +49,7 @@ body {
     padding: 10px 42px 10px 42px;
 }
 
-#surpriseButton, #resetButton {
+#rewardButton, #resetButton {
     background:yellow;
     display: inline-block;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

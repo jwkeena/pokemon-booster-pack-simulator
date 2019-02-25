@@ -29,14 +29,26 @@ body {
     color: yellow;
 }
 
-.about {
-    margin-left: 400px;
-    width: 600px;
+.boxed {
+    display: inline-block;
+    width: 700px;
     word-wrap: break-word;
     text-align: left;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
+    background-color: blue;
+    border: 15px solid yellow;
+    padding: 15px;
 }
+
+#paypal, .title {
+    text-align: center;
+}
+
+hr {
+    border-color: yellow;
+}
+
 
 #button1, #button2, #button3, #button4, #button5, 
 #button6, #button7, #button8, #button9, #button10 {

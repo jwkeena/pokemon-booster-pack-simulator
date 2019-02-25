@@ -1,24 +1,36 @@
 // Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
 // Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator
 
+function swap() {
+    element = document.getElementById("logo");
+    element.classList.toggle("closed");
+
+}
 
 //Sets variables for the flip all button to only affect unflipped cards
-let cardIsFlipped1 = 0
-let cardIsFlipped2 = 0
-let cardIsFlipped3 = 0
-let cardIsFlipped4 = 0
-let cardIsFlipped5 = 0
-let cardIsFlipped6 = 0
-let cardIsFlipped7 = 0
-let cardIsFlipped8 = 0
-let cardIsFlipped9 = 0
-let cardIsFlipped10 = 0
-let cardIsFlipped11 = 0
+let cardIsFlipped0 = 0;
+let cardIsFlipped1 = 0;
+let cardIsFlipped2 = 0;
+let cardIsFlipped3 = 0;
+let cardIsFlipped4 = 0;
+let cardIsFlipped5 = 0;
+let cardIsFlipped6 = 0;
+let cardIsFlipped7 = 0;
+let cardIsFlipped8 = 0;
+let cardIsFlipped9 = 0;
+let cardIsFlipped10 = 0;
+let cardIsFlipped11 = 0;
 
 //For flipping the booster pack image
 function flip0() {
     let element = document.getElementById('myDiv');
-    element.classList.toggle("flipped");
+    if (cardIsFlipped0 === 0) {
+        element.classList.toggle("flipped");
+        ++cardIsFlipped0;
+    } else {
+        element.classList.toggle("flipped");
+        cardIsFlipped0 = 1;
+    }
 }
 
 //When card is clicked, its CSS flipping animation is triggered
@@ -42,7 +54,6 @@ function flip1() {
     } 
     if (cardIsFlipped1 === 1) {
         ++cardIsFlipped1;
-
         return;
     } 
     if (cardIsFlipped1 === 2) {
@@ -317,6 +328,9 @@ function flip11() {
 
 //Only flips cards if they haven't been flipped already
 function flipAll() {
+    if (cardIsFlipped0 === 0 && foundCharizard === 1) {
+        flip0();
+        }
     if (cardIsFlipped1 === 0) {
         flip1();
         }
@@ -349,9 +363,6 @@ function flipAll() {
         }
     if (cardIsFlipped11 === 0) {
         flip11();
-        }
-    if (foundCharizard === 1) {
-        flip0();
         }
 }
 
@@ -474,6 +485,7 @@ window.onclick = function(event) {
 function reset0() {
     const element = document.getElementById('myDiv');
     element.classList.remove("flipped");
+    cardIsFlipped0 = 0;
 }
 
 function reset1() {

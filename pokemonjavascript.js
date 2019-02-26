@@ -2433,6 +2433,7 @@ function universalCharizards() {
                 for (j; j < currentCharizards.length; j++) {
                     if (currentCharizards[i] === currentCharizards[j]) {
                         --counter;
+                        charizardCount = charizardCount -12
                         universalCharizards();
                         return;
                 }

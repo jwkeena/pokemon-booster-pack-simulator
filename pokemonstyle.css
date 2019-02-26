@@ -1,7 +1,7 @@
 /* Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator */
 
-#topBar, #bottomBar {
+   #topBar, #bottomBar {
     background: blue;
     padding: 10px;
     color: yellow;
@@ -66,6 +66,7 @@ hr {
     display: inline-block;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
+    font-size: 20px;
     color: blue;
 }
 
@@ -111,7 +112,7 @@ to {transform:scale(1)}
 .close {
     position: relative;
     color: #f1f1f1;
-    font-size: 40px;
+    font-size: 70px;
     font-weight: bold;
     transition: 0.3s;
 }

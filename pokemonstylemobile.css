@@ -1,7 +1,7 @@
 /* Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator */
 
-#topBar, #bottomBar {
+   #topBar, #bottomBar {
     background: blue;
     padding: 10px;
     color: yellow;
@@ -16,7 +16,7 @@ body {
     background-image: linear-gradient(to right, red, orange, goldenrod, gold);
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
+    font-size: 25px;
     color: yellow;
 }
 
@@ -34,7 +34,7 @@ body {
     display: inline-block;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 35px;
     color: yellow;
     padding: 10px 62px 10px 67px;
 }
@@ -44,7 +44,7 @@ body {
     display: inline-block;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 35px;
     color: yellow;
     padding: 10px 67px 10px 72px;
 }
@@ -54,9 +54,9 @@ body {
     display: inline-block;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 35px;
     color: yellow;
-    padding: 10px 90px 10px 88px;
+    padding: 10px 107px 10px 105px;
 }
 
 #button4, #button9 {
@@ -64,9 +64,9 @@ body {
     display: inline-block;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 35px;
     color: yellow;
-    padding: 10px 90px 10px 92px;
+    padding: 10px 107px 10px 109px;
 }
 
 #button5, #button10 {
@@ -74,7 +74,7 @@ body {
     display: inline-block;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 35px;
     color: yellow;
     padding: 10px 90px 10px 92px;
 }
@@ -84,6 +84,7 @@ body {
     display: inline-block;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
+    font-size: 35px;
     color: blue;
 }
 
@@ -110,7 +111,7 @@ a:visited, a:link, a:active, a:hover {
 /* Modal Content (Image) */
 .modal-content {
     margin: auto;
-    max-height: 1200px;
+    max-height: 1600px;
     display: block;
     border-radius: 15px;
 }
@@ -129,7 +130,7 @@ to {transform:scale(1)}
 /* The Close Button */
 .close {
     color: #f1f1f1;
-    font-size: 40px;
+    font-size: 200px;
     font-weight: bold;
     transition: 0.3s;
 }
@@ -144,8 +145,8 @@ to {transform:scale(1)}
 /* Style common to all cards, adapted from https://jsfiddle.net/pbnz43gf/ */
 /*Specifies size and edge cropping*/
 .row img {
-    width: 340px;
-    height: 485px;
+    width: 420px;
+    height: 565px;
     border-radius: 15px;
     transition: .3s;
 }
@@ -173,7 +174,7 @@ to {transform:scale(1)}
 .card7, .card8, .card9, .card10, .card11, .card12 {
     display: inline-block; /*puts all cards in a row. Idea from https://codepen.io/roppazvan/pen/EZVLEy*/
     padding-left: 0px; /* prevents cards from being stacked on top of each other*/
-    padding-right: 340px; /*same*/
+    padding-right: 430px; /*same*/
     -webkit-transition: -webkit-transform .5s;
     -moz-transition: -moz-transform .5s;
     -o-transition: -o-transform .5s;

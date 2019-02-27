@@ -940,6 +940,10 @@ function newPackBase() {
     } else {
         let newId10 = baseSetCommonsArray[5];
         let newId11 = baseSetCommonsArray[6];
+        let rarity1 = newId10.slice(-1);
+        let rarity2 = newId11.slice(-1);
+        document.getElementById("rarity" + rarity1).src = "colorless.png";
+        document.getElementById("rarity" + rarity2).src = "colorless.png";
         document.getElementById(newId10).src = newEnergy1;
         document.getElementById(newId11).src = newEnergy2;
     }

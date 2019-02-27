@@ -758,13 +758,15 @@ function newPackBase() {
 
     //Ensures that the flip all button won't flip the pack art
     foundCharizard = 0;
+
+    //Erases current set symbol, since base set has none
+    document.getElementById("rarity0").src = "empty.png";
     
     //Shuffles the IDs of cards if user chooses to shuffle; otherwise reverts to fixed order
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
 
         //Changes the rarity indicators to question mark
-        document.getElementById("rarity0").src = "empty.png";
         document.getElementById("rarity1").src = "unown_question_mark.gif";
         document.getElementById("rarity2").src = "unown_question_mark.gif";
         document.getElementById("rarity3").src = "unown_question_mark.gif";
@@ -956,9 +958,9 @@ function newPackJungle(){
         document.getElementById("logo").src = "logo.png";
     }
     foundCharizard = 0
+    document.getElementById("rarity0").src = "jungle-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity0").src = "empty.png";
         document.getElementById("rarity1").src = "unown_question_mark.gif";
         document.getElementById("rarity2").src = "unown_question_mark.gif";
         document.getElementById("rarity3").src = "unown_question_mark.gif";
@@ -1105,9 +1107,9 @@ function newPackFossil(){
         document.getElementById("logo").src = "logo.png";
     }
     foundCharizard = 0;
+    document.getElementById("rarity0").src = "fossil-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity0").src = "empty.png";
         document.getElementById("rarity1").src = "unown_question_mark.gif";
         document.getElementById("rarity2").src = "unown_question_mark.gif";
         document.getElementById("rarity3").src = "unown_question_mark.gif";
@@ -1254,9 +1256,9 @@ function newPackBase2(){
         document.getElementById("logo").src = "logo.png";
     }
     foundCharizard = 0;
+    document.getElementById("rarity0").src = "base-set-2-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity0").src = "empty.png";
         document.getElementById("rarity1").src = "unown_question_mark.gif";
         document.getElementById("rarity2").src = "unown_question_mark.gif";
         document.getElementById("rarity3").src = "unown_question_mark.gif";
@@ -1417,9 +1419,9 @@ function newPackTeamRocket(){
         document.getElementById("logo").src = "logo.png";
     }
     foundCharizard = 0;
+    document.getElementById("rarity0").src = "team-rocket-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity0").src = "empty.png";
         document.getElementById("rarity1").src = "unown_question_mark.gif";
         document.getElementById("rarity2").src = "unown_question_mark.gif";
         document.getElementById("rarity3").src = "unown_question_mark.gif";
@@ -1571,9 +1573,9 @@ function newPackGymHeroes(){
         document.getElementById("logo").src = "logo.png";
     }
     foundCharizard = 0;
+    document.getElementById("rarity0").src = "gym-heroes-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity0").src = "empty.png";
         document.getElementById("rarity1").src = "unown_question_mark.gif";
         document.getElementById("rarity2").src = "unown_question_mark.gif";
         document.getElementById("rarity3").src = "unown_question_mark.gif";
@@ -1727,6 +1729,7 @@ function newPackGymChallenge(){
         document.getElementById("logo").src = "logo.png";
     }
     foundCharizard = 0;
+    document.getElementById("rarity0").src = "gym-challenge-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
         document.getElementById("rarity1").src = "unown_question_mark.gif";
@@ -1880,7 +1883,11 @@ function newPackNeoGenesis(){
     increaseCounter();
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
-        document.getElementById("rarity0").src = "empty.png";
+    }
+    foundCharizard = 0;
+    document.getElementById("rarity0").src = "neo-genesis-pokemon-set-symbol.png";
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
         document.getElementById("rarity1").src = "unown_question_mark.gif";
         document.getElementById("rarity2").src = "unown_question_mark.gif";
         document.getElementById("rarity3").src = "unown_question_mark.gif";
@@ -1892,10 +1899,6 @@ function newPackNeoGenesis(){
         document.getElementById("rarity9").src = "unown_question_mark.gif";
         document.getElementById("rarity10").src = "unown_question_mark.gif";
         document.getElementById("rarity11").src = "unown_question_mark.gif";
-    }
-    foundCharizard = 0;
-    if (currentShuffle === 1) {
-        cardOrderArray.shuffle();
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -2038,9 +2041,9 @@ function newPackNeoDiscovery(){
         document.getElementById("logo").src = "logo.png";
     }
     foundCharizard = 0;
+    document.getElementById("rarity0").src = "neo-discovery-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity0").src = "empty.png";
         document.getElementById("rarity1").src = "unown_question_mark.gif";
         document.getElementById("rarity2").src = "unown_question_mark.gif";
         document.getElementById("rarity3").src = "unown_question_mark.gif";
@@ -2191,9 +2194,9 @@ function newPackNeoRevelation(){
         document.getElementById("logo").src = "logo.png";
     }
     foundCharizard = 0;
+    document.getElementById("rarity0").src = "neo-revelation-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity0").src = "empty.png";
         document.getElementById("rarity1").src = "unown_question_mark.gif";
         document.getElementById("rarity2").src = "unown_question_mark.gif";
         document.getElementById("rarity3").src = "unown_question_mark.gif";
@@ -2353,9 +2356,9 @@ function newPackNeoDestiny(){
         document.getElementById("logo").src = "logo.png";
     }
     foundCharizard = 0;
+    document.getElementById("rarity0").src = "neo-destiny-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity0").src = "empty.png";
         document.getElementById("rarity1").src = "unown_question_mark.gif";
         document.getElementById("rarity2").src = "unown_question_mark.gif";
         document.getElementById("rarity3").src = "unown_question_mark.gif";

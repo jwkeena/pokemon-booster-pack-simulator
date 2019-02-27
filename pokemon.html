@@ -20,7 +20,6 @@
 
     <title>Pokemon Booster Pack Simulator</title>
 </head>
-
 <body onload="newPackBase()">
     <div id="topBar">
         
@@ -39,7 +38,7 @@
         <div class ="topBarRight">
             [<a href="about.html">about</a>]
         </div> 
-        
+      
     </div> 
 
 <img id = "logo" src = "logo.png"> <!--Thanks to https://textcraft.net/style/Textcraft/pokemon-->
@@ -49,10 +48,7 @@
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
-        <!-- The Close Button -->
         <span class="close">&times;</span>
-    
-        <!-- Modal Content (The Image) -->
         <img class="modal-content" id="modalImg">
     
 </div>
@@ -83,8 +79,10 @@
     <button id="button5" onclick="toggleShuffle()">SHUFFLE (OFF)</button>
 
     <br>
+    <br>
 
     <div id = "myDiv" class = "pack" onclick="flip0()">
+        <img id = "rarity0" src="empty.png">
         <div class = "front">
             <img id = "boosterPackFront" src="1stcharizard.jpg"></a>
         </div>
@@ -94,6 +92,7 @@
     </div>
 
     <div id = "myDiv1" class = "card1" onclick="flip1();">
+        <img id = "rarity1" src="rarity_common.png">
         <div class = "front1">
             <img src="cardback.jpg" height="455"></a>
         </div>
@@ -104,6 +103,7 @@
     </div>
 
     <div id = "myDiv2" class = "card2" onclick="flip2();">
+        <img id = "rarity2" src="rarity_common.png">
         <div class = "front2">
             <img src="cardback.jpg" height="455"></a>
         </div>
@@ -133,9 +133,10 @@
     <br>
     <br>
     <br>
-
+    <br>
 
     <div id = "myDiv3" class = "card3" onclick="flip3();">
+        <img id = "rarity3" src="rarity_common.png">
         <div class = "front3">
             <img src="cardback.jpg" height="455"></a>
         </div>
@@ -145,6 +146,7 @@
     </div> 
 
     <div id = "myDiv4" class = "card4" onclick="flip4();">
+        <img id = "rarity4" src="rarity_common.png">
         <div class = "front4">
             <img src="cardback.jpg" height="455"></a>
         </div>
@@ -154,6 +156,7 @@
     </div> 
 
     <div id = "myDiv5" class = "card5" onclick="flip5();">
+        <img id = "rarity5" src="rarity_common.png">
         <div class = "front5">
             <img src="cardback.jpg" height="455"></a>
         </div>
@@ -183,8 +186,10 @@
     <br>
     <br>
     <br>
+    <br>
 
     <div id = "myDiv6" class = "card6" onclick="flip6();">
+        <img id = "rarity6" src="rarity_common.png">
         <div class = "front6">
             <img src="cardback.jpg" height="455"></a>
         </div>
@@ -194,6 +199,7 @@
     </div>
 
     <div id = "myDiv7" class = "card7" onclick="flip7();">
+        <img id = "rarity7" src="rarity_common.png">
         <div class = "front7">
             <img src="cardback.jpg" height="455"></a>
         </div>
@@ -203,6 +209,7 @@
     </div>
 
     <div id = "myDiv8" class = "card8" onclick="flip8();">
+        <img id = "rarity8" src="rarity_rare.png">
         <div class = "front8">
             <img src="cardback.jpg" height="455"></a>
         </div>
@@ -232,8 +239,10 @@
     <br>
     <br>
     <br>
+    <br>
 
     <div id = "myDiv9" class = "card9" onclick="flip9();">
+        <img id = "rarity9" src="rarity_uncommon.png">
         <div class = "front9">
             <img src="cardback.jpg" height="455"></a>
         </div>
@@ -243,6 +252,7 @@
     </div>
 
     <div id = "myDiv10" class = "card10" onclick="flip10();">
+        <img id = "rarity10" src="rarity_uncommon.png">
         <div class = "front10">
             <img src="cardback.jpg" height="455"></a>
         </div>
@@ -252,6 +262,7 @@
     </div>
 
     <div id = "myDiv11" class = "card11" onclick="flip11();">
+        <img id = "rarity11" src="rarity_uncommon.png">
         <div class = "front11">
             <img src="cardback.jpg" height="455"></a>
         </div>

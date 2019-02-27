@@ -1,7 +1,21 @@
 /* Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator */
 
-   #topBar, #bottomBar {
+#rarity0, #rarity1, #rarity2, #rarity3, #rarity4, #rarity5, #rarity6,
+#rarity7, #rarity8, #rarity9, #rarity10, #rarity11 {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: -20px;
+    left: 156px;
+}
+
+.rarity_about {
+    width: 15px;
+    height: 15px;
+}
+
+#topBar, #bottomBar {
     background: blue;
     padding: 10px;
     color: yellow;

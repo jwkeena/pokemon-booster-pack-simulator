@@ -762,7 +762,22 @@ function newPackBase() {
     //Shuffles the IDs of cards if user chooses to shuffle; otherwise reverts to fixed order
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-    } else {
+
+        //Changes the rarity indicators to question mark
+        document.getElementById("rarity0").src = "empty.png";
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+        document.getElementById("rarity10").src = "unown_question_mark.gif";
+        document.getElementById("rarity11").src = "unown_question_mark.gif";
+
+        } else {
         cardOrderArray = [
             'randomCard1', 
             'randomCard2', 
@@ -777,6 +792,19 @@ function newPackBase() {
             'randomCard11'];
         //Randomizes order of the commons and energy (this is unique to this set, since other sets have fixed energy positions)
         baseSetCommonsArray.shuffle();
+
+        //Changes the rarity indicators
+        document.getElementById("rarity1").src = "rarity_common.png"
+        document.getElementById("rarity2").src = "rarity_common.png"
+        document.getElementById("rarity3").src = "rarity_common.png"
+        document.getElementById("rarity4").src = "rarity_common.png"
+        document.getElementById("rarity5").src = "rarity_common.png"
+        document.getElementById("rarity6").src = "rarity_common.png"
+        document.getElementById("rarity7").src = "rarity_common.png"
+        document.getElementById("rarity8").src = "rarity_rare.png"
+        document.getElementById("rarity9").src = "rarity_uncommon.png"
+        document.getElementById("rarity10").src = "rarity_uncommon.png"
+        document.getElementById("rarity11").src = "rarity_uncommon.png"
         }
 
     //Prepares same set button
@@ -796,7 +824,7 @@ function newPackBase() {
         document.getElementById("boosterPackFront").src="1stblastoise.jpg";
         document.getElementById("boosterPackBack").src="basesetback3.jpg";
     }
-    
+
     //Determines whether a holo or non-holo is pulled at a 33% chance
     let chanceOfHolo = Math.floor(Math.random()*3);
     if (chanceOfHolo === 1) {
@@ -930,6 +958,18 @@ function newPackJungle(){
     foundCharizard = 0
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
+        document.getElementById("rarity0").src = "empty.png";
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+        document.getElementById("rarity10").src = "unown_question_mark.gif";
+        document.getElementById("rarity11").src = "unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -943,7 +983,18 @@ function newPackJungle(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
-            }
+        document.getElementById("rarity1").src = "rarity_common.png"
+        document.getElementById("rarity2").src = "rarity_common.png"
+        document.getElementById("rarity3").src = "rarity_common.png"
+        document.getElementById("rarity4").src = "rarity_common.png"
+        document.getElementById("rarity5").src = "rarity_common.png"
+        document.getElementById("rarity6").src = "rarity_common.png"
+        document.getElementById("rarity7").src = "rarity_common.png"
+        document.getElementById("rarity8").src = "rarity_rare.png"
+        document.getElementById("rarity9").src = "rarity_uncommon.png"
+        document.getElementById("rarity10").src = "rarity_uncommon.png"
+        document.getElementById("rarity11").src = "rarity_uncommon.png"
+        }
     changePackArt();
     currentSet = 2;
     if (packArt === 1) {
@@ -1056,6 +1107,18 @@ function newPackFossil(){
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
+        document.getElementById("rarity0").src = "empty.png";
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+        document.getElementById("rarity10").src = "unown_question_mark.gif";
+        document.getElementById("rarity11").src = "unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1069,6 +1132,17 @@ function newPackFossil(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
+        document.getElementById("rarity1").src = "rarity_common.png"
+        document.getElementById("rarity2").src = "rarity_common.png"
+        document.getElementById("rarity3").src = "rarity_common.png"
+        document.getElementById("rarity4").src = "rarity_common.png"
+        document.getElementById("rarity5").src = "rarity_common.png"
+        document.getElementById("rarity6").src = "rarity_common.png"
+        document.getElementById("rarity7").src = "rarity_common.png"
+        document.getElementById("rarity8").src = "rarity_rare.png"
+        document.getElementById("rarity9").src = "rarity_uncommon.png"
+        document.getElementById("rarity10").src = "rarity_uncommon.png"
+        document.getElementById("rarity11").src = "rarity_uncommon.png"
         }
     changePackArt();
     currentSet = 3;
@@ -1182,6 +1256,18 @@ function newPackBase2(){
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
+        document.getElementById("rarity0").src = "empty.png";
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+        document.getElementById("rarity10").src = "unown_question_mark.gif";
+        document.getElementById("rarity11").src = "unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1195,6 +1281,17 @@ function newPackBase2(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
+        document.getElementById("rarity1").src = "rarity_uncommon.png"
+        document.getElementById("rarity2").src = "rarity_uncommon.png"
+        document.getElementById("rarity3").src = "rarity_uncommon.png"
+        document.getElementById("rarity4").src = "rarity_common.png"
+        document.getElementById("rarity5").src = "rarity_common.png"
+        document.getElementById("rarity6").src = "rarity_common.png"
+        document.getElementById("rarity7").src = "rarity_common.png"
+        document.getElementById("rarity8").src = "rarity_common.png"
+        document.getElementById("rarity9").src = "rarity_rare.png"
+        document.getElementById("rarity10").src = "colorless.png"
+        document.getElementById("rarity11").src = "colorless.png"
         }
     changePackArt2();
     currentSet = 4;
@@ -1322,6 +1419,18 @@ function newPackTeamRocket(){
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
+        document.getElementById("rarity0").src = "empty.png";
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+        document.getElementById("rarity10").src = "unown_question_mark.gif";
+        document.getElementById("rarity11").src = "unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1335,6 +1444,17 @@ function newPackTeamRocket(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
+        document.getElementById("rarity1").src = "rarity_common.png"
+        document.getElementById("rarity2").src = "rarity_common.png"
+        document.getElementById("rarity3").src = "rarity_common.png"
+        document.getElementById("rarity4").src = "rarity_common.png"
+        document.getElementById("rarity5").src = "rarity_common.png"
+        document.getElementById("rarity6").src = "rarity_common.png"
+        document.getElementById("rarity7").src = "rarity_common.png"
+        document.getElementById("rarity8").src = "rarity_rare.png"
+        document.getElementById("rarity9").src = "rarity_uncommon.png"
+        document.getElementById("rarity10").src = "rarity_uncommon.png"
+        document.getElementById("rarity11").src = "rarity_uncommon.png"
         }
     changePackArt2();
     currentSet = 5;
@@ -1453,6 +1573,18 @@ function newPackGymHeroes(){
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
+        document.getElementById("rarity0").src = "empty.png";
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+        document.getElementById("rarity10").src = "unown_question_mark.gif";
+        document.getElementById("rarity11").src = "unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1466,6 +1598,17 @@ function newPackGymHeroes(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
+        document.getElementById("rarity1").src = "rarity_common.png"
+        document.getElementById("rarity2").src = "rarity_common.png"
+        document.getElementById("rarity3").src = "rarity_common.png"
+        document.getElementById("rarity4").src = "rarity_common.png"
+        document.getElementById("rarity5").src = "rarity_common.png"
+        document.getElementById("rarity6").src = "rarity_common.png"
+        document.getElementById("rarity7").src = "rarity_rare.png"
+        document.getElementById("rarity8").src = "rarity_uncommon.png"
+        document.getElementById("rarity9").src = "rarity_uncommon.png"
+        document.getElementById("rarity10").src = "rarity_uncommon.png"
+        document.getElementById("rarity11").src = "colorless.png"
         }
     changePackArt2();
     currentSet = 6;
@@ -1586,6 +1729,17 @@ function newPackGymChallenge(){
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+        document.getElementById("rarity10").src = "unown_question_mark.gif";
+        document.getElementById("rarity11").src = "unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1599,6 +1753,17 @@ function newPackGymChallenge(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
+        document.getElementById("rarity1").src = "rarity_common.png"
+        document.getElementById("rarity2").src = "rarity_common.png"
+        document.getElementById("rarity3").src = "rarity_common.png"
+        document.getElementById("rarity4").src = "rarity_common.png"
+        document.getElementById("rarity5").src = "rarity_common.png"
+        document.getElementById("rarity6").src = "rarity_common.png"
+        document.getElementById("rarity7").src = "rarity_rare.png"
+        document.getElementById("rarity8").src = "rarity_uncommon.png"
+        document.getElementById("rarity9").src = "rarity_uncommon.png"
+        document.getElementById("rarity10").src = "rarity_uncommon.png"
+        document.getElementById("rarity11").src = "colorless.png"
         }
     changePackArt2();
     currentSet = 7;
@@ -1715,6 +1880,18 @@ function newPackNeoGenesis(){
     increaseCounter();
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
+        document.getElementById("rarity0").src = "empty.png";
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+        document.getElementById("rarity10").src = "unown_question_mark.gif";
+        document.getElementById("rarity11").src = "unown_question_mark.gif";
     }
     foundCharizard = 0;
     if (currentShuffle === 1) {
@@ -1732,6 +1909,17 @@ function newPackNeoGenesis(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
+        document.getElementById("rarity1").src = "colorless.png"
+        document.getElementById("rarity2").src = "rarity_rare.png"
+        document.getElementById("rarity3").src = "rarity_uncommon.png"
+        document.getElementById("rarity4").src = "rarity_uncommon.png"
+        document.getElementById("rarity5").src = "rarity_uncommon.png"
+        document.getElementById("rarity6").src = "rarity_common.png"
+        document.getElementById("rarity7").src = "rarity_common.png"
+        document.getElementById("rarity8").src = "rarity_common.png"
+        document.getElementById("rarity9").src = "rarity_common.png"
+        document.getElementById("rarity10").src = "rarity_common.png"
+        document.getElementById("rarity11").src = "rarity_common.png"
         }
     changePackArt2();
     currentSet = 8;
@@ -1852,6 +2040,18 @@ function newPackNeoDiscovery(){
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
+        document.getElementById("rarity0").src = "empty.png";
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+        document.getElementById("rarity10").src = "unown_question_mark.gif";
+        document.getElementById("rarity11").src = "unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1865,6 +2065,17 @@ function newPackNeoDiscovery(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
+        document.getElementById("rarity1").src = "rarity_uncommon.png"
+        document.getElementById("rarity2").src = "rarity_uncommon.png"
+        document.getElementById("rarity3").src = "rarity_uncommon.png"
+        document.getElementById("rarity4").src = "rarity_rare.png"
+        document.getElementById("rarity5").src = "rarity_common.png"
+        document.getElementById("rarity6").src = "rarity_common.png"
+        document.getElementById("rarity7").src = "rarity_common.png"
+        document.getElementById("rarity8").src = "rarity_common.png"
+        document.getElementById("rarity9").src = "rarity_common.png"
+        document.getElementById("rarity10").src = "rarity_common.png"
+        document.getElementById("rarity11").src = "rarity_common.png"
         }
     changePackArt2();
     currentSet = 9;
@@ -1982,6 +2193,18 @@ function newPackNeoRevelation(){
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
+        document.getElementById("rarity0").src = "empty.png";
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+        document.getElementById("rarity10").src = "unown_question_mark.gif";
+        document.getElementById("rarity11").src = "unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1995,6 +2218,17 @@ function newPackNeoRevelation(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
+        document.getElementById("rarity1").src = "rarity_common.png"
+        document.getElementById("rarity2").src = "rarity_common.png"
+        document.getElementById("rarity3").src = "rarity_common.png"
+        document.getElementById("rarity4").src = "rarity_common.png"
+        document.getElementById("rarity5").src = "rarity_common.png"
+        document.getElementById("rarity6").src = "rarity_common.png"
+        document.getElementById("rarity7").src = "rarity_common.png"
+        document.getElementById("rarity8").src = "rarity_rare.png"
+        document.getElementById("rarity9").src = "rarity_uncommon.png"
+        document.getElementById("rarity10").src = "rarity_uncommon.png"
+        document.getElementById("rarity11").src = "rarity_uncommon.png"
         }
     changePackArt2();
     currentSet = 10;
@@ -2121,6 +2355,18 @@ function newPackNeoDestiny(){
     foundCharizard = 0;
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
+        document.getElementById("rarity0").src = "empty.png";
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+        document.getElementById("rarity10").src = "unown_question_mark.gif";
+        document.getElementById("rarity11").src = "unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -2134,6 +2380,17 @@ function newPackNeoDestiny(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
+        document.getElementById("rarity1").src = "rarity_common.png"
+        document.getElementById("rarity2").src = "rarity_common.png"
+        document.getElementById("rarity3").src = "rarity_common.png"
+        document.getElementById("rarity4").src = "rarity_common.png"
+        document.getElementById("rarity5").src = "rarity_common.png"
+        document.getElementById("rarity6").src = "rarity_common.png"
+        document.getElementById("rarity7").src = "rarity_common.png"
+        document.getElementById("rarity8").src = "rarity_rare.png"
+        document.getElementById("rarity9").src = "rarity_uncommon.png"
+        document.getElementById("rarity10").src = "rarity_uncommon.png"
+        document.getElementById("rarity11").src = "rarity_uncommon.png"
         }
     changePackArt2();
     currentSet = 11;
@@ -2364,6 +2621,18 @@ function universalCharizards() {
     document.getElementById("logo").src = "charizardlogo.png";
     currentSet = 12;
     foundCharizard = 1;
+    document.getElementById("rarity0").src= "rarity_rare.png"
+    document.getElementById("rarity1").src = "rarity_rare.png"
+    document.getElementById("rarity2").src = "rarity_rare.png"
+    document.getElementById("rarity3").src = "rarity_rare.png"
+    document.getElementById("rarity4").src = "rarity_rare.png"
+    document.getElementById("rarity5").src = "rarity_rare.png"
+    document.getElementById("rarity6").src = "rarity_rare.png"
+    document.getElementById("rarity7").src = "rarity_rare.png"
+    document.getElementById("rarity8").src = "rarity_rare.png"
+    document.getElementById("rarity9").src = "rarity_rare.png"
+    document.getElementById("rarity10").src = "rarity_rare.png"
+    document.getElementById("rarity11").src = "rarity_rare.png"
 
     //Picks 11 Charizards OR all base set Charizard
     let randomNumber = Math.floor(Math.random()*2);

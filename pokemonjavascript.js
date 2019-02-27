@@ -33,6 +33,8 @@ function flip0() {
     }
 }
 
+let checkFlip = 1;
+
 //When card is clicked, its CSS flipping animation is triggered
 //The computer also logs that it has been flipped by changing the cardIsFlipped variable
 //cardIsFlipped 0 = unfllipped card; cardIsFlipped 1 = flipped card (waiting for modal), 2 = card being reflipped
@@ -45,9 +47,10 @@ function flip1() {
         if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
             cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
             cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
+                ++checkFlip;
                 return;
             }
         return;
@@ -71,16 +74,16 @@ function flip2() {
         if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
             cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
             cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
+                ++checkFlip;
                 return;
             }
         return;
     } 
     if (cardIsFlipped2 === 1) {
         ++cardIsFlipped2;
-
         return;
     } 
     if (cardIsFlipped2 === 2) {
@@ -98,9 +101,10 @@ function flip3() {
         if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
             cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
             cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
+                ++checkFlip;
                 return;
             }
         return;
@@ -124,9 +128,10 @@ function flip4() {
         if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
             cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
             cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
+                ++checkFlip;
                 return;
             }
         return;
@@ -150,9 +155,10 @@ function flip5() {
         if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
             cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
             cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
+                ++checkFlip;
                 return;
             }
         return;
@@ -176,9 +182,10 @@ function flip6() {
         if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
             cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
             cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
+                ++checkFlip;
                 return;
             }
         return;
@@ -202,9 +209,10 @@ function flip7() {
         if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
             cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
             cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
+                ++checkFlip;
                 return;
             }
         return;
@@ -228,9 +236,10 @@ function flip8() {
         if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
             cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
             cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
+                ++checkFlip;
                 return;
             }
         return;
@@ -254,9 +263,10 @@ function flip9() {
         if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
             cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
             cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
+                ++checkFlip;
                 return;
             }
         return;
@@ -280,9 +290,10 @@ function flip10() {
         if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
             cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
             cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
+                ++checkFlip;
                 return;
             }
         return;
@@ -307,9 +318,10 @@ function flip11() {
         if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
             cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
             cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1) {
+            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
+                ++checkFlip;
                 return;
             }
         return;
@@ -751,6 +763,9 @@ function newPackBase() {
     //Increases pack counter
     increaseCounter();
 
+    //Resets flip counter (to prevent the last card being spammed for the countdown)
+    checkFlip = 1;
+
     //Changes logo art back to normal when non-Charizard packs are opened
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
@@ -958,6 +973,7 @@ function newPackBase() {
 
 function newPackJungle(){
     increaseCounter();
+    checkFlip = 1;
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
     }
@@ -1107,6 +1123,7 @@ function newPackJungle(){
 
 function newPackFossil(){
     increaseCounter();
+    checkFlip = 1;
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
     }
@@ -1256,6 +1273,7 @@ function newPackFossil(){
 
 function newPackBase2(){
     increaseCounter();
+    checkFlip = 1;
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
     }
@@ -1419,6 +1437,7 @@ function newPackBase2(){
 
 function newPackTeamRocket(){
     increaseCounter();
+    checkFlip = 1;
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
     }
@@ -1573,6 +1592,7 @@ function newPackTeamRocket(){
 
 function newPackGymHeroes(){
     increaseCounter();
+    checkFlip = 1;
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
     }
@@ -1729,6 +1749,7 @@ function newPackGymHeroes(){
 
 function newPackGymChallenge(){
     increaseCounter();
+    checkFlip = 1;
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
     }
@@ -1885,6 +1906,7 @@ function newPackGymChallenge(){
 
 function newPackNeoGenesis(){
     increaseCounter();
+    checkFlip = 1;
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
     }
@@ -2041,6 +2063,7 @@ function newPackNeoGenesis(){
 
 function newPackNeoDiscovery(){
     increaseCounter();
+    checkFlip = 1;
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
     }
@@ -2194,6 +2217,7 @@ function newPackNeoDiscovery(){
 
 function newPackNeoRevelation(){
     increaseCounter();
+    checkFlip = 1;
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
     }
@@ -2356,6 +2380,7 @@ function newPackNeoRevelation(){
 
 function newPackNeoDestiny(){
     increaseCounter();
+    checkFlip = 1;
     if (foundCharizard === 1) {
         document.getElementById("logo").src = "logo.png";
     }
@@ -2525,6 +2550,12 @@ let charizardCount = 0;
 
 function resetCounts() {
 
+    resetAll();
+
+    setTimeout(newPackBase, 501);
+
+    document.getElementById("logo").src = "logo.png";
+
     foundCharizard = 0;
 
     currentSet = 1;
@@ -2543,18 +2574,12 @@ function resetCounts() {
 
     charizardCount = 0;
     var element4 = document.getElementById("charizardCounter");
-    element.innerHTML = "";
+    element4.innerHTML = "";
 
     if (counter === 0) {
         var rewardButton = document.getElementById("rewardButton");
-        rewardButton.parentNode.removeChild(rewardButton)
+        rewardButton.parentNode.removeChild(rewardButton);
     }
-
-    document.getElementById("logo").src = "logo.png";
-
-    resetAll();
-    setTimeout(newPackBase, 501);
-
 }
 
 function increaseCounter() {
@@ -2628,7 +2653,17 @@ function universalCharizards() {
     document.getElementById("logo").src = "charizardlogo.png";
     currentSet = 12;
     foundCharizard = 1;
-    document.getElementById("rarity0").src= "rarity_rare.png"
+
+    //Changes first slot rarity indicator to rare and resizes it to match the others
+    smallerSize = document.getElementById("rarity0")
+    smallerSize.src = "rarity_rare.png"
+    if (smallerSize && smallerSize.style) {
+        smallerSize.style.height = "15px";
+        smallerSize.style.width = "15px";
+        smallerSize.style.top = "-20px";
+    }
+
+    //Changes all other rarity indicators to rare
     document.getElementById("rarity1").src = "rarity_rare.png"
     document.getElementById("rarity2").src = "rarity_rare.png"
     document.getElementById("rarity3").src = "rarity_rare.png"

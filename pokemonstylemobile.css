@@ -1,7 +1,15 @@
 /* Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator */
 
-#rarity0, #rarity1, #rarity2, #rarity3, #rarity4, #rarity5, #rarity6,
+#rarity0 {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -35px;
+    left: 205px;
+}
+
+#rarity1, #rarity2, #rarity3, #rarity4, #rarity5, #rarity6,
 #rarity7, #rarity8, #rarity9, #rarity10, #rarity11 {
     position: absolute;
     width: 20px;

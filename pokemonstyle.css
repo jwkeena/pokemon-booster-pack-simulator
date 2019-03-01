@@ -1,7 +1,6 @@
 /* Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator */
 
-
 #rarity0 {
     position: absolute;
     width: 20px;
@@ -164,7 +163,6 @@ to {transform:scale(1)}
     cursor: pointer;
 }
 
-
 /* Ensures the back of the card is flipped to the front, not just inverted*/
 .pack .back, .card1 .back1, .card2 .back2, .card3 .back3, 
 .card4 .back4, .card5 .back5, .card6 .back6, .card7 .back7, 
@@ -198,7 +196,7 @@ to {transform:scale(1)}
     transform-style: preserve-3d;
     -webkit-transform-origin: 50% 50%;
     -moz-transform-origin: 50% 50%; 
-    -o-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%; 
     transform-origin: 50% 50%;
 }
 

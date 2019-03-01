@@ -1,10 +1,8 @@
 // Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
 // Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator
 
-function swap() {
-    element = document.getElementById("logo");
-    element.classList.toggle("closed");
-
+function redirect() {
+    window.location.href = "mailto:jwkeena@gmail.com";
 }
 
 //Sets variables for the flip all button to only affect unflipped cards
@@ -37,17 +35,17 @@ let checkFlip = 1;
 
 //When card is clicked, its CSS flipping animation is triggered
 //The computer also logs that it has been flipped by changing the cardIsFlipped variable
-//cardIsFlipped 0 = unfllipped card; cardIsFlipped 1 = flipped card (waiting for modal), 2 = card being reflipped
+//cardIsFlipped 0 = unflipped card; cardIsFlipped 1 = flipped card (waiting for modal zoom), 2 = card being reflipped
 //Checks if all cards have been flipped, and then affects the counter and countdown accordingly
 function flip1() {
     let element = document.getElementById('myDiv1');
     if (cardIsFlipped1 === 0){
         element.classList.toggle("flipped");
         ++cardIsFlipped1;
-        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
-            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
-            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
+        if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
+            cardIsFlipped4 >= 1 && cardIsFlipped5 >= 1 && cardIsFlipped6 >= 1 && 
+            cardIsFlipped7 >= 1 && cardIsFlipped8 >= 1 && cardIsFlipped9 >= 1 &&
+            cardIsFlipped10 >= 1 && cardIsFlipped11 >= 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
                 ++checkFlip;
@@ -71,10 +69,10 @@ function flip2() {
     if (cardIsFlipped2 === 0){
         element.classList.toggle("flipped");
         ++cardIsFlipped2;
-        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
-            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
-            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
+        if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
+            cardIsFlipped4 >= 1 && cardIsFlipped5 >= 1 && cardIsFlipped6 >= 1 && 
+            cardIsFlipped7 >= 1 && cardIsFlipped8 >= 1 && cardIsFlipped9 >= 1 &&
+            cardIsFlipped10 >= 1 && cardIsFlipped11 >= 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
                 ++checkFlip;
@@ -98,10 +96,10 @@ function flip3() {
     if (cardIsFlipped3 === 0){
         element.classList.toggle("flipped");
         ++cardIsFlipped3;
-        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
-            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
-            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
+        if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
+            cardIsFlipped4 >= 1 && cardIsFlipped5 >= 1 && cardIsFlipped6 >= 1 && 
+            cardIsFlipped7 >= 1 && cardIsFlipped8 >= 1 && cardIsFlipped9 >= 1 &&
+            cardIsFlipped10 >= 1 && cardIsFlipped11 >= 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
                 ++checkFlip;
@@ -125,10 +123,10 @@ function flip4() {
     if (cardIsFlipped4 === 0){
         element.classList.toggle("flipped");
         ++cardIsFlipped4;
-        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
-            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
-            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
+        if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
+            cardIsFlipped4 >= 1 && cardIsFlipped5 >= 1 && cardIsFlipped6 >= 1 && 
+            cardIsFlipped7 >= 1 && cardIsFlipped8 >= 1 && cardIsFlipped9 >= 1 &&
+            cardIsFlipped10 >= 1 && cardIsFlipped11 >= 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
                 ++checkFlip;
@@ -152,10 +150,10 @@ function flip5() {
     if (cardIsFlipped5 === 0){
         element.classList.toggle("flipped");
         ++cardIsFlipped5;
-        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
-            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
-            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
+        if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
+            cardIsFlipped4 >= 1 && cardIsFlipped5 >= 1 && cardIsFlipped6 >= 1 && 
+            cardIsFlipped7 >= 1 && cardIsFlipped8 >= 1 && cardIsFlipped9 >= 1 &&
+            cardIsFlipped10 >= 1 && cardIsFlipped11 >= 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
                 ++checkFlip;
@@ -179,10 +177,10 @@ function flip6() {
     if (cardIsFlipped6 === 0){
         element.classList.toggle("flipped");
         ++cardIsFlipped6;
-        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
-            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
-            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
+        if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
+            cardIsFlipped4 >= 1 && cardIsFlipped5 >= 1 && cardIsFlipped6 >= 1 && 
+            cardIsFlipped7 >= 1 && cardIsFlipped8 >= 1 && cardIsFlipped9 >= 1 &&
+            cardIsFlipped10 >= 1 && cardIsFlipped11 >= 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
                 ++checkFlip;
@@ -206,10 +204,10 @@ function flip7() {
     if (cardIsFlipped7 === 0){
         element.classList.toggle("flipped");
         ++cardIsFlipped7;
-        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
-            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
-            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
+        if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
+            cardIsFlipped4 >= 1 && cardIsFlipped5 >= 1 && cardIsFlipped6 >= 1 && 
+            cardIsFlipped7 >= 1 && cardIsFlipped8 >= 1 && cardIsFlipped9 >= 1 &&
+            cardIsFlipped10 >= 1 && cardIsFlipped11 >= 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
                 ++checkFlip;
@@ -233,10 +231,10 @@ function flip8() {
     if (cardIsFlipped8 === 0){
         element.classList.toggle("flipped");
         ++cardIsFlipped8;
-        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
-            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
-            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
+        if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
+            cardIsFlipped4 >= 1 && cardIsFlipped5 >= 1 && cardIsFlipped6 >= 1 && 
+            cardIsFlipped7 >= 1 && cardIsFlipped8 >= 1 && cardIsFlipped9 >= 1 &&
+            cardIsFlipped10 >= 1 && cardIsFlipped11 >= 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
                 ++checkFlip;
@@ -260,10 +258,10 @@ function flip9() {
     if (cardIsFlipped9 === 0){
         element.classList.toggle("flipped");
         ++cardIsFlipped9;
-        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
-            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
-            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
+        if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
+            cardIsFlipped4 >= 1 && cardIsFlipped5 >= 1 && cardIsFlipped6 >= 1 && 
+            cardIsFlipped7 >= 1 && cardIsFlipped8 >= 1 && cardIsFlipped9 >= 1 &&
+            cardIsFlipped10 >= 1 && cardIsFlipped11 >= 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
                 ++checkFlip;
@@ -287,10 +285,10 @@ function flip10() {
     if (cardIsFlipped10 === 0){
         element.classList.toggle("flipped");
         ++cardIsFlipped10;
-        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
-            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
-            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
+        if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
+            cardIsFlipped4 >= 1 && cardIsFlipped5 >= 1 && cardIsFlipped6 >= 1 && 
+            cardIsFlipped7 >= 1 && cardIsFlipped8 >= 1 && cardIsFlipped9 >= 1 &&
+            cardIsFlipped10 >= 1 && cardIsFlipped11 >= 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
                 ++checkFlip;
@@ -315,10 +313,10 @@ function flip11() {
     if (cardIsFlipped11 === 0){
         element.classList.toggle("flipped");
         ++cardIsFlipped11;
-        if (cardIsFlipped1 === 1 && cardIsFlipped2 === 1 && cardIsFlipped3 === 1 &&
-            cardIsFlipped4 === 1 && cardIsFlipped5 === 1 && cardIsFlipped6 === 1 && 
-            cardIsFlipped7 === 1 && cardIsFlipped8 === 1 && cardIsFlipped9 === 1 &&
-            cardIsFlipped10 === 1 && cardIsFlipped11 === 1 && checkFlip === 1) {
+        if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
+            cardIsFlipped4 >= 1 && cardIsFlipped5 >= 1 && cardIsFlipped6 >= 1 && 
+            cardIsFlipped7 >= 1 && cardIsFlipped8 >= 1 && cardIsFlipped9 >= 1 &&
+            cardIsFlipped10 >= 1 && cardIsFlipped11 >= 1 && checkFlip === 1) {
                 decreaseCountdown();
                 increasePacksOpened();
                 ++checkFlip;

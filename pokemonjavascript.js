@@ -2580,7 +2580,31 @@ function resetCounts() {
     }
 }
 
+secret1 = 0
+secret2 = 0
+secretFound = 0
+
+function unlockGBCPacks() {
+    ++secret1;
+    secret2 = secret2 + 12;
+    if (secret1 > 499 && secretFound === 0) {
+        alert("Congratulations, you maniac! You've generated 500 packs. I think you're ready for a new challenge!");
+        window.open("https://pokemonboosterpack.neocities.org/gbc.html");
+        ++secretFound;
+    }
+}
+
+function unlockGBCCharizard() {
+    secret2 = secret2 + 12;
+    if (secret2 > 4999 && secretFound === 0) {
+        alert("Congratulations, you maniac! You've generated 5000 Charizards. I think you're ready for a new challenge!");
+        window.open("https://pokemonboosterpack.neocities.org/gbc.html");
+        ++secretFound;
+    }
+}
+
 function increaseCounter() {
+    unlockGBCPacks();
     ++counter;
     var element = document.getElementById("counter");
     element.innerHTML = "| packs generated: " + counter;
@@ -2619,6 +2643,7 @@ function decreaseCountdown(){
 }
 
 function increaseCharizardCount() {
+    unlockGBCCharizard();
     charizardCount = charizardCount + 12;
     element = document.getElementById("charizardCounter");
     element.innerHTML = "charizards generated: " + charizardCount + " |";

@@ -21,7 +21,7 @@ function unlockPromotionalCards() {
     var top = document.getElementById("topBarMiddle")
     top.scrollIntoView();
     pauseMusic()
-    var unlockMusic = new Audio("25 Win!.mp3")
+    var unlockMusic = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/25%20Win!.mp3?raw=true")
     unlockMusic.play();
     document.getElementById("hidden1").id = "promotional_div";
     document.getElementById("hidden2").id = "promotional_logo";
@@ -897,7 +897,7 @@ function newPackColosseum() {
 
     //Changes title screen and plays a new pack sound
     document.getElementById("screen").src="newPackColosseum.png";
-    var newPackSound = new Audio("29 Get Booster Pack.mp3")
+    var newPackSound = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/29%20Get%20Booster%20Pack.mp3?raw=true")
     if (toggleSound === 1) {
         newPackSound.play();
     }
@@ -1025,7 +1025,7 @@ function newPackEvolution() {
     newCardOrderGameBoy = [];
     increasePacksGenerated();
     document.getElementById("screen").src="newPackEvolution.png";
-    var newPackSound = new Audio("29 Get Booster Pack.mp3")
+    var newPackSound = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/29%20Get%20Booster%20Pack.mp3?raw=true")
     if (toggleSound === 1) {
         newPackSound.play();
     }
@@ -1159,7 +1159,7 @@ function newPackMystery() {
     newCardOrderGameBoy = [];
     increasePacksGenerated();
     document.getElementById("screen").src="newPackMystery.png";
-    var newPackSound = new Audio("29 Get Booster Pack.mp3")
+    var newPackSound = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/29%20Get%20Booster%20Pack.mp3?raw=true")
     if (toggleSound === 1) {
         newPackSound.play();
     }
@@ -1403,7 +1403,7 @@ function newPackLaboratory() {
     newCardOrderGameBoy = [];
     increasePacksGenerated();
     document.getElementById("screen").src="newPackLaboratory.png";
-    var newPackSound = new Audio("29 Get Booster Pack.mp3")
+    var newPackSound = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/29%20Get%20Booster%20Pack.mp3?raw=true")
     if (toggleSound === 1) {
         newPackSound.play();
     }

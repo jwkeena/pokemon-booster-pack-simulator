@@ -1515,7 +1515,7 @@ const colosseum = [
     'colosseum/A22 Magneton.png',
     'colosseum/A24 Zapdos.png',
     'colosseum/A28 Hitmonchan.png',
-    'colosseum/A34 Wigglytuf.png',
+    'colosseum/A34 Wigglytuff.png',
     'colosseum/A36 Chansey.png',
     'colosseum/A37 Kangaskhan.png',
     'colosseum/A38 Snorlax.png',

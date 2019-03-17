@@ -1,3 +1,10 @@
+function newPackSound() {
+    var newPackSound = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/29%20Get%20Booster%20Pack.mp3?raw=true")
+    if (toggleSound === 1) {
+        newPackSound.play();
+    }
+}
+
 function easterEgg(){
     if (cardCount === 208) {
         alert("Congratulations! You collected every card!");
@@ -895,12 +902,8 @@ function newPackColosseum() {
     //Ticks up pack counter
     increasePacksGenerated();
 
-    //Changes title screen and plays a new pack sound
+    //Changes title screen
     document.getElementById("screen").src="newPackColosseum.png";
-    var newPackSound = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/29%20Get%20Booster%20Pack.mp3?raw=true")
-    if (toggleSound === 1) {
-        newPackSound.play();
-    }
 
     //Picks a rare (no distinction between regular and holo)
     let numOfRares = colosseum[0].length;
@@ -1025,10 +1028,6 @@ function newPackEvolution() {
     newCardOrderGameBoy = [];
     increasePacksGenerated();
     document.getElementById("screen").src="newPackEvolution.png";
-    var newPackSound = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/29%20Get%20Booster%20Pack.mp3?raw=true")
-    if (toggleSound === 1) {
-        newPackSound.play();
-    }
 
     //Picks a rare (no distinction between regular and holo)
     let numOfRares = evolution[0].length;
@@ -1159,10 +1158,6 @@ function newPackMystery() {
     newCardOrderGameBoy = [];
     increasePacksGenerated();
     document.getElementById("screen").src="newPackMystery.png";
-    var newPackSound = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/29%20Get%20Booster%20Pack.mp3?raw=true")
-    if (toggleSound === 1) {
-        newPackSound.play();
-    }
 
     //Picks a rare (no distinction between regular and holo)
     let numOfRares = mystery[0].length;
@@ -1403,10 +1398,6 @@ function newPackLaboratory() {
     newCardOrderGameBoy = [];
     increasePacksGenerated();
     document.getElementById("screen").src="newPackLaboratory.png";
-    var newPackSound = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/29%20Get%20Booster%20Pack.mp3?raw=true")
-    if (toggleSound === 1) {
-        newPackSound.play();
-    }
 
     //Picks a rare (no distinction between regular and holo)
     let numOfRares = laboratory[0].length;

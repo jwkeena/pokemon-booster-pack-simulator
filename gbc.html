@@ -30,8 +30,8 @@
         <img id = "redlight" width = "12px" height = "12px" src = "redlight.png">
         <img onclick = "playMusic();" id = "startbutton" src = "empty.png">
         <img onclick = "pauseMusic();" id = "selectbutton" src = "empty.png">
-        <img onclick = "randomGameBoyPack();" id = "a_button" src = "empty.png">
-        <img onclick = "randomGameBoyPack();" id = "b_button" src = "empty.png">
+        <img onclick = "randomGameBoyPack();newPackSound();" id = "a_button" src = "empty.png">
+        <img onclick = "randomGameBoyPack();newPackSound();" id = "b_button" src = "empty.png">
         <img onclick = "goUp();" id = "up_button" src = "empty.png">
         <img onclick = "goDown();" id = "down_button" src = "empty.png">
         <img onclick = "goLeft();" id = "left_button" src = "empty.png">
@@ -57,10 +57,10 @@
             
             <br>
 
-            <input type = "image" src = "colosseum.png" onclick = "newPackColosseum();"/>
-            <input type = "image" src = "evolution.png" onclick = "newPackEvolution();"/>
-            <input type = "image" src = "mystery.png" onclick = "newPackMystery();"/>
-            <input type = "image" src = "laboratory.png" onclick = "newPackLaboratory();"/>
+            <input type = "image" src = "colosseum.png" onclick = "newPackColosseum();newPackSound();"/>
+            <input type = "image" src = "evolution.png" onclick = "newPackEvolution();newPackSound();"/>
+            <input type = "image" src = "mystery.png" onclick = "newPackMystery();newPackSound();"/>
+            <input type = "image" src = "laboratory.png" onclick = "newPackLaboratory();newPackSound();"/>
         
             <br>
 

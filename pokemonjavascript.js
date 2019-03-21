@@ -2580,6 +2580,7 @@ function resetCounts() {
     }
 }
 
+/*
 secret1 = 0
 secret2 = 0
 secretFound = 0
@@ -2602,9 +2603,10 @@ function unlockGBCCharizard() {
         ++secretFound;
     }
 }
+*/
 
 function increaseCounter() {
-    unlockGBCPacks();
+    // unlockGBCPacks();
     ++counter;
     var element = document.getElementById("counter");
     element.innerHTML = "| packs generated: " + counter;
@@ -2643,7 +2645,7 @@ function decreaseCountdown(){
 }
 
 function increaseCharizardCount() {
-    unlockGBCCharizard();
+    // unlockGBCCharizard();
     charizardCount = charizardCount + 12;
     element = document.getElementById("charizardCounter");
     element.innerHTML = "charizards generated: " + charizardCount + " |";

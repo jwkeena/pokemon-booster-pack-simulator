@@ -1555,28 +1555,32 @@ function newPackTeamRocket(){
     let randomCommon4 = Math.floor(Math.random()*numOfCommons);
     let randomCommon5 = Math.floor(Math.random()*numOfCommons);
     let randomCommon6 = Math.floor(Math.random()*numOfCommons);
+    let randomCommon7 = Math.floor(Math.random()*numOfCommons);
     let newCommon1 = teamRocketLinks[3][randomCommon1];
     let newCommon2 = teamRocketLinks[3][randomCommon2];
     let newCommon3 = teamRocketLinks[3][randomCommon3];
     let newCommon4 = teamRocketLinks[3][randomCommon4];
     let newCommon5 = teamRocketLinks[3][randomCommon5];
     let newCommon6 = teamRocketLinks[3][randomCommon6];
+    let newCommon7 = teamRocketLinks[3][randomCommon7];
     let newId5 = cardOrderArray[0];
     let newId6 = cardOrderArray[1];
     let newId7 = cardOrderArray[2];
     let newId8 = cardOrderArray[3];
     let newId9 = cardOrderArray[4];
     let newId10 = cardOrderArray[5];
+    let newId11 = cardOrderArray[6];
     document.getElementById(newId5).src = newCommon1;
     document.getElementById(newId6).src = newCommon2;
     document.getElementById(newId7).src = newCommon3;
     document.getElementById(newId8).src = newCommon4;
     document.getElementById(newId9).src = newCommon5;
     document.getElementById(newId10).src = newCommon6;
+    document.getElementById(newId11).src = newCommon7;
 
     //Prevents duplicate commons
-    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6]
-    for (let i = 0; i < 6; i++) {
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5, newCommon6, newCommon7]
+    for (let i = 0; i < 7; i++) {
         let j = 1 + i
             for (j; j < currentCommons.length; j++) {
                 if (currentCommons[i] === currentCommons[j]) {

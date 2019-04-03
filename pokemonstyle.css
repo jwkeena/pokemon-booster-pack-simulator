@@ -1,6 +1,40 @@
 /* Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator */
 
+#new {
+    position: absolute;
+    top: 160px;
+    width: 100px;
+    height: 100px;
+}
+
+#logo {
+    position: relative;
+}
+
+#container {
+    position: relative;
+}
+
+#ecardlogo {
+    width: 300px;
+    height: 174px;
+    position: absolute;
+    left: 240px;
+    top: 230px;
+    cursor: default;
+}
+
+#setlogo {
+    position: absolute;
+    width: 270px;
+    height: 62px;
+    right: 280px;
+    top: 280px;
+    cursor: default;
+    
+}
+
 #rarity0 {
     position: absolute;
     width: 20px;
@@ -34,9 +68,6 @@
     float: left;
 }
 
-.topBarMiddle {
-    float: center;
-}
 
 .topBarRight {
     float: right;
@@ -184,7 +215,7 @@ to {transform:scale(1)}
 
 .pack, .card1, .card2, .card3, .card4, .card5, .card6, .card7, .card8, .card9, .card10, .card11, .card12 {
     display: inline-block; /*puts all cards in a row. Idea from https://codepen.io/roppazvan/pen/EZVLEy*/
-    padding-left: 0px; /* prevents cards from being stacked on top of each other*/
+    padding-left: 5px; /* prevents cards from being stacked on top of each other*/
     padding-right: 325px; /*same*/
     -webkit-transition: -webkit-transform .5s;
     -moz-transition: -moz-transform .5s;
@@ -206,6 +237,7 @@ to {transform:scale(1)}
     -moz-backface-visibility: hidden;
     -o-backface-visibility: hidden;
     backface-visibility: hidden;
+    height: 450px; /*Hides the holo background*/
 }
 
 /*Style common to dropup and dropdown buttons*/
@@ -250,3 +282,34 @@ to {transform:scale(1)}
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
+
+.back1, .back2, .back3,
+.back4, .back5, .back6,
+.back7, .back8, .back9 {
+    background-image: url(foil.jpg);
+    background-size: 315px 450px;
+    border-radius: 15px;    
+}
+
+.holographic {
+    mix-blend-mode: multiply; /*multiply and darken work*/
+}
+
+/* https://bennettfeely.com/gradients/
+
+background:
+	linear-gradient(
+		cyan,
+		transparent
+	),
+	linear-gradient(
+		-45deg,
+		magenta,
+		transparent
+	),
+	linear-gradient(
+		45deg,
+		yellow,
+		transparent
+	);
+background-blend-mode: multiply; */

@@ -24,6 +24,8 @@ function easterEgg(){
     }
 }
 
+
+//Bonus for collecting all cards in gbc.html page
 function unlockPromotionalCards() {
     var top = document.getElementById("topBarMiddle")
     top.scrollIntoView();

@@ -3,7 +3,8 @@
 
 #new {
     position: absolute;
-    top: 160px;
+    top: 210px;
+    right: 150px;
     width: 100px;
     height: 100px;
 }

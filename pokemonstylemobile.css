@@ -1,6 +1,13 @@
 /* Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator */
 
+#new {
+    position: absolute;
+    top: 160px;
+    width: 100px;
+    height: 100px;
+}
+
 #rarity0, #set1, #set2, #set3 {
     position: absolute;
     width: 30px;
@@ -257,4 +264,8 @@ to {transform:scale(1)}
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+}
+
+.holographic {
+    mix-blend-mode: multiply; /*multiply and darken work*/
 }

@@ -1,7 +1,7 @@
 /* Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator */
 
-#rarity0 {
+#rarity0, #set1, #set2, #set3 {
     position: absolute;
     width: 30px;
     height: 30px;

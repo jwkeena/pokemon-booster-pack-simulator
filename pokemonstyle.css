@@ -8,34 +8,7 @@
     height: 100px;
 }
 
-#logo {
-    position: relative;
-}
-
-#container {
-    position: relative;
-}
-
-#ecardlogo {
-    width: 300px;
-    height: 174px;
-    position: absolute;
-    left: 240px;
-    top: 230px;
-    cursor: default;
-}
-
-#setlogo {
-    position: absolute;
-    width: 270px;
-    height: 62px;
-    right: 280px;
-    top: 280px;
-    cursor: default;
-    
-}
-
-#rarity0 {
+#set1, #set2, #set3 {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -313,3 +286,4 @@ background:
 		transparent
 	);
 background-blend-mode: multiply; */
+

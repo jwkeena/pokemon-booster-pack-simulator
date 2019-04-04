@@ -46,22 +46,41 @@
         <img class="modal-content" id="modalImg">
     </div>
 <br>
-
+<img id = "ecardlogo" src = "ecardlogo.png"> <!--Thanks to https://textcraft.net/style/Textcraft/pokemon-->
+<br>
+<img id = "setlogo" src = "expeditionlogo.png">
 
    <div class = "row">
-        <div class = "container">
-        <img id = "ecardlogo" src = "ecardlogo.png"> <!--Thanks to https://textcraft.net/style/Textcraft/pokemon-->
-        <img id = "setlogo" src = "expeditionlogo.png">
-    </div>
-        <div id = "myDiv" class = "pack" onclick="flip0()">
-            <img id = "rarity0" src="expedition-base-set-pokemon-set-symbol.png">
+       <br>
+        <div id = "booster1" class = "pack" onclick="flipBooster1()">
+            <img id = "set1" src="expedition-base-set-pokemon-set-symbol.png">
             <div class = "front">
-                <img id = "boosterPackFront" src="expeditionbase1.jpg"></a>
+                <img id = "boosterPackFront1" src="expeditionbase1.jpg"></a>
             </div>
             <div class = "back">
-                <img id = "boosterPackBack" src="basesetback1.jpg">
+                <img id = "boosterPackBack1" src="basesetback1.jpg">
             </div>
         </div>
+
+        <div id = "booster2" class = "pack" onclick="flipBooster2()">
+                <img id = "set2" src="aquapolis-pokemon-set-symbol.png">
+                <div class = "front">
+                    <img id = "boosterPackFront2" src="aquapolis1.jpg"></a>
+                </div>
+                <div class = "back">
+                    <img id = "boosterPackBack2" src="aquapolisback.jpg">
+                </div>
+            </div>
+
+            <div id = "booster3" class = "pack" onclick="flipBooster3()">
+                    <img id = "set3" src="skyridge-pokemon-set-symbol.png">
+                    <div class = "front">
+                        <img id = "boosterPackFront3" src="skyridge1.jpg"></a>
+                    </div>
+                    <div class = "back">
+                        <img id = "boosterPackBack3" src="skyridgeback.jpg">
+                    </div>
+                </div>
     
         <br>
         <br>
@@ -91,6 +110,8 @@
             <button id="button2">CHOOSE SET</button>
             <div class="dropdown-content">
                 <a href="javascript:void();" onclick="resetAll();setTimeout(newPackExpeditionBase, 501)">expedition base</a>
+                <a href="javascript:void();" onclick="resetAll();setTimeout(newPackAquapolis, 501)">aquapolis</a>
+                <a href="javascript:void();" onclick="resetAll();setTimeout(newPackSkyridge, 501)">skyridge</a>
             </div>
         </div>
         <button id="button3" onclick="resetAll();setTimeout(sameSet, 501)">SAME SET</button>
@@ -273,7 +294,9 @@
     <div class="dropup">
         <button id="button7">CHOOSE SET</button>
         <div class="dropup-content">
-            <a href="javascript:void();" onclick="resetAll();setTimeout(newPackExpeditionBase, 501)">expedition base</a>
+                <a href="javascript:void();" onclick="resetAll();setTimeout(newPackExpeditionBase, 501)">expedition base</a>
+                <a href="javascript:void();" onclick="resetAll();setTimeout(newPackAquapolis, 501)">aquapolis</a>
+                <a href="javascript:void();" onclick="resetAll();setTimeout(newPackSkyridge, 501)">skyridge</a>
             
         </div>
     </div>

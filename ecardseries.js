@@ -6,7 +6,9 @@ function redirect() {
 }
 
 //Sets variables for the flip all button to only affect unflipped cards
-let cardIsFlipped0 = 0;
+let boosterIsFlipped1 = 0;
+let boosterIsFlipped2 = 0;
+let boosterIsFlipped3 = 0;
 let cardIsFlipped1 = 0;
 let cardIsFlipped2 = 0;
 let cardIsFlipped3 = 0;
@@ -18,16 +20,39 @@ let cardIsFlipped8 = 0;
 let cardIsFlipped9 = 0;
 
 //For flipping the booster pack image
-function flip0() {
-    let element = document.getElementById('myDiv');
-    if (cardIsFlipped0 === 0) {
+function flipBooster1() {
+    let element = document.getElementById('booster1');
+    if (boosterIsFlipped1 === 0) {
         element.classList.toggle("flipped");
-        ++cardIsFlipped0;
+        ++boosterIsFlipped1;
     } else {
         element.classList.toggle("flipped");
-        cardIsFlipped0 = 1;
+        boosterIsFlipped1 = 1;
     }
 }
+
+function flipBooster2() {
+    let element = document.getElementById('booster2');
+    if (boosterIsFlipped2 === 0) {
+        element.classList.toggle("flipped");
+        ++boosterIsFlipped2;
+    } else {
+        element.classList.toggle("flipped");
+        boosterIsFlipped2 = 1;
+    }
+}
+
+function flipBooster3() {
+    let element = document.getElementById('booster3');
+    if (boosterIsFlipped3 === 0) {
+        element.classList.toggle("flipped");
+        ++boosterIsFlipped3;
+    } else {
+        element.classList.toggle("flipped");
+        boosterIsFlipped3 = 1;
+    }
+}
+
 
 let checkFlip = 1;
 
@@ -262,9 +287,6 @@ function flip9() {
 
 //Only flips cards if they haven't been flipped already
 function flipAll() {
-    if (cardIsFlipped0 === 0) {
-        flip0();
-        }
     if (cardIsFlipped1 === 0) {
         flip1();
         }
@@ -392,10 +414,22 @@ window.onclick = function(event) {
   }
 }
 
-function reset0() {
-    const element = document.getElementById('myDiv');
+function resetBooster1() {
+    const element = document.getElementById('booster1');
     element.classList.remove("flipped");
-    cardIsFlipped0 = 0;
+    boosterIsFlipped1 = 0;
+}
+
+function resetBooster2() {
+    const element = document.getElementById('booster2');
+    element.classList.remove("flipped");
+    boosterIsFlipped2 = 0;
+}
+
+function resetBooster3() {
+    const element = document.getElementById('booster3');
+    element.classList.remove("flipped");
+    boosterIsFlipped3 = 0;
 }
 
 function reset1() {
@@ -471,7 +505,9 @@ function reset9() {
 }
 
 function resetAll() {
-    // reset0();
+    resetBooster1();
+    resetBooster2();
+    resetBooster3();
     reset1();
     reset2();
     reset3();
@@ -509,11 +545,17 @@ Array.prototype.shuffle = function() {
 
 //Enables random pack button
 function randomPack() {
-    var randomSet = 1 //Make 1-3 when adding next sets
+    var randomSet = Math.floor(Math.random()*3 + 1)
     switch(randomSet) {
         case 1:
-        newPackExpeditionBase();
-        break;
+            newPackExpeditionBase();
+            break;
+        case 2:
+            newPackAquapolis();
+            break;
+        case 3:
+            newPackSkyridge();
+            break;
     }
 }
 
@@ -523,6 +565,12 @@ function sameSet() {
     switch(currentSet) { 
     case 1:
         newPackExpeditionBase();
+        break;
+    case 2:
+        newPackAquapolis();
+        break;
+    case 3:
+        newPackSkyridge();
         break;
     }
 }
@@ -609,7 +657,7 @@ function newPackExpeditionBase() {
     checkFlip = 1;
 
     //Gives current set symbol
-    document.getElementById("rarity0").src = "expedition-base-set-pokemon-set-symbol.png";
+    document.getElementById("set1").src = "expedition-base-set-pokemon-set-symbol.png";
     
     //Gives current set logo
     document.getElementById("setlogo").src = "expeditionlogo.png";
@@ -657,20 +705,20 @@ function newPackExpeditionBase() {
     //Changes front and back of first image to indicate the type of pack chosen
     changePackArt2();
     if (packArt2 === 1) {
-        document.getElementById("boosterPackFront").src="expeditionbase1.jpg";
-        document.getElementById("boosterPackBack").src="expeditionbaseback.jpg";
+        document.getElementById("boosterPackFront1").src="expeditionbase1.jpg";
+        document.getElementById("boosterPackBack1").src="expeditionbaseback.jpg";
     }
     if (packArt2 === 2) {
-        document.getElementById("boosterPackFront").src="expeditionbase2.jpg";
-        document.getElementById("boosterPackBack").src="expeditionbaseback.jpg";
+        document.getElementById("boosterPackFront1").src="expeditionbase2.jpg";
+        document.getElementById("boosterPackBack1").src="expeditionbaseback.jpg";
     }
     if (packArt2 === 3) {
-        document.getElementById("boosterPackFront").src="expeditionbase3.jpg";
-        document.getElementById("boosterPackBack").src="expeditionbaseback.jpg";
+        document.getElementById("boosterPackFront1").src="expeditionbase3.jpg";
+        document.getElementById("boosterPackBack1").src="expeditionbaseback.jpg";
     }
     if (packArt2 === 4) {
-        document.getElementById("boosterPackFront").src="expeditionbase4.jpg";
-        document.getElementById("boosterPackBack").src="expeditionbaseback.jpg";
+        document.getElementById("boosterPackFront1").src="expeditionbase4.jpg";
+        document.getElementById("boosterPackBack1").src="expeditionbaseback.jpg";
     }
 
     //Picks 5 commons. I pick them before the reverse holo since the reverse holo CAN be a duplicate
@@ -777,6 +825,125 @@ function newPackExpeditionBase() {
     }
 
 }
+
+function newPackAquapolis() {
+
+    increaseCounter();
+    checkFlip = 1;
+    document.getElementById("set2").src = "aquapolis-pokemon-set-symbol.png";
+    document.getElementById("setlogo").src = "aquapolislogo.png";
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9'];
+        document.getElementById("rarity1").src = "rarity_common.png"
+        document.getElementById("rarity2").src = "rarity_common.png"
+        document.getElementById("rarity3").src = "rarity_common.png" 
+        document.getElementById("rarity4").src = "rarity_common.png"
+        document.getElementById("rarity5").src = "rarity_common.png" //Change to rare if holo is pulled? Or would that ruin the surprise?
+        document.getElementById("rarity6").src = "unown_question_mark.gif"
+        document.getElementById("rarity7").src = "rarity_rare.png"
+        document.getElementById("rarity8").src = "rarity_uncommon.png"
+        document.getElementById("rarity9").src = "rarity_uncommon.png"
+    }
+
+    currentSet = 2;
+    changePackArt2();
+    if (packArt2 === 1) {
+        document.getElementById("boosterPackFront2").src="aquapolis1.jpg";
+        document.getElementById("boosterPackBack2").src="aquapolisback.jpg";
+    }
+    if (packArt2 === 2) {
+        document.getElementById("boosterPackFront2").src="aquapolis2.jpg";
+        document.getElementById("boosterPackBack2").src="aquapolisback.jpg";
+    }
+    if (packArt2 === 3) {
+        document.getElementById("boosterPackFront2").src="aquapolis3.jpg";
+        document.getElementById("boosterPackBack2").src="aquapolisback.jpg";
+    }
+    if (packArt2 === 4) {
+        document.getElementById("boosterPackFront2").src="aquapolis4.jpg";
+        document.getElementById("boosterPackBack2").src="aquapolisback.jpg";
+    }
+}
+
+function newPackSkyridge() {
+
+    increaseCounter();
+    checkFlip = 1;
+    document.getElementById("set3").src = "skyridge-pokemon-set-symbol.png";
+    document.getElementById("setlogo").src = "skyridgelogo.png";
+    if (currentShuffle === 1) {
+        cardOrderArray.shuffle();
+        document.getElementById("rarity1").src = "unown_question_mark.gif";
+        document.getElementById("rarity2").src = "unown_question_mark.gif";
+        document.getElementById("rarity3").src = "unown_question_mark.gif";
+        document.getElementById("rarity4").src = "unown_question_mark.gif";
+        document.getElementById("rarity5").src = "unown_question_mark.gif";
+        document.getElementById("rarity6").src = "unown_question_mark.gif";
+        document.getElementById("rarity7").src = "unown_question_mark.gif";
+        document.getElementById("rarity8").src = "unown_question_mark.gif";
+        document.getElementById("rarity9").src = "unown_question_mark.gif";
+    } else {
+        cardOrderArray = [
+            'randomCard1', 
+            'randomCard2', 
+            'randomCard3', 
+            'randomCard4', 
+            'randomCard5', 
+            'randomCard6', 
+            'randomCard7', 
+            'randomCard8', 
+            'randomCard9'];
+        document.getElementById("rarity1").src = "rarity_common.png"
+        document.getElementById("rarity2").src = "rarity_common.png"
+        document.getElementById("rarity3").src = "rarity_common.png" 
+        document.getElementById("rarity4").src = "rarity_common.png"
+        document.getElementById("rarity5").src = "rarity_common.png" //Change to rare if holo is pulled? Or would that ruin the surprise?
+        document.getElementById("rarity6").src = "unown_question_mark.gif"
+        document.getElementById("rarity7").src = "rarity_rare.png"
+        document.getElementById("rarity8").src = "rarity_uncommon.png"
+        document.getElementById("rarity9").src = "rarity_uncommon.png"
+    }
+
+    currentSet = 3;
+    changePackArt2();
+    if (packArt2 === 1) {
+        document.getElementById("boosterPackFront3").src="skyridge1.jpg";
+        document.getElementById("boosterPackBack3").src="skyridgeback.jpg";
+    }
+    if (packArt2 === 2) {
+        document.getElementById("boosterPackFront3").src="skyridge2.jpg";
+        document.getElementById("boosterPackBack3").src="skyridgeback.jpg";
+    }
+    if (packArt2 === 3) {
+        document.getElementById("boosterPackFront3").src="skyridge3.jpg";
+        document.getElementById("boosterPackBack3").src="skyridgeback.jpg";
+    }
+    if (packArt2 === 4) {
+        document.getElementById("boosterPackFront3").src="skyridge4.jpg";
+        document.getElementById("boosterPackBack3").src="skyridgeback.jpg";
+    }
+}
+
 
 //Arrays of all card sets
 const expeditionBaseSetLinks = [

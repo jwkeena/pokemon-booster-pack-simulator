@@ -221,7 +221,7 @@ to {transform:scale(1)}
     -moz-backface-visibility: hidden;
     -o-backface-visibility: hidden;
     backface-visibility: hidden;
-
+    height: 565px;
 }
 
 /*Style common to dropup and dropdown buttons*/
@@ -265,6 +265,14 @@ to {transform:scale(1)}
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+}
+
+.back1, .back2, .back3,
+.back4, .back5, .back6,
+.back7, .back8, .back9 {
+    background-image: url(foil.jpg);
+    background-size: 315px 450px;
+    border-radius: 15px;    
 }
 
 .holographic {

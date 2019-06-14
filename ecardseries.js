@@ -883,6 +883,109 @@ function newPackAquapolis() {
         document.getElementById("boosterPackFront2").src="aquapolis4.jpg";
         document.getElementById("boosterPackBack2").src="aquapolisback.jpg";
     }
+
+    //Picks 5 commons. I pick them before the reverse holo since the reverse holo CAN be a duplicate
+    //of a card already pulled.
+    let numOfCommons = aquapolisLinks[3].length;
+    let randomCommon1 = Math.floor(Math.random()*numOfCommons);
+    let randomCommon2 = Math.floor(Math.random()*numOfCommons);
+    let randomCommon3 = Math.floor(Math.random()*numOfCommons);
+    let randomCommon4 = Math.floor(Math.random()*numOfCommons);
+    let randomCommon5 = Math.floor(Math.random()*numOfCommons);
+    let newCommon1 = aquapolisLinks[3][randomCommon1];
+    let newCommon2 = aquapolisLinks[3][randomCommon2];
+    let newCommon3 = aquapolisLinks[3][randomCommon3];
+    let newCommon4 = aquapolisLinks[3][randomCommon4];
+    let newCommon5 = aquapolisLinks[3][randomCommon5];
+    let newId1 = cardOrderArray[0];
+    let newId2 = cardOrderArray[1];
+    let newId3 = cardOrderArray[2];
+    let newId4 = cardOrderArray[3];
+    let newId5 = cardOrderArray[4];
+    document.getElementById(newId1).src = newCommon1;
+    document.getElementById(newId2).src = newCommon2;
+    document.getElementById(newId3).src = newCommon3;
+    document.getElementById(newId4).src = newCommon4;
+    document.getElementById(newId5).src = newCommon5;
+
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5]
+    for (let i = 0; i < 5; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
+                    newPackAquapolis();
+                    return;
+            }
+        }
+    }
+
+    //Determines whether a holo or non-holo is pulled at a 33% chance
+    //If holo is pulled, it replaces the 5th common AND a regular rare is pulled
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        let numOfHolos = aquapolisLinks[0].length;
+        let randomHolo = Math.floor(Math.random()*numOfHolos);
+        let newHolo = aquapolisLinks[0][randomHolo];
+        let newId5 = cardOrderArray[4];
+        document.getElementById(newId5).src = newHolo;
+    }
+    //Regarless of holo pull, a regular rare is always pulled
+    let numOfRares = aquapolisLinks[1].length;
+    let randomRare = Math.floor(Math.random()*numOfRares);
+    let newRare = aquapolisLinks[1][randomRare];
+    let newId7 = cardOrderArray[6];
+    document.getElementById(newId7).src = newRare;
+
+    //Same process, for 2 uncommons
+    let numOfUncommons = aquapolisLinks[2].length;
+    let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
+    let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
+    let newUncommon1 = aquapolisLinks[2][randomUncommon1];
+    let newUncommon2 = aquapolisLinks[2][randomUncommon2];
+    let newId8 = cardOrderArray[7];
+    let newId9 = cardOrderArray[8];
+    document.getElementById(newId8).src = newUncommon1;
+    document.getElementById(newId9).src = newUncommon2;
+
+    //Prevents duplicate uncommons by repeating entire function if duplicate is found
+    if (newUncommon1 == newUncommon2) {
+        --counter;
+        newPackAquapolis();
+        return;
+    }
+
+    //Gives reverse holo, with equal chances of pulling a common, uncommon, or rare
+    //This code is placed after picking all other cards so that there's no issue pulling a duplicate reverse holo
+    let reverseHoloSet = Math.floor(Math.random()*3);
+    let newId6 = cardOrderArray[5]
+    switch(reverseHoloSet) {
+        case 0:
+            let numOfCommons = aquapolisLinks[3].length;
+            let reverseHoloCommon = Math.floor(Math.random()*numOfCommons);
+            let newReverseHoloCommon = aquapolisLinks[3][reverseHoloCommon];
+            document.getElementById(newId6).src = newReverseHoloCommon;
+            element = document.getElementById(newId6);
+            element.className += "holographic";
+            break;
+        case 1:
+            let numOfUncommons = aquapolisLinks[2].length;
+            let reverseHoloUncommon = Math.floor(Math.random()*numOfUncommons);
+            let newReverseHoloUncommon = aquapolisLinks[2][reverseHoloUncommon];
+            document.getElementById(newId6).src = newReverseHoloUncommon;
+            element = document.getElementById(newId6);
+            element.className += "holographic";
+            break;
+        case 2:
+            let numOfRares = aquapolisLinks[1].length;
+            let reverseHoloRare = Math.floor(Math.random()*numOfRares);
+            let newReverseHoloRare = aquapolisLinks[1][reverseHoloRare];
+            document.getElementById(newId6).src = newReverseHoloRare;
+            element = document.getElementById(newId6);
+            element.className += "holographic";
+            break;
+    }
 }
 
 function newPackSkyridge() {
@@ -941,6 +1044,109 @@ function newPackSkyridge() {
     if (packArt2 === 4) {
         document.getElementById("boosterPackFront3").src="skyridge4.jpg";
         document.getElementById("boosterPackBack3").src="skyridgeback.jpg";
+    }
+
+    //Picks 5 commons. I pick them before the reverse holo since the reverse holo CAN be a duplicate
+    //of a card already pulled.
+    let numOfCommons = skyridgeLinks[3].length;
+    let randomCommon1 = Math.floor(Math.random()*numOfCommons);
+    let randomCommon2 = Math.floor(Math.random()*numOfCommons);
+    let randomCommon3 = Math.floor(Math.random()*numOfCommons);
+    let randomCommon4 = Math.floor(Math.random()*numOfCommons);
+    let randomCommon5 = Math.floor(Math.random()*numOfCommons);
+    let newCommon1 = skyridgeLinks[3][randomCommon1];
+    let newCommon2 = skyridgeLinks[3][randomCommon2];
+    let newCommon3 = skyridgeLinks[3][randomCommon3];
+    let newCommon4 = skyridgeLinks[3][randomCommon4];
+    let newCommon5 = skyridgeLinks[3][randomCommon5];
+    let newId1 = cardOrderArray[0];
+    let newId2 = cardOrderArray[1];
+    let newId3 = cardOrderArray[2];
+    let newId4 = cardOrderArray[3];
+    let newId5 = cardOrderArray[4];
+    document.getElementById(newId1).src = newCommon1;
+    document.getElementById(newId2).src = newCommon2;
+    document.getElementById(newId3).src = newCommon3;
+    document.getElementById(newId4).src = newCommon4;
+    document.getElementById(newId5).src = newCommon5;
+
+    //Prevents duplicate commons
+    let currentCommons = [newCommon1, newCommon2, newCommon3, newCommon4, newCommon5]
+    for (let i = 0; i < 5; i++) {
+        let j = 1 + i
+            for (j; j < currentCommons.length; j++) {
+                if (currentCommons[i] === currentCommons[j]) {
+                    --counter;
+                    newPackSkyridge();
+                    return;
+            }
+        }
+    }
+
+    //Determines whether a holo or non-holo is pulled at a 33% chance
+    //If holo is pulled, it replaces the 5th common AND a regular rare is pulled
+    let chanceOfHolo = Math.floor(Math.random()*3);
+    if (chanceOfHolo === 1) {
+        let numOfHolos = skyridgeLinks[0].length;
+        let randomHolo = Math.floor(Math.random()*numOfHolos);
+        let newHolo = skyridgeLinks[0][randomHolo];
+        let newId5 = cardOrderArray[4];
+        document.getElementById(newId5).src = newHolo;
+    }
+    //Regarless of holo pull, a regular rare is always pulled
+    let numOfRares = skyridgeLinks[1].length;
+    let randomRare = Math.floor(Math.random()*numOfRares);
+    let newRare = skyridgeLinks[1][randomRare];
+    let newId7 = cardOrderArray[6];
+    document.getElementById(newId7).src = newRare;
+
+    //Same process, for 2 uncommons
+    let numOfUncommons = skyridgeLinks[2].length;
+    let randomUncommon1 = Math.floor(Math.random()*numOfUncommons);
+    let randomUncommon2 = Math.floor(Math.random()*numOfUncommons);
+    let newUncommon1 = skyridgeLinks[2][randomUncommon1];
+    let newUncommon2 = skyridgeLinks[2][randomUncommon2];
+    let newId8 = cardOrderArray[7];
+    let newId9 = cardOrderArray[8];
+    document.getElementById(newId8).src = newUncommon1;
+    document.getElementById(newId9).src = newUncommon2;
+
+    //Prevents duplicate uncommons by repeating entire function if duplicate is found
+    if (newUncommon1 == newUncommon2) {
+        --counter;
+        newPackSkyridge();
+        return;
+    }
+
+    //Gives reverse holo, with equal chances of pulling a common, uncommon, or rare
+    //This code is placed after picking all other cards so that there's no issue pulling a duplicate reverse holo
+    let reverseHoloSet = Math.floor(Math.random()*3);
+    let newId6 = cardOrderArray[5]
+    switch(reverseHoloSet) {
+        case 0:
+            let numOfCommons = skyridgeLinks[3].length;
+            let reverseHoloCommon = Math.floor(Math.random()*numOfCommons);
+            let newReverseHoloCommon = skyridgeLinks[3][reverseHoloCommon];
+            document.getElementById(newId6).src = newReverseHoloCommon;
+            element = document.getElementById(newId6);
+            element.className += "holographic";
+            break;
+        case 1:
+            let numOfUncommons = skyridgeLinks[2].length;
+            let reverseHoloUncommon = Math.floor(Math.random()*numOfUncommons);
+            let newReverseHoloUncommon = skyridgeLinks[2][reverseHoloUncommon];
+            document.getElementById(newId6).src = newReverseHoloUncommon;
+            element = document.getElementById(newId6);
+            element.className += "holographic";
+            break;
+        case 2:
+            let numOfRares = skyridgeLinks[1].length;
+            let reverseHoloRare = Math.floor(Math.random()*numOfRares);
+            let newReverseHoloRare = skyridgeLinks[1][reverseHoloRare];
+            document.getElementById(newId6).src = newReverseHoloRare;
+            element = document.getElementById(newId6);
+            element.className += "holographic";
+            break;
     }
 }
 
@@ -1123,22 +1329,420 @@ const expeditionBaseSetLinks = [
 
 ]
 
+const aquapolisLinks = [
+
+    //Holofoil rares at index 0
+    ['https://pkmncards.com/wp-content/uploads/h01-ampharos-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h02-arcanaine-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h03-ariados-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h04-azumarill-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h05-bellossom-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h06-blissey-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h07-electrode-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h08-entei-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h09-espeon-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h10-exeggutor-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h11-houndoom-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h12-hypno-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h13-jumpluff-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h14-kingdra-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h15-lanturn-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h16-magneton-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h17-muk-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h18-nidoking-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h19-ninetales-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h20-octillery-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h21-scizor-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h22-slowking-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h23-steelix-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h24-sudowoodo-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h25-suicune-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h26-tentacruel-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h27-togetic-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h28-tyranitar-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h29-umbreon-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h30-victreebel-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h31-vileplume-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/h32-zapdos-expedition.jpg',
+    'https://pkmncards.com/wp-content/uploads/warp-energy-aquapolis-aq-147.jpg', //Increase the rarity of these secret rares
+    'https://pkmncards.com/wp-content/uploads/kingdra-aquapolis-aq-148.jpg',
+    'https://pkmncards.com/wp-content/uploads/lugia-aquapolis-aq-149.jpg',
+    'https://pkmncards.com/wp-content/uploads/nidoking-aquapolis-aq-150.jpg'],
+
+    //Rares at index 1
+    ['https://pkmncards.com/wp-content/uploads/ampharos-aquapolis-aq-1.jpg',
+    'https://pkmncards.com/wp-content/uploads/arcanine-aquapolis-aq-2.jpg',
+    'https://pkmncards.com/wp-content/uploads/ariados-aquapolis-aq-3.jpg',
+    'https://pkmncards.com/wp-content/uploads/azumarill-aquapolis-aq-4.jpg',
+    'https://pkmncards.com/wp-content/uploads/bellossom-aquapolis-aq-5.jpg',
+    'https://pkmncards.com/wp-content/uploads/blissey-aquapolis-aq-6.jpg',
+    'https://pkmncards.com/wp-content/uploads/donphan-aquapolis-aq-7.jpg',
+    'https://pkmncards.com/wp-content/uploads/electrode-aquapolis-aq-8.jpg',
+    'https://pkmncards.com/wp-content/uploads/elekid-aquapolis-aq-9.jpg',
+    'https://pkmncards.com/wp-content/uploads/entei-aquapolis-aq-10.jpg',
+    'https://pkmncards.com/wp-content/uploads/espeon-aquapolis-aq-11.jpg',
+    'https://pkmncards.com/wp-content/uploads/exeggutor-aquapolis-aq-12.jpg',
+    'https://pkmncards.com/wp-content/uploads/exeggutor-aquapolis-aq-13.jpg',
+    'https://pkmncards.com/wp-content/uploads/houndoom-aquapolis-aq-14.jpg',
+    'https://pkmncards.com/wp-content/uploads/houndoom-aquapolis-aq-15.jpg',
+    'https://pkmncards.com/wp-content/uploads/hypno-aquapolis-aq-16.jpg',
+    'https://pkmncards.com/wp-content/uploads/jumpluff-aquapolis-aq-17.jpg',
+    'https://pkmncards.com/wp-content/uploads/jynx-aquapolis-aq-18.jpg',
+    'https://pkmncards.com/wp-content/uploads/kingdra-aquapolis-aq-19.jpg',
+    'https://pkmncards.com/wp-content/uploads/lanturn-aquapolis-aq-20.jpg',
+    'https://pkmncards.com/wp-content/uploads/lanturn-aquapolis-aq-21.jpg',
+    'https://pkmncards.com/wp-content/uploads/magneton-aquapolis-aq-22.jpg',
+    'https://pkmncards.com/wp-content/uploads/muk-aquapolis-aq-23.jpg',
+    'https://pkmncards.com/wp-content/uploads/nidoking-aquapolis-aq-24.jpg',
+    'https://pkmncards.com/wp-content/uploads/ninetales-aquapolis-aq-25.jpg',
+    'https://pkmncards.com/wp-content/uploads/octillery-aquapolis-aq-26.jpg',
+    'https://pkmncards.com/wp-content/uploads/parasect-aquapolis-aq-27.jpg',
+    'https://pkmncards.com/wp-content/uploads/porygon2-aquapolis-aq-28.jpg',
+    'https://pkmncards.com/wp-content/uploads/primeape-aquapolis-aq-29.jpg',
+    'https://pkmncards.com/wp-content/uploads/quagsire-aquapolis-aq-30.jpg',
+    'https://pkmncards.com/wp-content/uploads/rapidash-aquapolis-aq-31.jpg',
+    'https://pkmncards.com/wp-content/uploads/scizor-aquapolis-aq-32.jpg',
+    'https://pkmncards.com/wp-content/uploads/slowbro-aquapolis-aq-33.jpg',
+    'https://pkmncards.com/wp-content/uploads/slowking-aquapolis-aq-34.jpg',
+    'https://pkmncards.com/wp-content/uploads/steelix-aquapolis-aq-35.jpg',
+    'https://pkmncards.com/wp-content/uploads/sudowoodo-aquapolis-aq-36.jpg',
+    'https://pkmncards.com/wp-content/uploads/suicune-aquapolis-aq-37.jpg',
+    'https://pkmncards.com/wp-content/uploads/tentacruel-aquapolis-aq-38.jpg',
+    'https://pkmncards.com/wp-content/uploads/togetic-aquapolis-aq-39.jpg',
+    'https://pkmncards.com/wp-content/uploads/tyranitar-aquapolis-aq-40.jpg',
+    'https://pkmncards.com/wp-content/uploads/umbreon-aquapolis-aq-41.jpg',
+    'https://pkmncards.com/wp-content/uploads/victreebel-aquapolis-aq-42.jpg',
+    'https://pkmncards.com/wp-content/uploads/vileplume-aquapolis-aq-43.jpg',
+    'https://pkmncards.com/wp-content/uploads/zapdos-aquapolis-aq-44.jpg',
+    'https://pkmncards.com/wp-content/uploads/apricorn-forest-aquapolis-aq-118.jpg',
+    'https://pkmncards.com/wp-content/uploads/darkness-energy-aquapolis-aq-142.jpg',
+    'https://pkmncards.com/wp-content/uploads/metal-energy-aquapolis-aq-143.jpg',
+    'https://pkmncards.com/wp-content/uploads/rainbow-energy-aquapolis-aq-144.jpg'],
+
+    //Uncommons at index 2
+    ['https://pkmncards.com/wp-content/uploads/bellsprout-aquapolis-aq-45.jpg',
+    'https://pkmncards.com/wp-content/uploads/dodrio-aquapolis-aq-46.jpg',
+    'https://pkmncards.com/wp-content/uploads/flaaffy-aquapolis-aq-47.jpg',
+    'https://pkmncards.com/wp-content/uploads/furret-aquapolis-aq-48.jpg',
+    'https://pkmncards.com/wp-content/uploads/gloom-aquapolis-aq-49.jpg',
+    'https://pkmncards.com/wp-content/uploads/golduck-aquapolis-aq-50.jpg',
+    'https://pkmncards.com/wp-content/uploads/growlithe-aquapolis-aq-51.jpg',
+    'https://pkmncards.com/wp-content/uploads/magnemite-aquapolis-aq-52.jpg',
+    'https://pkmncards.com/wp-content/uploads/marill-aquapolis-aq-53.jpg',
+    'https://pkmncards.com/wp-content/uploads/marowak-aquapolis-aq-54.jpg',
+    'https://pkmncards.com/wp-content/uploads/nidorino-aquapolis-aq-55.jpg',
+    'https://pkmncards.com/wp-content/uploads/pupitar-aquapolis-aq-56.jpg',
+    'https://pkmncards.com/wp-content/uploads/scyther-aquapolis-aq-57.jpg',
+    'https://pkmncards.com/wp-content/uploads/seadra-aquapolis-aq-58.jpg',
+    'https://pkmncards.com/wp-content/uploads/seaking-aquapolis-aq-59.jpg',
+    'https://pkmncards.com/wp-content/uploads/skiploom-aquapolis-aq-60.jpg',
+    'https://pkmncards.com/wp-content/uploads/smoochum-aquapolis-aq-61.jpg',
+    'https://pkmncards.com/wp-content/uploads/spinarak-aquapolis-aq-62.jpg',
+    'https://pkmncards.com/wp-content/uploads/tyrogue-aquapolis-aq-63.jpg',
+    'https://pkmncards.com/wp-content/uploads/voltorb-aquapolis-aq-64.jpg',
+    'https://pkmncards.com/wp-content/uploads/weepinbell-aquapolis-aq-65.jpg',
+    'https://pkmncards.com/wp-content/uploads/wooper-aquapolis-aq-66.jpg',
+    'https://pkmncards.com/wp-content/uploads/darkness-cube-01-aquapolis-aq-119.jpg',
+    'https://pkmncards.com/wp-content/uploads/energy-switch-aquapolis-aq-120.jpg',
+    'https://pkmncards.com/wp-content/uploads/fighting-cube-01-aquapolis-aq-121.jpg',
+    'https://pkmncards.com/wp-content/uploads/fire-cube-01-aquapolis-aq-122.jpg',
+    'https://pkmncards.com/wp-content/uploads/forest-guardian-aquapolis-aq-123.jpg',
+    'https://pkmncards.com/wp-content/uploads/grass-cube-01-aquapolis-aq-124.jpg',
+    'https://pkmncards.com/wp-content/uploads/healing-berry-aquapolis-aq-125.jpg',
+    'https://pkmncards.com/wp-content/uploads/juggler-aquapolis-aq-126.jpg',
+    'https://pkmncards.com/wp-content/uploads/lightning-cube-01-aquapolis-aq-127.jpg',
+    'https://pkmncards.com/wp-content/uploads/memory-berry-aquapolis-aq-128.jpg',
+    'https://pkmncards.com/wp-content/uploads/metal-cube-01-aquapolis-aq-129.jpg',
+    'https://pkmncards.com/wp-content/uploads/pokemon-fan-club-aquapolis-aq-130.jpg',
+    'https://pkmncards.com/wp-content/uploads/pokemon-park-aquapolis-aq-131.jpg',
+    'https://pkmncards.com/wp-content/uploads/psychic-cube-01-aquapolis-aq-132.jpg',
+    'https://pkmncards.com/wp-content/uploads/seer-aquapolis-aq-133.jpg',
+    'https://pkmncards.com/wp-content/uploads/super-energy-removal-2-aquapolis-aq-134.jpg',
+    'https://pkmncards.com/wp-content/uploads/time-shard-aquapolis-aq-135.jpg',
+    'https://pkmncards.com/wp-content/uploads/town-volunteers-aquapolis-aq-136.jpg',
+    'https://pkmncards.com/wp-content/uploads/traveling-salesman-aquapolis-aq-137.jpg',
+    'https://pkmncards.com/wp-content/uploads/undersea-ruins-aquapolis-aq-138.jpg',
+    'https://pkmncards.com/wp-content/uploads/power-plant-aquapolis-aq-139.jpg',
+    'https://pkmncards.com/wp-content/uploads/water-cube-01-aquapolis-aq-140.jpg',
+    'https://pkmncards.com/wp-content/uploads/weakness-guard-aquapolis-aq-141.jpg',
+    'https://pkmncards.com/wp-content/uploads/boost-energy-aquapolis-aq-145.jpg',
+    'https://pkmncards.com/wp-content/uploads/crystal-energy-aquapolis-aq-146.jpg',
+    'https://pkmncards.com/wp-content/uploads/warp-energy-aquapolis-aq-147.jpg'],
+
+    //Commons at index 3
+    ['https://pkmncards.com/wp-content/uploads/aipom-aquapolis-aq-67.jpg',
+    'https://pkmncards.com/wp-content/uploads/bellsprout-aquapolis-aq-68.jpg',
+    'https://pkmncards.com/wp-content/uploads/chansey-aquapolis-aq-69.jpg',
+    'https://pkmncards.com/wp-content/uploads/chinchou-aquapolis-aq-70.jpg',
+    'https://pkmncards.com/wp-content/uploads/chinchou-aquapolis-aq-71.jpg',
+    'https://pkmncards.com/wp-content/uploads/cubone-aquapolis-aq-72.jpg',
+    'https://pkmncards.com/wp-content/uploads/doduo-aquapolis-aq-73.jpg',
+    'https://pkmncards.com/wp-content/uploads/drowzee-aquapolis-aq-74.jpg',
+    'https://pkmncards.com/wp-content/uploads/eevee-aquapolis-aq-75.jpg',
+    'https://pkmncards.com/wp-content/uploads/exeggcute-aquapolis-aq-76.jpg',
+    'https://pkmncards.com/wp-content/uploads/exeggcute-aquapolis-aq-77.jpg',
+    'https://pkmncards.com/wp-content/uploads/goldeen-aquapolis-aq-78.jpg',
+    'https://pkmncards.com/wp-content/uploads/grimer-aquapolis-aq-79.jpg',
+    'https://pkmncards.com/wp-content/uploads/growlithe-aquapolis-aq-80.jpg',
+    'https://pkmncards.com/wp-content/uploads/hitmonchan-aquapolis-aq-81.jpg',
+    'https://pkmncards.com/wp-content/uploads/hitmontop-aquapolis-aq-82.jpg',
+    'https://pkmncards.com/wp-content/uploads/hoppip-aquapolis-aq-83.jpg',
+    'https://pkmncards.com/wp-content/uploads/horsea-aquapolis-aq-84.jpg',
+    'https://pkmncards.com/wp-content/uploads/horsea-aquapolis-aq-85.jpg',
+    'https://pkmncards.com/wp-content/uploads/houndour-aquapolis-aq-86.jpg',
+    'https://pkmncards.com/wp-content/uploads/houndour-aquapolis-aq-87.jpg',
+    'https://pkmncards.com/wp-content/uploads/kangaskhan-aquapolis-aq-88.jpg',
+    'https://pkmncards.com/wp-content/uploads/larvitar-aquapolis-aq-89.jpg',
+    'https://pkmncards.com/wp-content/uploads/lickitung-aquapolis-aq-90.jpg',
+    'https://pkmncards.com/wp-content/uploads/magnemite-aquapolis-aq-91.jpg',
+    'https://pkmncards.com/wp-content/uploads/mankey-aquapolis-aq-92.jpg',
+    'https://pkmncards.com/wp-content/uploads/mareep-aquapolis-aq-93.jpg',
+    'https://pkmncards.com/wp-content/uploads/miltank-aquapolis-aq-94.jpg',
+    'https://pkmncards.com/wp-content/uploads/mr.-mime-aquapolis-aq-95.jpg',
+    'https://pkmncards.com/wp-content/uploads/nidoran-male-aquapolis-aq-96.jpg',
+    'https://pkmncards.com/wp-content/uploads/oddish-aquapolis-aq-97.jpg',
+    'https://pkmncards.com/wp-content/uploads/onix-aquapolis-aq-98.jpg',
+    'https://pkmncards.com/wp-content/uploads/paras-aquapolis-aq-99.jpg',
+    'https://pkmncards.com/wp-content/uploads/phanpy-aquapolis-aq-100.jpg',
+    'https://pkmncards.com/wp-content/uploads/pinsir-aquapolis-aq-101.jpg',
+    'https://pkmncards.com/wp-content/uploads/ponyta-aquapolis-aq-102.jpg',
+    'https://pkmncards.com/wp-content/uploads/porygon-aquapolis-aq-103.jpg',
+    'https://pkmncards.com/wp-content/uploads/psyduck-aquapolis-aq-104.jpg',
+    'https://pkmncards.com/wp-content/uploads/remoraid-aquapolis-aq-105.jpg',
+    'https://pkmncards.com/wp-content/uploads/scyther-aquapolis-aq-106.jpg',
+    'https://pkmncards.com/wp-content/uploads/sentret-aquapolis-aq-107.jpg',
+    'https://pkmncards.com/wp-content/uploads/slowpoke-aquapolis-aq-108.jpg',
+    'https://pkmncards.com/wp-content/uploads/smeargle-aquapolis-aq-109.jpg',
+    'https://pkmncards.com/wp-content/uploads/sneasel-aquapolis-aq-110.jpg',
+    'https://pkmncards.com/wp-content/uploads/spinarak-aquapolis-aq-111.jpg',
+    'https://pkmncards.com/wp-content/uploads/tangela-aquapolis-aq-112.jpg',
+    'https://pkmncards.com/wp-content/uploads/tentacool-aquapolis-aq-113.jpg',
+    'https://pkmncards.com/wp-content/uploads/togepi-aquapolis-aq-114.jpg',
+    'https://pkmncards.com/wp-content/uploads/voltorb-aquapolis-aq-115.jpg',
+    'https://pkmncards.com/wp-content/uploads/vulpix-aquapolis-aq-116.jpg',
+    'https://pkmncards.com/wp-content/uploads/wooper-aquapolis-aq-117.jpg'],
+
+]
+
+const skyridgeLinks = [
+
+    //Holofoil rares at index 0
+    ['https://pkmncards.com/wp-content/uploads/h01.jpg',
+    'https://pkmncards.com/wp-content/uploads/h02.jpg',
+    'https://pkmncards.com/wp-content/uploads/h03.jpg',
+    'https://pkmncards.com/wp-content/uploads/h04.jpg',
+    'https://pkmncards.com/wp-content/uploads/h05.jpg',
+    'https://pkmncards.com/wp-content/uploads/h06.jpg',
+    'https://pkmncards.com/wp-content/uploads/h07.jpg',
+    'https://pkmncards.com/wp-content/uploads/h08.jpg',
+    'https://pkmncards.com/wp-content/uploads/h09.jpg',
+    'https://pkmncards.com/wp-content/uploads/h10.jpg',
+    'https://pkmncards.com/wp-content/uploads/h11.jpg',
+    'https://pkmncards.com/wp-content/uploads/h12.jpg',
+    'https://pkmncards.com/wp-content/uploads/h13.jpg',
+    'https://pkmncards.com/wp-content/uploads/h14.jpg',
+    'https://pkmncards.com/wp-content/uploads/h15.jpg',
+    'https://pkmncards.com/wp-content/uploads/h16.jpg',
+    'https://pkmncards.com/wp-content/uploads/h17.jpg',
+    'https://pkmncards.com/wp-content/uploads/h18.jpg',
+    'https://pkmncards.com/wp-content/uploads/h19.jpg',
+    'https://pkmncards.com/wp-content/uploads/h20.jpg',
+    'https://pkmncards.com/wp-content/uploads/h21.jpg',
+    'https://pkmncards.com/wp-content/uploads/h22.jpg',
+    'https://pkmncards.com/wp-content/uploads/h23.jpg',
+    'https://pkmncards.com/wp-content/uploads/h24.jpg',
+    'https://pkmncards.com/wp-content/uploads/h25.jpg',
+    'https://pkmncards.com/wp-content/uploads/h26.jpg',
+    'https://pkmncards.com/wp-content/uploads/h27.jpg',
+    'https://pkmncards.com/wp-content/uploads/h28.jpg',
+    'https://pkmncards.com/wp-content/uploads/h29.jpg',
+    'https://pkmncards.com/wp-content/uploads/h30.jpg',
+    'https://pkmncards.com/wp-content/uploads/h31.jpg',
+    'https://pkmncards.com/wp-content/uploads/h32.jpg',
+    'https://pkmncards.com/wp-content/uploads/celebi-skyridge-sk-145.jpg',  // Increase rarity of these secret rares
+    'https://pkmncards.com/wp-content/uploads/charizard-skyridge-sk-146.jpg',
+    'https://pkmncards.com/wp-content/uploads/crobat-skyridge-sk-147.jpg',
+    'https://pkmncards.com/wp-content/uploads/golem-skyridge-sk-148.jpg',
+    'https://pkmncards.com/wp-content/uploads/ho-oh-skyridge-sk-149.jpg',
+    'https://pkmncards.com/wp-content/uploads/kabutops-skyridge-sk-150.jpg'],
+
+    //Rares at index 1
+
+    ['https://pkmncards.com/wp-content/uploads/aerodactyl-skyridge-sk-1.jpg',
+    'https://pkmncards.com/wp-content/uploads/alakazam-skyridge-sk-2.jpg',
+    'https://pkmncards.com/wp-content/uploads/arcanine-skyridge-sk-3.jpg',
+    'https://pkmncards.com/wp-content/uploads/articuno-skyridge-sk-4.jpg',
+    'https://pkmncards.com/wp-content/uploads/beedrill-skyridge-sk-5.jpg',
+    'https://pkmncards.com/wp-content/uploads/crobat-skyridge-sk-6.jpg',
+    'https://pkmncards.com/wp-content/uploads/dewgong-skyridge-sk-7.jpg',
+    'https://pkmncards.com/wp-content/uploads/flareon-skyridge-sk-8.jpg',
+    'https://pkmncards.com/wp-content/uploads/forretress-skyridge-sk-9.jpg',
+    'https://pkmncards.com/wp-content/uploads/gengar-skyridge-sk-10.jpg',
+    'https://pkmncards.com/wp-content/uploads/gyarados-skyridge-sk-11.jpg',
+    'https://pkmncards.com/wp-content/uploads/houndoom-skyridge-sk-12.jpg',
+    'https://pkmncards.com/wp-content/uploads/jolteon-skyridge-sk-13.jpg',
+    'https://pkmncards.com/wp-content/uploads/kabutops-skyridge-sk-14.jpg',
+    'https://pkmncards.com/wp-content/uploads/ledian-skyridge-sk-15.jpg',
+    'https://pkmncards.com/wp-content/uploads/machamp-skyridge-sk-16.jpg',
+    'https://pkmncards.com/wp-content/uploads/magcargo-skyridge-sk-17.jpg',
+    'https://pkmncards.com/wp-content/uploads/magcargo-skyridge-sk-18.jpg',
+    'https://pkmncards.com/wp-content/uploads/magneton-skyridge-sk-19.jpg',
+    'https://pkmncards.com/wp-content/uploads/magneton-skyridge-sk-20.jpg',
+    'https://pkmncards.com/wp-content/uploads/moltres-skyridge-sk-21.jpg',
+    'https://pkmncards.com/wp-content/uploads/nidoqueen-skyridge-sk-22.jpg',
+    'https://pkmncards.com/wp-content/uploads/omastar-skyridge-sk-23.jpg',
+    'https://pkmncards.com/wp-content/uploads/piloswine-skyridge-sk-24.jpg',
+    'https://pkmncards.com/wp-content/uploads/politoed-skyridge-sk-25.jpg',
+    'https://pkmncards.com/wp-content/uploads/poliwrath-skyridge-sk-26.jpg',
+    'https://pkmncards.com/wp-content/uploads/raichu-skyridge-sk-27.jpg',
+    'https://pkmncards.com/wp-content/uploads/raikou-skyridge-sk-28.jpg',
+    'https://pkmncards.com/wp-content/uploads/rhydon-skyridge-sk-29.jpg',
+    'https://pkmncards.com/wp-content/uploads/starmie-skyridge-sk-30.jpg',
+    'https://pkmncards.com/wp-content/uploads/steelix-skyridge-sk-31.jpg',
+    'https://pkmncards.com/wp-content/uploads/umbreon-skyridge-sk-32.jpg',
+    'https://pkmncards.com/wp-content/uploads/vaporeon-skyridge-sk-33.jpg',
+    'https://pkmncards.com/wp-content/uploads/wigglytuff-skyridge-sk-34.jpg',
+    'https://pkmncards.com/wp-content/uploads/xatu-skyridge-sk-35.jpg',
+    
+
+    ],
+
+    //Uncommons at index 2
+    ['https://pkmncards.com/wp-content/uploads/electrode-skyridge-sk-36.jpg',
+    'https://pkmncards.com/wp-content/uploads/kabuto-skyridge-sk-37.jpg',
+    'https://pkmncards.com/wp-content/uploads/machoke-skyridge-sk-38.jpg',
+    'https://pkmncards.com/wp-content/uploads/misdreavus-skyridge-sk-39.jpg',
+    'https://pkmncards.com/wp-content/uploads/noctowl-skyridge-sk-40.jpg',
+    'https://pkmncards.com/wp-content/uploads/omanyte-skyridge-sk-41.jpg',
+    'https://pkmncards.com/wp-content/uploads/persian-skyridge-sk-42.jpg',
+    'https://pkmncards.com/wp-content/uploads/piloswine-skyridge-sk-43.jpg',
+    'https://pkmncards.com/wp-content/uploads/starmie-skyridge-sk-44.jpg',
+    'https://pkmncards.com/wp-content/uploads/wobbuffet-skyridge-sk-45.jpg',
+    'https://pkmncards.com/wp-content/uploads/ancient-ruins-skyridge-sk-119.jpg',
+    'https://pkmncards.com/wp-content/uploads/relic-hunter-skyridge-sk-120.jpg',
+    'https://pkmncards.com/wp-content/uploads/apricorn-maker-skyridge-sk-121.jpg',
+    'https://pkmncards.com/wp-content/uploads/crystal-shard-skyridge-sk-122.jpg',
+    'https://pkmncards.com/wp-content/uploads/desert-shaman-skyridge-sk-123.jpg',
+    'https://pkmncards.com/wp-content/uploads/fast-ball-skyridge-sk-124.jpg',
+    'https://pkmncards.com/wp-content/uploads/fisherman-skyridge-sk-125.jpg',
+    'https://pkmncards.com/wp-content/uploads/friend-ball-skyridge-sk-126.jpg',
+    'https://pkmncards.com/wp-content/uploads/hyper-potion-skyridge-sk-127.jpg',
+    'https://pkmncards.com/wp-content/uploads/lure-ball-skyridge-sk-128.jpg',
+    'https://pkmncards.com/wp-content/uploads/miracle-sphere-alpha-skyridge-sk-129.jpg',
+    'https://pkmncards.com/wp-content/uploads/miracle-sphere-beta-skyridge-sk-130.jpg',
+    'https://pkmncards.com/wp-content/uploads/miracle-sphere-gamma-skyridge-sk-131.jpg',
+    'https://pkmncards.com/wp-content/uploads/mirage-stadium-skyridge-sk-132.jpg',
+    'https://pkmncards.com/wp-content/uploads/mystery-plate-alpha-skyridge-sk-133.jpg',
+    'https://pkmncards.com/wp-content/uploads/mystery-plate-beta-skyridge-sk-134.jpg',
+    'https://pkmncards.com/wp-content/uploads/mystery-plate-gamma-skyridge-sk-135.jpg',
+    'https://pkmncards.com/wp-content/uploads/mystery-plate-delta-skyridge-sk-136.jpg',
+    'https://pkmncards.com/wp-content/uploads/mystery-zone-skyridge-sk-137.jpg',
+    'https://pkmncards.com/wp-content/uploads/oracle-skyridge-sk-138.jpg',
+    'https://pkmncards.com/wp-content/uploads/star-piece-skyridge-sk-139.jpg',
+    'https://pkmncards.com/wp-content/uploads/underground-expedition-skyridge-sk-140.jpg',
+    'https://pkmncards.com/wp-content/uploads/underground-lake-skyridge-sk-141.jpg',
+    'https://pkmncards.com/wp-content/uploads/bounce-energy-skyridge-sk-142.jpg',
+    'https://pkmncards.com/wp-content/uploads/cyclone-energy-skyridge-sk-143.jpg',
+    'https://pkmncards.com/wp-content/uploads/retro-energy-skyridge-sk-144.jpg'],
+
+    //Commons at index 3
+    ['https://pkmncards.com/wp-content/uploads/abra-skyridge-sk-46.jpg',
+    'https://pkmncards.com/wp-content/uploads/buried-fossil-skyridge-sk-47.jpg',
+    'https://pkmncards.com/wp-content/uploads/cleffa-skyridge-sk-48.jpg',
+    'https://pkmncards.com/wp-content/uploads/delibird-skyridge-sk-49.jpg',
+    'https://pkmncards.com/wp-content/uploads/diglett-skyridge-sk-50.jpg',
+    'https://pkmncards.com/wp-content/uploads/ditto-skyridge-sk-51.jpg',
+    'https://pkmncards.com/wp-content/uploads/dugtrio-skyridge-sk-52.jpg',
+    'https://pkmncards.com/wp-content/uploads/dunsparce-skyridge-sk-53.jpg',
+    'https://pkmncards.com/wp-content/uploads/eevee-skyridge-sk-54.jpg',
+    'https://pkmncards.com/wp-content/uploads/farfetchd-skyridge-sk-55.jpg',
+    'https://pkmncards.com/wp-content/uploads/forretress-skyridge-sk-56.jpg',
+    'https://pkmncards.com/wp-content/uploads/gastly-skyridge-sk-57.jpg',
+    'https://pkmncards.com/wp-content/uploads/girafarig-skyridge-sk-58.jpg',
+    'https://pkmncards.com/wp-content/uploads/gligar-skyridge-sk-59.jpg',
+    'https://pkmncards.com/wp-content/uploads/golbat-skyridge-sk-60.jpg',
+    'https://pkmncards.com/wp-content/uploads/granbull-skyridge-sk-61.jpg',
+    'https://pkmncards.com/wp-content/uploads/growlithe-skyridge-sk-62.jpg',
+    'https://pkmncards.com/wp-content/uploads/haunter-skyridge-sk-63.jpg',
+    'https://pkmncards.com/wp-content/uploads/heracross-skyridge-sk-64.jpg',
+    'https://pkmncards.com/wp-content/uploads/hoothoot-skyridge-sk-65.jpg',
+    'https://pkmncards.com/wp-content/uploads/houndour-skyridge-sk-66.jpg',
+    'https://pkmncards.com/wp-content/uploads/igglybuff-skyridge-sk-67.jpg',
+    'https://pkmncards.com/wp-content/uploads/jigglypuff-skyridge-sk-68.jpg',
+    'https://pkmncards.com/wp-content/uploads/kadabra-skyridge-sk-69.jpg',
+    'https://pkmncards.com/wp-content/uploads/kakuna-skyridge-sk-70.jpg',
+    'https://pkmncards.com/wp-content/uploads/lapras-skyridge-sk-71.jpg',
+    'https://pkmncards.com/wp-content/uploads/ledyba-skyridge-sk-72.jpg',
+    'https://pkmncards.com/wp-content/uploads/ledyba-skyridge-sk-73.jpg',
+    'https://pkmncards.com/wp-content/uploads/machop-skyridge-sk-74.jpg',
+    'https://pkmncards.com/wp-content/uploads/magikarp-skyridge-sk-75.jpg',
+    'https://pkmncards.com/wp-content/uploads/magnemite-skyridge-sk-76.jpg',
+    'https://pkmncards.com/wp-content/uploads/mantine-skyridge-sk-77.jpg',
+    'https://pkmncards.com/wp-content/uploads/meowth-skyridge-sk-78.jpg',
+    'https://pkmncards.com/wp-content/uploads/murkrow-skyridge-sk-79.jpg',
+    'https://pkmncards.com/wp-content/uploads/natu-skyridge-sk-80.jpg',
+    'https://pkmncards.com/wp-content/uploads/nidoran-female-skyridge-sk-81.jpg',
+    'https://pkmncards.com/wp-content/uploads/nidoran-female-skyridge-sk-82.jpg',
+    'https://pkmncards.com/wp-content/uploads/nidorina-skyridge-sk-83.jpg',
+    'https://pkmncards.com/wp-content/uploads/pikachu-skyridge-sk-84.jpg',
+    'https://pkmncards.com/wp-content/uploads/pineco-skyridge-sk-85.jpg',
+    'https://pkmncards.com/wp-content/uploads/pineco-skyridge-sk-86.jpg',
+    'https://pkmncards.com/wp-content/uploads/poliwag-skyridge-sk-87.jpg',
+    'https://pkmncards.com/wp-content/uploads/poliwhirl-skyridge-sk-88.jpg',
+    'https://pkmncards.com/wp-content/uploads/raticate-skyridge-sk-89.jpg',
+    'https://pkmncards.com/wp-content/uploads/rattata-skyridge-sk-90.jpg',
+    'https://pkmncards.com/wp-content/uploads/rhyhorn-skyridge-sk-91.jpg',
+    'https://pkmncards.com/wp-content/uploads/sandshrew-skyridge-sk-92.jpg',
+    'https://pkmncards.com/wp-content/uploads/sandslash-skyridge-sk-93.jpg',
+    'https://pkmncards.com/wp-content/uploads/seel-skyridge-sk-94.jpg',
+    'https://pkmncards.com/wp-content/uploads/seel-skyridge-sk-95.jpg',
+    'https://pkmncards.com/wp-content/uploads/shuckle-skyridge-sk-96.jpg',
+    'https://pkmncards.com/wp-content/uploads/skarmory-skyridge-sk-97.jpg',
+    'https://pkmncards.com/wp-content/uploads/slugma-skyridge-sk-98.jpg',
+    'https://pkmncards.com/wp-content/uploads/slugma-skyridge-sk-99.jpg',
+    'https://pkmncards.com/wp-content/uploads/snorlax-skyridge-sk-100.jpg',
+    'https://pkmncards.com/wp-content/uploads/snubbull-skyridge-sk-101.jpg',
+    'https://pkmncards.com/wp-content/uploads/stantler-skyridge-sk-102.jpg',
+    'https://pkmncards.com/wp-content/uploads/staryu-skyridge-sk-103.jpg',
+    'https://pkmncards.com/wp-content/uploads/staryu-skyridge-sk-104.jpg',
+    'https://pkmncards.com/wp-content/uploads/sunflora-skyridge-sk-105.jpg',
+    'https://pkmncards.com/wp-content/uploads/sunkern-skyridge-sk-106.jpg',
+    'https://pkmncards.com/wp-content/uploads/swinub-skyridge-sk-107.jpg',
+    'https://pkmncards.com/wp-content/uploads/swinub-skyridge-sk-108.jpg',
+    'https://pkmncards.com/wp-content/uploads/teddiursa-skyridge-sk-109.jpg',
+    'https://pkmncards.com/wp-content/uploads/ursaring-skyridge-sk-110.jpg',
+    'https://pkmncards.com/wp-content/uploads/venomoth-skyridge-sk-111.jpg',
+    'https://pkmncards.com/wp-content/uploads/venomoth-skyridge-sk-112.jpg',
+    'https://pkmncards.com/wp-content/uploads/voltorb-skyridge-sk-113.jpg',
+    'https://pkmncards.com/wp-content/uploads/weedle-skyridge-sk-114.jpg',
+    'https://pkmncards.com/wp-content/uploads/weedle-skyridge-sk-115.jpg',
+    'https://pkmncards.com/wp-content/uploads/yanma-skyridge-sk-116.jpg',
+    'https://pkmncards.com/wp-content/uploads/zubat-skyridge-sk-117.jpg',
+    'https://pkmncards.com/wp-content/uploads/zubat-skyridge-sk-118.jpg'],
+
+]
 
 // To add more sets 
 /*
 const links = [
 
-    //Rares at index 0
+    //Holofoil rares at index 0
     [
 
     ],
 
-    //Uncommons at index 1
+    //Rares at index 1
+
     [
 
     ],
 
-    //Commons at index 2
+    //Uncommons at index 2
+    [
+
+    ],
+
+    //Commons at index 3
     [
         
     ],

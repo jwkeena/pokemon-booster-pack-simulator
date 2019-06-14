@@ -1718,7 +1718,7 @@ const skyridgeLinks = [
     'https://pkmncards.com/wp-content/uploads/weedle-skyridge-sk-115.jpg',
     'https://pkmncards.com/wp-content/uploads/yanma-skyridge-sk-116.jpg',
     'https://pkmncards.com/wp-content/uploads/zubat-skyridge-sk-117.jpg',
-    'https://pkmncards.com/wp-content/uploads/zubat-skyridge-sk-118.jpg'],
+    'https://pkmncards.com/wp-content/uploads/zubat-skyridge-sk-118.jpg']
 
 ]
 

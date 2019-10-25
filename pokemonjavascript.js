@@ -2556,8 +2556,11 @@ function resetCounts() {
     resetAll();
 
     setTimeout(newPackBase, 501);
-
-    document.getElementById("logo").src = "logo.png";
+    
+    let logo = document.getElementById("logo")
+    if (logo) {
+        document.getElementById("logo").src = "logo.png";
+    }
     foundCharizard = 0;
     currentSet = 1;
 
@@ -2575,7 +2578,9 @@ function resetCounts() {
 
     charizardCount = 0;
     var element4 = document.getElementById("charizardCounter");
-    element4.innerHTML = "";
+    if (element4) {
+        element4.innerHTML = "";
+    }
 }
 
 function increaseCounter() {

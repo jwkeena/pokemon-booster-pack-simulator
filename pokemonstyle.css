@@ -1,22 +1,20 @@
 /* Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator */
 
-
-
 #gbc-system {
     position: absolute;
-    top: 120px;
-    width: 105px;
-    height: 180px;
-    padding-left: 70px;
+    top: 80px;
+    width: 145px;
+    height: 240px;
+    padding-left: 40px;
 }
 
 #gbc-screen {
     position: absolute;
-    top: 140px;
-    width: 60px;
-    height: 50px;
-    padding-left: 93px;
+    top: 107px;
+    width: 80px;
+    height: 70px;
+    padding-left: 73px;
 }
 
 #rarity0, #set1, #set2, #set3 {
@@ -278,23 +276,3 @@ to {transform:scale(1)}
 .holographic {
     mix-blend-mode: multiply; /*multiply and darken work*/
 }
-
-/* https://bennettfeely.com/gradients/
-
-background:
-	linear-gradient(
-		cyan,
-		transparent
-	),
-	linear-gradient(
-		-45deg,
-		magenta,
-		transparent
-	),
-	linear-gradient(
-		45deg,
-		yellow,
-		transparent
-	);
-background-blend-mode: multiply; */
-

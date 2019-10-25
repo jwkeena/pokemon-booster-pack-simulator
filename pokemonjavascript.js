@@ -2547,7 +2547,8 @@ function newPackNeoDestiny(){
 
 let counter = 0;
 let packsOpened = 0;
-let countdown = 100;
+let countdown = localStorage.getItem("countdown") || 100;
+document.getElementById("countdown").innerHTML = "countdown: " + countdown + " |"
 let charizardCount = 0;
 
 function resetCounts() {
@@ -2557,9 +2558,7 @@ function resetCounts() {
     setTimeout(newPackBase, 501);
 
     document.getElementById("logo").src = "logo.png";
-
     foundCharizard = 0;
-
     currentSet = 1;
 
     counter = 0;
@@ -2577,40 +2576,9 @@ function resetCounts() {
     charizardCount = 0;
     var element4 = document.getElementById("charizardCounter");
     element4.innerHTML = "";
-
-    if (counter === 0) {
-        var rewardButton = document.getElementById("rewardButton");
-        rewardButton.parentNode.removeChild(rewardButton);
-    }
 }
-
-/*
-secret1 = 0
-secret2 = 0
-secretFound = 0
-
-function unlockGBCPacks() {
-    ++secret1;
-    secret2 = secret2 + 12;
-    if (secret1 > 499 && secretFound === 0) {
-        alert("Congratulations, you maniac! You've generated 500 packs. I think you're ready for a new challenge!");
-        window.open("https://pokemonboosterpack.neocities.org/gbc.html");
-        ++secretFound;
-    }
-}
-
-function unlockGBCCharizard() {
-    secret2 = secret2 + 12;
-    if (secret2 > 4999 && secretFound === 0) {
-        alert("Congratulations, you maniac! You've generated 5000 Charizards. I think you're ready for a new challenge!");
-        window.open("https://pokemonboosterpack.neocities.org/gbc.html");
-        ++secretFound;
-    }
-}
-*/
 
 function increaseCounter() {
-    // unlockGBCPacks();
     ++counter;
     var element = document.getElementById("counter");
     element.innerHTML = "| packs generated: " + counter;
@@ -2624,6 +2592,8 @@ function increasePacksOpened() {
 
 function decreaseCountdown(){
     --countdown;
+    console.log(countdown)
+    localStorage.setItem("countdown", countdown);
     var element = document.getElementById("countdown");
     if (countdown === 0) {
         var rewardButton = document.createElement("button");
@@ -2649,7 +2619,6 @@ function decreaseCountdown(){
 }
 
 function increaseCharizardCount() {
-    // unlockGBCCharizard();
     charizardCount = charizardCount + 12;
     element = document.getElementById("charizardCounter");
     element.innerHTML = "charizards generated: " + charizardCount + " |";
@@ -2659,21 +2628,15 @@ let foundCharizard = 0;
 
 //Easter egg! Well, more like Charizard egg
 function easterEgg() {
-
     //Changes site logo
     document.getElementById("logo").src = "charizardlogo.png"
     var front = document.getElementById("boosterPackFront");
     var back = document.getElementById("boosterPackBack");
     front.src = "cardback.jpg";
     back.src = "https://pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg";
-    
-    //Deletes reward button
-    // var rewardButton = document.getElementById("rewardButton");
-    // rewardButton.parentNode.removeChild(rewardButton)
    
     resetAll();
     setTimeout(universalCharizards, 501);
-
 }
 
 function universalCharizards() {

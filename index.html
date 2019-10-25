@@ -24,30 +24,34 @@
 </head>
 
 <body onload="newPackBase()">
-    <div id="topBar">
-        
-        <div class = "topBarLeft">
-            [version 3.0] 
-        </div>
 
-        <button id = "resetButton" class = "topBarMiddle" onclick="resetCounts()">reset</button>
-        <span class = "topBarMiddle" id = "counter"></span>
-        <span class = "topBarMiddle" id = "packsOpened"> | packs opened: 0 | </span>
-        <span class = "topBarMiddle" id = "charizardCounter"></span>
-        <span id = "rewardButtonLocation"></span>  
-        <span class = "topBarMiddle" id = "countdown">countdown: 100 |</span>
+<div id="topBar">
+    
+    <div class = "topBarLeft">
+        [version 3.0] 
+    </div>
+
+    <button id = "resetButton" class = "topBarMiddle" onclick="resetCounts()">reset</button>
+    <span class = "topBarMiddle" id = "counter"></span>
+    <span class = "topBarMiddle" id = "packsOpened"> | packs opened: 0 | </span>
+    <span class = "topBarMiddle" id = "charizardCounter"></span>
+    <span id = "rewardButtonLocation"></span>  
+    <span class = "topBarMiddle" id = "countdown"></span>
 
 
-        <div class ="topBarRight">
-            [<a href="about.html">about</a>]
-        </div> 
-      
+    <div class ="topBarRight">
+        [<a href="about.html">about</a>]
     </div> 
-    <div class="container">
-<img id = "logo" src = "logo.png"> <!--Thanks to https://textcraft.net/style/Textcraft/pokemon-->
-<a href = "ecardseries.html"><img id = "new" src = "new.png"></a>
-<br>   
+    
+</div> 
+
+<div class="container">
+    <img id = "logo" src = "logo.png"> <!--Thanks to https://textcraft.net/style/Textcraft/pokemon-->
+    <a href = "gbc.html" target="_blank"><img id="gbc-system" src = "gbc.png"></a>
+    <a href = "gbc.html"><img id="gbc-screen" src = "titlescreen.gif"></a>
+    <br>   
 </div>
+
 <!-- The Modal -->
 <div id="myModal" class="modal">
     <span class="close">&times;</span>
@@ -74,6 +78,8 @@
             <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoRevelation, 501)">neo revelation</a>
             <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoDestiny, 501)">neo destiny</a>
             <a href="ecardseries.html">expedition base set</a>
+            <a href="ecardseries.html">aquapolis</a>
+            <a href="ecardseries.html">skyridge</a>
         </div>
     </div>
     <button id="button3" onclick="resetAll();setTimeout(sameSet, 501)">SAME SET</button>
@@ -322,9 +328,7 @@
 <br>
 <br>
 
-<a class = "topBarRight" href = "gbc.html" target="_blank"><img width="35" height="60" src = "gbc.png"></a>
-
-<!-- <div class="sharethis-inline-share-buttons"></div>
+<!-- <div class="sharethis-inline-share-buttons" id="share"></div>
 <br>
 <br>
 -->
@@ -332,8 +336,7 @@
 <div id="bottomBar">
     programming and design by justin keena (code download available at <a href = "https://github.com/jwkeena?tab=repositories">github</a>);
     card images from <a href = "https://www.pkmncards.com">pkmncards</a>;
-    please <a href ="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=YKA72C3C3YJUU&currency_code=USD&source=url">donate</a>
-    if you want to see more sets!
+    share if you want to see more sets!
 </div>  
 
 <!--linking Javascript-->

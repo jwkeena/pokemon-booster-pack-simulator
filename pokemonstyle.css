@@ -1,20 +1,37 @@
 /* Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator */
 
+#eserieslogo{
+    width: 200px;
+    position: absolute;
+    top: 90px;
+    left: -210px;
+}
+
+.container {
+    text-align: center;
+
+}
+
+.container div {
+    position: relative;
+    display: inline-block;
+}
+
 #gbc-system {
     position: absolute;
-    top: 80px;
-    width: 145px;
-    height: 240px;
-    padding-left: 40px;
+    top: 40px;
+    width: 125px;
+    height: 210px;
+    right: -180px;
 }
 
 #gbc-screen {
     position: absolute;
-    top: 107px;
-    width: 80px;
-    height: 70px;
-    padding-left: 73px;
+    top: 64px;
+    width: 68px;
+    height: 60px;
+    right: -152px;
 }
 
 #rarity0, #set1, #set2, #set3 {

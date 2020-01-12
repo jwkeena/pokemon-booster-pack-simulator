@@ -37,7 +37,7 @@
     position: absolute;
     top: 90px;
     left: -210px;
-    transition: .5s;
+    transition: .25s;
 }
 
 #eserieslogo:hover {
@@ -46,7 +46,7 @@
     position: absolute;
     top: 90px;
     left: -210px;
-    transition: .5s;
+    transition: .35s;
 }
 
 .container {

@@ -1,11 +1,52 @@
 /* Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator */
 
-#eserieslogo{
+#deck {
+    position: fixed;
+    right: 10px;
+    text-align: right; 
+    font-size: 15px; 
+    list-style-type: none;
+    color: blue;
+}
+
+.deck:hover {
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#pulls {
+    position: fixed; 
+    left: 0;
+    text-align: left; 
+    font-size: 15px; 
+    left: -32px;
+    list-style-type: none;
+}
+
+.pulls:hover {
+    color: blue;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#eserieslogo {
+    opacity: 0;
     width: 200px;
     position: absolute;
     top: 90px;
     left: -210px;
+    transition: .5s;
+}
+
+#eserieslogo:hover {
+    opacity: 1;
+    width: 200px;
+    position: absolute;
+    top: 90px;
+    left: -210px;
+    transition: .5s;
 }
 
 .container {

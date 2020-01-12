@@ -1,6 +1,157 @@
 // Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
 // Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator
 
+$("#pulls").hide();
+let drafting = false;
+let currentPulls = ["<<PULLS>>"];
+let currentDeck = ["<<DECK>>"];
+
+function toggleDrafting() {
+    draftingTool = ("#drafting-tool");
+    if (drafting === false) {
+        $("#pulls").show();
+        $("#pulls").empty();
+        for (i=0; i<currentPulls.length; i++) {
+            let li = $("<li>");
+            li.text(currentPulls[i]);
+            li.addClass("pulls");
+            $("#pulls").append(li)
+        }
+        
+        $("#deck").show();
+        $("#deck").empty();
+        for (i=0; i<currentDeck.length; i++) {
+            let li = $("<li>");
+            li.text(currentDeck[i]);
+            li.addClass("deck");
+            $("#deck").append(li)
+        }
+
+        drafting = true;
+        $(draftingTool).html('[<a href="#" onclick="toggleDrafting();">drafting tool: on</a>]');
+
+    } else {
+        $("#pulls").hide();
+        $("#deck").hide();
+        drafting = false;
+        $(draftingTool).html('[<a href="#" onclick="toggleDrafting();">drafting tool: off</a>]');
+    }
+}
+
+function displayPulls() {
+    $("#pulls").empty();
+    for (i=0; i<currentPulls.length; i++) {
+        let li = $("<li>");
+        li.text(currentPulls[i]);
+        li.addClass("pulls");
+        $("#pulls").append(li)
+    }
+    let li = $("<li>");
+    li.text("<<CLEAR>>");
+    li.addClass("pulls");
+    $("#pulls").append(li)
+}
+
+function displayDeck(cardName) {
+    currentDeck.shift(); // Cuts out "DECK"
+    if (cardName) {
+        currentDeck.push(cardName); 
+    }
+    currentDeck.sort();
+
+    // Counts the number of times a card has been repeated
+    var currentDeckCounted = ["<<DECK>>"];
+    var currentCard = null;
+    var cnt = 0;
+    for (var i = 0; i < currentDeck.length; i++) {
+        if (currentDeck[i] != currentCard) {
+            if (cnt > 0) {
+                currentDeckCounted.push(currentCard + ": " + cnt);
+            }
+            currentCard = currentDeck[i];
+            cnt = 1;
+        } else {
+            cnt++;
+        }
+    }
+    if (cnt > 0) {
+        currentDeckCounted.push(currentCard + ": " + cnt);
+    }
+
+    currentDeck.unshift("<<DECK>>");
+    $("#deck").empty();
+    for (i=0; i<currentDeckCounted.length; i++) {
+        let li = $("<li>");
+        li.text(currentDeckCounted[i]);
+        li.addClass("deck");
+        $("#deck").append(li)
+    }
+
+    // Counts and prints total number of cards
+    let li = $("<li>");
+    li.text("<<TOTAL: " + (currentDeck.length - 1) + ">>"); // Be sure to use the original count of currentDeck
+    $("#deck").append(li)
+}
+
+// Event delegation to delete cards from deck
+$(document.body).on("dblclick", ".deck", function () {
+    cardName = $(this).text();
+    if (cardName !== "<<DECK>>") {
+        cardIndex = currentDeck.indexOf(cardName);
+        currentDeck.splice(cardIndex, 1);
+        displayDeck();
+    }
+});
+
+// Event delegation to move pulls to deck and display
+$(document.body).on("contextmenu", ".pulls", function () {
+    cardName = $(this).text();
+    if (cardName !== "<<PULLS>>" && cardName !== "<<CLEAR>>") {
+        cardIndex = currentPulls.indexOf(cardName);
+        currentPulls.splice(cardIndex, 1);
+        displayPulls();
+        displayDeck(cardName);
+    }
+    return false; // Disables context menu from appearing
+});
+
+// Event delegation to discard pulls
+$(document.body).on("dblclick", ".pulls", function () {
+    cardName = $(this).text();
+    if (cardName !== "<<PULLS>>" && cardName !== "<<CLEAR>>") {
+        cardIndex = currentPulls.indexOf(cardName);
+        currentPulls.splice(cardIndex, 1);
+        displayPulls();
+    }
+
+    if (cardName === "<<CLEAR>>") {
+        $("#pulls").empty();
+        currentPulls = ["<<PULLS>>"]
+        let li = $("<li>");
+        li.text("<<PULLS>>");
+        $("#pulls").append(li)
+    }
+});
+
+// Event listener to display each pull as it's clicked
+$(".card1, .card2, .card3, .card4, .card5, .card6, .card7, .card8, .card9, .card10, .card11").on("click", function () {
+    let divID = $(this).attr("id");
+    console.log(divID);
+    divNumber = divID.slice(5);
+    card = "#randomCard" + divNumber;
+    cardURL = ($(card).attr("src"));
+    console.log(cardURL);
+    cardName = cardURL.split("s/")[1];
+    cardName = cardName.slice(0, -4);
+    if (currentPulls.includes(cardName)) {
+        return;
+    } else {
+        currentPulls.push(cardName);
+        $("#pulls").empty();
+        displayPulls();
+    }
+});
+
 function redirect() {
     window.location.href = "mailto:jwkeena@gmail.com";
 }
@@ -33,6 +184,20 @@ function flip0() {
 
 let checkFlip = 1;
 
+//Adds all cards to pull list that weren't clicked individually
+function flipAllAddToPulls(divNumber) {
+    card = "#randomCard" + divNumber;
+    cardURL = ($(card).attr("src"));
+    cardName = cardURL.split("s/")[1];
+    cardName = cardName.slice(0, -4);
+    if (currentPulls.includes(cardName)) {
+        return;
+    } else {
+        currentPulls.push(cardName);
+        displayPulls();
+    }
+}
+
 //When card is clicked, its CSS flipping animation is triggered
 //The computer also logs that it has been flipped by changing the cardIsFlipped variable
 //cardIsFlipped 0 = unflipped card; cardIsFlipped 1 = flipped card (waiting for modal zoom), 2 = card being reflipped
@@ -40,6 +205,7 @@ let checkFlip = 1;
 function flip1() {
     let element = document.getElementById('myDiv1');
     if (cardIsFlipped1 === 0){
+        flipAllAddToPulls(1);
         element.classList.toggle("flipped");
         ++cardIsFlipped1;
         if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
@@ -67,6 +233,7 @@ function flip1() {
 function flip2() {
     let element = document.getElementById('myDiv2');
     if (cardIsFlipped2 === 0){
+        flipAllAddToPulls(2);
         element.classList.toggle("flipped");
         ++cardIsFlipped2;
         if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
@@ -94,6 +261,7 @@ function flip2() {
 function flip3() {
     let element = document.getElementById('myDiv3');
     if (cardIsFlipped3 === 0){
+        flipAllAddToPulls(3);
         element.classList.toggle("flipped");
         ++cardIsFlipped3;
         if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
@@ -121,6 +289,7 @@ function flip3() {
 function flip4() {
     let element = document.getElementById('myDiv4');
     if (cardIsFlipped4 === 0){
+        flipAllAddToPulls(4);
         element.classList.toggle("flipped");
         ++cardIsFlipped4;
         if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
@@ -148,6 +317,7 @@ function flip4() {
 function flip5() {
     let element = document.getElementById('myDiv5');
     if (cardIsFlipped5 === 0){
+        flipAllAddToPulls(5);
         element.classList.toggle("flipped");
         ++cardIsFlipped5;
         if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
@@ -175,6 +345,7 @@ function flip5() {
 function flip6() {
     let element = document.getElementById('myDiv6');
     if (cardIsFlipped6 === 0){
+        flipAllAddToPulls(6);
         element.classList.toggle("flipped");
         ++cardIsFlipped6;
         if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
@@ -202,6 +373,7 @@ function flip6() {
 function flip7() {
     let element = document.getElementById('myDiv7');
     if (cardIsFlipped7 === 0){
+        flipAllAddToPulls(7);
         element.classList.toggle("flipped");
         ++cardIsFlipped7;
         if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
@@ -229,6 +401,7 @@ function flip7() {
 function flip8() {
     let element = document.getElementById('myDiv8');
     if (cardIsFlipped8 === 0){
+        flipAllAddToPulls(8);
         element.classList.toggle("flipped");
         ++cardIsFlipped8;
         if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
@@ -256,6 +429,7 @@ function flip8() {
 function flip9() {
     let element = document.getElementById('myDiv9');
     if (cardIsFlipped9 === 0){
+        flipAllAddToPulls(9);
         element.classList.toggle("flipped");
         ++cardIsFlipped9;
         if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
@@ -283,6 +457,7 @@ function flip9() {
 function flip10() {
     let element = document.getElementById('myDiv10');
     if (cardIsFlipped10 === 0){
+        flipAllAddToPulls(10);
         element.classList.toggle("flipped");
         ++cardIsFlipped10;
         if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&
@@ -311,6 +486,7 @@ function flip10() {
 function flip11() {
     let element = document.getElementById('myDiv11');
     if (cardIsFlipped11 === 0){
+        flipAllAddToPulls(11);
         element.classList.toggle("flipped");
         ++cardIsFlipped11;
         if (cardIsFlipped1 >= 1 && cardIsFlipped2 >= 1 && cardIsFlipped3 >= 1 &&

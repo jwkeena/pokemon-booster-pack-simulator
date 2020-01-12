@@ -19,6 +19,9 @@
         }
     </script>
 
+    <!-- jQuery link -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
     <title>Pokemon Booster Pack Simulator</title>
 </head>
 
@@ -27,7 +30,7 @@
 <div id="topBar">
     
     <div class = "topBarLeft">
-        [version 3.0] 
+        <span id="drafting-tool" alt="When activated, double click items to delete them, and right click pulls to move them to the deck area.">[<a href="#" onclick="toggleDrafting();">drafting tool: off</a>]</span>
     </div>
 
     <button id = "resetButton" class = "topBarMiddle" onclick="resetCounts()">reset</button>
@@ -43,6 +46,17 @@
     </div> 
     
 </div> 
+
+<div>
+    <ul id = "pulls">
+    </ul>
+</div>
+
+<div>
+    <ul id = "deck">
+    <span id = "numberInDeck"></span>
+    </ul>
+</div>
 
 <div class="container">
     <div>
@@ -79,9 +93,6 @@
             <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoDiscovery, 501)">neo discovery</a>
             <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoRevelation, 501)">neo revelation</a>
             <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoDestiny, 501)">neo destiny</a>
-            <a href="ecardseries.html">expedition base set</a>
-            <a href="ecardseries.html">aquapolis</a>
-            <a href="ecardseries.html">skyridge</a>
         </div>
     </div>
     <button id="button3" onclick="resetAll();setTimeout(sameSet, 501)">SAME SET</button>

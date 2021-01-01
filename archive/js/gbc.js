@@ -118,29 +118,29 @@ function showCard() {
     if (document.getElementById(arguments[0]).className === "collected") {
         switch(identifySet) {
             case "A":
-                newImage = "../images/gbc/colosseum/" + newImage;
+                newImage = "../../images/gbc/colosseum/" + newImage;
                 document.getElementById("screen").src = newImage;
                 break;
             case "B":
-                newImage = "../images/gbc/evolution/" + newImage;
+                newImage = "../../images/gbc/evolution/" + newImage;
                 document.getElementById("screen").src = newImage;
                 break;
             case "C":
-                newImage = "../images/gbc/mystery/" + newImage;
+                newImage = "../../images/gbc/mystery/" + newImage;
                 document.getElementById("screen").src = newImage;
                 break;
             case "D":
-                newImage = "../images/gbc/laboratory/" + newImage;
+                newImage = "../../images/gbc/laboratory/" + newImage;
                 document.getElementById("screen").src = newImage;
                 break;
             case "E":
-                newImage = "../images/gbc/colosseum/" + newImage;
+                newImage = "../../images/gbc/colosseum/" + newImage;
                 document.getElementById("screen").src = newImage;
                 break;
         }
     }
     if (document.getElementById(arguments[0]).className === "promotionalCards") {
-        newImage = "../images/gbc/promotional/" + newImage;
+        newImage = "../../images/gbc/promotional/" + newImage;
         document.getElementById("screen").src = newImage;
     }
 }
@@ -904,7 +904,7 @@ function newPackColosseum() {
     increasePacksGenerated();
 
     //Changes title screen
-    document.getElementById("screen").src="../images/gbc/packs/newPackColosseum.png";
+    document.getElementById("screen").src="../../images/gbc/packs/newPackColosseum.png";
 
     //Picks a rare (no distinction between regular and holo)
     let numOfRares = colosseum[0].length;
@@ -1028,7 +1028,7 @@ function newPackEvolution() {
     lastPulledCard = -1;
     newCardOrderGameBoy = [];
     increasePacksGenerated();
-    document.getElementById("screen").src="../images/gbc/packs/newPackEvolution.png";
+    document.getElementById("screen").src="../../images/gbc/packs/newPackEvolution.png";
 
     //Picks a rare (no distinction between regular and holo)
     let numOfRares = evolution[0].length;
@@ -1158,7 +1158,7 @@ function newPackMystery() {
     lastPulledCard = -1;
     newCardOrderGameBoy = [];
     increasePacksGenerated();
-    document.getElementById("screen").src="../images/gbc/packs/newPackMystery.png";
+    document.getElementById("screen").src="../../images/gbc/packs/newPackMystery.png";
 
     //Picks a rare (no distinction between regular and holo)
     let numOfRares = mystery[0].length;
@@ -1398,7 +1398,7 @@ function newPackLaboratory() {
     lastPulledCard = -1;
     newCardOrderGameBoy = [];
     increasePacksGenerated();
-    document.getElementById("screen").src="../images/gbc/packs/newPackLaboratory.png";
+    document.getElementById("screen").src="../../images/gbc/packs/newPackLaboratory.png";
 
     //Picks a rare (no distinction between regular and holo)
     let numOfRares = laboratory[0].length;

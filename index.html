@@ -12,7 +12,7 @@
       content="Pokemon,pokemon,booster,pack,box,simulator,opening,tcg,set,cards"
     />
 
-    <!--Linking CSS-->
+    <!-- CSS-->
     <link type="text/css" rel="stylesheet" href="css/main.css" />
 
     <!-- Favicon -->
@@ -42,45 +42,19 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
 
-    <!--Redirect to mobile, courtesy of https://css-tricks.com/snippets/javascript/redirect-mobile-devices/ -->
-    <script type="text/javascript">
-      if (screen.width <= 699) {
-        document.location = "pages/mobile.html";
-      }
-    </script>
-
     <title>Pokemon Booster Pack Simulator</title>
   </head>
 
-  <!-- Top bar -->
   <body onload="">
-    <div id="topBar">
-      <div class="topBarLeft"></div>
 
-      <div class="topBarRight">[<a href="pages/about.html">about</a>]</div>
-    </div>
+    <!-- Top bar -->
+    <div id="topBar">[<a href="pages/about.html">about</a>]</div>
 
     <!-- Header images -->
     <div class="container">
       <div>
         <!-- Custom font from https://textcraft.net/style/Textcraft/pokemon -->
         <img id="logo" src="images/site/logo.png" />
-
-        <a href="pages/gbc.html" target="_blank"
-          ><img
-            id="gbc-system"
-            alt="game boy color system"
-            title="Click to open GBC cards!"
-            src="images/gbc/gbc.png"
-        /></a>
-
-        <a href="pages/gbc.html"
-          ><img
-            id="gbc-screen"
-            alt="game boy color system"
-            title="Click to open GBC cards!"
-            src="images/gbc/titlescreen.gif"
-        /></a>
 
         <br />
       </div>
@@ -92,152 +66,72 @@
       <img class="modal-content" id="modalImg" />
     </div>
 
-    <!-- Control panel -->
-      <button class="button button-reset-all" onclick="resetAll();setTimeout(randomPack, 501)">
-        RANDOM PACK
-      </button>
-      <div class="dropdown">
-        <button class="button button-choose-set">CHOOSE SET</button>
-        <div class="dropdown-content">
-          <a
-            href="javascript:void();"
-            onclick=""
-            >base set</a
-          >
-          <a
-            href="javascript:void();"
-            onclick=""
-            >jungle</a
-          >
-          <a
-            href="javascript:void();"
-            onclick=""
-            >fossil</a
-          >
-          <a
-            href="javascript:void();"
-            onclick=""
-            >base set 2</a
-          >
-          <a
-            href="javascript:void();"
-            onclick=""
-            >team rocket</a
-          >
-          <a
-            href="javascript:void();"
-            onclick=""
-            >gym heroes</a
-          >
-          <a
-            href="javascript:void();"
-            onclick=""
-            >gym challenge</a
-          >
-          <a
-            href="javascript:void();"
-            onclick=""
-            >neo genesis</a
-          >
-          <a
-            href="javascript:void();"
-            onclick=""
-            >neo discovery</a
-          >
-          <a
-            href="javascript:void();"
-            onclick=""
-            >neo revelation</a
-          >
-          <a
-            href="javascript:void();"
-            onclick=""
-            >neo destiny</a
-          >
-        </div>
+    <button class="button button-open-pack">OPEN PACK</button>
+
+    <!-- Control panel top -->
+    <!-- <button
+      class="button button-reset-all"
+      onclick=""
+    >
+      RANDOM PACK
+    </button>
+    <div class="dropdown">
+      <button class="button button-choose-set">CHOOSE SET</button>
+      <div class="dropdown-content">
+        <a href="javascript:void();" onclick="">base set</a>
+        <a href="javascript:void();" onclick="">jungle</a>
+        <a href="javascript:void();" onclick="">fossil</a>
+        <a href="javascript:void();" onclick="">base set 2</a>
+        <a href="javascript:void();" onclick="">team rocket</a>
+        <a href="javascript:void();" onclick="">gym heroes</a>
+        <a href="javascript:void();" onclick="">gym challenge</a>
+        <a href="javascript:void();" onclick="">neo genesis</a>
+        <a href="javascript:void();" onclick="">neo discovery</a>
+        <a href="javascript:void();" onclick="">neo revelation</a>
+        <a href="javascript:void();" onclick="">neo destiny</a>
       </div>
-      <button class="button button-same-set" onclick="">
-        SAME SET
-      </button>
-      <button class="button button-flip-all" onclick="flipAll()">FLIP ALL</button>
-      <button class="button button-shuffle" onclick="toggleShuffle()">SHUFFLE (OFF)</button>
+    </div>
+    <button class="button button-same-set" onclick="">SAME SET</button>
+    <button class="button button-flip-all" onclick="flipAll()">FLIP ALL</button>
+    <button class="button button-shuffle" onclick="toggleShuffle()">
+      SHUFFLE (OFF)
+    </button> -->
 
-      <br />
-      <br />
+    <br />
+    <br />
 
-
-    <button class="button button-random-pack" onclick="resetAll();setTimeout(randomPack, 501)">
+    <!-- Control panel bottom -->
+    <!-- <button
+      class="button button-random-pack"
+      onclick=""
+    >
       RANDOM PACK
     </button>
     <div class="dropup">
       <button class="button button-choose-set">CHOOSE SET</button>
       <div class="dropup-content">
-        <a
-          href="javascript:void();"
-          onclick=""
-          >base set</a
-        >
-        <a
-          href="javascript:void();"
-          onclick=""
-          >jungle</a
-        >
-        <a
-          href="javascript:void();"
-          onclick=""
-          >fossil</a
-        >
-        <a
-          href="javascript:void();"
-          onclick=""
-          >base set 2</a
-        >
-        <a
-          href="javascript:void();"
-          onclick=""
-          >team rocket</a
-        >
-        <a
-          href="javascript:void();"
-          onclick=""
-          >gym heroes</a
-        >
-        <a
-          href="javascript:void();"
-          onclick=""
-          >gym challenge</a
-        >
-        <a
-          href="javascript:void();"
-          onclick=""
-          >neo genesis</a
-        >
-        <a
-          href="javascript:void();"
-          onclick=""
-          >neo discovery</a
-        >
-        <a
-          href="javascript:void();"
-          onclick=""
-          >neo revelation</a
-        >
-        <a
-          href="javascript:void();"
-          onclick=""
-          >neo destiny</a
-        >
+        <a href="javascript:void();" onclick="">base set</a>
+        <a href="javascript:void();" onclick="">jungle</a>
+        <a href="javascript:void();" onclick="">fossil</a>
+        <a href="javascript:void();" onclick="">base set 2</a>
+        <a href="javascript:void();" onclick="">team rocket</a>
+        <a href="javascript:void();" onclick="">gym heroes</a>
+        <a href="javascript:void();" onclick="">gym challenge</a>
+        <a href="javascript:void();" onclick="">neo genesis</a>
+        <a href="javascript:void();" onclick="">neo discovery</a>
+        <a href="javascript:void();" onclick="">neo revelation</a>
+        <a href="javascript:void();" onclick="">neo destiny</a>
       </div>
     </div>
-    <button class="button button-same-set" onclick="">
-      SAME SET
-    </button>
+    <button class="button button-same-set" onclick="">SAME SET</button>
     <button class="button button-flip-all" onclick="flipAll()">FLIP ALL</button>
-    <button class="button button-shuffle" onclick="toggleShuffle()">SHUFFLE (OFF)</button>
+    <button class="button button-shuffle" onclick="toggleShuffle()">
+      SHUFFLE (OFF)
+    </button>
 
     <br />
     <br />
-    <br />
+    <br /> -->
 
     <div id="bottomBar">
       programming and design by justin keena (code download available at
@@ -246,7 +140,9 @@
       you want to see more sets!
     </div>
 
-    <!--linking Javascript-->
+    <!-- Javascript must be at end so it can access the loaded DOM -->
+    <script type="text/javascript" src="js/sets/base-set.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+
   </body>
 </html>

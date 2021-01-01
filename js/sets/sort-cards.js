@@ -1,4 +1,3 @@
-console.log("working")
 console.log(cards.length)
 var sorted = cards.sort((a, b) => {return parseInt(a.id.slice(6)) - parseInt(b.id.slice(6))});
 console.log(sorted)

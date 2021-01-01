@@ -414,22 +414,11 @@ window.onclick = function(event) {
   }
 }
 
+//Only need one of these functions in the mobile version
 function resetBooster1() {
     const element = document.getElementById('booster1');
     element.classList.remove("flipped");
     boosterIsFlipped1 = 0;
-}
-
-function resetBooster2() {
-    const element = document.getElementById('booster2');
-    element.classList.remove("flipped");
-    boosterIsFlipped2 = 0;
-}
-
-function resetBooster3() {
-    const element = document.getElementById('booster3');
-    element.classList.remove("flipped");
-    boosterIsFlipped3 = 0;
 }
 
 function reset1() {
@@ -506,8 +495,6 @@ function reset9() {
 
 function resetAll() {
     resetBooster1();
-    resetBooster2();
-    resetBooster3();
     reset1();
     reset2();
     reset3();
@@ -657,25 +644,25 @@ function newPackExpeditionBase() {
     checkFlip = 1;
 
     //Gives current set symbol
-    document.getElementById("set1").src = "../images/set-symbols/expedition-base-set-pokemon-set-symbol.png";
+    document.getElementById("set1").src = "../../images/set-symbols/expedition-base-set-pokemon-set-symbol.png";
     
     //Gives current set logo
-    document.getElementById("setlogo").src = "../images/site/expeditionlogo.png";
+    document.getElementById("setlogo").src = "../../images/site/expeditionlogo.png";
         
 
     //Shuffles the IDs of cards if user chooses to shuffle; otherwise reverts to fixed order
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
         //Changes the rarity indicators to question mark
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -688,15 +675,15 @@ function newPackExpeditionBase() {
             'randomCard8', 
             'randomCard9'];
         //Changes the rarity indicators to be visible
-        document.getElementById("rarity1").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_common.png" 
-        document.getElementById("rarity4").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png" //Change to rare if holo is pulled? Or would that ruin the surprise?
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif"
-        document.getElementById("rarity7").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_uncommon.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_common.png" 
+        document.getElementById("rarity4").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png" //Change to rare if holo is pulled? Or would that ruin the surprise?
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif"
+        document.getElementById("rarity7").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_uncommon.png"
     }
 
     //Prepares same set button
@@ -705,20 +692,20 @@ function newPackExpeditionBase() {
     //Changes front and back of first image to indicate the type of pack chosen
     changePackArt2();
     if (packArt2 === 1) {
-        document.getElementById("boosterPackFront1").src="../images/packart/expeditionbase1.jpg";
-        document.getElementById("boosterPackBack1").src="../images/packart/expeditionbaseback.jpg";
+        document.getElementById("boosterPackFront1").src="../../images/packart/expeditionbase1.jpg";
+        document.getElementById("boosterPackBack1").src="../../images/packart/expeditionbaseback.jpg";
     }
     if (packArt2 === 2) {
-        document.getElementById("boosterPackFront1").src="../images/packart/expeditionbase2.jpg";
-        document.getElementById("boosterPackBack1").src="../images/packart/expeditionbaseback.jpg";
+        document.getElementById("boosterPackFront1").src="../../images/packart/expeditionbase2.jpg";
+        document.getElementById("boosterPackBack1").src="../../images/packart/expeditionbaseback.jpg";
     }
     if (packArt2 === 3) {
-        document.getElementById("boosterPackFront1").src="../images/packart/expeditionbase3.jpg";
-        document.getElementById("boosterPackBack1").src="../images/packart/expeditionbaseback.jpg";
+        document.getElementById("boosterPackFront1").src="../../images/packart/expeditionbase3.jpg";
+        document.getElementById("boosterPackBack1").src="../../images/packart/expeditionbaseback.jpg";
     }
     if (packArt2 === 4) {
-        document.getElementById("boosterPackFront1").src="../images/packart/expeditionbase4.jpg";
-        document.getElementById("boosterPackBack1").src="../images/packart/expeditionbaseback.jpg";
+        document.getElementById("boosterPackFront1").src="../../images/packart/expeditionbase4.jpg";
+        document.getElementById("boosterPackBack1").src="../../images/packart/expeditionbaseback.jpg";
     }
 
     //Picks 5 commons. I pick them before the reverse holo since the reverse holo CAN be a duplicate
@@ -830,19 +817,19 @@ function newPackAquapolis() {
 
     increaseCounter();
     checkFlip = 1;
-    document.getElementById("set2").src = "../images/set-symbols/aquapolis-pokemon-set-symbol.png";
-    document.getElementById("setlogo").src = "../images/site/aquapolislogo.png";
+    document.getElementById("set1").src = "../../images/set-symbols/aquapolis-pokemon-set-symbol.png";
+    document.getElementById("setlogo").src = "../../images/site/aquapolislogo.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -854,36 +841,35 @@ function newPackAquapolis() {
             'randomCard7', 
             'randomCard8', 
             'randomCard9'];
-        document.getElementById("rarity1").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_common.png" 
-        document.getElementById("rarity4").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png" //Change to rare if holo is pulled? Or would that ruin the surprise?
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif"
-        document.getElementById("rarity7").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_uncommon.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_common.png" 
+        document.getElementById("rarity4").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png" //Change to rare if holo is pulled? Or would that ruin the surprise?
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif"
+        document.getElementById("rarity7").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_uncommon.png"
     }
 
     currentSet = 2;
     changePackArt2();
     if (packArt2 === 1) {
-        document.getElementById("boosterPackFront2").src="../images/packart/aquapolis1.jpg";
-        document.getElementById("boosterPackBack2").src="../images/packart/aquapolisback.jpg";
+        document.getElementById("boosterPackFront1").src="../../images/packart/aquapolis1.jpg";
+        document.getElementById("boosterPackBack1").src="../../images/packart/aquapolisback.jpg";
     }
     if (packArt2 === 2) {
-        document.getElementById("boosterPackFront2").src="../images/packart/aquapolis2.jpg";
-        document.getElementById("boosterPackBack2").src="../images/packart/aquapolisback.jpg";
+        document.getElementById("boosterPackFront1").src="../../images/packart/aquapolis2.jpg";
+        document.getElementById("boosterPackBack1").src="../../images/packart/aquapolisback.jpg";
     }
     if (packArt2 === 3) {
-        document.getElementById("boosterPackFront2").src="../images/packart/aquapolis3.jpg";
-        document.getElementById("boosterPackBack2").src="../images/packart/aquapolisback.jpg";
+        document.getElementById("boosterPackFront1").src="../../images/packart/aquapolis3.jpg";
+        document.getElementById("boosterPackBack1").src="../../images/packart/aquapolisback.jpg";
     }
     if (packArt2 === 4) {
-        document.getElementById("boosterPackFront2").src="../images/packart/aquapolis4.jpg";
-        document.getElementById("boosterPackBack2").src="../images/packart/aquapolisback.jpg";
+        document.getElementById("boosterPackFront1").src="../../images/packart/aquapolis4.jpg";
+        document.getElementById("boosterPackBack1").src="../../images/packart/aquapolisback.jpg";
     }
-
     //Picks 5 commons. I pick them before the reverse holo since the reverse holo CAN be a duplicate
     //of a card already pulled.
     let numOfCommons = aquapolisLinks[3].length;
@@ -992,19 +978,19 @@ function newPackSkyridge() {
 
     increaseCounter();
     checkFlip = 1;
-    document.getElementById("set3").src = "../images/set-symbols/skyridge-pokemon-set-symbol.png";
-    document.getElementById("setlogo").src = "../images/site/skyridgelogo.png";
+    document.getElementById("set1").src = "../../images/set-symbols/skyridge-pokemon-set-symbol.png";
+    document.getElementById("setlogo").src = "../../images/site/skyridgelogo.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1016,34 +1002,34 @@ function newPackSkyridge() {
             'randomCard7', 
             'randomCard8', 
             'randomCard9'];
-        document.getElementById("rarity1").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_common.png" 
-        document.getElementById("rarity4").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png" //Change to rare if holo is pulled? Or would that ruin the surprise?
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif"
-        document.getElementById("rarity7").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_uncommon.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_common.png" 
+        document.getElementById("rarity4").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png" //Change to rare if holo is pulled? Or would that ruin the surprise?
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif"
+        document.getElementById("rarity7").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_uncommon.png"
     }
 
     currentSet = 3;
     changePackArt2();
     if (packArt2 === 1) {
-        document.getElementById("boosterPackFront3").src="../images/packart/skyridge1.jpg";
-        document.getElementById("boosterPackBack3").src="../images/packart/skyridgeback.jpg";
+        document.getElementById("boosterPackFront1").src="../../images/packart/skyridge1.jpg";
+        document.getElementById("boosterPackBack1").src="../../images/packart/skyridgeback.jpg";
     }
     if (packArt2 === 2) {
-        document.getElementById("boosterPackFront3").src="../images/packart/skyridge2.jpg";
-        document.getElementById("boosterPackBack3").src="../images/packart/skyridgeback.jpg";
+        document.getElementById("boosterPackFront1").src="../../images/packart/skyridge2.jpg";
+        document.getElementById("boosterPackBack1").src="../../images/packart/skyridgeback.jpg";
     }
-    if (packArt2 === 3) {
-        document.getElementById("boosterPackFront3").src="../images/packart/skyridge3.jpg";
-        document.getElementById("boosterPackBack3").src="../images/packart/skyridgeback.jpg";
+    if (packArt2 === 1) {
+        document.getElementById("boosterPackFront1").src="../../images/packart/skyridge3.jpg";
+        document.getElementById("boosterPackBack1").src="../../images/packart/skyridgeback.jpg";
     }
     if (packArt2 === 4) {
-        document.getElementById("boosterPackFront3").src="../images/packart/skyridge4.jpg";
-        document.getElementById("boosterPackBack3").src="../images/packart/skyridgeback.jpg";
+        document.getElementById("boosterPackFront1").src="../../images/packart/skyridge4.jpg";
+        document.getElementById("boosterPackBack1").src="../../images/packart/skyridgeback.jpg";
     }
 
     //Picks 5 commons. I pick them before the reverse holo since the reverse holo CAN be a duplicate
@@ -1719,30 +1705,23 @@ const skyridgeLinks = [
     'https://pkmncards.com/wp-content/uploads/yanma-skyridge-sk-116.jpg',
     'https://pkmncards.com/wp-content/uploads/zubat-skyridge-sk-117.jpg',
     'https://pkmncards.com/wp-content/uploads/zubat-skyridge-sk-118.jpg']
-
 ]
 
 // To add more sets 
 /*
 const links = [
 
-    //Holofoil rares at index 0
+    //Rares at index 0
     [
 
     ],
 
-    //Rares at index 1
-
+    //Uncommons at index 1
     [
 
     ],
 
-    //Uncommons at index 2
-    [
-
-    ],
-
-    //Commons at index 3
+    //Commons at index 2
     [
         
     ],

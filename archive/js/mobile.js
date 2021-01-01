@@ -757,31 +757,31 @@ function newPackBase() {
 
     //Changes logo art back to normal when non-Charizard packs are opened
     if (foundCharizard === 1) {
-        document.getElementById("logo").src = "../images/site/logo.png";
+        document.getElementById("logo").src = "../../images/site/logo.png";
     }
 
     //Ensures that the flip all button won't flip the pack art
     foundCharizard = 0;
 
     //Erases current set symbol, since base set has none
-    document.getElementById("rarity0").src = "../images/site/empty.png";
+    document.getElementById("rarity0").src = "../../images/site/empty.png";
     
     //Shuffles the IDs of cards if user chooses to shuffle; otherwise reverts to fixed order
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
 
         //Changes the rarity indicators to question mark
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity10").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity11").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity10").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity11").src = "../../images/site/unown_question_mark.gif";
 
         } else {
         cardOrderArray = [
@@ -800,17 +800,17 @@ function newPackBase() {
         baseSetCommonsArray.shuffle();
 
         //Changes the rarity indicators
-        document.getElementById("rarity1").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity4").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity6").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity7").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity10").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity11").src = "../images/site/rarity_uncommon.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity4").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity6").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity7").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity10").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity11").src = "../../images/site/rarity_uncommon.png"
         }
 
     //Prepares same set button
@@ -819,16 +819,16 @@ function newPackBase() {
     //Changes front and back of first image to indicate the type of pack chosen
     changePackArt();
     if (packArt === 1) {
-        document.getElementById("boosterPackFront").src="../images/packart/1stcharizard.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/basesetback1.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/1stcharizard.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/basesetback1.jpg";
     }
     if (packArt === 2) {
-        document.getElementById("boosterPackFront").src="../images/packart/1stvenusaur.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/basesetback2.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/1stvenusaur.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/basesetback2.jpg";
     }
     if (packArt === 3) {
-        document.getElementById("boosterPackFront").src="../images/packart/1stblastoise.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/basesetback3.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/1stblastoise.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/basesetback3.jpg";
     }
 
     //Determines whether a holo or non-holo is pulled at a 33% chance
@@ -946,8 +946,8 @@ function newPackBase() {
         let newId11 = baseSetCommonsArray[6];
         let rarity1 = newId10.slice(-1);
         let rarity2 = newId11.slice(-1);
-        document.getElementById("rarity" + rarity1).src = "../images/site/colorless.png";
-        document.getElementById("rarity" + rarity2).src = "../images/site/colorless.png";
+        document.getElementById("rarity" + rarity1).src = "../../images/site/colorless.png";
+        document.getElementById("rarity" + rarity2).src = "../../images/site/colorless.png";
         document.getElementById(newId10).src = newEnergy1;
         document.getElementById(newId11).src = newEnergy2;
     }
@@ -964,23 +964,23 @@ function newPackJungle(){
     increaseCounter();
     checkFlip = 1;
     if (foundCharizard === 1) {
-        document.getElementById("logo").src = "../images/site/logo.png";
+        document.getElementById("logo").src = "../../images/site/logo.png";
     }
     foundCharizard = 0
-    document.getElementById("rarity0").src = "../images/set-symbols/jungle-pokemon-set-symbol.png";
+    document.getElementById("rarity0").src = "../../images/set-symbols/jungle-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity10").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity11").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity10").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity11").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -994,31 +994,31 @@ function newPackJungle(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
-        document.getElementById("rarity1").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity4").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity6").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity7").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity10").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity11").src = "../images/site/rarity_uncommon.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity4").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity6").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity7").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity10").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity11").src = "../../images/site/rarity_uncommon.png"
         }
     changePackArt();
     currentSet = 2;
     if (packArt === 1) {
-        document.getElementById("boosterPackFront").src="../images/packart/jungle1.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/jungleback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/jungle1.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/jungleback.jpg";
     }
     if (packArt === 2) {
-        document.getElementById("boosterPackFront").src="../images/packart/jungle2.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/jungleback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/jungle2.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/jungleback.jpg";
     }
     if (packArt === 3) {
-        document.getElementById("boosterPackFront").src="../images/packart/jungle3.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/jungleback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/jungle3.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/jungleback.jpg";
     }
 
     //Rare distribution
@@ -1114,23 +1114,23 @@ function newPackFossil(){
     increaseCounter();
     checkFlip = 1;
     if (foundCharizard === 1) {
-        document.getElementById("logo").src = "../images/site/logo.png";
+        document.getElementById("logo").src = "../../images/site/logo.png";
     }
     foundCharizard = 0;
-    document.getElementById("rarity0").src = "../images/set-symbols/fossil-pokemon-set-symbol.png";
+    document.getElementById("rarity0").src = "../../images/set-symbols/fossil-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity10").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity11").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity10").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity11").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1144,31 +1144,31 @@ function newPackFossil(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
-        document.getElementById("rarity1").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity4").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity6").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity7").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity10").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity11").src = "../images/site/rarity_uncommon.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity4").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity6").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity7").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity10").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity11").src = "../../images/site/rarity_uncommon.png"
         }
     changePackArt();
     currentSet = 3;
     if (packArt === 1) {
-        document.getElementById("boosterPackFront").src="../images/packart/fossil1.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/fossilback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/fossil1.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/fossilback.jpg";
     }
     if (packArt === 2) {
-        document.getElementById("boosterPackFront").src="../images/packart/fossil2.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/fossilback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/fossil2.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/fossilback.jpg";
     }
     if (packArt === 3) {
-        document.getElementById("boosterPackFront").src="../images/packart/fossil3.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/fossilback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/fossil3.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/fossilback.jpg";
     }
 
     //Rare distribution
@@ -1264,23 +1264,23 @@ function newPackBase2(){
     increaseCounter();
     checkFlip = 1;
     if (foundCharizard === 1) {
-        document.getElementById("logo").src = "../images/site/logo.png";
+        document.getElementById("logo").src = "../../images/site/logo.png";
     }
     foundCharizard = 0;
-    document.getElementById("rarity0").src = "../images/set-symbols/base-set-2-pokemon-set-symbol.png";
+    document.getElementById("rarity0").src = "../../images/set-symbols/base-set-2-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity10").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity11").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity10").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity11").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1294,35 +1294,35 @@ function newPackBase2(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
-        document.getElementById("rarity1").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity4").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity6").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity7").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity10").src = "../images/site/colorless.png"
-        document.getElementById("rarity11").src = "../images/site/colorless.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity4").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity6").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity7").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity10").src = "../../images/site/colorless.png"
+        document.getElementById("rarity11").src = "../../images/site/colorless.png"
         }
     changePackArt2();
     currentSet = 4;
     if (packArt2 === 1) {
-        document.getElementById("boosterPackFront").src="../images/packart/baseset2_1.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/base2back1.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/baseset2_1.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/base2back1.jpg";
     }
     if (packArt2 === 2) {
-        document.getElementById("boosterPackFront").src="../images/packart/baseset2_2.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/base2back2.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/baseset2_2.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/base2back2.jpg";
     }
     if (packArt2 === 3) {
-        document.getElementById("boosterPackFront").src="../images/packart/baseset2_3.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/base2back3.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/baseset2_3.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/base2back3.jpg";
     }
     if (packArt2 === 4) {
-        document.getElementById("boosterPackFront").src="../images/packart/baseset2_4.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/base2back4.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/baseset2_4.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/base2back4.jpg";
     }
 
     //Rare distribution
@@ -1428,23 +1428,23 @@ function newPackTeamRocket(){
     increaseCounter();
     checkFlip = 1;
     if (foundCharizard === 1) {
-        document.getElementById("logo").src = "../images/site/logo.png";
+        document.getElementById("logo").src = "../../images/site/logo.png";
     }
     foundCharizard = 0;
-    document.getElementById("rarity0").src = "../images/set-symbols/team-rocket-pokemon-set-symbol.png";
+    document.getElementById("rarity0").src = "../../images/set-symbols/team-rocket-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity10").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity11").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity10").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity11").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1458,35 +1458,35 @@ function newPackTeamRocket(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
-        document.getElementById("rarity1").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity4").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity6").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity7").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity10").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity11").src = "../images/site/rarity_uncommon.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity4").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity6").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity7").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity10").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity11").src = "../../images/site/rarity_uncommon.png"
         }
     changePackArt2();
     currentSet = 5;
     if (packArt2 === 1) {
-        document.getElementById("boosterPackFront").src="../images/packart/teamrocket1.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/teamrocketback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/teamrocket1.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/teamrocketback.jpg";
     }
     if (packArt2 === 2) {
-        document.getElementById("boosterPackFront").src="../images/packart/teamrocket2.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/teamrocketback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/teamrocket2.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/teamrocketback.jpg";
     }
     if (packArt2 === 3) {
-        document.getElementById("boosterPackFront").src="../images/packart/teamrocket3.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/teamrocketback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/teamrocket3.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/teamrocketback.jpg";
     }
     if (packArt2 === 4) {
-        document.getElementById("boosterPackFront").src="../images/packart/teamrocket4.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/teamrocketback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/teamrocket4.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/teamrocketback.jpg";
     }
 
     //Rare distribution
@@ -1587,23 +1587,23 @@ function newPackGymHeroes(){
     increaseCounter();
     checkFlip = 1;
     if (foundCharizard === 1) {
-        document.getElementById("logo").src = "../images/site/logo.png";
+        document.getElementById("logo").src = "../../images/site/logo.png";
     }
     foundCharizard = 0;
-    document.getElementById("rarity0").src = "../images/set-symbols/gym-heroes-pokemon-set-symbol.png";
+    document.getElementById("rarity0").src = "../../images/set-symbols/gym-heroes-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity10").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity11").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity10").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity11").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1617,35 +1617,35 @@ function newPackGymHeroes(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
-        document.getElementById("rarity1").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity4").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity6").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity7").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity10").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity11").src = "../images/site/colorless.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity4").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity6").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity7").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity10").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity11").src = "../../images/site/colorless.png"
         }
     changePackArt2();
     currentSet = 6;
     if (packArt2 === 1) {
-        document.getElementById("boosterPackFront").src="../images/packart/gymheroes1.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/gymheroesback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/gymheroes1.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/gymheroesback.jpg";
     }
     if (packArt2 === 2) {
-        document.getElementById("boosterPackFront").src="../images/packart/gymheroes2.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/gymheroesback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/gymheroes2.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/gymheroesback.jpg";
     }
     if (packArt2 === 3) {
-        document.getElementById("boosterPackFront").src="../images/packart/gymheroes3.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/gymheroesback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/gymheroes3.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/gymheroesback.jpg";
     }
     if (packArt2 === 4) {
-        document.getElementById("boosterPackFront").src="../images/packart/gymheroes4.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/gymheroesback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/gymheroes4.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/gymheroesback.jpg";
     }
 
     //Rare distribution
@@ -1744,23 +1744,23 @@ function newPackGymChallenge(){
     increaseCounter();
     checkFlip = 1;
     if (foundCharizard === 1) {
-        document.getElementById("logo").src = "../images/site/logo.png";
+        document.getElementById("logo").src = "../../images/site/logo.png";
     }
     foundCharizard = 0;
-    document.getElementById("rarity0").src = "../images/set-symbols/gym-challenge-pokemon-set-symbol.png";
+    document.getElementById("rarity0").src = "../../images/set-symbols/gym-challenge-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity10").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity11").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity10").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity11").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1774,35 +1774,35 @@ function newPackGymChallenge(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
-        document.getElementById("rarity1").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity4").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity6").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity7").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity10").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity11").src = "../images/site/colorless.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity4").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity6").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity7").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity10").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity11").src = "../../images/site/colorless.png"
         }
     changePackArt2();
     currentSet = 7;
     if (packArt2 === 1) {
-        document.getElementById("boosterPackFront").src="../images/packart/gymchallenge1.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/gymchallengeback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/gymchallenge1.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/gymchallengeback.jpg";
     }
     if (packArt2 === 2) {
-        document.getElementById("boosterPackFront").src="../images/packart/gymchallenge2.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/gymchallengeback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/gymchallenge2.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/gymchallengeback.jpg";
     }
     if (packArt2 === 3) {
-        document.getElementById("boosterPackFront").src="../images/packart/gymchallenge3.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/gymchallengeback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/gymchallenge3.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/gymchallengeback.jpg";
     }
     if (packArt2 === 4) {
-        document.getElementById("boosterPackFront").src="../images/packart/gymchallenge4.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/gymchallengeback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/gymchallenge4.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/gymchallengeback.jpg";
     }
 
     //Rare distribution
@@ -1901,23 +1901,23 @@ function newPackNeoGenesis(){
     increaseCounter();
     checkFlip = 1;
     if (foundCharizard === 1) {
-        document.getElementById("logo").src = "../images/site/logo.png";
+        document.getElementById("logo").src = "../../images/site/logo.png";
     }
     foundCharizard = 0;
-    document.getElementById("rarity0").src = "../images/set-symbols/neo-genesis-pokemon-set-symbol.png";
+    document.getElementById("rarity0").src = "../../images/set-symbols/neo-genesis-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity10").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity11").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity10").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity11").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -1931,35 +1931,35 @@ function newPackNeoGenesis(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
-        document.getElementById("rarity1").src = "../images/site/colorless.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity4").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity6").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity7").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity10").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity11").src = "../images/site/rarity_common.png"
+        document.getElementById("rarity1").src = "../../images/site/colorless.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity4").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity6").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity7").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity10").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity11").src = "../../images/site/rarity_common.png"
         }
     changePackArt2();
     currentSet = 8;
     if (packArt2 === 1) {
-        document.getElementById("boosterPackFront").src="../images/packart/neogenesis1.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neogenesisback1.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neogenesis1.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neogenesisback1.jpg";
     }
     if (packArt2 === 2) {
-        document.getElementById("boosterPackFront").src="../images/packart/neogenesis2.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neogenesisback2.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neogenesis2.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neogenesisback2.jpg";
     }
     if (packArt2 === 3) {
-        document.getElementById("boosterPackFront").src="../images/packart/neogenesis3.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neogenesisback1.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neogenesis3.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neogenesisback1.jpg";
     }
     if (packArt2 === 4) {
-        document.getElementById("boosterPackFront").src="../images/packart/neogenesis4.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neogenesisback2.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neogenesis4.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neogenesisback2.jpg";
     }
 
     //Rare distribution
@@ -2058,23 +2058,23 @@ function newPackNeoDiscovery(){
     increaseCounter();
     checkFlip = 1;
     if (foundCharizard === 1) {
-        document.getElementById("logo").src = "../images/site/logo.png";
+        document.getElementById("logo").src = "../../images/site/logo.png";
     }
     foundCharizard = 0;
-    document.getElementById("rarity0").src = "../images/set-symbols/neo-discovery-pokemon-set-symbol.png";
+    document.getElementById("rarity0").src = "../../images/set-symbols/neo-discovery-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity10").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity11").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity10").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity11").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -2088,35 +2088,35 @@ function newPackNeoDiscovery(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
-        document.getElementById("rarity1").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity4").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity6").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity7").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity10").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity11").src = "../images/site/rarity_common.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity4").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity6").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity7").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity10").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity11").src = "../../images/site/rarity_common.png"
         }
     changePackArt2();
     currentSet = 9;
     if (packArt2 === 1) {
-        document.getElementById("boosterPackFront").src="../images/packart/neodiscovery1.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neodiscoveryback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neodiscovery1.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neodiscoveryback.jpg";
     }
     if (packArt2 === 2) {
-        document.getElementById("boosterPackFront").src="../images/packart/neodiscovery2.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neodiscoveryback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neodiscovery2.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neodiscoveryback.jpg";
     }
     if (packArt2 === 3) {
-        document.getElementById("boosterPackFront").src="../images/packart/neodiscovery3.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neodiscoveryback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neodiscovery3.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neodiscoveryback.jpg";
     }
     if (packArt2 === 4) {
-        document.getElementById("boosterPackFront").src="../images/packart/neodiscovery4.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neodiscoveryback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neodiscovery4.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neodiscoveryback.jpg";
     }
 
     //Rare distribution
@@ -2212,23 +2212,23 @@ function newPackNeoRevelation(){
     increaseCounter();
     checkFlip = 1;
     if (foundCharizard === 1) {
-        document.getElementById("logo").src = "../images/site/logo.png";
+        document.getElementById("logo").src = "../../images/site/logo.png";
     }
     foundCharizard = 0;
-    document.getElementById("rarity0").src = "../images/set-symbols/neo-revelation-pokemon-set-symbol.png";
+    document.getElementById("rarity0").src = "../../images/set-symbols/neo-revelation-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity10").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity11").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity10").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity11").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -2242,35 +2242,35 @@ function newPackNeoRevelation(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
-        document.getElementById("rarity1").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity4").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity6").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity7").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity10").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity11").src = "../images/site/rarity_uncommon.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity4").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity6").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity7").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity10").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity11").src = "../../images/site/rarity_uncommon.png"
         }
     changePackArt2();
     currentSet = 10;
     if (packArt2 === 1) {
-        document.getElementById("boosterPackFront").src="../images/packart/neorevelation1.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neorevelationback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neorevelation1.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neorevelationback.jpg";
     }
     if (packArt2 === 2) {
-        document.getElementById("boosterPackFront").src="../images/packart/neorevelation2.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neorevelationback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neorevelation2.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neorevelationback.jpg";
     }
     if (packArt2 === 3) {
-        document.getElementById("boosterPackFront").src="../images/packart/neorevelation3.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neorevelationback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neorevelation3.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neorevelationback.jpg";
     }
     if (packArt2 === 4) {
-        document.getElementById("boosterPackFront").src="../images/packart/neorevelation4.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neorevelationback.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neorevelation4.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neorevelationback.jpg";
     }
 
     //Rare distribution
@@ -2375,23 +2375,23 @@ function newPackNeoDestiny(){
     increaseCounter();
     checkFlip = 1;
     if (foundCharizard === 1) {
-        document.getElementById("logo").src = "../images/site/logo.png";
+        document.getElementById("logo").src = "../../images/site/logo.png";
     }
     foundCharizard = 0;
-    document.getElementById("rarity0").src = "../images/set-symbols/neo-destiny-pokemon-set-symbol.png";
+    document.getElementById("rarity0").src = "../../images/set-symbols/neo-destiny-pokemon-set-symbol.png";
     if (currentShuffle === 1) {
         cardOrderArray.shuffle();
-        document.getElementById("rarity1").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity2").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity3").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity4").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity5").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity6").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity7").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity8").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity9").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity10").src = "../images/site/unown_question_mark.gif";
-        document.getElementById("rarity11").src = "../images/site/unown_question_mark.gif";
+        document.getElementById("rarity1").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity2").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity3").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity4").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity5").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity6").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity7").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity8").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity9").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity10").src = "../../images/site/unown_question_mark.gif";
+        document.getElementById("rarity11").src = "../../images/site/unown_question_mark.gif";
     } else {
         cardOrderArray = [
             'randomCard1', 
@@ -2405,35 +2405,35 @@ function newPackNeoDestiny(){
             'randomCard9',
             'randomCard10',
             'randomCard11'];
-        document.getElementById("rarity1").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity2").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity3").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity4").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity5").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity6").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity7").src = "../images/site/rarity_common.png"
-        document.getElementById("rarity8").src = "../images/site/rarity_rare.png"
-        document.getElementById("rarity9").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity10").src = "../images/site/rarity_uncommon.png"
-        document.getElementById("rarity11").src = "../images/site/rarity_uncommon.png"
+        document.getElementById("rarity1").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity2").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity3").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity4").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity5").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity6").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity7").src = "../../images/site/rarity_common.png"
+        document.getElementById("rarity8").src = "../../images/site/rarity_rare.png"
+        document.getElementById("rarity9").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity10").src = "../../images/site/rarity_uncommon.png"
+        document.getElementById("rarity11").src = "../../images/site/rarity_uncommon.png"
         }
     changePackArt2();
     currentSet = 11;
     if (packArt2 === 1) {
-        document.getElementById("boosterPackFront").src="../images/packart/neodestiny1.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neodestinyback1.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neodestiny1.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neodestinyback1.jpg";
     }
     if (packArt2 === 2) {
-        document.getElementById("boosterPackFront").src="../images/packart/neodestiny2.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neodestinyback2.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neodestiny2.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neodestinyback2.jpg";
     }
     if (packArt2 === 3) {
-        document.getElementById("boosterPackFront").src="../images/packart/neodestiny3.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neodestinyback2.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neodestiny3.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neodestinyback2.jpg";
     }
     if (packArt2 === 4) {
-        document.getElementById("boosterPackFront").src="../images/packart/neodestiny4.jpg";
-        document.getElementById("boosterPackBack").src="../images/packart/neodestinyback4.jpg";
+        document.getElementById("boosterPackFront").src="../../images/packart/neodestiny4.jpg";
+        document.getElementById("boosterPackBack").src="../../images/packart/neodestinyback4.jpg";
     }
 
     //Rare distribution
@@ -2547,7 +2547,7 @@ function resetCounts() {
     
     let logo = document.getElementById("logo")
     if (logo) {
-        document.getElementById("logo").src = "../images/site/logo.png";
+        document.getElementById("logo").src = "../../images/site/logo.png";
     }
     currentSet = 1;
     packsOpened = 0;

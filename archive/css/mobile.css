@@ -270,7 +270,7 @@ to {transform:scale(1)}
 .back1, .back2, .back3,
 .back4, .back5, .back6,
 .back7, .back8, .back9 {
-    background-image: url(../images/site/foil.jpg);
+    background-image: url(../../images/site/foil.jpg);
     background-size: 315px 450px;
     border-radius: 15px;    
 }

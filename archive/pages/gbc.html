@@ -6,11 +6,11 @@
     <!--Linking CSS-->
     <link type="text/css" rel="stylesheet" href="../css/gbc.css">
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon//favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon//favicon-16x16.png">
-    <link rel="manifest" href="../images/favicon//site.webmanifest">
-    <link rel="mask-icon" href="../images/favicon//safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon//favicon-16x16.png">
+    <link rel="manifest" href="../../images/favicon//site.webmanifest">
+    <link rel="mask-icon" href="../../images/favicon//safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <title>Game Boy Color TCG</title>
@@ -20,9 +20,9 @@
 
 <div class = "topBar">
     <div id = "topBarMiddle">
-        <img class = "energySymbols" src = "../images/gbc/energysymbols.png">
-        <img src = "../images/gbc/gbclogo.png">
-        <img class = "energySymbols" onclick = "goUp();" src = "../images/gbc/energysymbols.png">
+        <img class = "energySymbols" src = "../../images/gbc/energysymbols.png">
+        <img src = "../../images/gbc/gbclogo.png">
+        <img class = "energySymbols" onclick = "goUp();" src = "../../images/gbc/energysymbols.png">
     </div>
 </div>
 
@@ -34,17 +34,17 @@
 <br>
 
     <div class = "gbcparent">
-        <img class = "gbc" width = "353.5px" height = "605px" src = "../images/gbc/gbc.png">
-        <img id = "screen" width = "197.5px" height = "182.5px" src = "../images/gbc/titlescreen.gif">
-        <img id = "redlight" width = "12px" height = "12px" src = "../images/gbc/redlight.png">
-        <img onclick = "playMusic();" id = "startbutton" src = "../images/site/empty.png">
-        <img onclick = "pauseMusic();" id = "selectbutton" src = "../images/site/empty.png">
-        <img onclick = "randomGameBoyPack();newPackSound();" id = "a_button" src = "../images/site/empty.png">
-        <img onclick = "randomGameBoyPack();newPackSound();" id = "b_button" src = "../images/site/empty.png">
-        <img onclick = "goUp();" id = "up_button" src = "../images/site/empty.png">
-        <img onclick = "goDown();" id = "down_button" src = "../images/site/empty.png">
-        <img onclick = "goLeft();" id = "left_button" src = "../images/site/empty.png">
-        <img onclick = "goRight();" id = "right_button" src = "../images/site/empty.png">
+        <img class = "gbc" width = "353.5px" height = "605px" src = "../../images/gbc/gbc.png">
+        <img id = "screen" width = "197.5px" height = "182.5px" src = "../../images/gbc/titlescreen.gif">
+        <img id = "redlight" width = "12px" height = "12px" src = "../../images/gbc/redlight.png">
+        <img onclick = "playMusic();" id = "startbutton" src = "../../images/site/empty.png">
+        <img onclick = "pauseMusic();" id = "selectbutton" src = "../../images/site/empty.png">
+        <img onclick = "randomGameBoyPack();newPackSound();" id = "a_button" src = "../../images/site/empty.png">
+        <img onclick = "randomGameBoyPack();newPackSound();" id = "b_button" src = "../../images/site/empty.png">
+        <img onclick = "goUp();" id = "up_button" src = "../../images/site/empty.png">
+        <img onclick = "goDown();" id = "down_button" src = "../../images/site/empty.png">
+        <img onclick = "goLeft();" id = "left_button" src = "../../images/site/empty.png">
+        <img onclick = "goRight();" id = "right_button" src = "../../images/site/empty.png">
 
         <div class = "boosterPacks">
 
@@ -52,24 +52,24 @@
 
             <div class = "currentBoosterPack">
         
-                <img id = "rarity1" src="../images/gbc/rarity_rare_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen1();" id = "currentCard1">INSTRUCTIONS:</a><br>
-                <img id = "rarity2" src="../images/gbc/rarity_uncommon_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen2();" id = "currentCard2">Click a pack for new cards.</a> <br>
-                <img id = "rarity3" src="../images/gbc/rarity_uncommon_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen3();" id = "currentCard3">Try to collect them all!</a> <br>
-                <img id = "rarity4" src="../images/gbc/rarity_uncommon_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen4();" id = "currentCard4">To view a card again,</a> <br>
-                <img id = "rarity5" src="../images/gbc/rarity_common_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen5();" id = "currentCard5">click the collected card</a> <br>
-                <img id = "rarity6" src="../images/gbc/rarity_common_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen6();" id = "currentCard6">in its table location.</a> <br>
-                <img id = "rarity7" src="../images/gbc/rarity_common_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen7();" id = "currentCard7">Thanks to reddit user </a> <br>
-                <img id = "rarity8" src="../images/gbc/rarity_common_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen8();" id = "currentCard8">u/Fatalstryke for taking</a> <br>
-                <img id = "rarity9" src="../images/gbc/rarity_common_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen9();" id = "currentCard9">screenshots of all the cards.</a> <br>
-                <img id = "rarity10" src="../images/gbc/rarity_common_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen10();" id = "currentCard10">Enjoy the nostalgia trip!</a>
+                <img id = "rarity1" src="../../images/gbc/rarity_rare_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen1();" id = "currentCard1">INSTRUCTIONS:</a><br>
+                <img id = "rarity2" src="../../images/gbc/rarity_uncommon_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen2();" id = "currentCard2">Click a pack for new cards.</a> <br>
+                <img id = "rarity3" src="../../images/gbc/rarity_uncommon_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen3();" id = "currentCard3">Try to collect them all!</a> <br>
+                <img id = "rarity4" src="../../images/gbc/rarity_uncommon_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen4();" id = "currentCard4">To view a card again,</a> <br>
+                <img id = "rarity5" src="../../images/gbc/rarity_common_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen5();" id = "currentCard5">click the collected card</a> <br>
+                <img id = "rarity6" src="../../images/gbc/rarity_common_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen6();" id = "currentCard6">in its table location.</a> <br>
+                <img id = "rarity7" src="../../images/gbc/rarity_common_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen7();" id = "currentCard7">Thanks to reddit user </a> <br>
+                <img id = "rarity8" src="../../images/gbc/rarity_common_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen8();" id = "currentCard8">u/Fatalstryke for taking</a> <br>
+                <img id = "rarity9" src="../../images/gbc/rarity_common_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen9();" id = "currentCard9">screenshots of all the cards.</a> <br>
+                <img id = "rarity10" src="../../images/gbc/rarity_common_gbc.png">&nbsp;<a href="javascript:void();" onclick = "changeScreen10();" id = "currentCard10">Enjoy the nostalgia trip!</a>
             </div>
             
             <br>
 
-            <input type = "image" src = "../images/gbc/packs/colosseum.png" onclick = "newPackColosseum();newPackSound();"/>
-            <input type = "image" src = "../images/gbc/packs/evolution.png" onclick = "newPackEvolution();newPackSound();"/>
-            <input type = "image" src = "../images/gbc/packs/mystery.png" onclick = "newPackMystery();newPackSound();"/>
-            <input type = "image" src = "../images/gbc/packs/laboratory.png" onclick = "newPackLaboratory();newPackSound();"/>
+            <input type = "image" src = "../../images/gbc/packs/colosseum.png" onclick = "newPackColosseum();newPackSound();"/>
+            <input type = "image" src = "../../images/gbc/packs/evolution.png" onclick = "newPackEvolution();newPackSound();"/>
+            <input type = "image" src = "../../images/gbc/packs/mystery.png" onclick = "newPackMystery();newPackSound();"/>
+            <input type = "image" src = "../../images/gbc/packs/laboratory.png" onclick = "newPackLaboratory();newPackSound();"/>
         
             <br>
 
@@ -88,7 +88,7 @@
     </div>
 
 <div id = "hidden1">
-    <a href="https://bulbapedia.bulbagarden.net/wiki/Promotional_Card_(GB1)" target="_blank"><img height = "30" id = "hidden2" src =  "../images/gbc/promotional_logo.png"></a>
+    <a href="https://bulbapedia.bulbagarden.net/wiki/Promotional_Card_(GB1)" target="_blank"><img height = "30" id = "hidden2" src =  "../../images/gbc/promotional_logo.png"></a>
     <p class = "hidden" onclick = "showCard(this.id);" id ="P01 Arcanine">P01 Arcanine</p>
     <p class = "hidden" onclick = "showCard(this.id);" id ="P02 Moltres">P02 Moltres</p>
     <p class = "hidden" onclick = "showCard(this.id);" id ="P03 Articuno">P03 Articuno</p>

@@ -1,0 +1,247 @@
+.topBar, .bottomBar {
+    padding: 10px;
+    background-color: blue;
+    color: yellow;
+    overflow: auto;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+
+#soundControl {
+    background: yellow;
+    display: inline-block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: blue;
+}
+
+#promotionalButton {
+    background: yellow;
+    display: inline-block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: blue;
+    padding: 10px 100px 10px 100px;
+}
+
+#topBarLeft {
+    float: left;
+}
+
+#topBarRight {
+    float: right;
+}
+
+#topBarMiddle {
+    float: center;
+}
+
+body {
+    background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
+    background-image: linear-gradient(to right, red, orange, goldenrod, gold);
+}
+
+a:link, a:hover, a:visited, a:active {
+    color: yellow;
+}
+
+#hidden1, #hidden2, .hidden {
+    display: none;
+}
+
+#promotional_div {
+    padding: 10px 0px 0px 10px;
+    float: left;
+}
+
+#promotional_logo {
+    padding: 0px 0px 0px 15px;
+}
+
+.promotionalCards {
+    cursor: pointer;
+    color: blue;
+    overflow: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
+    background-color: yellow;
+    animation: rainbow 3s steps(24) infinite;
+    -webkit-animation: rainbow 3s steps(24) infinite;
+    -moz-animation: rainbow 3s steps(24) infinite;
+    -o-animation: rainbow 3s steps(24) infinite;
+}
+
+@keyframes rainbow {
+    from {
+        filter: hue-rotate(0deg);
+        -webkit-filter: hue-rotate(0deg);
+        -moz-filter: hue-rotate(0deg);
+        -o-filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+        -webkit-filter: hue-rotate(360deg);
+        -moz-filter: hue-rotate(360deg);
+        -o-filter: hue-rotate(360deg);
+    }
+}
+
+table, th, td {
+    border: 1px solid yellow;
+    background-color: blue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: yellow;
+
+}
+
+td.collected {
+    border: 1px solid yellow;
+    background-color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: yellow;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+th, td {
+    padding: 3px;
+}
+
+th {
+    text-align: left;
+    font-size: 20px;
+}
+
+td {
+    font-size: 14px;
+}
+
+.boosterPacks {
+    padding: 0px 0px 0px 13px;
+    float: right;
+}
+
+    .currentBoosterPack {
+        width: 220px;
+        word-wrap: break-word;
+        text-align: left;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 15px;
+        background-color: blue;
+        color: yellow;
+        border: 10px solid yellow;
+        padding: 15px;
+    }
+
+    #cardCount, #packCount {
+        width: 220px;
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 15px;
+        background-color: blue;
+        color: yellow;
+        border: 10px solid yellow;
+        padding: 15px;
+    }
+
+.gbcparent {
+    position: sticky;
+    position: -webkit-sticky;
+    display: inline-block;
+    top: 0;
+}
+
+    .gbc {
+        position: relative;
+        width: 353.5px; 
+        height: 605px;
+    }
+
+    #screen {
+        position: absolute;
+        top: 62px; /* original values: top 62, left 80*/
+        left: 80.5px;
+    }
+
+    #redlight {
+        position: absolute;
+        top: 115px; /* original values: top 115, left 35*/
+        left: 35.5px;
+    }
+
+    #startbutton {
+        position: absolute;
+        height: 20px;
+        width: 35px;
+        top: 488px;
+        left: 187px;
+    }
+
+    #selectbutton {
+        position: absolute;
+        height: 20px;
+        width: 35px;
+        top: 488px;
+        left: 135px;
+    }
+
+    #a_button {
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        top: 370px;
+        left: 275px;
+        border-radius: 15px;
+    }
+
+    #b_button {
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        top: 390px;
+        left: 215px;
+        border-radius: 15px;
+    }
+
+    #up_button {
+        position: absolute;
+        height: 40px;
+        width: 30px;
+        top: 360px;
+        left: 65px;
+    }
+
+    #down_button {
+        position: absolute;
+        height: 40px;
+        width: 30px;
+        top: 405px;
+        left: 65px;
+    }
+
+    #left_button {
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        top: 385px;
+        left: 35px;
+    }
+
+    #right_button {
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        top: 385px;
+        left: 90px;
+    }
+
+
+#table {
+    float: left;
+    width: 37%;
+    margin: 10px;
+    overflow: auto;
+}

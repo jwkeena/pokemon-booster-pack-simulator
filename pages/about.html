@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
+    Written by justin keena, https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator-->
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Free Pokemon TCG booster pack simulator"
+    />
+    <meta
+      name="keywords"
+      content="Pokemon,pokemon,booster,blister,pack,box,simulator,opening,tcg,,ccg,set,cards"
+    />
+    <!--Linking CSS-->
+    <link type="text/css" rel="stylesheet" href="../css/main.css" />
+    <title>Pokemon Booster Pack Simulator</title>
+  </head>
+  <body>
+    <div id="topBar">
+      <div class="topBarLeft">[version 3.0]</div>
+
+      <span class="topBarMiddle">
+        [<a href="#suggestions">suggestions</a>] [<a href="#rules">rules</a>]
+        [<a href="#updates">updates</a>]
+      </span>
+
+      <div class="topBarRight">
+        [<a href="../index.html">back to simulator</a>]
+      </div>
+    </div>
+
+    <br />
+    <img id="suggestions" src="../images/site/suggestions.png" />
+    <br />
+    <br />
+
+    <div class="boxed">
+      <h3 class="title">WANT TO SEE MORE SETS?</h3>
+      I am aware of the demand for more sets! The biggest encouragement for me
+      to add more is for the site to reach a wider audience. I'd love to add
+      more, the bigger the audience gets; so
+      <a href="index.html#share">share</a> the site with friends who would enjoy
+      it. If there are particular ones you want to see arrive first
+      <a href="javascript:void();" onclick="redirect()">email me</a>. However, I
+      won't add any that are currently
+      <a href="https://www.ptcgoshop.com/card-packs">being monetized</a>
+      by the Pokemon Trading Card Game Online. I'm strictly interested in
+      historical preservation, and re-creating the experience of opening these
+      packs.
+      <br />
+      <br />
+      <hr />
+
+      <h3 class="title">FOUND A BUG?</h3>
+      Please share the details and circumstances of what you experienced on
+      <a
+        href="https://www.reddit.com/r/pkmntcg/comments/arrvm0/booster_pack_simulator_first_11_sets/"
+        >Reddit</a
+      >, or
+      <a href="javascript:void();" onclick="redirect()">email me directly</a>
+      and I'll address the issue as quickly as possible. Be sure to include
+      which browser and platform you were using. Bonus points if you include a
+      screenshot.
+      <br />
+      <br />
+
+      <hr />
+
+      <h3 class="title">WANT TO REQUEST A NEW FEATURE OR RULE?</h3>
+      Many of the features on the simulator, such as the same set button and the
+      zoom ability, were user requests. Let me know what you'd like to see, and
+      I'll see if I can add it.
+      <br />
+      <br />If you're submitting a new card distribution rule, check the list
+      below to see what's already been implemented. Again, the best place to
+      reach me currently is on
+      <a
+        href="https://www.reddit.com/r/pkmntcg/comments/arrvm0/booster_pack_simulator_first_11_sets/"
+        >this subreddit</a
+      >
+      or <a href="javascript:void();" onclick="redirect()">by email</a>.
+      <br />
+      <br />
+    </div>
+    <br />
+    <br />
+
+    <img id="rules" src="../images/site/rules.png" />
+    <br />
+    <br />
+    <div class="boxed">
+      <h3 class="title">PROBABILITY</h3>
+      <ol>
+        <li>Holographic cards: 1/3 packs</li>
+        <li>
+          Secret rare (<a
+            href="https://www.flipsidegaming.com/blogs/pokemon-blog/a-comprehensive-review-of-rarity-in-the-pokemon-tcg"
+            >Team Rocket</a
+          >): 1/60 packs
+        </li>
+        <li>
+          Shining Pokemon (<a
+            href="https://www.flipsidegaming.com/blogs/pokemon-blog/a-comprehensive-review-of-rarity-in-the-pokemon-tcg"
+            >Neo Revelation</a
+          >): 1/12 packs
+        </li>
+        <li>
+          Shining Pokemon (<a
+            href="https://www.flipsidegaming.com/blogs/pokemon-blog/a-comprehensive-review-of-rarity-in-the-pokemon-tcg"
+            >Neo Destiny</a
+          >): 1/18 packs
+        </li>
+      </ol>
+
+      <hr />
+
+      <h3 class="title">RARITY DISTRIBUTION</h3>
+      Image key: &nbsp;
+      <img class="rarity_about" src="../images/site/rarity_rare.png" /> = rare
+      &nbsp;
+      <img class="rarity_about" src="../images/site/rarity_uncommon.png" /> =
+      uncommon &nbsp;
+      <img class="rarity_about" src="../images/site/rarity_common.png" /> = common
+      &nbsp; <img class="rarity_about" src="../images/site/colorless.png" /> =
+      energy &nbsp;
+      <img class="rarity_about" src="../images/site/unown_question_mark.gif" /> =
+      unkown
+      <br />
+      <br />
+      When shuffle is turned off, cards will always appear in the following
+      order:
+      <ol>
+        <li>Base: 7 commons (2 of which are energy), 1 rare, 3 uncommons</li>
+        <li>Jungle: 7 commons, 1 rare, 3 uncommons</li>
+        <li>Fossil: 7 commons, 1 rare, 3 uncommons</li>
+        <li>Base 2: 3 uncommons, 5 commons, 1 rare, 2 energy</li>
+        <li>Team Rocket: 7 commons, 1 rare, 3 uncommons</li>
+        <li>Gym Heroes: 6 commons, 1 rare, 3 uncommons, 1 energy</li>
+        <li>Gym Challenge: 6 commons, 1 rare, 3 uncommons, 1 energy</li>
+        <li>Neo Genesis: 1 energy, 1 rare, 3 uncommons, 6 commons</li>
+        <li>Neo Discovery: 3 uncommon, 1 rare, 7 commons</li>
+        <li>Neo Revelation: 7 commons, 1 rare, 3 uncommons</li>
+        <li>Neo Destiny: 7 commons, 1 rare, 3 uncommons</li>
+        <li>
+          Expedition Base: 5 commons (holo pull replaces 5th common), 1 reverse
+          holo (any rarity), 1 regular rare, 2 uncommons
+        </li>
+        <li>
+          Aquapolis: 5 commons (holo pull replaces 5th common), 1 reverse holo
+          (any rarity), 1 regular rare, 2 uncommons
+        </li>
+        <li>
+          Skyridge: 5 commons (holo pull replaces 5th common), 1 reverse holo
+          (any rarity), 1 regular rare, 2 uncommons
+        </li>
+      </ol>
+      These patterns have been extracted from numerous YouTube booster pack
+      openings.
+
+      <hr />
+
+      <h3 class="title">DUPLICATES</h3>
+      Duplicates have been prevented in the simulator, since they aren't meant
+      to occur in physical packs. In the original 11 sets, it is possible to
+      pull two of the same pokemon, but not with the identical art or card
+      number. In the expedition base set, it is possible to pull three of the
+      same pokemon with the same art and card number, but of different rarity
+      tiers: holographic, reverse holographic, and regular rare.
+      <br />
+      <br />
+    </div>
+    <br />
+    <br />
+
+    <img id="updates" src="../images/site/updates.png" />
+    <br />
+    <br />
+
+    <div class="boxed">
+      Current as of 1/12/2020, from most to least recent:
+      <ol reversed>
+        <li>Added drafting tool to main site.</li>
+        <li>
+          Moved location of GBC easter egg; removed donations; made countdown
+          persistent
+        </li>
+        <li>Finished e-series set</li>
+        <li>Added expedition base set, thanks to a donation!</li>
+        <li>Added game boy color page</li>
+        <li>Added rarity distribution images</li>
+        <li>Added reset button</li>
+        <li>Added countdown to easter egg</li>
+        <li>Added zoom feature on second click</li>
+        <li>Added packs opened counter</li>
+        <li>Added packs generated counter</li>
+        <li>Added all missing reverse pack images</li>
+        <li>Added easter egg ;)</li>
+        <li>Fixed "flip all" button to only affect unflipped cards</li>
+        <li>
+          Delayed new cards being dispalyed till after cards have been flipped
+        </li>
+        <li>Sped up card flip animation to .5 seconds</li>
+        <li>
+          Added 1 energy per pack rule for Neo Genesis, Gym Heroes, Gym
+          Challenge
+        </li>
+        <li>Added 2 energy per pack rule for Base and Base 2</li>
+        <li>Added toggle shuffle button</li>
+        <li>Added accurate order to the unshuffled cards</li>
+        <li>Added rule to yield shiny cards in Neo Destiny 1/18 packs</li>
+        <li>Added rule to yield shiny cards in Neo Revelation 1/12 packs</li>
+        <li>Added rule to yield the secret rare in Team Rocket 1/60 packs</li>
+        <li>Added rule to yield holographic cards 33% of the time</li>
+        <li>Added same set button</li>
+        <li>Added mobile site and automatic redirect</li>
+        <li>Removed base set Machamp from possible cards</li>
+        <li>Added prevent duplicate rule</li>
+      </ol>
+    </div>
+
+    <br />
+    <br />
+
+    <div id="bottomBar">
+      programming and design by justin keena (code download available at
+      <a href="https://github.com/jwkeena?tab=repositories">github</a>)
+    </div>
+
+    <!--linking Javascript-->
+    <script type="text/javascript" src="../js/main.js"></script>
+  </body>
+</html>

@@ -1,356 +1,506 @@
 <!DOCTYPE html>
 <!--Feel free to use and repurpose my code, as long as you credit me and/or link to my github page
     Written by justin keena, https://github.com/jwkeena/pokemon-booster-pack-simulator-->
-<!-- Testing neocities cli without git hooks -->
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name = "description" content = "Free Pokemon TCG booster pack simulator, 90s nostalgia edition. The first 14 sets are reproduced in their entirety (base set, jungle, fossil, base set 2, team rocket, gym and neo series, etc), all the way up to e-card series. Game Boy Color cards also available on desktop. Keep track of the number of packs opened--get to 100 for a bonus.">
-    <meta name = "keywords" content = "Pokemon,pokemon,booster,pack,box,simulator,opening,tcg,set,cards">
-    <!--Linking CSS-->
-    <link type="text/css" rel="stylesheet" href="pokemonstyle.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Free Pokemon TCG booster pack simulator, 90s nostalgia edition. The first 14 sets are reproduced in their entirety (base set, jungle, fossil, base set 2, team rocket, gym and neo series, etc), all the way up to e-card series. Game Boy Color cards also available on desktop. Keep track of the number of packs opened--get to 100 for a bonus."
+    />
+    <meta
+      name="keywords"
+      content="Pokemon,pokemon,booster,pack,box,simulator,opening,tcg,set,cards"
+    />
 
-    <!--Share Buttons    -->
-    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5c67578c7056550011c4a3c0&product='inline-share-buttons" async="async"></script>
+    <!--Linking CSS-->
+    <link type="text/css" rel="stylesheet" href="css/main.css" />
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon//favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon//favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/favicon//site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="images/favicon//safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!--Share Buttons-->
+    <script
+      type="text/javascript"
+      src="//platform-api.sharethis.com/js/sharethis.js#property=5c67578c7056550011c4a3c0&product='inline-share-buttons"
+      async="async"
+    ></script>
 
     <!--Redirect to mobile, courtesy of https://css-tricks.com/snippets/javascript/redirect-mobile-devices/ -->
     <script type="text/javascript">
-        if (screen.width <= 699) {
-            document.location = "mobile.html";
-        }
+      if (screen.width <= 699) {
+        document.location = "pages/mobile.html";
+      }
     </script>
 
     <!-- jQuery link -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
     <title>Pokemon Booster Pack Simulator</title>
-</head>
+  </head>
 
-<body onload="newPackBase()">
+  <body onload="newPackBase()">
+    <div id="topBar">
+      <div class="topBarLeft">
+        <span
+          id="drafting-tool"
+          title="When activated, double click items to delete them, and right click pulls to move them to the deck area."
+          >[<a href="#" onclick="toggleDrafting();">drafting tool: off</a
+          >]</span
+        >
+      </div>
 
-<div id="topBar">
-    
-    <div class = "topBarLeft">
-        <span id="drafting-tool" title="When activated, double click items to delete them, and right click pulls to move them to the deck area.">[<a href="#" onclick="toggleDrafting();">drafting tool: off</a>]</span>
+      <button id="resetButton" class="topBarMiddle" onclick="resetCounts()">
+        reset
+      </button>
+      <span class="topBarMiddle" id="counter"></span>
+      <span class="topBarMiddle" id="packsOpened"> | packs opened: 0 | </span>
+      <span class="topBarMiddle" id="charizardCounter"></span>
+      <span id="rewardButtonLocation"></span>
+      <span class="topBarMiddle" id="countdown"></span>
+
+      <div class="topBarRight">[<a href="pages/about.html">about</a>]</div>
     </div>
 
-    <button id = "resetButton" class = "topBarMiddle" onclick="resetCounts()">reset</button>
-    <span class = "topBarMiddle" id = "counter"></span>
-    <span class = "topBarMiddle" id = "packsOpened"> | packs opened: 0 | </span>
-    <span class = "topBarMiddle" id = "charizardCounter"></span>
-    <span id = "rewardButtonLocation"></span>  
-    <span class = "topBarMiddle" id = "countdown"></span>
-
-
-    <div class ="topBarRight">
-        [<a href="about.html">about</a>]
-    </div> 
-    
-</div> 
-
-<div>
-    <ul id = "pulls">
-    </ul>
-</div>
-
-<div>
-    <ul id = "deck">
-    <span id = "numberInDeck"></span>
-    </ul>
-</div>
-
-<div class="container">
     <div>
-        <a href="ecardseries.html"><img id="eserieslogo" alt="E-card series logos" title="Click to open e-series packs!" src="ecardlogos.png"></a>
-        <img id = "logo" src = "logo.png"> <!--Thanks to https://textcraft.net/style/Textcraft/pokemon-->
-        <a href = "gbc.html" target="_blank"><img id="gbc-system" alt="game boy color system" title="Click to open GBC cards!" src="gbc.png"></a>
-        <a href = "gbc.html"><img id="gbc-screen" alt="game boy color system" title="Click to open GBC cards!" src="titlescreen.gif"></a>
-        <br>   
+      <ul id="pulls"></ul>
     </div>
-</div>
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImg">
-</div>
+    <div>
+      <ul id="deck">
+        <span id="numberInDeck"></span>
+      </ul>
+    </div>
 
-<span id = "charizardButtonLocation"></span>
+    <div class="container">
+      <div>
+        <a href="pages/ecardseries.html"
+          ><img
+            id="eserieslogo"
+            alt="E-card series logos"
+            title="Click to open e-series packs!"
+            src="images/site/ecardlogos.png"
+        /></a>
+        <img id="logo" src="images/site/logo.png" />
+        <!--Thanks to https://textcraft.net/style/Textcraft/pokemon-->
+        <a href="pages/gbc.html" target="_blank"
+          ><img
+            id="gbc-system"
+            alt="game boy color system"
+            title="Click to open GBC cards!"
+            src="images/gbc/gbc.png"
+        /></a>
+        <a href="pages/gbc.html"
+          ><img
+            id="gbc-screen"
+            alt="game boy color system"
+            title="Click to open GBC cards!"
+            src="images/gbc/titlescreen.gif"
+        /></a>
+        <br />
+      </div>
+    </div>
 
-<div class = "row">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImg" />
+    </div>
 
-    <button id="button1" onclick="resetAll();setTimeout(randomPack, 501)">RANDOM PACK</button>
-    <div class="dropdown">
+    <span id="charizardButtonLocation"></span>
+
+    <div class="row">
+      <button id="button1" onclick="resetAll();setTimeout(randomPack, 501)">
+        RANDOM PACK
+      </button>
+      <div class="dropdown">
         <button id="button2">CHOOSE SET</button>
         <div class="dropdown-content">
-            <a href="javascript:void();" onclick="resetAll();setTimeout(newPackBase, 501)">base set</a>
-            <a href="javascript:void();" onclick="resetAll();setTimeout(newPackJungle, 501)">jungle</a>
-            <a href="javascript:void();" onclick="resetAll();setTimeout(newPackFossil, 501)">fossil</a>
-            <a href="javascript:void();" onclick="resetAll();setTimeout(newPackBase2, 501)">base set 2</a>
-            <a href="javascript:void();" onclick="resetAll();setTimeout(newPackTeamRocket, 501)">team rocket</a>
-            <a href="javascript:void();" onclick="resetAll();setTimeout(newPackGymHeroes, 501)">gym heroes</a>
-            <a href="javascript:void();" onclick="resetAll();setTimeout(newPackGymChallenge, 501)">gym challenge</a>
-            <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoGenesis, 501)">neo genesis</a>
-            <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoDiscovery, 501)">neo discovery</a>
-            <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoRevelation, 501)">neo revelation</a>
-            <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoDestiny, 501)">neo destiny</a>
+          <a
+            href="javascript:void();"
+            onclick="resetAll();setTimeout(newPackBase, 501)"
+            >base set</a
+          >
+          <a
+            href="javascript:void();"
+            onclick="resetAll();setTimeout(newPackJungle, 501)"
+            >jungle</a
+          >
+          <a
+            href="javascript:void();"
+            onclick="resetAll();setTimeout(newPackFossil, 501)"
+            >fossil</a
+          >
+          <a
+            href="javascript:void();"
+            onclick="resetAll();setTimeout(newPackBase2, 501)"
+            >base set 2</a
+          >
+          <a
+            href="javascript:void();"
+            onclick="resetAll();setTimeout(newPackTeamRocket, 501)"
+            >team rocket</a
+          >
+          <a
+            href="javascript:void();"
+            onclick="resetAll();setTimeout(newPackGymHeroes, 501)"
+            >gym heroes</a
+          >
+          <a
+            href="javascript:void();"
+            onclick="resetAll();setTimeout(newPackGymChallenge, 501)"
+            >gym challenge</a
+          >
+          <a
+            href="javascript:void();"
+            onclick="resetAll();setTimeout(newPackNeoGenesis, 501)"
+            >neo genesis</a
+          >
+          <a
+            href="javascript:void();"
+            onclick="resetAll();setTimeout(newPackNeoDiscovery, 501)"
+            >neo discovery</a
+          >
+          <a
+            href="javascript:void();"
+            onclick="resetAll();setTimeout(newPackNeoRevelation, 501)"
+            >neo revelation</a
+          >
+          <a
+            href="javascript:void();"
+            onclick="resetAll();setTimeout(newPackNeoDestiny, 501)"
+            >neo destiny</a
+          >
         </div>
+      </div>
+      <button id="button3" onclick="resetAll();setTimeout(sameSet, 501)">
+        SAME SET
+      </button>
+      <button id="button4" onclick="flipAll()">FLIP ALL</button>
+      <button id="button5" onclick="toggleShuffle()">SHUFFLE (OFF)</button>
+
+      <br />
+      <br />
+
+      <div id="myDiv" class="pack" onclick="flip0()">
+        <img id="rarity0" src="images/site/empty.png" />
+        <div class="front">
+          <img id="boosterPackFront" src="images/packart/1stcharizard.jpg" />
+        </div>
+        <div class="back">
+          <img id="boosterPackBack" src="images/packart/basesetback1.jpg" />
+        </div>
+      </div>
+
+      <div id="myDiv1" class="card1" onclick="flip1();">
+        <img id="rarity1" src="images/site/rarity_common.png" />
+        <div class="front1">
+          <img src="images/site/cardback.jpg" height="455" />
+        </div>
+        <div class="back1">
+          <img id="randomCard1" src="images/site/cardback.jpg" height="455" />
+        </div>
+      </div>
+
+      <div id="myDiv2" class="card2" onclick="flip2();">
+        <img id="rarity2" src="images/site/rarity_common.png" />
+        <div class="front2">
+          <img src="images/site/cardback.jpg" height="455" />
+        </div>
+        <div class="back2">
+          <img id="randomCard2" src="images/site/cardback.jpg" height="455" />
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <div id="myDiv3" class="card3" onclick="flip3();">
+        <img id="rarity3" src="images/site/rarity_common.png" />
+        <div class="front3">
+          <img src="images/site/cardback.jpg" height="455" />
+        </div>
+        <div class="back3">
+          <img id="randomCard3" src="images/site/cardback.jpg" height="455" />
+        </div>
+      </div>
+
+      <div id="myDiv4" class="card4" onclick="flip4();">
+        <img id="rarity4" src="images/site/rarity_common.png" />
+        <div class="front4">
+          <img src="images/site/cardback.jpg" height="455" />
+        </div>
+        <div class="back4">
+          <img id="randomCard4" src="images/site/cardback.jpg" height="455" />
+        </div>
+      </div>
+
+      <div id="myDiv5" class="card5" onclick="flip5();">
+        <img id="rarity5" src="images/site/rarity_common.png" />
+        <div class="front5">
+          <img src="images/site/cardback.jpg" height="455" />
+        </div>
+        <div class="back5">
+          <img id="randomCard5" src="images/site/cardback.jpg" height="455" />
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <div id="myDiv6" class="card6" onclick="flip6();">
+        <img id="rarity6" src="images/site/rarity_common.png" />
+        <div class="front6">
+          <img src="images/site/cardback.jpg" height="455" />
+        </div>
+        <div class="back6">
+          <img id="randomCard6" src="images/site/cardback.jpg" height="455" />
+        </div>
+      </div>
+
+      <div id="myDiv7" class="card7" onclick="flip7();">
+        <img id="rarity7" src="images/site/rarity_common.png" />
+        <div class="front7">
+          <img src="images/site/cardback.jpg" height="455" />
+        </div>
+        <div class="back7">
+          <img id="randomCard7" src="images/site/cardback.jpg" height="455" />
+        </div>
+      </div>
+
+      <div id="myDiv8" class="card8" onclick="flip8();">
+        <img id="rarity8" src="images/site/rarity_rare.png" />
+        <div class="front8">
+          <img src="images/site/cardback.jpg" height="455" />
+        </div>
+        <div class="back8">
+          <img id="randomCard8" src="images/site/cardback.jpg" height="455" />
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <div id="myDiv9" class="card9" onclick="flip9();">
+        <img id="rarity9" src="images/site/rarity_uncommon.png" />
+        <div class="front9">
+          <img src="images/site/cardback.jpg" height="455" />
+        </div>
+        <div class="back9">
+          <img id="randomCard9" src="images/site/cardback.jpg" height="455" />
+        </div>
+      </div>
+
+      <div id="myDiv10" class="card10" onclick="flip10();">
+        <img id="rarity10" src="images/site/rarity_uncommon.png" />
+        <div class="front10">
+          <img src="images/site/cardback.jpg" height="455" />
+        </div>
+        <div class="back10">
+          <img id="randomCard10" src="images/site/cardback.jpg" height="455" />
+        </div>
+      </div>
+
+      <div id="myDiv11" class="card11" onclick="flip11();">
+        <img id="rarity11" src="images/site/rarity_uncommon.png" />
+        <div class="front11">
+          <img src="images/site/cardback.jpg" height="455" />
+        </div>
+        <div class="back11">
+          <img id="randomCard11" src="images/site/cardback.jpg" height="455" />
+        </div>
+      </div>
     </div>
-    <button id="button3" onclick="resetAll();setTimeout(sameSet, 501)">SAME SET</button>
-    <button id="button4" onclick="flipAll()">FLIP ALL</button>
-    <button id="button5" onclick="toggleShuffle()">SHUFFLE (OFF)</button>
 
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
-    <div id = "myDiv" class = "pack" onclick="flip0()">
-        <img id = "rarity0" src="empty.png">
-        <div class = "front">
-            <img id = "boosterPackFront" src="1stcharizard.jpg">
-        </div>
-        <div class = "back">
-            <img id = "boosterPackBack" src="basesetback1.jpg">
-        </div>
+    <button id="button6" onclick="resetAll();setTimeout(randomPack, 501)">
+      RANDOM PACK
+    </button>
+    <div class="dropup">
+      <button id="button7">CHOOSE SET</button>
+      <div class="dropup-content">
+        <a
+          href="javascript:void();"
+          onclick="resetAll();setTimeout(newPackBase, 501)"
+          >base set</a
+        >
+        <a
+          href="javascript:void();"
+          onclick="resetAll();setTimeout(newPackJungle, 501)"
+          >jungle</a
+        >
+        <a
+          href="javascript:void();"
+          onclick="resetAll();setTimeout(newPackFossil, 501)"
+          >fossil</a
+        >
+        <a
+          href="javascript:void();"
+          onclick="resetAll();setTimeout(newPackBase2, 501)"
+          >base set 2</a
+        >
+        <a
+          href="javascript:void();"
+          onclick="resetAll();setTimeout(newPackTeamRocket, 501)"
+          >team rocket</a
+        >
+        <a
+          href="javascript:void();"
+          onclick="resetAll();setTimeout(newPackGymHeroes, 501)"
+          >gym heroes</a
+        >
+        <a
+          href="javascript:void();"
+          onclick="resetAll();setTimeout(newPackGymChallenge, 501)"
+          >gym challenge</a
+        >
+        <a
+          href="javascript:void();"
+          onclick="resetAll();setTimeout(newPackNeoGenesis, 501)"
+          >neo genesis</a
+        >
+        <a
+          href="javascript:void();"
+          onclick="resetAll();setTimeout(newPackNeoDiscovery, 501)"
+          >neo discovery</a
+        >
+        <a
+          href="javascript:void();"
+          onclick="resetAll();setTimeout(newPackNeoRevelation, 501)"
+          >neo revelation</a
+        >
+        <a
+          href="javascript:void();"
+          onclick="resetAll();setTimeout(newPackNeoDestiny, 501)"
+          >neo destiny</a
+        >
+      </div>
+    </div>
+    <button id="button8" onclick="resetAll();setTimeout(sameSet, 501)">
+      SAME SET
+    </button>
+    <button id="button9" onclick="flipAll()">FLIP ALL</button>
+    <button id="button10" onclick="toggleShuffle()">SHUFFLE (OFF)</button>
+
+    <br />
+    <br />
+
+    <div class="sharethis-inline-share-buttons" id="share"></div>
+    <br />
+
+    <div id="bottomBar">
+      programming and design by justin keena (code download available at
+      <a href="https://github.com/jwkeena?tab=repositories">github</a>); card
+      images from <a href="https://www.pkmncards.com">pkmncards</a>; share if
+      you want to see more sets!
     </div>
 
-    <div id = "myDiv1" class = "card1" onclick="flip1();">
-        <img id = "rarity1" src="rarity_common.png">
-        <div class = "front1">
-            <img src="cardback.jpg" height="455">
-        </div>
-        <div class = "back1">
-            <img id="randomCard1" src="cardback.jpg" height="455">
-        
-        </div>
-    </div>
-
-    <div id = "myDiv2" class = "card2" onclick="flip2();">
-        <img id = "rarity2" src="rarity_common.png">
-        <div class = "front2">
-            <img src="cardback.jpg" height="455">
-        </div>
-        <div class = "back2">
-            <img id="randomCard2" src="cardback.jpg" height="455">
-        </div>
-    </div> 
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <div id = "myDiv3" class = "card3" onclick="flip3();">
-        <img id = "rarity3" src="rarity_common.png">
-        <div class = "front3">
-            <img src="cardback.jpg" height="455">
-        </div>
-        <div class = "back3">
-            <img id="randomCard3" src="cardback.jpg" height="455">
-        </div>
-    </div> 
-
-    <div id = "myDiv4" class = "card4" onclick="flip4();">
-        <img id = "rarity4" src="rarity_common.png">
-        <div class = "front4">
-            <img src="cardback.jpg" height="455">
-        </div>
-        <div class = "back4">
-            <img id="randomCard4" src="cardback.jpg" height="455">
-        </div>
-    </div> 
-
-    <div id = "myDiv5" class = "card5" onclick="flip5();">
-        <img id = "rarity5" src="rarity_common.png">
-        <div class = "front5">
-            <img src="cardback.jpg" height="455">
-        </div>
-        <div class = "back5">
-            <img id="randomCard5" src="cardback.jpg" height="455">
-        </div>
-    </div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <div id = "myDiv6" class = "card6" onclick="flip6();">
-        <img id = "rarity6" src="rarity_common.png">
-        <div class = "front6">
-            <img src="cardback.jpg" height="455">
-        </div>
-        <div class = "back6">
-            <img id="randomCard6" src="cardback.jpg" height="455">
-        </div>
-    </div>
-
-    <div id = "myDiv7" class = "card7" onclick="flip7();">
-        <img id = "rarity7" src="rarity_common.png">
-        <div class = "front7">
-            <img src="cardback.jpg" height="455">
-        </div>
-        <div class = "back7">
-            <img id="randomCard7" src="cardback.jpg" height="455">
-        </div>
-    </div>
-
-    <div id = "myDiv8" class = "card8" onclick="flip8();">
-        <img id = "rarity8" src="rarity_rare.png">
-        <div class = "front8">
-            <img src="cardback.jpg" height="455">
-        </div>
-        <div class = "back8">
-            <img id="randomCard8" src="cardback.jpg" height="455">
-        </div>
-    </div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <div id = "myDiv9" class = "card9" onclick="flip9();">
-        <img id = "rarity9" src="rarity_uncommon.png">
-        <div class = "front9">
-            <img src="cardback.jpg" height="455">
-        </div>
-        <div class = "back9">
-            <img id="randomCard9" src="cardback.jpg" height="455">
-        </div>
-    </div>
-
-    <div id = "myDiv10" class = "card10" onclick="flip10();">
-        <img id = "rarity10" src="rarity_uncommon.png">
-        <div class = "front10">
-            <img src="cardback.jpg" height="455">
-        </div>
-        <div class = "back10">
-            <img id="randomCard10" src="cardback.jpg" height="455">
-        </div>
-    </div>
-
-    <div id = "myDiv11" class = "card11" onclick="flip11();">
-        <img id = "rarity11" src="rarity_uncommon.png">
-        <div class = "front11">
-            <img src="cardback.jpg" height="455">
-        </div>
-        <div class = "back11">
-            <img id="randomCard11" src="cardback.jpg" height="455">
-        </div>
-    </div>
-    
-</div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<button id="button6" onclick="resetAll();setTimeout(randomPack, 501)">RANDOM PACK</button>
-<div class="dropup">
-    <button id="button7">CHOOSE SET</button>
-    <div class="dropup-content">
-        <a href="javascript:void();" onclick="resetAll();setTimeout(newPackBase, 501)">base set</a>
-        <a href="javascript:void();" onclick="resetAll();setTimeout(newPackJungle, 501)">jungle</a>
-        <a href="javascript:void();" onclick="resetAll();setTimeout(newPackFossil, 501)">fossil</a>
-        <a href="javascript:void();" onclick="resetAll();setTimeout(newPackBase2, 501)">base set 2</a>
-        <a href="javascript:void();" onclick="resetAll();setTimeout(newPackTeamRocket, 501)">team rocket</a>
-        <a href="javascript:void();" onclick="resetAll();setTimeout(newPackGymHeroes, 501)">gym heroes</a>
-        <a href="javascript:void();" onclick="resetAll();setTimeout(newPackGymChallenge, 501)">gym challenge</a>
-        <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoGenesis, 501)">neo genesis</a>
-        <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoDiscovery, 501)">neo discovery</a>
-        <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoRevelation, 501)">neo revelation</a>
-        <a href="javascript:void();" onclick="resetAll();setTimeout(newPackNeoDestiny, 501)">neo destiny</a>
-    </div>
-</div>
-<button id="button8" onclick="resetAll();setTimeout(sameSet, 501)">SAME SET</button>
-<button id="button9" onclick="flipAll()">FLIP ALL</button>
-<button id="button10" onclick="toggleShuffle()">SHUFFLE (OFF)</button>
-
-<br>
-<br>
-
-<div class="sharethis-inline-share-buttons" id="share"></div>
-<br>
-
-<div id="bottomBar">
-    programming and design by justin keena (code download available at <a href = "https://github.com/jwkeena?tab=repositories">github</a>);
-    card images from <a href = "https://www.pkmncards.com">pkmncards</a>;
-    share if you want to see more sets!
-</div>  
-
-<!--linking Javascript-->
-<script type="text/javascript" src="pokemonjavascript.js"></script> 
-</body>
+    <!--linking Javascript-->
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
 </html>

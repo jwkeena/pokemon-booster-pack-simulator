@@ -1,3 +1,5 @@
+[comment]: <> (to publish to neocities with the CLI run:)
+[comment]: <> (neocities push .)
 # pokemon-booster-pack-simulator
 Made with vanilla JavaScript, HTML, and CSS, this web application accurately captures the probability, rarity distribution, and experience of the first dozen+ sets.
 
@@ -7,4 +9,4 @@ The only way to open original packs of actual Pokemon cards is either to spend h
 # try it yourself!
 https://pokemonboosterpack.neocities.org/
 
-![](pokemon-demo.gif)
+![](images/site/pokemon-demo.gif)

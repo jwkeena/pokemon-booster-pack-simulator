@@ -45,103 +45,32 @@
     <title>Pokemon Booster Pack Simulator</title>
   </head>
 
-  <body onload="">
+  <body>
+    <section>
+      <div class="section-wrapper">
+        <header>
+          <div>
+            [<a href="pages/about.html">about</a>]
+          </div>
+          <!-- Custom font from https://textcraft.net/style/Textcraft/pokemon -->
+          <img id="logo" src="images/site/logo-shortened.png" />
+        </header>
+        
+        <main>
+          <button class="button button-open-pack">OPEN PACK</button>
+        </main>
+  
+        <footer>
+          <div>
+            programming and design by <a href="https://github.com/jwkeena?tab=repositories">justin keena</a>
+          </div>
+        </footer>
 
-    <!-- Top bar -->
-    <div id="topBar">[<a href="pages/about.html">about</a>]</div>
-
-    <!-- Header images -->
-    <div class="container">
-      <div>
-        <!-- Custom font from https://textcraft.net/style/Textcraft/pokemon -->
-        <img id="logo" src="images/site/logo.png" />
-
-        <br />
       </div>
-    </div>
-
-    <!-- Zoom in on cards -->
-    <div id="myModal" class="modal">
-      <span class="close">&times;</span>
-      <img class="modal-content" id="modalImg" />
-    </div>
-
-    <button class="button button-open-pack">OPEN PACK</button>
-
-    <!-- Control panel top -->
-    <!-- <button
-      class="button button-reset-all"
-      onclick=""
-    >
-      RANDOM PACK
-    </button>
-    <div class="dropdown">
-      <button class="button button-choose-set">CHOOSE SET</button>
-      <div class="dropdown-content">
-        <a href="javascript:void();" onclick="">base set</a>
-        <a href="javascript:void();" onclick="">jungle</a>
-        <a href="javascript:void();" onclick="">fossil</a>
-        <a href="javascript:void();" onclick="">base set 2</a>
-        <a href="javascript:void();" onclick="">team rocket</a>
-        <a href="javascript:void();" onclick="">gym heroes</a>
-        <a href="javascript:void();" onclick="">gym challenge</a>
-        <a href="javascript:void();" onclick="">neo genesis</a>
-        <a href="javascript:void();" onclick="">neo discovery</a>
-        <a href="javascript:void();" onclick="">neo revelation</a>
-        <a href="javascript:void();" onclick="">neo destiny</a>
-      </div>
-    </div>
-    <button class="button button-same-set" onclick="">SAME SET</button>
-    <button class="button button-flip-all" onclick="flipAll()">FLIP ALL</button>
-    <button class="button button-shuffle" onclick="toggleShuffle()">
-      SHUFFLE (OFF)
-    </button> -->
-
-    <br />
-    <br />
-
-    <!-- Control panel bottom -->
-    <!-- <button
-      class="button button-random-pack"
-      onclick=""
-    >
-      RANDOM PACK
-    </button>
-    <div class="dropup">
-      <button class="button button-choose-set">CHOOSE SET</button>
-      <div class="dropup-content">
-        <a href="javascript:void();" onclick="">base set</a>
-        <a href="javascript:void();" onclick="">jungle</a>
-        <a href="javascript:void();" onclick="">fossil</a>
-        <a href="javascript:void();" onclick="">base set 2</a>
-        <a href="javascript:void();" onclick="">team rocket</a>
-        <a href="javascript:void();" onclick="">gym heroes</a>
-        <a href="javascript:void();" onclick="">gym challenge</a>
-        <a href="javascript:void();" onclick="">neo genesis</a>
-        <a href="javascript:void();" onclick="">neo discovery</a>
-        <a href="javascript:void();" onclick="">neo revelation</a>
-        <a href="javascript:void();" onclick="">neo destiny</a>
-      </div>
-    </div>
-    <button class="button button-same-set" onclick="">SAME SET</button>
-    <button class="button button-flip-all" onclick="flipAll()">FLIP ALL</button>
-    <button class="button button-shuffle" onclick="toggleShuffle()">
-      SHUFFLE (OFF)
-    </button>
-
-    <br />
-    <br />
-    <br /> -->
-
-    <div id="bottomBar">
-      programming and design by 
-      <a href="https://github.com/jwkeena?tab=repositories">justin keena</a>
-    </div>
-
-    <!-- Javascript must be at end so it can access the loaded DOM -->
-    <script type="text/javascript" src="js/sets/base-set.js"></script>
-    <script type="text/javascript" src="js/sets/jungle.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-
+    </section>
   </body>
+  <!-- Javascript must be at end so it can access the loaded DOM -->
+  <script type="text/javascript" src="js/sets/base-set.js"></script>
+  <script type="text/javascript" src="js/sets/jungle.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
 </html>

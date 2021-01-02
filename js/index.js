@@ -1,6 +1,6 @@
 // Global variables
 // Card info is isolated in other js files already loaded on index.html
-// Eventually, move the sets to its own file
+// TODO: move the sets to its own file
 const sets = {
     baseSet: {
         cards: baseSetCards,

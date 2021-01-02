@@ -1,4 +1,24 @@
-/* Whole document */
+/* Sticky footer using CSS Grid */
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+}
+
+section {
+    height: 100%;
+}
+
+.section-wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* Whole page styling */
 body {
     background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
     background-image: linear-gradient(to right, red, orange, goldenrod, gold);
@@ -6,23 +26,19 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
     color: yellow;
+    padding: 0;
+    margin: 0;
 }
 
 a:visited, a:link, a:active, a:hover {
     color: yellow;
 }
 
-.rarity_about {
-    width: 15px;
-    height: 15px;
-}
-
-/* Top and bottom bars */
-#topBar, #bottomBar {
+/* Header, footer styling */
+footer > div, header > div {
     background: blue;
-    padding: 10px;
     color: yellow;
-    overflow: auto;
+    padding: 1rem;
 }
 
 /* Buttons */
@@ -34,99 +50,6 @@ a:visited, a:link, a:active, a:hover {
     font-size: 20px;
     color: yellow;
     padding: 10px 42px 10px 42px;
-}
-
-/*Style common to dropup and dropdown buttons*/
-.dropdown, .dropup {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown:hover .dropdown-content, .dropup:hover .dropup-content {
-    display: block;
-}
-
-.dropdown-content a, .dropup-content a {
-    color: blue;
-    display: block;
-    text-decoration: none;
-}
-
-.dropdown-content a:hover, .dropup-content a:hover {
-    background-color: red;
-}
-
-/*Differentiates the dropdown and dropup buttons */
-.dropdown-content, .dropup-content {
-    display: none;
-    position: absolute;
-    background-color :yellow;
-    width: 100%;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-
-}
-
-.dropup-content {
-    bottom: 39px; /*This is the one line of code that differentiates the two elements*/
-}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 25px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
-
-/* Modal Content (Image) */
-.modal-content {
-    margin: auto;
-    max-height: 600px;
-    display: block;
-    border-radius: 15px;
-}
-
-/* Add Animation - Zoom in the Modal */
-.modal-content, #caption { 
-    animation-name: zoom;
-    animation-duration: 0.6s;
-}
-  
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
-
-/* The Close Button */
-.close {
-    position: relative;
-    color: #f1f1f1;
-    font-size: 70px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-    .modal-content {
-        width: 100%;
-    }
 }
 
 /* About page */
@@ -142,28 +65,7 @@ a:visited, a:link, a:active, a:hover {
     padding: 15px;
 }
 
-/* GBC */
-.container {
-    text-align: center;
-}
-
-.container div {
-    position: relative;
-    display: inline-block;
-}
-
-#gbc-system {
-    position: absolute;
-    top: 40px;
-    width: 125px;
-    height: 210px;
-    right: -180px;
-}
-
-#gbc-screen {
-    position: absolute;
-    top: 64px;
-    width: 68px;
-    height: 60px;
-    right: -152px;
+.rarity_about {
+    width: 15px;
+    height: 15px;
 }

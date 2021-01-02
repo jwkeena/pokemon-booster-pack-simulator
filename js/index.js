@@ -17,6 +17,22 @@ const sets = {
         symbolUrl: "https://images.pokemontcg.io/base1/symbol.png",
         logoUrl: "https://images.pokemontcg.io/base1/logo.png",
         updatedAt: "08/14/2020 09:35:00"
+    },
+    jungle: {
+        cards: jungleCards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 0,
+        cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
+        code: 'base2',
+        ptcgoCode: 'JU',
+        name: 'Jungle',
+        series: 'Base',
+        totalCards: 64,
+        releaseDate: '06/16/1999',
+        symbolUrl: 'https://images.pokemontcg.io/base2/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/base2/logo.png',
+        updatedAt: '08/14/2020 09:35:00'
     }
 }
 
@@ -105,5 +121,5 @@ function isDuplicate(card, pack) {
 
 // Event listeners
 const buttonOpenPack = document.querySelector(".button-open-pack");
-buttonOpenPack.addEventListener("click", () => openPack(sets.baseSet));
+buttonOpenPack.addEventListener("click", () => openPack(sets.jungle));
 

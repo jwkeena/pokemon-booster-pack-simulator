@@ -12,6 +12,11 @@ a:visited, a:link, a:active, a:hover {
     color: yellow;
 }
 
+.rarity_about {
+    width: 15px;
+    height: 15px;
+}
+
 /* Top and bottom bars */
 #topBar, #bottomBar {
     background: blue;
@@ -97,8 +102,8 @@ a:visited, a:link, a:active, a:hover {
 }
   
 @keyframes zoom {
-from {transform:scale(0)} 
-to {transform:scale(1)}
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
 }
 
 /* The Close Button */
@@ -118,10 +123,23 @@ to {transform:scale(1)}
 }
 
 /* 100% Image Width on Smaller Screens */
-    @media only screen and (max-width: 700px){
+@media only screen and (max-width: 700px){
     .modal-content {
         width: 100%;
     }
+}
+
+/* About page */
+.boxed {
+    display: inline-block;
+    width: 700px;
+    word-wrap: break-word;
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    background-color: blue;
+    border: 15px solid yellow;
+    padding: 15px;
 }
 
 /* GBC */

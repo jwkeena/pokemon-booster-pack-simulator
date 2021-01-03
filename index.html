@@ -13,7 +13,7 @@
     />
 
     <!-- CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <link type="text/css" rel="stylesheet" href="css/main.css" />
 
     <!-- Favicon -->
@@ -51,39 +51,28 @@
       <div class="section-wrapper">
         <header>
           <div>
-            [<a href="pages/about.html">about</a>]
-            [<a href="archive/pages/index.html">archive</a>]
+            [<a href="pages/about.html">about</a>] [<a
+              href="archive/pages/index.html"
+              >archive</a
+            >]
           </div>
           <!-- Custom font from https://textcraft.net/style/Textcraft/pokemon -->
           <img id="logo" src="images/site/logo-shortened.png" />
         </header>
-        
-        <main>
-          <div class="container">
-            <button class="button button-open-pack">OPEN PACK</button>
 
-            <div class="open-pack">
-              <div class="pulled-card">some text</div>
-              <div class="pulled-card">some text</div>
-              <div class="pulled-card">some text</div>
-              <div class="pulled-card">some text</div>
-              <div class="pulled-card">some text</div>
-              <div class="pulled-card">some text</div>
-              <div class="pulled-card">some text</div>
-              <div class="pulled-card">some text</div>
-              <div class="pulled-card">some text</div>
-              <div class="pulled-card">some text</div>
-              <div class="pulled-card">some text</div>
-            </div>
-          </div>
+        <main>
+          <button class="button button-open-pack">OPEN PACK</button>
+          <div id="opened-packs"></div>
         </main>
-  
+
         <footer>
           <div>
-            programming and design by <a href="https://github.com/jwkeena?tab=repositories">justin keena</a>
+            programming and design by
+            <a href="https://github.com/jwkeena?tab=repositories"
+              >justin keena</a
+            >
           </div>
         </footer>
-
       </div>
     </section>
     <!-- Javascript must be at end so it can access the loaded DOM -->

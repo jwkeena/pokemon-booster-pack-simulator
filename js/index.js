@@ -56,10 +56,6 @@ function sortSet(set) {
     return set;
 }
 
-function checkIfEnergy(card) {
-    return card.supertype === "Energy" && card.rarity === "Common";
-}
-
 function openPack(set) {
     if (!set.cardsAreSorted) {
         return openPack(sortSet(set))
@@ -68,7 +64,7 @@ function openPack(set) {
     const secretRarePulled = calculateOdds(set.chanceOfSecretRare);
     const pack = [];
     set.cardsToPull.forEach(cardType => pullCard(cardType, pack, set, holoPulled, secretRarePulled))
-    console.log(pack)
+    displayOpenedPack(pack);
 }
 
 function calculateOdds(odds) {
@@ -119,18 +115,35 @@ function isDuplicate(card, pack) {
     }
 }
 
+// -----------------------
+// UI
+
+function displayOpenedPack(pack) {
+    console.log(pack);
+    const packWrapper = document.createElement("div");
+    packWrapper.classList.add("open-pack");
+    document.getElementById("opened-packs").prepend(packWrapper);
+    // Creates elements like this: <div class="pulled-card" style="background-image: url(https://images.pokemontcg.io/base2/64.png)"></div>
+    // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks
+    for (let i = 0; i < pack.length; i++) {
+        const card = document.createElement("div");
+        card.classList.add("pulled-card");
+        card.style.backgroundImage = "url('" + pack[i].imageUrl + "')";
+        packWrapper.appendChild(card);
+    }
+    // Event delegation for horizontal scrolling
+    // https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
+    packWrapper.addEventListener("wheel", e => {
+        const toLeft  = e.deltaY < 0 && packWrapper.scrollLeft > 0
+        const toRight = e.deltaY > 0 && packWrapper.scrollLeft < packWrapper.scrollWidth - packWrapper.clientWidth
+      
+        if (toLeft || toRight) {
+          e.preventDefault()
+          packWrapper.scrollLeft += e.deltaY
+        }
+    })
+}
+
 // Event listeners
 const buttonOpenPack = document.querySelector(".button-open-pack");
 buttonOpenPack.addEventListener("click", () => openPack(sets.jungle));
-
-// https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
-const target = document.querySelector(".open-pack")
-target.addEventListener("wheel", event => {
-  const toLeft  = event.deltaY < 0 && target.scrollLeft > 0
-  const toRight = event.deltaY > 0 && target.scrollLeft < target.scrollWidth - target.clientWidth
-
-  if (toLeft || toRight) {
-    event.preventDefault()
-    target.scrollLeft += event.deltaY
-  }
-})

@@ -51,13 +51,12 @@ header>div {
     /* Will override color (regardless of order) */
     -webkit-text-stroke-width: .3px;
     -webkit-text-stroke-color: yellow;
-    margin: 1rem;
+    margin: 1rem 7rem 2rem 6rem;
     padding: 2rem;
     border-radius: 5px;
     text-align: left;
     display: flex;
-    overflow-x: auto;
-    box-sizing: content-box;
+    overflow-y: auto;
 }
 
 .open-pack::-webkit-scrollbar {
@@ -67,17 +66,18 @@ header>div {
 .pulled-card {
     background-color: white;
     border-radius: 5px;
+    display: inline;
     height: 330px;
     flex-grow: 0;
-    /* Don't grow at all */
     flex-shrink: 0;
-    /* Don't shrink at all. Default is 1 */
     flex-basis: 240px;
-    /* Always be 230px */
-    margin: none;
-    padding: 2rem;
+    margin: .5rem;
     box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.7);
     transition: 0.2s;
+}
+
+.pulled-card img {
+    border-radius: 5px;
 }
 
 /* .pulled-card:not(:first-child) {

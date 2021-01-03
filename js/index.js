@@ -123,3 +123,14 @@ function isDuplicate(card, pack) {
 const buttonOpenPack = document.querySelector(".button-open-pack");
 buttonOpenPack.addEventListener("click", () => openPack(sets.jungle));
 
+// https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
+const target = document.querySelector(".open-pack")
+target.addEventListener("wheel", event => {
+  const toLeft  = event.deltaY < 0 && target.scrollLeft > 0
+  const toRight = event.deltaY > 0 && target.scrollLeft < target.scrollWidth - target.clientWidth
+
+  if (toLeft || toRight) {
+    event.preventDefault()
+    target.scrollLeft += event.deltaY
+  }
+})

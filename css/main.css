@@ -1,7 +1,26 @@
+/* Whole page styling */
+body {
+    background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
+    background-image: linear-gradient(to right, red, orange, goldenrod, gold);
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    color: yellow;
+    padding: 0;
+    margin: 0;
+}
+
+a:visited,
+a:link,
+a:active,
+a:hover {
+    color: yellow;
+}
+
 /* Sticky footer using CSS Grid */
+/* See https://github.com/mdn/css-examples/blob/master/css-cookbook/sticky-footer--download.html */
 html {
     height: 100%;
-    box-sizing: border-box;
 }
 
 body {
@@ -18,27 +37,59 @@ section {
     grid-template-rows: auto 1fr auto;
 }
 
-/* Whole page styling */
-body {
-    background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
-    background-image: linear-gradient(to right, red, orange, goldenrod, gold);
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
-    color: yellow;
-    padding: 0;
-    margin: 0;
-}
-
-a:visited, a:link, a:active, a:hover {
-    color: yellow;
-}
-
 /* Header, footer styling */
-footer > div, header > div {
+footer>div,
+header>div {
     background: blue;
     color: yellow;
     padding: 1rem;
+}
+
+.open-pack {
+    background-color: rgba(0, 0, 0, 0.15);
+    -webkit-text-fill-color: blue;
+    /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: yellow;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 5px;
+    text-align: left;
+    display: flex;
+    overflow-x: auto;
+    box-sizing: content-box;
+}
+
+.open-pack::-webkit-scrollbar {
+    display: none;
+}
+
+.pulled-card {
+    background-color: white;
+    border-radius: 5px;
+    height: 330px;
+    flex-grow: 0;
+    /* Don't grow at all */
+    flex-shrink: 0;
+    /* Don't shrink at all. Default is 1 */
+    flex-basis: 240px;
+    /* Always be 230px */
+    margin: none;
+    padding: 2rem;
+    box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.7);
+    transition: 0.2s;
+}
+
+/* .pulled-card:not(:first-child) {
+    margin-left: -4rem;
+} */
+
+.pulled-card:hover {
+    transform: translateY(-1.5rem);
+}
+
+.pulled-card:hover~.pulled-card {
+    transform: translateX(1.5rem);
 }
 
 /* Buttons */

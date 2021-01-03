@@ -13,6 +13,7 @@
     />
 
     <!-- CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="css/main.css" />
 
     <!-- Favicon -->
@@ -51,13 +52,30 @@
         <header>
           <div>
             [<a href="pages/about.html">about</a>]
+            [<a href="archive/pages/index.html">archive</a>]
           </div>
           <!-- Custom font from https://textcraft.net/style/Textcraft/pokemon -->
           <img id="logo" src="images/site/logo-shortened.png" />
         </header>
         
         <main>
-          <button class="button button-open-pack">OPEN PACK</button>
+          <div class="container">
+            <button class="button button-open-pack">OPEN PACK</button>
+
+            <div class="open-pack">
+              <div class="pulled-card">some text</div>
+              <div class="pulled-card">some text</div>
+              <div class="pulled-card">some text</div>
+              <div class="pulled-card">some text</div>
+              <div class="pulled-card">some text</div>
+              <div class="pulled-card">some text</div>
+              <div class="pulled-card">some text</div>
+              <div class="pulled-card">some text</div>
+              <div class="pulled-card">some text</div>
+              <div class="pulled-card">some text</div>
+              <div class="pulled-card">some text</div>
+            </div>
+          </div>
         </main>
   
         <footer>
@@ -68,9 +86,9 @@
 
       </div>
     </section>
+    <!-- Javascript must be at end so it can access the loaded DOM -->
+    <script type="text/javascript" src="js/sets/base-set.js"></script>
+    <script type="text/javascript" src="js/sets/jungle.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
   </body>
-  <!-- Javascript must be at end so it can access the loaded DOM -->
-  <script type="text/javascript" src="js/sets/base-set.js"></script>
-  <script type="text/javascript" src="js/sets/jungle.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
 </html>

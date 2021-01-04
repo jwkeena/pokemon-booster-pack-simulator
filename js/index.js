@@ -148,6 +148,7 @@ function isDuplicate(card, pack) {
 
 // -----------------------
 // UI
+// Packs and cards
 function displayOpenedPack(packArt, pack) {
     console.log(pack);
     const packWrapper = document.createElement("div");
@@ -164,6 +165,7 @@ function displayOpenedPack(packArt, pack) {
     for (let i = 0; i < pack.length; i++) {
         const card = buildCardHTML(["pulled-card"], pack[i].imageUrl)
         packWrapper.appendChild(card);
+        card.addEventListener("dblclick", e => {zoomCard(pack[i].imageUrlHiRes)})    
     }
     // Event delegation for horizontal scrolling
     // https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
@@ -176,6 +178,7 @@ function displayOpenedPack(packArt, pack) {
           packWrapper.scrollLeft += e.deltaY
         }
     })
+
 }
 
 function buildCardHTML(classesToAdd, imageUrl) {
@@ -185,27 +188,48 @@ function buildCardHTML(classesToAdd, imageUrl) {
     return card;
 }
 
-// Event listeners
-const buttonOpenPack = document.querySelector(".button-open-pack");
-buttonOpenPack.addEventListener("click", () => openPack(sets.baseSet));
+function zoomCard(hiResImageUrl) {
+    console.log(hiResImageUrl);
+    const img = document.getElementById("hi-res-card");
+    img.src = hiResImageUrl;
+    const modal = document.getElementById("card-zoom");
+    modal.style.display = "block";
+}
 
 // Flip through stack of cards modified from https://codepen.io/mix3d/pen/bEaxEW?editors=0010
 specialcard = $(".card.g")
 specialcard.hide()
 
 function flipCard() {
-  if ($("#flipcard").hasClass("flip")) {
-    hide()
-  } else {
+    if ($("#flipcard").hasClass("flip")) {
+        hide()
+    } else {
     specialcard.show();
     document.querySelector("#flipcard").classList.toggle("flip");
-  }
+}
 }
 
 function hide(){
-  $("#flipcard").addClass("hide").removeClass("flip");
+    $("#flipcard").addClass("hide").removeClass("flip");
     setTimeout(function() {
-      $("#flipcard").removeClass("hide");
-      specialcard.hide();
+        $("#flipcard").removeClass("hide");
+        specialcard.hide();
     }, 900)
+}
+
+// -----------------------
+// Event listeners
+const buttonOpenPack = document.querySelector(".button-open-pack");
+buttonOpenPack.addEventListener("click", () => openPack(sets.baseSet));
+
+const modal = document.getElementById("card-zoom");
+const closeModalButton = document.getElementsByClassName("close")[0];
+closeModalButton.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
 }

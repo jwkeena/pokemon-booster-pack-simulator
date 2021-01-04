@@ -1,3 +1,4 @@
+/* --------------------------------------------- */
 /* Whole page styling */
 body {
     background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
@@ -17,6 +18,7 @@ a:hover {
     color: yellow;
 }
 
+/* --------------------------------------------- */
 /* Sticky footer using CSS Grid */
 /* See https://github.com/mdn/css-examples/blob/master/css-cookbook/sticky-footer--download.html */
 html {
@@ -37,6 +39,7 @@ section {
     grid-template-rows: auto 1fr auto;
 }
 
+/* --------------------------------------------- */
 /* Header, footer styling */
 footer>div,
 header>div {
@@ -45,10 +48,171 @@ header>div {
     padding: 1rem;
 }
 
+/* --------------------------------------------- */
+/* Fancy deck flip animation from https://codepen.io/mix3d/pen/bEaxEW*/
+main {
+    position: relative;
+}
+
+/* Centered from https://stackoverflow.com/questions/1776915/how-can-i-center-an-absolutely-positioned-element-in-a-div */
+.deck {
+    position: absolute;
+    top: 4rem;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 190px;
+    transform: translateZ(0);
+}
+
+.card.b {
+    background-image: url('/images/site/cardback.jpg');
+    background-size: 102.5% 101.5%;
+    background-position: center;
+}
+
+.card.k {
+    background-size: 101% 102%;
+    background-position: 0% -5px;
+    width: 400px;
+    height: 550px;
+    transform: scale(.5, .5);
+    transform-origin: left top;
+}
+
+.card.g {
+    background-color: blue;
+    z-index: 1;
+    /*   transform:rotateZ(0) !important; */
+}
+
+.card {
+    width: 200px;
+    height: 275px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 0px;
+    border: 1px solid #726A53;
+    background-color: #F8F5ED;
+    overflow: hidden;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.6s;
+    font-size: 18px;
+    z-index: 0;
+    /*   transform-origin: left top; */
+}
+
+.card p {
+    padding: 0px;
+    margin-top: 0px;
+}
+
+.flip-container .card {
+    -webkit-font-smoothing: antialiased;
+    transform-origin: right top;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000px;
+    z-index: 2;
+}
+
+.flip-container.flip .flipper {
+    transform: rotateY(180deg) translate(-50%, -35%);
+    z-index: 50;
+}
+
+.flip-container.hide .flipper {
+    z-index: -1;
+    /*   transition: 0.3s; */
+    /*   transition-delay: 0.3s; */
+    animation: animationFrames linear .55s;
+    animation-iteration-count: 1;
+}
+
+.flip-container.hide .card {
+    z-index: -1;
+}
+
+.flip-container .b {
+    box-shadow: none;
+}
+
+.flip-container.flip .front .card {
+    transform: scale(2, 2);
+}
+
+.flip-container.flip .back .card {
+    transform: scale(1, 1);
+}
+
+.flipper,
+.front,
+.back {
+    width: 240px;
+    height: 330px;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    transform-origin: left center;
+}
+
+/* hide back of pane during swap */
+.front,
+.back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    /* 	z-index: 2; */
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+}
+
+@keyframes animationFrames {
+    0% {
+        transform: translateX(0) rotateY(180deg);
+        z-index: 1;
+    }
+    50% {
+        transform: translateX(-200%) rotateY(0deg) rotateZ(15deg) scale(.7, .7);
+        z-index: -10;
+    }
+    100% {
+        transform: translateX(0) rotateY(0deg) scale(.9, .9);
+        z-index: -10;
+    }
+}
+
+/* --------------------------------------------- */
+/* Archived, opened packs */
+.open-pack:first-child {
+    margin-top: 330px;
+
+}
+
 .open-pack {
     background-color: rgba(0, 0, 0, 0.15);
     -webkit-text-fill-color: blue;
-    /* Will override color (regardless of order) */
     -webkit-text-stroke-width: .3px;
     -webkit-text-stroke-color: yellow;
     margin: 1rem 7rem 2rem 6rem;
@@ -92,6 +256,7 @@ header>div {
     transform: translateX(1.5rem);
 }
 
+/* --------------------------------------------- */
 /* Buttons */
 .button {
     background: blue;
@@ -103,6 +268,7 @@ header>div {
     padding: 10px 42px 10px 42px;
 }
 
+/* --------------------------------------------- */
 /* About page */
 .boxed {
     display: inline-block;

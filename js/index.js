@@ -147,3 +147,24 @@ function displayOpenedPack(pack) {
 // Event listeners
 const buttonOpenPack = document.querySelector(".button-open-pack");
 buttonOpenPack.addEventListener("click", () => openPack(sets.jungle));
+
+// Flip through stack of cards modified from https://codepen.io/mix3d/pen/bEaxEW?editors=0010
+specialcard = $(".card.g")
+specialcard.hide()
+
+function flipCard() {
+  if ($("#flipcard").hasClass("flip")) {
+    hide()
+  } else {
+    specialcard.show();
+    document.querySelector("#flipcard").classList.toggle("flip");
+  }
+}
+
+function hide(){
+  $("#flipcard").addClass("hide").removeClass("flip");
+    setTimeout(function() {
+      $("#flipcard").removeClass("hide");
+      specialcard.hide();
+    }, 900)
+}

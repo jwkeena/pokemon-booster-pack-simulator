@@ -13,7 +13,6 @@
     />
 
     <!-- CSS-->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <link type="text/css" rel="stylesheet" href="css/main.css" />
 
     <!-- Favicon -->
@@ -61,7 +60,44 @@
         </header>
 
         <main>
-          <button class="button button-open-pack">OPEN PACK</button>
+          <div>
+            <button class="button button-open-pack">OPEN PACK</button>
+          </div>
+
+          <!-- Flip stack of cards -->
+          <div class="deck">
+            <div
+              class="card b"
+              style="transform: rotateZ(-2deg); top: 1px"
+            ></div>
+            <div
+              class="card b"
+              style="transform: rotateZ(6deg); top: 7px"
+            ></div>
+
+            <div id="flipcard" class="flip-container" onclick="flipCard();">
+              <div class="card g b">test test</div>
+
+              <div class="flipper">
+                <div class="front">
+                  <div class="card b"></div>
+                </div>
+
+                <div class="back">
+                  <div
+                    class="card k"
+                    style="
+                      background-image: url(https://images.pokemontcg.io/base2/64.png);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card k"
+              style="float: right; position: relative; display: none"
+            ></div>
+          </div>
           <div id="opened-packs"></div>
         </main>
 
@@ -76,6 +112,11 @@
       </div>
     </section>
     <!-- Javascript must be at end so it can access the loaded DOM -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript" src="js/sets/base-set.js"></script>
     <script type="text/javascript" src="js/sets/jungle.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

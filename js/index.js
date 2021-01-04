@@ -8,6 +8,20 @@ const sets = {
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 0,
         cardsToPull: ["Energy", "Common", "Energy", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
+        packArt: [
+            {
+                front: "../images/packart/1stblastoise.jpg", 
+                back: "../images/packart/basesetback1.jpg",
+            },
+            {
+                front: "../images/packart/1stcharizard.jpg", 
+                back: "../images/packart/basesetback2.jpg",
+            },
+            {
+                front: "../images/packart/1stvenusaur.jpg", 
+                back: "../images/packart/basesetback3.jpg",
+            },
+        ],
         code: "base1",
         ptcgoCode: "BS",
         name: "Base",
@@ -24,6 +38,20 @@ const sets = {
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 0,
         cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
+        packArt: [
+            {
+                front: "../images/packart/jungle1.jpg", 
+                back: "../images/packart/jungleback.jpg",
+            },
+            {
+                front: "../images/packart/jungle2.jpg", 
+                back: "../images/packart/jungleback.jpg",
+            },
+            {
+                front: "../images/packart/jungle3.jpg", 
+                back: "../images/packart/jungleback.jpg",
+            },
+        ],
         code: 'base2',
         ptcgoCode: 'JU',
         name: 'Jungle',
@@ -36,7 +64,10 @@ const sets = {
     }
 }
 
+// -----------------------
 // Global functions
+// -----------------------
+// Card selection logic
 String.prototype.decapitalize = function() {
     return this.charAt(0).toLowerCase() + this.slice(1)
 }
@@ -64,7 +95,7 @@ function openPack(set) {
     const secretRarePulled = calculateOdds(set.chanceOfSecretRare);
     const pack = [];
     set.cardsToPull.forEach(cardType => pullCard(cardType, pack, set, holoPulled, secretRarePulled))
-    displayOpenedPack(pack);
+    displayOpenedPack(set.packArt, pack);
 }
 
 function calculateOdds(odds) {
@@ -117,18 +148,21 @@ function isDuplicate(card, pack) {
 
 // -----------------------
 // UI
-
-function displayOpenedPack(pack) {
+function displayOpenedPack(packArt, pack) {
     console.log(pack);
     const packWrapper = document.createElement("div");
     packWrapper.classList.add("open-pack");
     document.getElementById("opened-packs").prepend(packWrapper);
+    
+    // Abstract this for function that takes in array of cards to display, classes to add
+    const randomPackArtStringFront = packArt[randomIndex(packArt.length)].front;
+    const packArtFront = buildCardHTML(["pack-art", "pulled-card"], randomPackArtStringFront);  
+    packWrapper.appendChild(packArtFront);
+
     // Creates elements like this: <div class="pulled-card" style="background-image: url(https://images.pokemontcg.io/base2/64.png)"></div>
-    // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks
+    // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks. Must use div tags
     for (let i = 0; i < pack.length; i++) {
-        const card = document.createElement("div");
-        card.classList.add("pulled-card");
-        card.style.backgroundImage = "url('" + pack[i].imageUrl + "')";
+        const card = buildCardHTML(["pulled-card"], pack[i].imageUrl)
         packWrapper.appendChild(card);
     }
     // Event delegation for horizontal scrolling
@@ -144,9 +178,16 @@ function displayOpenedPack(pack) {
     })
 }
 
+function buildCardHTML(classesToAdd, imageUrl) {
+    const card = document.createElement("div");
+    card.classList.add(...classesToAdd);
+    card.style.backgroundImage = "url('" + imageUrl + "')";
+    return card;
+}
+
 // Event listeners
 const buttonOpenPack = document.querySelector(".button-open-pack");
-buttonOpenPack.addEventListener("click", () => openPack(sets.jungle));
+buttonOpenPack.addEventListener("click", () => openPack(sets.baseSet));
 
 // Flip through stack of cards modified from https://codepen.io/mix3d/pen/bEaxEW?editors=0010
 specialcard = $(".card.g")

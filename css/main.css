@@ -227,6 +227,10 @@ main {
     display: none;
 }
 
+.pack-art {
+    background-size: 100% 100%;
+}
+
 .pulled-card {
     background-color: white;
     border-radius: 5px;

@@ -38,7 +38,6 @@ function buildCardHTML(classesToAdd, imageUrl) {
 }
 
 function zoomCard(hiResImageUrl) {
-    console.log(hiResImageUrl);
     const img = document.getElementById("hi-res-card");
     img.src = hiResImageUrl;
     const modal = document.getElementById("card-zoom");
@@ -49,8 +48,6 @@ function zoomCard(hiResImageUrl) {
 $.fn.commentCards = function(){
 
     return this.each(function(){
-
-        console.log(this);
   
       var $this = $(this),
           $cards = $this.find('.card'),

@@ -3,7 +3,8 @@ String.prototype.decapitalize = function() {
     return this.charAt(0).toLowerCase() + this.slice(1)
 }
 
-function sortSet(set) {
+function sortSet(setName) {
+    const set = sets[setName];
     set.sortedCards = {
         secretRares: (set.chanceOfSecretRare === 0 ? [] : set.cards.filter(card => card.rarity === "Secret Rare")),
         holoRares: set.cards.filter(card => card.rarity === "Holo Rare"),
@@ -15,12 +16,13 @@ function sortSet(set) {
     // TODO: refactor perhaps to iterate over all cards just once, instead of using .filter five times?
     // TODO: if I do just one for loop, use a switch statement. Check for energy cards first.
     set.cardsAreSorted = true;
-    return set;
+    return setName;
 }
 
-function openPack(set) {
-    if (!set.cardsAreSorted) {
-        return openPack(sortSet(set))
+function openPack(setName) {
+    const set = sets[setName];
+    if (set.cardsAreSorted === false) {
+        return openPack(sortSet(setName))
     }
     const holoPulled = calculateOdds(set.chanceOfHolo);
     const secretRarePulled = calculateOdds(set.chanceOfSecretRare);

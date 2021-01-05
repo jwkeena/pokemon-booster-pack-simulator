@@ -1,33 +1,54 @@
 // Global variables. Card and set info is isolated in other js files already loaded on index.html
+let uiViewType = null;
+let pulledPacks = [];
+let currentSet = "baseSet";
 // -----------------------
-// UI - row view
-function displayOpenedPack(packArt, pack) {
-    console.log(pack);
-    const packWrapper = document.createElement("div");
-    packWrapper.classList.add("open-pack");
-    document.getElementById("opened-packs").prepend(packWrapper);
-    
-    const randomPackArtStringFront = packArt[randomIndex(packArt.length)].front;
-    const packArtFront = buildCardHTML(["pack-art", "pulled-card"], randomPackArtStringFront);  
-    packWrapper.appendChild(packArtFront);
-
-    // Creates elements like this: <div class="pulled-card" style="background-image: url(https://images.pokemontcg.io/base2/64.png)"></div>
-    // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks. Must use div tags
-    for (let i = 0; i < pack.length; i++) {
-        const card = buildCardHTML(["pulled-card"], pack[i].imageUrl)
-        packWrapper.appendChild(card);
-        card.addEventListener("dblclick", e => {zoomCard(pack[i].imageUrlHiRes)})    
-    }
-    // Event delegation for horizontal scrolling from https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
-    packWrapper.addEventListener("wheel", e => {
-        const toLeft  = e.deltaY < 0 && packWrapper.scrollLeft > 0
-        const toRight = e.deltaY > 0 && packWrapper.scrollLeft < packWrapper.scrollWidth - packWrapper.clientWidth
-      
-        if (toLeft || toRight) {
-          e.preventDefault()
-          packWrapper.scrollLeft += e.deltaY
+// UI
+function setDisplay(type) {
+    if (uiViewType !== type) {
+        uiViewType = type;
+        if (pulledPacks.length > 0) {
+            switch (type) {
+                case "singlePackFlip":
+                    // Only want to display the most recently opened pack for now. TODO: allow user to toggle through packs opened via carousel
+                    singlePackFlip(pulledPacks[pulledPacks.length - 1].packArtUrl, pulledPacks[0].cards);
+                    break;
+                case "rowView":
+                    pulledPacks.forEach(pack => { displayRowView(pack.packArtUrl, pack.cards) })
+                    break;
+                case "gridView":
+                    pulledPacks.forEach(pack => displayGridView(pack.packArtUrl, pack.cards));
+            }
+        } else {
+            displayDefault(type);
         }
-    })
+    }
+}
+
+function displayDefault(uiViewType) {
+    const singlePackFlipArea = document.getElementById("single-pack-flip-area");
+    const rowView = document.getElementById("row-view");
+    if (singlePackFlipArea.innerHTML)
+        deleteChildrenFrom(["single-pack-flip-area"]);
+    if (rowView.innerHTML)
+        deleteChildrenFrom(["row-view"]);
+    switch (uiViewType) {
+        case "singlePackFlip":
+            for (let i = 0; i < 5; i++) {
+                const card = buildCardHTML(["card", "card-back"], "images/site/cardback.jpg");
+                singlePackFlipArea.appendChild(card);
+            }
+            $('.cards').commentCards();
+            break;
+        case "rowView":
+            const packWrapper = document.createElement("div");
+            packWrapper.classList.add("open-pack");
+            document.getElementById("row-view").prepend(packWrapper);
+            break;
+        case "gridView":
+            console.log("display default view gridView");
+            break;
+    }
 }
 
 function buildCardHTML(classesToAdd, imageUrl) {
@@ -44,47 +65,102 @@ function zoomCard(hiResImageUrl) {
     modal.style.display = "block";
 }
 
-// Flip through stack of cards modified from https://codepen.io/mix3d/pen/bEaxEW?editors=0010
-$.fn.commentCards = function(){
+function deleteChildrenFrom(parentNodes) {
+    parentNodes.forEach(node => { document.getElementById(node).innerHTML = "" });
+}
 
-    return this.each(function(){
-  
-      var $this = $(this),
-          $cards = $this.find('.card'),
-          $current = $cards.filter('.card--current'),
-          $next;
-  
-      $cards.on('click',function(){
-        if ( !$current.is(this) ) {
-          $cards.removeClass('card--current card--out card--next');
-          $current.addClass('card--out');
-          $current = $(this).addClass('card--current');
-          $next = $current.next();
-          $next = $next.length ? $next : $cards.first();
-          $next.addClass('card--next');
+// UI - single pack flip
+function singlePackFlip(packArtUrl, pack) {
+    deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
+    const target = document.getElementById("single-pack-flip-area");
+    const packArtFront = buildCardHTML(["card", "pack-art-card"], packArtUrl);
+    target.append(packArtFront);
+
+    for (let i = 0; i < pack.length; i++) {
+        const card = buildCardHTML(["card"], pack[i].imageUrl);
+        card.addEventListener("dblclick", e => { zoomCard(pack[i].imageUrlHiRes) });
+        target.appendChild(card);
+    }
+    $('.cards').commentCards();
+}
+
+// Flip through stack of cards modified from https://codepen.io/mix3d/pen/bEaxEW?editors=0010
+$.fn.commentCards = function () {
+    // Closure...but why?
+    return this.each(function () {
+        var $this = $(this),
+            $cards = $this.find('.card'),
+            $current = $cards.filter('.card--current'),
+            $next;
+
+        $cards.on('click', function () {
+            if (!$current.is(this)) {
+                $cards.removeClass('card--current card--out card--next');
+                $current.addClass('card--out');
+                $current = $(this).addClass('card--current');
+                $next = $current.next();
+                $next = $next.length ? $next : $cards.first();
+                $next.addClass('card--next');
+            }
+        });
+
+        if (!$current.length) {
+            $current = $cards.last();
+            $cards.first().trigger('click');
         }
-      });
-  
-      if ( !$current.length ) {
-        $current = $cards.last();
-        $cards.first().trigger('click');
-      }
-  
-      $this.addClass('cards--active');
-  
+        $this.addClass('cards--active');
     })
-  
-  };
-  
-  $('.cards').commentCards();
+};
+
+$('.cards').commentCards();
 
 // -----------------------
-// Event listeners
-const buttonOpenPack = document.querySelector(".button-open-pack");
-buttonOpenPack.addEventListener("click", () => openPack(sets.fossil));
+// UI - row view
+function displayRowView(packArtUrl, pack) {
+    deleteChildrenFrom(["single-pack-flip-area", "grid-view"]);
+    const packWrapper = document.createElement("div");
+    packWrapper.classList.add("open-pack");
+    document.getElementById("row-view").prepend(packWrapper);
+    const packArtFront = buildCardHTML(["pack-art", "pulled-card"], packArtUrl);
+    packWrapper.appendChild(packArtFront);
+
+    // Creates elements like this: <div class="pulled-card" style="background-image: url(https://images.pokemontcg.io/base2/64.png)"></div>
+    // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks. Must use div tags
+    for (let i = 0; i < pack.length; i++) {
+        const card = buildCardHTML(["pulled-card"], pack[i].imageUrl)
+        packWrapper.appendChild(card);
+        card.addEventListener("dblclick", e => { zoomCard(pack[i].imageUrlHiRes) });
+    }
+    // Event delegation for horizontal scrolling from https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
+    packWrapper.addEventListener("wheel", e => {
+        const toLeft = e.deltaY < 0 && packWrapper.scrollLeft > 0
+        const toRight = e.deltaY > 0 && packWrapper.scrollLeft < packWrapper.scrollWidth - packWrapper.clientWidth
+
+        if (toLeft || toRight) {
+            e.preventDefault()
+            packWrapper.scrollLeft += e.deltaY
+        }
+    })
+}
+
+// -----------------------
+// UI - grid view
+function displayGridView(packArt, pack) {
+    console.log("running displayGridView");
+}
+
+// -----------------------
+// UI - Event listeners
+// const buttonOpenPack = document.querySelector(".button-open-pack");
+// buttonOpenPack.addEventListener("click", () => openPack(sets.fossil));
 
 const modal = document.getElementById("card-zoom");
 const closeModalButton = document.getElementsByClassName("close")[0];
-closeModalButton.onclick = function() {
+closeModalButton.onclick = function () {
     modal.style.display = "none";
 }
+
+// -----------------------
+// Initialization
+// TODO: retrieve user's choice from localStorage
+setDisplay("singlePackFlip");

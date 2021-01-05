@@ -1,4 +1,9 @@
 // Card selection logic
+function chooseSet(setName) {
+    currentSet = setName;
+    openPack(currentSet);
+}
+
 String.prototype.decapitalize = function() {
     return this.charAt(0).toLowerCase() + this.slice(1)
 }
@@ -27,8 +32,22 @@ function openPack(setName) {
     const holoPulled = calculateOdds(set.chanceOfHolo);
     const secretRarePulled = calculateOdds(set.chanceOfSecretRare);
     const pack = [];
+    const randomPackArtUrlFront = set.packArt[randomIndex(set.packArt.length)].front;
     set.cardsToPull.forEach(cardType => pullCard(cardType, pack, set, holoPulled, secretRarePulled))
-    displayOpenedPack(set.packArt, pack);
+    pulledPacks.push({set: set, packArtUrl: randomPackArtUrlFront, cards: [...pack]});
+    switch (uiViewType) {
+        case "singlePackFlip":
+            singlePackFlip(randomPackArtUrlFront, pack);
+            break;
+        case "rowView":
+            displayRowView(randomPackArtUrlFront, pack);
+            break;
+        case "gridView": 
+            displayGridView(randomPackArtUrlFront, pack);
+            break;
+        default:
+            console.log("Default view type - this should be impossible");
+    }
 }
 
 function calculateOdds(odds) {

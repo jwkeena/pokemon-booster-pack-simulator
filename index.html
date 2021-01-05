@@ -61,32 +61,28 @@
 
         <main>
           <div>
-            <button class="button button-open-pack">OPEN PACK</button>
+            <button class="button">OPEN</button>
             <div class="select-pack-dropdown">
-              <button class="button">CHOOSE SET</button>
+              <button class="button">SELECT SET</button>
               <div class="select-pack-dropdown-content">
-                <div onclick="openPack('baseSet')">base set</div>
-                <div onclick="openPack('jungle')">jungle</div>
-                <div onclick="openPack('fossil')">fossil</div>
+                <div onclick="chooseSet('baseSet')">base set</div>
+                <div onclick="chooseSet('jungle')">jungle</div>
+                <div onclick="chooseSet('fossil')">fossil</div>
               </div>
             </div>
+            <div class="select-pack-dropdown">
+              <button class="button">DISPLAY</button>
+              <div class="select-pack-dropdown-content">
+                <div onclick="setDisplay('singlePackFlip')">single</div>
+                <div onclick="setDisplay('rowView')">rows</div>
+                <!-- <div onclick="setDisplay('gridVkiew')">grid</div> -->
+              </div>
+            </div>
+            <!-- <button class="button">CLEAR</button> -->
           </div>
-
-<div class="cards">
-  <div class="card" style="background-image: url(https://images.pokemontcg.io/base2/53.png)"></div>
-  <div class="card" style="background-image: url(https://images.pokemontcg.io/base2/55.png)"></div>
-  <div class="card" style="background-image: url(https://images.pokemontcg.io/base2/56.png)"></div>
-  <div class="card" style="background-image: url(https://images.pokemontcg.io/base2/57.png)"></div>
-  <div class="card" style="background-image: url(https://images.pokemontcg.io/base2/58.png)"></div>
-  <div class="card" style="background-image: url(https://images.pokemontcg.io/base2/59.png)"></div>
-  <div class="card" style="background-image: url(https://images.pokemontcg.io/base2/60.png)"></div>
-  <div class="card" style="background-image: url(https://images.pokemontcg.io/base2/61.png)"></div>
-  <div class="card" style="background-image: url(https://images.pokemontcg.io/base2/62.png)"></div>
-  <div class="card" style="background-image: url(https://images.pokemontcg.io/base2/63.png)"></div>
-  <div class="card" style="background-image: url(https://images.pokemontcg.io/base2/64.png)"></div>
-</div>
-
-          <div id="opened-packs"></div>
+          <div id="single-pack-flip-area" class="cards"></div>
+          <div id="row-view"></div>
+          <div id="grid-view"></div>
           <div id="card-zoom" class="modal">
             <div class="modal-content">
               <span class="close">&times;</span>

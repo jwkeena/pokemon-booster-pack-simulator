@@ -50,10 +50,6 @@ header>div {
 
 /* --------------------------------------------- */
 /* Fancy deck flip animation from https://codepen.io/shshaw/pen/KzYXvP*/
-main {
-    position: relative;
-}
-
 /* Centered from https://stackoverflow.com/questions/1776915/how-can-i-center-an-absolutely-positioned-element-in-a-div */
 /* .deck {
     position: absolute;
@@ -70,8 +66,8 @@ main {
     position: relative;  
     list-style-type: none;
     padding: 0;
-    max-width: 34em;
-    margin: 20% auto 0;
+    max-width: 240px;
+    margin: 5rem auto;
   }
   
   .card {
@@ -79,22 +75,20 @@ main {
     top: 0;
     left: 0;
     z-index: 2;
-    
-    background: #ccc;
-    border-radius: 30px;
-    padding: 40px;
-    box-shadow: 0 0 40px #000;
+    height: 330px;
+    width: 240px;
+    border-radius: 8px;
     transform: translateY(0) rotate(4deg) translateX(25px) scale(1);
     transform-origin: 0 0;
-    
-    transition: transform 0.6s cubic-bezier(.8,.2,.1,0.8) 0.1s,
-      background 0.4s linear;
-    
+    transition: transform 0.6s cubic-bezier(.8,.2,.1,0.8) 0.1s;
     cursor: pointer;
     user-select: none;
     
-    :last-child { margin-bottom: 0; }
   }
+
+  .card:nth-child(-n+3) { 
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    }
   
   .card--next { 
     z-index: 5; 
@@ -116,7 +110,7 @@ main {
   }
   
   .card--current {
-    cursor: auto;
+    /* cursor: pointer; */
     user-select: auto;
     position: relative;
     z-index: 10;
@@ -127,10 +121,9 @@ main {
 
 /* --------------------------------------------- */
 /* Archived, opened packs */
-.open-pack:first-child {
+/* .open-pack:first-child {
     margin-top: 330px;
-
-}
+} */
 
 .open-pack {
     background-color: rgba(0, 0, 0, 0.15);
@@ -139,7 +132,7 @@ main {
     -webkit-text-stroke-color: yellow;
     margin: 1rem 7rem 2rem 6rem;
     padding: 2rem;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: left;
     display: flex;
     overflow-y: auto;
@@ -149,25 +142,29 @@ main {
     display: none;
 }
 
-.pack-art {
+.pulled-card.pack-art {
     background-size: 100% 100%;
+    border-radius: 0px;
+    height: 360px;
+    flex-basis: 260px;
+    margin-top: .5rem;
 }
 
 .pulled-card {
     background-color: white;
-    border-radius: 5px;
+    border-radius: 8px;
     display: inline;
     height: 330px;
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 240px;
-    margin: .5rem;
+    margin: 1.5rem .5rem .5rem .5rem;
     box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.7);
     transition: 0.2s;
 }
 
 .pulled-card img {
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 /* .pulled-card:not(:first-child) {
@@ -227,7 +224,7 @@ main {
 
 .modal-content img {
     max-height: 80vh;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 /* The Close Button */

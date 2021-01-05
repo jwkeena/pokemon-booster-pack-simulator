@@ -1,9 +1,6 @@
 // Global variables. Card and set info is isolated in other js files already loaded on index.html
 // -----------------------
-// Global functions
-// -----------------------
-// UI
-// Packs and cards
+// UI - row view
 function displayOpenedPack(packArt, pack) {
     console.log(pack);
     const packWrapper = document.createElement("div");
@@ -31,7 +28,6 @@ function displayOpenedPack(packArt, pack) {
           packWrapper.scrollLeft += e.deltaY
         }
     })
-
 }
 
 function buildCardHTML(classesToAdd, imageUrl) {
@@ -53,6 +49,8 @@ function zoomCard(hiResImageUrl) {
 $.fn.commentCards = function(){
 
     return this.each(function(){
+
+        console.log(this);
   
       var $this = $(this),
           $cards = $this.find('.card'),
@@ -86,7 +84,7 @@ $.fn.commentCards = function(){
 // -----------------------
 // Event listeners
 const buttonOpenPack = document.querySelector(".button-open-pack");
-buttonOpenPack.addEventListener("click", () => openPack(sets.baseSet));
+buttonOpenPack.addEventListener("click", () => openPack(sets.fossil));
 
 const modal = document.getElementById("card-zoom");
 const closeModalButton = document.getElementsByClassName("close")[0];

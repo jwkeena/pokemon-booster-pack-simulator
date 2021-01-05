@@ -11,6 +11,10 @@ for (let i = 0; i <cards.length; i++ ){
     console.log (parseInt(cards[i].id.slice(6)))
 }
 var sorted = cards.sort((a, b) => {return parseInt(a.id.slice(6)) - parseInt(b.id.slice(6))});
-console.log(sorted)
+console.log(sorted);
+copy(sorted);
 
 // Finally, mark all the holo rares
+// Get the set info from unused-sets.js
+// Copy to sets.js, add new properties. 
+// Add info for packOrder and probability from https://pokemonboosterpack.neocities.org/pages/about.html

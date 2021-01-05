@@ -1431,19 +1431,6 @@
     updatedAt: '08/14/2020 09:35:00'
   },
   {
-    code: 'base3',
-    ptcgoCode: 'FO',
-    name: 'Fossil',
-    series: 'Base',
-    totalCards: 62,
-    standardLegal: false,
-    expandedLegal: false,
-    releaseDate: '10/10/1999',
-    symbolUrl: 'https://images.pokemontcg.io/base3/symbol.png',
-    logoUrl: 'https://images.pokemontcg.io/base3/logo.png',
-    updatedAt: '08/14/2020 09:35:00'
-  },
-  {
     code: 'basep',
     ptcgoCode: 'PR',
     name: 'Wizards Black Star Promos',
@@ -1456,30 +1443,4 @@
     logoUrl: 'https://images.pokemontcg.io/basep/logo.png',
     updatedAt: '08/14/2020 09:35:00'
   },
-  {
-    code: 'base2',
-    ptcgoCode: 'JU',
-    name: 'Jungle',
-    series: 'Base',
-    totalCards: 64,
-    standardLegal: false,
-    expandedLegal: false,
-    releaseDate: '06/16/1999',
-    symbolUrl: 'https://images.pokemontcg.io/base2/symbol.png',
-    logoUrl: 'https://images.pokemontcg.io/base2/logo.png',
-    updatedAt: '08/14/2020 09:35:00'
-  },
-  {
-    code: 'base1',
-    ptcgoCode: 'BS',
-    name: 'Base',
-    series: 'Base',
-    totalCards: 102,
-    standardLegal: false,
-    expandedLegal: false,
-    releaseDate: '01/09/1999',
-    symbolUrl: 'https://images.pokemontcg.io/base1/symbol.png',
-    logoUrl: 'https://images.pokemontcg.io/base1/logo.png',
-    updatedAt: '08/14/2020 09:35:00'
-  }
 ]

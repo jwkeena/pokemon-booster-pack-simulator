@@ -49,13 +49,13 @@ header>div {
 }
 
 /* --------------------------------------------- */
-/* Fancy deck flip animation from https://codepen.io/mix3d/pen/bEaxEW*/
+/* Fancy deck flip animation from https://codepen.io/shshaw/pen/KzYXvP*/
 main {
     position: relative;
 }
 
 /* Centered from https://stackoverflow.com/questions/1776915/how-can-i-center-an-absolutely-positioned-element-in-a-div */
-.deck {
+/* .deck {
     position: absolute;
     top: 4rem;
     left: 0;
@@ -64,146 +64,66 @@ main {
     margin-right: auto;
     width: 190px;
     transform: translateZ(0);
-}
+} */
 
-.card.b {
-    background-image: url('/images/site/cardback.jpg');
-    background-size: 102.5% 101.5%;
-    background-position: center;
-}
-
-.card.k {
-    background-size: 101% 102%;
-    background-position: 0% -5px;
-    width: 400px;
-    height: 550px;
-    transform: scale(.5, .5);
-    transform-origin: left top;
-}
-
-.card.g {
-    background-color: blue;
-    z-index: 1;
-    /*   transform:rotateZ(0) !important; */
-}
-
-.card {
-    width: 200px;
-    height: 275px;
-    border-radius: 8px;
-    margin-bottom: 4px;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, .5);
-    position: absolute;
-    top: 0px;
-    border: 1px solid #726A53;
-    background-color: #F8F5ED;
-    overflow: hidden;
-    padding: 8px;
-    box-sizing: border-box;
-    transition: 0.6s;
-    font-size: 18px;
-    z-index: 0;
-    /*   transform-origin: left top; */
-}
-
-.card p {
-    padding: 0px;
-    margin-top: 0px;
-}
-
-.flip-container .card {
-    -webkit-font-smoothing: antialiased;
-    transform-origin: right top;
-}
-
-/* entire container, keeps perspective */
-.flip-container {
-    perspective: 1000px;
-    z-index: 2;
-}
-
-.flip-container.flip .flipper {
-    transform: rotateY(180deg) translate(-50%, -35%);
-    z-index: 50;
-}
-
-.flip-container.hide .flipper {
-    z-index: -1;
-    /*   transition: 0.3s; */
-    /*   transition-delay: 0.3s; */
-    animation: animationFrames linear .55s;
-    animation-iteration-count: 1;
-}
-
-.flip-container.hide .card {
-    z-index: -1;
-}
-
-.flip-container .b {
-    box-shadow: none;
-}
-
-.flip-container.flip .front .card {
-    transform: scale(2, 2);
-}
-
-.flip-container.flip .back .card {
-    transform: scale(1, 1);
-}
-
-.flipper,
-.front,
-.back {
-    width: 240px;
-    height: 330px;
-}
-
-/* flip speed goes here */
-.flipper {
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    position: relative;
-    transform-origin: left center;
-}
-
-/* hide back of pane during swap */
-.front,
-.back {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+.cards {
+    position: relative;  
+    list-style-type: none;
+    padding: 0;
+    max-width: 34em;
+    margin: 20% auto 0;
+  }
+  
+  .card {
     position: absolute;
     top: 0;
     left: 0;
-}
-
-/* front pane, placed above back */
-.front {
-    /* 	z-index: 2; */
-    /* for firefox 31 */
-    transform: rotateY(0deg);
-}
-
-/* back, initially hidden pane */
-.back {
-    transform: rotateY(180deg);
-}
-
-@keyframes animationFrames {
-    0% {
-        transform: translateX(0) rotateY(180deg);
-        z-index: 1;
-    }
-
-    50% {
-        transform: translateX(-200%) rotateY(0deg) rotateZ(15deg) scale(.7, .7);
-        z-index: -10;
-    }
-
-    100% {
-        transform: translateX(0) rotateY(0deg) scale(.9, .9);
-        z-index: -10;
-    }
-}
+    z-index: 2;
+    
+    background: #ccc;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 0 40px #000;
+    transform: translateY(0) rotate(4deg) translateX(25px) scale(1);
+    transform-origin: 0 0;
+    
+    transition: transform 0.6s cubic-bezier(.8,.2,.1,0.8) 0.1s,
+      background 0.4s linear;
+    
+    cursor: pointer;
+    user-select: none;
+    
+    :last-child { margin-bottom: 0; }
+  }
+  
+  .card--next { 
+    z-index: 5; 
+    transform: translateY(-25px) rotate(4deg) translateX(25px) scale(1);
+  }
+  
+  .card--out {
+    animation: card-out 0.6s cubic-bezier(.8,.2,.1,0.8);
+    transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+    z-index: 1;
+    background: #bbb;
+  }
+  
+  @keyframes card-out {
+    0% { z-index: 20; transform: translateY(0px) rotate(-4deg); }
+    50% { transform: translateY(-120%) rotate(-5deg) translateX(-40px); }
+    80% { z-index: 1; }
+    100% { transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95); }
+  }
+  
+  .card--current {
+    cursor: auto;
+    user-select: auto;
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+    background: #EEE;
+    transform: rotate(-1deg) translateX(0%) scale(1);
+  }
 
 /* --------------------------------------------- */
 /* Archived, opened packs */
@@ -291,8 +211,6 @@ main {
     /* Full width */
     height: 100%;
     /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
     /* Fallback color */
     background-color: rgba(0, 0, 0, 0.9);

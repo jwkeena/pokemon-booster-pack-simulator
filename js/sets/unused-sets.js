@@ -1418,19 +1418,6 @@
     updatedAt: '08/14/2020 09:35:00'
   },
   {
-    code: 'base4',
-    ptcgoCode: 'B2',
-    name: 'Base Set 2',
-    series: 'Base',
-    totalCards: 130,
-    standardLegal: false,
-    expandedLegal: false,
-    releaseDate: '02/24/2000',
-    symbolUrl: 'https://images.pokemontcg.io/base4/symbol.png',
-    logoUrl: 'https://images.pokemontcg.io/base4/logo.png',
-    updatedAt: '08/14/2020 09:35:00'
-  },
-  {
     code: 'basep',
     ptcgoCode: 'PR',
     name: 'Wizards Black Star Promos',

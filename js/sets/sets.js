@@ -89,4 +89,38 @@ const sets = {
         logoUrl: 'https://images.pokemontcg.io/base3/logo.png',
         updatedAt: '08/14/2020 09:35:00'
       },
+      base2: {
+        cards: base2Cards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 0,
+        cardsToPull: ["Uncommon", "Uncommon", "Uncommon", "Common", "Common", "Common", "Common", "Common", "Rare", "Energy", "Energy"],
+        packArt: [
+            {
+                front: "../images/packart/baseset2_1.jpg", 
+                back: "../images/packart/base2back1.jpg",
+            },
+            {
+                front: "../images/packart/baseset2_2.jpg", 
+                back: "../images/packart/base2back2.jpg",
+            },
+            {
+                front: "../images/packart/baseset2_3.jpg", 
+                back: "../images/packart/base2back3.jpg",
+            },
+            {
+                front: "../images/packart/baseset2_4.jpg", 
+                back: "../images/packart/base2back4.jpg",
+            },
+        ],
+        code: 'base4',
+        ptcgoCode: 'B2',
+        name: 'Base Set 2',
+        series: 'Base',
+        totalCards: 130,
+        releaseDate: '02/24/2000',
+        symbolUrl: 'https://images.pokemontcg.io/base4/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/base4/logo.png',
+        updatedAt: '08/14/2020 09:35:00'
+      },
 }

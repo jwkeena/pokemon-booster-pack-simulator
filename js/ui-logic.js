@@ -51,7 +51,6 @@ function singlePackFlip(packArtUrl, pack) {
 
     for (let i = 0; i < pack.length; i++) {
         const card = buildCardHTML(["card"], pack[i].imageUrl);
-        // card.addEventListener("click", e => { zoomCard(pack[i].imageUrlHiRes) });
         target.appendChild(card);
     }
     $('.cards').commentCards();

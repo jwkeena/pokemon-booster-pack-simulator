@@ -57,6 +57,8 @@ header>div {
     padding: 0;
     max-width: 240px;
     margin: 5rem auto;
+    margin-right: auto;
+    right: 5%;
     vertical-align: middle;
 }
 
@@ -78,15 +80,17 @@ header>div {
     top: 0;
     left: 0;
     z-index: 2;
-    height: 330px;
-    width: 240px;
+    height: 555px;
+    width: 400px;
     border-radius: 8px;
     transform: translateY(0) rotate(4deg) translateX(25px) scale(1);
     transform-origin: 0 0;
     transition: transform 0.6s cubic-bezier(.8, .2, .1, 0.8) 0.1s;
     cursor: auto;
-    /* user-select: none; */
+}
 
+div.card {
+    background-size: contain;
 }
 
 .card.pack-art-card {

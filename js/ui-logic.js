@@ -44,6 +44,22 @@ function displayDefault(uiViewType) {
             const packWrapper = document.createElement("div");
             packWrapper.classList.add("open-pack");
             document.getElementById("row-view").prepend(packWrapper);
+
+            for (let i = 0; i < 12; i++) {
+                const card = buildCardHTML(["pulled-card", "card-back"], "images/site/cardback.jpg");
+                packWrapper.appendChild(card);
+            };
+            // Event delegation for horizontal scrolling from https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
+            packWrapper.addEventListener("wheel", e => {
+                const toLeft = e.deltaY < 0 && packWrapper.scrollLeft > 0;
+                const toRight = e.deltaY > 0 && packWrapper.scrollLeft < packWrapper.scrollWidth - packWrapper.clientWidth;
+        
+                if (toLeft || toRight) {
+                    e.preventDefault()
+                    packWrapper.scrollLeft += e.deltaY
+                }
+            });
+
             break;
         case "gridView":
             console.log("display default view gridView");
@@ -127,20 +143,20 @@ function displayRowView(packArtUrl, pack) {
     // Creates elements like this: <div class="pulled-card" style="background-image: url(https://images.pokemontcg.io/base2/64.png)"></div>
     // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks. Must use div tags
     for (let i = 0; i < pack.length; i++) {
-        const card = buildCardHTML(["pulled-card"], pack[i].imageUrl)
+        const card = buildCardHTML(["pulled-card"], pack[i].imageUrl);
         packWrapper.appendChild(card);
         card.addEventListener("dblclick", e => { zoomCard(pack[i].imageUrlHiRes) });
-    }
+    };
     // Event delegation for horizontal scrolling from https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
     packWrapper.addEventListener("wheel", e => {
-        const toLeft = e.deltaY < 0 && packWrapper.scrollLeft > 0
-        const toRight = e.deltaY > 0 && packWrapper.scrollLeft < packWrapper.scrollWidth - packWrapper.clientWidth
+        const toLeft = e.deltaY < 0 && packWrapper.scrollLeft > 0;
+        const toRight = e.deltaY > 0 && packWrapper.scrollLeft < packWrapper.scrollWidth - packWrapper.clientWidth;
 
         if (toLeft || toRight) {
             e.preventDefault()
             packWrapper.scrollLeft += e.deltaY
         }
-    })
+    });
 }
 
 // -----------------------

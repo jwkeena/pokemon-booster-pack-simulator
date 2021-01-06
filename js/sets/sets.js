@@ -7,15 +7,15 @@ const sets = {
         cardsToPull: ["Energy", "Common", "Energy", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
         packArt: [
             {
-                front: "../images/packart/1stblastoise.jpg", 
+                front: "../images/packart/1stblastoise.jpg",
                 back: "../images/packart/basesetback1.jpg",
             },
             {
-                front: "../images/packart/1stcharizard.jpg", 
+                front: "../images/packart/1stcharizard.jpg",
                 back: "../images/packart/basesetback2.jpg",
             },
             {
-                front: "../images/packart/1stvenusaur.jpg", 
+                front: "../images/packart/1stvenusaur.jpg",
                 back: "../images/packart/basesetback3.jpg",
             },
         ],
@@ -37,15 +37,15 @@ const sets = {
         cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
         packArt: [
             {
-                front: "../images/packart/jungle1.jpg", 
+                front: "../images/packart/jungle1.jpg",
                 back: "../images/packart/jungleback.jpg",
             },
             {
-                front: "../images/packart/jungle2.jpg", 
+                front: "../images/packart/jungle2.jpg",
                 back: "../images/packart/jungleback.jpg",
             },
             {
-                front: "../images/packart/jungle3.jpg", 
+                front: "../images/packart/jungle3.jpg",
                 back: "../images/packart/jungleback.jpg",
             },
         ],
@@ -67,15 +67,15 @@ const sets = {
         cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
         packArt: [
             {
-                front: "../images/packart/fossil1.jpg", 
+                front: "../images/packart/fossil1.jpg",
                 back: "../images/packart/fossilback.jpg",
             },
             {
-                front: "../images/packart/fossil2.jpg", 
+                front: "../images/packart/fossil2.jpg",
                 back: "../images/packart/fossilback.jpg",
             },
             {
-                front: "../images/packart/fossil3.jpg", 
+                front: "../images/packart/fossil3.jpg",
                 back: "../images/packart/fossilback.jpg",
             },
         ],
@@ -88,8 +88,8 @@ const sets = {
         symbolUrl: 'https://images.pokemontcg.io/base3/symbol.png',
         logoUrl: 'https://images.pokemontcg.io/base3/logo.png',
         updatedAt: '08/14/2020 09:35:00'
-      },
-      base2: {
+    },
+    base2: {
         cards: base2Cards,
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
@@ -97,19 +97,19 @@ const sets = {
         cardsToPull: ["Uncommon", "Uncommon", "Uncommon", "Common", "Common", "Common", "Common", "Common", "Rare", "Energy", "Energy"],
         packArt: [
             {
-                front: "../images/packart/baseset2_1.jpg", 
+                front: "../images/packart/baseset2_1.jpg",
                 back: "../images/packart/base2back1.jpg",
             },
             {
-                front: "../images/packart/baseset2_2.jpg", 
+                front: "../images/packart/baseset2_2.jpg",
                 back: "../images/packart/base2back2.jpg",
             },
             {
-                front: "../images/packart/baseset2_3.jpg", 
+                front: "../images/packart/baseset2_3.jpg",
                 back: "../images/packart/base2back3.jpg",
             },
             {
-                front: "../images/packart/baseset2_4.jpg", 
+                front: "../images/packart/baseset2_4.jpg",
                 back: "../images/packart/base2back4.jpg",
             },
         ],
@@ -122,28 +122,28 @@ const sets = {
         symbolUrl: 'https://images.pokemontcg.io/base4/symbol.png',
         logoUrl: 'https://images.pokemontcg.io/base4/logo.png',
         updatedAt: '08/14/2020 09:35:00'
-      },
-      teamRocket:   {
+    },
+    teamRocket: {
         cards: teamRocketCards,
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 0,
-        cardsToPull: ["Uncommon", "Uncommon", "Uncommon", "Common", "Common", "Common", "Common", "Common", "Rare", "Energy", "Energy"],
+        cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
         packArt: [
             {
-                front: "../images/packart/teamrocket1.jpg", 
+                front: "../images/packart/teamrocket1.jpg",
                 back: "../images/packart/teamrocketback.jpg",
             },
             {
-                front: "../images/packart/teamrocket2.jpg", 
+                front: "../images/packart/teamrocket2.jpg",
                 back: "../images/packart/teamrocketback.jpg",
             },
             {
-                front: "../images/packart/teamrocket3.jpg", 
+                front: "../images/packart/teamrocket3.jpg",
                 back: "../images/packart/teamrocketback.jpg",
             },
             {
-                front: "../images/packart/teamrocket4.jpg", 
+                front: "../images/packart/teamrocket4.jpg",
                 back: "../images/packart/teamrocketback.jpg",
             },
         ],
@@ -156,5 +156,5 @@ const sets = {
         symbolUrl: 'https://images.pokemontcg.io/base5/symbol.png',
         logoUrl: 'https://images.pokemontcg.io/base5/logo.png',
         updatedAt: '08/14/2020 09:35:00'
-      },
+    },
 }

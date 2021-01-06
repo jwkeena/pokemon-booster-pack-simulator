@@ -155,7 +155,7 @@ header>div {
 }
 
 .pulled-card {
-    background-color: white;
+    background-color: none;
     border-radius: 8px;
     display: inline;
     height: 330px;

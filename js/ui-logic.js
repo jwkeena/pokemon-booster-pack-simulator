@@ -1,7 +1,7 @@
 // Global variables. Card and set info is isolated in other js files already loaded on index.html
 let uiViewType = null;
 let pulledPacks = [];
-let currentSet = "baseSet";
+let currentSet = null;
 // -----------------------
 // UI
 function setDisplay() {
@@ -20,56 +20,7 @@ function setDisplay() {
                 case "gridView":
                     pulledPacks.forEach(pack => displayGridView(pack.packArtUrl, pack.cards));
             }
-        } else {
-            displayDefault(type);
         }
-    }
-}
-
-function displayDefault(uiViewType) {
-    const singlePackFlipArea = document.getElementById("single-pack-flip-area");
-    const rowView = document.getElementById("row-view");
-    if (singlePackFlipArea.innerHTML)
-        deleteChildrenFrom(["single-pack-flip-area"]);
-    if (rowView.innerHTML)
-        deleteChildrenFrom(["row-view"]);
-    switch (uiViewType) {
-        case "singlePackFlip":
-            for (let i = 0; i < 5; i++) {
-                let card;
-                // Adding the class "card--current" to the first card prevents the initial flip
-                if (i === 0) {
-                    card = buildCardHTML(["card", "card-back", "card--current"], "images/site/cardback.jpg");
-                }
-                else {
-                    card = buildCardHTML(["card", "card-back"], "images/site/cardback.jpg");
-                }
-                singlePackFlipArea.appendChild(card);
-            }
-            $('.cards').commentCards();
-            break;
-        case "rowView":
-            const packWrapper = document.createElement("div");
-            packWrapper.classList.add("open-pack");
-            document.getElementById("row-view").prepend(packWrapper);
-            for (let i = 0; i < 12; i++) {
-                const card = buildCardHTML(["pulled-card", "card-back"], "images/site/cardback.jpg");
-                packWrapper.appendChild(card);
-            };
-            // Event delegation for horizontal scrolling from https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
-            packWrapper.addEventListener("wheel", e => {
-                const toLeft = e.deltaY < 0 && packWrapper.scrollLeft > 0;
-                const toRight = e.deltaY > 0 && packWrapper.scrollLeft < packWrapper.scrollWidth - packWrapper.clientWidth;
-
-                if (toLeft || toRight) {
-                    e.preventDefault();
-                    packWrapper.scrollLeft += e.deltaY;
-                }
-            });
-            break;
-        case "gridView":
-            console.log("display default view gridView");
-            break;
     }
 }
 

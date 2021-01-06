@@ -1405,19 +1405,6 @@
     updatedAt: '08/14/2020 09:35:00'
   },
   {
-    code: 'base5',
-    ptcgoCode: 'TR',
-    name: 'Team Rocket',
-    series: 'Base',
-    totalCards: 83,
-    standardLegal: false,
-    expandedLegal: false,
-    releaseDate: '04/24/2000',
-    symbolUrl: 'https://images.pokemontcg.io/base5/symbol.png',
-    logoUrl: 'https://images.pokemontcg.io/base5/logo.png',
-    updatedAt: '08/14/2020 09:35:00'
-  },
-  {
     code: 'basep',
     ptcgoCode: 'PR',
     name: 'Wizards Black Star Promos',

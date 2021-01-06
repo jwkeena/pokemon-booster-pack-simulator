@@ -387,57 +387,58 @@ const baseSetCards = [
       }
     ]
   },
-  {
-    id: 'base1-8',
-    name: 'Machamp',
-    nationalPokedexNumber: 68,
-    imageUrl: 'https://images.pokemontcg.io/base1/8.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/base1/8_hires.png',
-    types: [
-      'Fighting'
-    ],
-    supertype: 'Pokémon',
-    subtype: 'Stage 2',
-    evolvesFrom: 'Machoke',
-    ability: {
-      name: 'Strikes Back',
-      text: 'Whenever your opponent\'s attack damages Machamp (even if Machamp is Knoced Out), this power does 10 damage to attacking Pokémon. (Don\'t apply Weakness and Resistance.) This power can\'t be used if Machamp is already Asleep, Confused, or Paralyzed when your opponent attacks.',
-      type: 'Pokémon Power'
-    },
-    hp: '100',
-    retreatCost: [
-      'Colorless',
-      'Colorless',
-      'Colorless'
-    ],
-    convertedRetreatCost: 3,
-    number: '8',
-    artist: 'Ken Sugimori',
-    rarity: 'Holo Rare',
-    series: 'Base',
-    set: 'Base',
-    setCode: 'base1',
-    attacks: [
-      {
-        cost: [
-          'Fighting',
-          'Fighting',
-          'Fighting',
-          'Colorless'
-        ],
-        name: 'Seismic Toss',
-        text: '',
-        damage: '60',
-        convertedEnergyCost: 4
-      }
-    ],
-    weaknesses: [
-      {
-        type: 'Psychic',
-        value: '×2'
-      }
-    ]
-  },
+  // Machamp can't be pulled from booster packs
+  // {
+  //   id: 'base1-8',
+  //   name: 'Machamp',
+  //   nationalPokedexNumber: 68,
+  //   imageUrl: 'https://images.pokemontcg.io/base1/8.png',
+  //   imageUrlHiRes: 'https://images.pokemontcg.io/base1/8_hires.png',
+  //   types: [
+  //     'Fighting'
+  //   ],
+  //   supertype: 'Pokémon',
+  //   subtype: 'Stage 2',
+  //   evolvesFrom: 'Machoke',
+  //   ability: {
+  //     name: 'Strikes Back',
+  //     text: 'Whenever your opponent\'s attack damages Machamp (even if Machamp is Knoced Out), this power does 10 damage to attacking Pokémon. (Don\'t apply Weakness and Resistance.) This power can\'t be used if Machamp is already Asleep, Confused, or Paralyzed when your opponent attacks.',
+  //     type: 'Pokémon Power'
+  //   },
+  //   hp: '100',
+  //   retreatCost: [
+  //     'Colorless',
+  //     'Colorless',
+  //     'Colorless'
+  //   ],
+  //   convertedRetreatCost: 3,
+  //   number: '8',
+  //   artist: 'Ken Sugimori',
+  //   rarity: 'Holo Rare',
+  //   series: 'Base',
+  //   set: 'Base',
+  //   setCode: 'base1',
+  //   attacks: [
+  //     {
+  //       cost: [
+  //         'Fighting',
+  //         'Fighting',
+  //         'Fighting',
+  //         'Colorless'
+  //       ],
+  //       name: 'Seismic Toss',
+  //       text: '',
+  //       damage: '60',
+  //       convertedEnergyCost: 4
+  //     }
+  //   ],
+  //   weaknesses: [
+  //     {
+  //       type: 'Psychic',
+  //       value: '×2'
+  //     }
+  //   ]
+  // },
   {
     id: 'base1-9',
     name: 'Magneton',

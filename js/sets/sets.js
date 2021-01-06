@@ -123,4 +123,38 @@ const sets = {
         logoUrl: 'https://images.pokemontcg.io/base4/logo.png',
         updatedAt: '08/14/2020 09:35:00'
       },
+      teamRocket:   {
+        cards: teamRocketCards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 0,
+        cardsToPull: ["Uncommon", "Uncommon", "Uncommon", "Common", "Common", "Common", "Common", "Common", "Rare", "Energy", "Energy"],
+        packArt: [
+            {
+                front: "../images/packart/teamrocket1.jpg", 
+                back: "../images/packart/teamrocketback.jpg",
+            },
+            {
+                front: "../images/packart/teamrocket2.jpg", 
+                back: "../images/packart/teamrocketback.jpg",
+            },
+            {
+                front: "../images/packart/teamrocket3.jpg", 
+                back: "../images/packart/teamrocketback.jpg",
+            },
+            {
+                front: "../images/packart/teamrocket4.jpg", 
+                back: "../images/packart/teamrocketback.jpg",
+            },
+        ],
+        code: 'base5',
+        ptcgoCode: 'TR',
+        name: 'Team Rocket',
+        series: 'Base',
+        totalCards: 83,
+        releaseDate: '04/24/2000',
+        symbolUrl: 'https://images.pokemontcg.io/base5/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/base5/logo.png',
+        updatedAt: '08/14/2020 09:35:00'
+      },
 }

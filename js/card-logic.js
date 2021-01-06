@@ -4,8 +4,8 @@ function chooseSet(setName) {
     openPack(currentSet);
 }
 
-String.prototype.decapitalize = function() {
-    return this.charAt(0).toLowerCase() + this.slice(1)
+String.prototype.decapitalize = function () {
+    return this.charAt(0).toLowerCase() + this.slice(1);
 }
 
 function sortSet(setName) {
@@ -34,7 +34,7 @@ function openPack(setName) {
     const pack = [];
     const randomPackArtUrlFront = set.packArt[randomIndex(set.packArt.length)].front;
     set.cardsToPull.forEach(cardType => pullCard(cardType, pack, set, holoPulled, secretRarePulled))
-    pulledPacks.push({set: set, packArtUrl: randomPackArtUrlFront, cards: [...pack]});
+    pulledPacks.push({ set: set, packArtUrl: randomPackArtUrlFront, cards: [...pack] });
     switch (uiViewType) {
         case "singlePackFlip":
             singlePackFlip(randomPackArtUrlFront, pack);
@@ -42,7 +42,7 @@ function openPack(setName) {
         case "rowView":
             displayRowView(randomPackArtUrlFront, pack);
             break;
-        case "gridView": 
+        case "gridView":
             displayGridView(randomPackArtUrlFront, pack);
             break;
         default:
@@ -55,8 +55,8 @@ function calculateOdds(odds) {
     if (diceRoll <= odds)
         return true;
     // I know the else statement is optional since js coerces undefined to false but this reads better OKAY?!
-    else 
-        return false; 
+    else
+        return false;
 }
 
 function pullCard(cardType, pack, set, holoPulled, secretRarePulled) {
@@ -80,9 +80,9 @@ function pullCard(cardType, pack, set, holoPulled, secretRarePulled) {
 
     // Using recursion again. TODO: refactor to keep a duplicate array of possible choices, popping off chosen ones
     if (isDuplicate(card, pack)) {
-        pullCard(cardType, pack, set, holoPulled); 
+        pullCard(cardType, pack, set, holoPulled);
     }
-    else 
+    else
         pack.push(card);
     return pack;
 }

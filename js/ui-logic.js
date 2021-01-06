@@ -35,7 +35,14 @@ function displayDefault(uiViewType) {
     switch (uiViewType) {
         case "singlePackFlip":
             for (let i = 0; i < 5; i++) {
-                const card = buildCardHTML(["card", "card-back"], "images/site/cardback.jpg");
+                let card;
+                // Adding the class "card--current" to the first card prevents the initial flip
+                if (i === 0) {
+                    card = buildCardHTML(["card", "card-back", "card--current"], "images/site/cardback.jpg");
+                }
+                else {
+                    card = buildCardHTML(["card", "card-back"], "images/site/cardback.jpg");
+                }
                 singlePackFlipArea.appendChild(card);
             }
             $('.cards').commentCards();
@@ -45,6 +52,7 @@ function displayDefault(uiViewType) {
             packWrapper.classList.add("open-pack");
             document.getElementById("row-view").prepend(packWrapper);
 
+            pulledPacks.push("dummyPack");
             for (let i = 0; i < 12; i++) {
                 const card = buildCardHTML(["pulled-card", "card-back"], "images/site/cardback.jpg");
                 packWrapper.appendChild(card);
@@ -53,7 +61,7 @@ function displayDefault(uiViewType) {
             packWrapper.addEventListener("wheel", e => {
                 const toLeft = e.deltaY < 0 && packWrapper.scrollLeft > 0;
                 const toRight = e.deltaY > 0 && packWrapper.scrollLeft < packWrapper.scrollWidth - packWrapper.clientWidth;
-        
+
                 if (toLeft || toRight) {
                     e.preventDefault()
                     packWrapper.scrollLeft += e.deltaY
@@ -89,7 +97,7 @@ function deleteChildrenFrom(parentNodes) {
 function singlePackFlip(packArtUrl, pack) {
     deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
     const target = document.getElementById("single-pack-flip-area");
-    const packArtFront = buildCardHTML(["card", "pack-art-card"], packArtUrl);
+    const packArtFront = buildCardHTML(["card", "pack-art-card", "card--current"], packArtUrl);
     target.append(packArtFront);
 
     for (let i = 0; i < pack.length; i++) {
@@ -100,7 +108,7 @@ function singlePackFlip(packArtUrl, pack) {
     $('.cards').commentCards();
 }
 
-// Flip through stack of cards modified from https://codepen.io/mix3d/pen/bEaxEW?editors=0010
+// Flip through stack of cards modified from https://codepen.io/shshaw/pen/KzYXvP
 $.fn.commentCards = function () {
     // Closure...but why?
     return this.each(function () {
@@ -109,30 +117,32 @@ $.fn.commentCards = function () {
             $current = $cards.filter('.card--current'),
             $next;
 
+        // The crucial changes here was in three parts
         $cards.on('click', function () {
-            if (!$current.is(this)) {
+            if ($current.is(this)) { // First, I wanted the condition to only apply to the current card, NOT everything else (so I took the bang out)
                 $cards.removeClass('card--current card--out card--next');
                 $current.addClass('card--out');
-                $current = $(this).addClass('card--current');
-                $next = $current.next();
-                $next = $next.length ? $next : $cards.first();
+                $current = $(this).next().length === 1 ? $(this).next().addClass('card--current') : $cards.first().addClass('card--current'); // I added a ternary here to apply the "card-current" class to the next item if there is one, or if not, then the first item
+                $next = $current.next().length === 1 ? $current.next() : $cards.first(); // Likewise, and finally, I wanted to apply "card--next" class to the item after the current item if there is one, and if not, then the first card
                 $next.addClass('card--next');
             }
         });
 
         if (!$current.length) {
-            $current = $cards.last();
+            $current = $cards.first();
             $cards.first().trigger('click');
         }
-        $this.addClass('cards--active');
+
     })
 };
-
-$('.cards').commentCards();
 
 // -----------------------
 // UI - row view
 function displayRowView(packArtUrl, pack) {
+    if (pulledPacks[0] === "dummyPack") {
+        deleteChildrenFrom(["row-view"]);
+        pulledPacks.shift();
+    }
     deleteChildrenFrom(["single-pack-flip-area", "grid-view"]);
     const packWrapper = document.createElement("div");
     packWrapper.classList.add("open-pack");
@@ -145,7 +155,7 @@ function displayRowView(packArtUrl, pack) {
     for (let i = 0; i < pack.length; i++) {
         const card = buildCardHTML(["pulled-card"], pack[i].imageUrl);
         packWrapper.appendChild(card);
-        card.addEventListener("dblclick", e => { zoomCard(pack[i].imageUrlHiRes) });
+        card.addEventListener("click", e => { zoomCard(pack[i].imageUrlHiRes) });
     };
     // Event delegation for horizontal scrolling from https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
     packWrapper.addEventListener("wheel", e => {
@@ -153,8 +163,8 @@ function displayRowView(packArtUrl, pack) {
         const toRight = e.deltaY > 0 && packWrapper.scrollLeft < packWrapper.scrollWidth - packWrapper.clientWidth;
 
         if (toLeft || toRight) {
-            e.preventDefault()
-            packWrapper.scrollLeft += e.deltaY
+            e.preventDefault();
+            packWrapper.scrollLeft += e.deltaY;
         }
     });
 }

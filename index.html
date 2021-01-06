@@ -72,14 +72,11 @@
                 <div onclick="chooseSet('teamRocket')">team rocket</div>
               </div>
             </div>
-            <div class="select-pack-dropdown">
-              <button class="button">DISPLAY</button>
-              <div class="select-pack-dropdown-content">
-                <div onclick="setDisplay('singlePackFlip')">single</div>
-                <div onclick="setDisplay('rowView')">rows</div>
-                <!-- <div onclick="setDisplay('gridView')">grid</div> -->
-              </div>
-            </div>
+            <select class="button select-display" onchange="setDisplay()">
+                <option value="singlePackFlip">DISPLAY: SINGLE</option>
+                <option value="rowView">DISPLAY: ROWS</option>
+                <!-- <option value="gridView">grid</option> -->
+            </select>
             <!-- <button class="button">CLEAR</button> -->
           </div>
           <div id="single-pack-flip-area" class="cards"></div>

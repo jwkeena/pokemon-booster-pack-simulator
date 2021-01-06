@@ -4,7 +4,8 @@ let pulledPacks = [];
 let currentSet = "baseSet";
 // -----------------------
 // UI
-function setDisplay(type) {
+function setDisplay() {
+    type = document.getElementsByClassName("select-display")[0].value;
     if (uiViewType !== type) {
         uiViewType = type;
         if (pulledPacks.length > 0) {
@@ -51,8 +52,6 @@ function displayDefault(uiViewType) {
             const packWrapper = document.createElement("div");
             packWrapper.classList.add("open-pack");
             document.getElementById("row-view").prepend(packWrapper);
-
-            pulledPacks.push("dummyPack");
             for (let i = 0; i < 12; i++) {
                 const card = buildCardHTML(["pulled-card", "card-back"], "images/site/cardback.jpg");
                 packWrapper.appendChild(card);
@@ -63,11 +62,10 @@ function displayDefault(uiViewType) {
                 const toRight = e.deltaY > 0 && packWrapper.scrollLeft < packWrapper.scrollWidth - packWrapper.clientWidth;
 
                 if (toLeft || toRight) {
-                    e.preventDefault()
-                    packWrapper.scrollLeft += e.deltaY
+                    e.preventDefault();
+                    packWrapper.scrollLeft += e.deltaY;
                 }
             });
-
             break;
         case "gridView":
             console.log("display default view gridView");
@@ -102,7 +100,7 @@ function singlePackFlip(packArtUrl, pack) {
 
     for (let i = 0; i < pack.length; i++) {
         const card = buildCardHTML(["card"], pack[i].imageUrl);
-        card.addEventListener("dblclick", e => { zoomCard(pack[i].imageUrlHiRes) });
+        // card.addEventListener("click", e => { zoomCard(pack[i].imageUrlHiRes) });
         target.appendChild(card);
     }
     $('.cards').commentCards();
@@ -139,10 +137,6 @@ $.fn.commentCards = function () {
 // -----------------------
 // UI - row view
 function displayRowView(packArtUrl, pack) {
-    if (pulledPacks[0] === "dummyPack") {
-        deleteChildrenFrom(["row-view"]);
-        pulledPacks.shift();
-    }
     deleteChildrenFrom(["single-pack-flip-area", "grid-view"]);
     const packWrapper = document.createElement("div");
     packWrapper.classList.add("open-pack");

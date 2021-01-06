@@ -180,7 +180,11 @@ closeModalButton.onclick = function () {
     modal.style.display = "none";
 }
 
+const openPackButton = document.getElementsByClassName("open-pack-button")[0];
+openPackButton.onclick = () => {openPack(currentSet)}
+
 // -----------------------
 // Initialization
 // TODO: retrieve user's choice from localStorage
 setDisplay("singlePackFlip");
+chooseSet();

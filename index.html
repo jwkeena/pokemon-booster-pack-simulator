@@ -60,25 +60,22 @@
         </header>
 
         <main>
-          <div>
-            <button class="button">OPEN</button>
-            <div class="select-pack-dropdown">
-              <button class="button">SELECT SET</button>
-              <div class="select-pack-dropdown-content">
-                <div onclick="chooseSet('baseSet')">base set</div>
-                <div onclick="chooseSet('jungle')">jungle</div>
-                <div onclick="chooseSet('fossil')">fossil</div>
-                <div onclick="chooseSet('base2')">base set 2</div>
-                <div onclick="chooseSet('teamRocket')">team rocket</div>
-              </div>
-            </div>
+
+            <button class="button open-pack-button">OPEN</button>
+            <select class="button select-set" onchange="chooseSet()">
+              <option value="baseSet">SET: BASE SET</option>
+              <option value="jungle">SET: JUNGLE</option>
+              <option value="fossil">SET: FOSSIL</option>
+              <option value="base2">SET: BASE 2</option>
+              <option value="teamRocket">SET: TEAM ROCKET</option>
+            </select>
             <select class="button select-display" onchange="setDisplay()">
-                <option value="singlePackFlip">DISPLAY: SINGLE</option>
+                <option value="singlePackFlip">DISPLAY: MOST RECENT</option>
                 <option value="rowView">DISPLAY: ROWS</option>
                 <!-- <option value="gridView">grid</option> -->
             </select>
             <!-- <button class="button">CLEAR</button> -->
-          </div>
+
           <div id="single-pack-flip-area" class="cards"></div>
           <div id="row-view"></div>
           <div id="grid-view"></div>

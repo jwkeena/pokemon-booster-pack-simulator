@@ -1,6 +1,6 @@
 // Card selection logic
-function chooseSet(setName) {
-    currentSet = setName;
+function chooseSet() {
+    currentSet = document.getElementsByClassName("select-set")[0].value;
     openPack(currentSet);
 }
 

@@ -1353,32 +1353,6 @@
     updatedAt: '01/28/2019 16:44:00'
   },
   {
-    code: 'neo2',
-    ptcgoCode: 'N2',
-    name: 'Neo Discovery',
-    series: 'Neo',
-    totalCards: 75,
-    standardLegal: false,
-    expandedLegal: false,
-    releaseDate: '06/01/2001',
-    symbolUrl: 'https://images.pokemontcg.io/neo2/symbol.png',
-    logoUrl: 'https://images.pokemontcg.io/neo2/logo.png',
-    updatedAt: '08/14/2020 09:35:00'
-  },
-  {
-    code: 'neo1',
-    ptcgoCode: 'N1',
-    name: 'Neo Genesis',
-    series: 'Neo',
-    totalCards: 111,
-    standardLegal: false,
-    expandedLegal: false,
-    releaseDate: '12/16/2000',
-    symbolUrl: 'https://images.pokemontcg.io/neo1/symbol.png',
-    logoUrl: 'https://images.pokemontcg.io/neo1/logo.png',
-    updatedAt: '08/14/2020 09:35:00'
-  },
-  {
     code: 'basep',
     ptcgoCode: 'PR',
     name: 'Wizards Black Star Promos',

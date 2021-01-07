@@ -127,7 +127,7 @@ const sets = {
         cards: teamRocketCards,
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
-        chanceOfSecretRare: 0,
+        chanceOfSecretRare: 1 / 60,
         cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
         packArt: [
             {
@@ -223,6 +223,74 @@ const sets = {
         releaseDate: '10/16/2000',
         symbolUrl: 'https://images.pokemontcg.io/gym2/symbol.png',
         logoUrl: 'https://images.pokemontcg.io/gym2/logo.png',
+        updatedAt: '08/14/2020 09:35:00'
+      },
+      neoGenesis:   {
+        cards: neoGenesisCards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 0,
+        cardsToPull: ["Energy", "Rare", "Uncommon", "Uncommon", "Uncommon", "Common", "Common", "Common", "Common", "Common", "Common", ],
+        packArt: [
+            {
+                front: "../images/packart/neogenesis1.jpg",
+                back: "../images/packart/neogenesisback1.jpg",
+            },
+            {
+                front: "../images/packart/neogenesis2.jpg",
+                back: "../images/packart/neogenesisback2.jpg",
+            },
+            {
+                front: "../images/packart/neogenesis3.jpg",
+                back: "../images/packart/neogenesisback1.jpg",
+            },
+            {
+                front: "../images/packart/neogenesis4.jpg",
+                back: "../images/packart/neogenesisback2.jpg",
+            },
+        ],
+        code: 'neo1',
+        ptcgoCode: 'N1',
+        name: 'Neo Genesis',
+        series: 'Neo',
+        totalCards: 111,
+        releaseDate: '12/16/2000',
+        symbolUrl: 'https://images.pokemontcg.io/neo1/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/neo1/logo.png',
+        updatedAt: '08/14/2020 09:35:00'
+      },
+      neoDiscovery: {
+        cards: neoDiscoveryCards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 0,
+        cardsToPull: ["Uncommon", "Uncommon", "Uncommon", "Rare", "Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+        packArt: [
+            {
+                front: "../images/packart/neodiscovery1.jpg",
+                back: "../images/packart/neodiscoveryback.jpg",
+            },
+            {
+                front: "../images/packart/neodiscovery2.jpg",
+                back: "../images/packart/neodiscoveryback.jpg",
+            },
+            {
+                front: "../images/packart/neodiscovery3.jpg",
+                back: "../images/packart/neodiscoveryback.jpg",
+            },
+            {
+                front: "../images/packart/neodiscovery4.jpg",
+                back: "../images/packart/neodiscoveryback.jpg",
+            },
+        ],
+        code: 'neo2',
+        ptcgoCode: 'N2',
+        name: 'Neo Discovery',
+        series: 'Neo',
+        totalCards: 75,
+        releaseDate: '06/01/2001',
+        symbolUrl: 'https://images.pokemontcg.io/neo2/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/neo2/logo.png',
         updatedAt: '08/14/2020 09:35:00'
       },
 }

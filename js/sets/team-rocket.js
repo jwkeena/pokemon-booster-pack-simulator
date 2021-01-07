@@ -3688,7 +3688,7 @@ const teamRocketCards = [
       convertedRetreatCost: 1,
       number: '83',
       artist: 'Mitsuhiro Arita',
-      rarity: 'Rare',
+      rarity: 'Secret Rare',
       series: 'Base',
       set: 'Team Rocket',
       setCode: 'base5',

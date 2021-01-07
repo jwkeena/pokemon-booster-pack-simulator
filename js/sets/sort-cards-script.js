@@ -18,3 +18,9 @@ console.log(sorted);
 // Copy to sets.js, add new properties. 
 // Add info for packOrder and probability from https://pokemonboosterpack.neocities.org/pages/about.html
 // Add new set js file to index.html
+
+// if (chanceOfShining === 5) {
+//     document.getElementById(newId1).src = 'https://pkmncards.com/wp-content/uploads/shining-magikarp-neo-revelation-66.jpg';
+// }
+// if (chanceOfShining === 4) {
+//     document.getElementById(newId1).src = 'https://pkmncards.com/wp-content/uploads/shining-gyarados-neo-revelation-65.jpg';

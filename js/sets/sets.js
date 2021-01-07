@@ -293,4 +293,38 @@ const sets = {
         logoUrl: 'https://images.pokemontcg.io/neo2/logo.png',
         updatedAt: '08/14/2020 09:35:00'
       },
+      neoRevelation:   {
+        cards: neoRevelationCards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 1 / 12,
+        cardsToPull: [ "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
+        packArt: [
+            {
+                front: "../images/packart/neorevelation1.jpg",
+                back: "../images/packart/neorevelationback.jpg",
+            },
+            {
+                front: "../images/packart/neorevelation2.jpg",
+                back: "../images/packart/neorevelationback.jpg",
+            },
+            {
+                front: "../images/packart/neorevelation3.jpg",
+                back: "../images/packart/neorevelationback.jpg",
+            },
+            {
+                front: "../images/packart/neorevelation4.jpg",
+                back: "../images/packart/neorevelationback.jpg",
+            },
+        ],
+        code: 'neo3',
+        ptcgoCode: 'N3',
+        name: 'Neo Revelation',
+        series: 'Neo',
+        totalCards: 66,
+        releaseDate: '09/21/2001',
+        symbolUrl: 'https://images.pokemontcg.io/neo3/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/neo3/logo.png',
+        updatedAt: '08/14/2020 09:35:00'
+      },
 }

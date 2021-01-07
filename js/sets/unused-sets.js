@@ -1328,19 +1328,6 @@
     updatedAt: '09/25/2020 10:09:00'
   },
   {
-    code: 'neo3',
-    ptcgoCode: 'N3',
-    name: 'Neo Revelation',
-    series: 'Neo',
-    totalCards: 66,
-    standardLegal: false,
-    expandedLegal: false,
-    releaseDate: '09/21/2001',
-    symbolUrl: 'https://images.pokemontcg.io/neo3/symbol.png',
-    logoUrl: 'https://images.pokemontcg.io/neo3/logo.png',
-    updatedAt: '08/14/2020 09:35:00'
-  },
-  {
     code: 'si1',
     name: 'Southern Islands',
     series: 'Other',

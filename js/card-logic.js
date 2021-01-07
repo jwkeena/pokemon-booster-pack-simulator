@@ -66,10 +66,10 @@ function pullCard(cardType, pack, set, holoPulled, secretRarePulled) {
             card = set.sortedCards.energy[randomIndex(set.sortedCards.energy.length)]
             break;
         case "Rare":
-            if (holoPulled) {
-                card = set.sortedCards.holoRares[randomIndex(set.sortedCards.holoRares.length)]
-            } else if (secretRarePulled) {
+            if (secretRarePulled) {
                 card = set.sortedCards.secretRares[randomIndex(set.sortedCards.secretRares.length)]
+            } else if (holoPulled) {
+                card = set.sortedCards.holoRares[randomIndex(set.sortedCards.holoRares.length)]
             } else {
                 card = set.sortedCards.rares[randomIndex(set.sortedCards.rares.length)]
             }

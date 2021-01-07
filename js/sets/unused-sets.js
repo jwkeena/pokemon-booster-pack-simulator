@@ -1379,19 +1379,6 @@
     updatedAt: '08/14/2020 09:35:00'
   },
   {
-    code: 'gym2',
-    ptcgoCode: 'G2',
-    name: 'Gym Challenge',
-    series: 'Gym',
-    totalCards: 132,
-    standardLegal: false,
-    expandedLegal: false,
-    releaseDate: '10/16/2000',
-    symbolUrl: 'https://images.pokemontcg.io/gym2/symbol.png',
-    logoUrl: 'https://images.pokemontcg.io/gym2/logo.png',
-    updatedAt: '08/14/2020 09:35:00'
-  },
-  {
     code: 'basep',
     ptcgoCode: 'PR',
     name: 'Wizards Black Star Promos',

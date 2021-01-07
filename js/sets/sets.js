@@ -191,4 +191,38 @@ const sets = {
         logoUrl: 'https://images.pokemontcg.io/gym1/logo.png',
         updatedAt: '08/14/2020 09:35:00'
       },
+      gymChallenge:   {
+        cards: gymChallengeCards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 0,
+        cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon", "Energy"],
+        packArt: [
+            {
+                front: "../images/packart/gymchallenge1.jpg",
+                back: "../images/packart/gymchallengeback.jpg",
+            },
+            {
+                front: "../images/packart/gymchallenge2.jpg",
+                back: "../images/packart/gymchallengeback.jpg",
+            },
+            {
+                front: "../images/packart/gymchallenge3.jpg",
+                back: "../images/packart/gymchallengeback.jpg",
+            },
+            {
+                front: "../images/packart/gymchallenge4.jpg",
+                back: "../images/packart/gymchallengeback.jpg",
+            },
+        ],
+        code: 'gym2',
+        ptcgoCode: 'G2',
+        name: 'Gym Challenge',
+        series: 'Gym',
+        totalCards: 132,
+        releaseDate: '10/16/2000',
+        symbolUrl: 'https://images.pokemontcg.io/gym2/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/gym2/logo.png',
+        updatedAt: '08/14/2020 09:35:00'
+      },
 }

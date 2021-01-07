@@ -147,10 +147,6 @@ $(".card1, .card2, .card3, .card4, .card5, .card6, .card7, .card8, .card9, .card
     }
 });
 
-function redirect() {
-    window.location.href = "mailto:jwkeena@gmail.com";
-}
-
 //Sets variables for the flip all button to only affect unflipped cards
 let cardIsFlipped0 = 0;
 let cardIsFlipped1 = 0;

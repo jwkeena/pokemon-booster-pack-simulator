@@ -63,15 +63,15 @@ function pullCard(cardType, pack, set, holoPulled, secretRarePulled) {
     let card = null;
     switch (cardType) {
         case "Energy":
-            card = set.sortedCards.energy[randomIndex(set.sortedCards.energy.length)]
+            card = set.sortedCards.energy[randomIndex(set.sortedCards.energy.length)];
             break;
         case "Rare":
             if (secretRarePulled) {
-                card = set.sortedCards.secretRares[randomIndex(set.sortedCards.secretRares.length)]
+                card = set.sortedCards.secretRares[randomIndex(set.sortedCards.secretRares.length)];
             } else if (holoPulled) {
-                card = set.sortedCards.holoRares[randomIndex(set.sortedCards.holoRares.length)]
+                card = set.sortedCards.holoRares[randomIndex(set.sortedCards.holoRares.length)];
             } else {
-                card = set.sortedCards.rares[randomIndex(set.sortedCards.rares.length)]
+                card = set.sortedCards.rares[randomIndex(set.sortedCards.rares.length)];
             }
             break;
         default: // Handles commons, uncommons
@@ -88,7 +88,7 @@ function pullCard(cardType, pack, set, holoPulled, secretRarePulled) {
 }
 
 function randomIndex(arrayLength) {
-    return Math.floor(Math.random() * arrayLength);;
+    return Math.floor(Math.random() * arrayLength);
 }
 
 function isDuplicate(card, pack) {

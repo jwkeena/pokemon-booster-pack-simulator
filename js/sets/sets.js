@@ -327,4 +327,38 @@ const sets = {
         logoUrl: 'https://images.pokemontcg.io/neo3/logo.png',
         updatedAt: '08/14/2020 09:35:00'
       },
+      neoDestiny:   {
+        cards: neoDestinyCards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 1 / 18,
+        cardsToPull: [ "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
+        packArt: [
+            {
+                front: "../images/packart/neodestiny1.jpg",
+                back: "../images/packart/neodestinyback1.jpg",
+            },
+            {
+                front: "../images/packart/neodestiny2.jpg",
+                back: "../images/packart/neodestinyback2.jpg",
+            },
+            {
+                front: "../images/packart/neodestiny3.jpg",
+                back: "../images/packart/neodestinyback3.jpg",
+            },
+            {
+                front: "../images/packart/neodestiny4.jpg",
+                back: "../images/packart/neodestinyback4.jpg",
+            },
+        ],
+        code: 'neo4',
+        ptcgoCode: 'N4',
+        name: 'Neo Destiny',
+        series: 'Neo',
+        totalCards: 113,
+        releaseDate: '02/28/2002',
+        symbolUrl: 'https://images.pokemontcg.io/neo4/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/neo4/logo.png',
+        updatedAt: '09/25/2020 10:09:00'
+      },
 }

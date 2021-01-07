@@ -1315,19 +1315,6 @@
     updatedAt: '08/14/2020 09:35:00'
   },
   {
-    code: 'neo4',
-    ptcgoCode: 'N4',
-    name: 'Neo Destiny',
-    series: 'Neo',
-    totalCards: 113,
-    standardLegal: false,
-    expandedLegal: false,
-    releaseDate: '02/28/2002',
-    symbolUrl: 'https://images.pokemontcg.io/neo4/symbol.png',
-    logoUrl: 'https://images.pokemontcg.io/neo4/logo.png',
-    updatedAt: '09/25/2020 10:09:00'
-  },
-  {
     code: 'si1',
     name: 'Southern Islands',
     series: 'Other',

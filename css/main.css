@@ -140,7 +140,7 @@ div.card {
 }
 
 /* --------------------------------------------- */
-/* Archived, opened packs */
+/* Row view packs */
 .open-pack:first-child {
     margin-top: -3rem;
 }
@@ -224,43 +224,20 @@ div.card {
 }
 
 /* --------------------------------------------- */
-/* The Modal (background) */
-
-.center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.center-container {
-    position: relative;
-} 
-
+/* Modal */
 .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 100;
-    /* Sit on top */
     padding-top: 25px;
-    /* Location of the box */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     background-color: rgb(0, 0, 0);
-    /* Fallback color */
     background-color: rgba(0, 0, 0, 0.9);
-    /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
 .modal-content {
     margin: auto;
     max-height: 600px;
@@ -269,8 +246,8 @@ div.card {
 }
 
 #hi-res-card {
-    height: 70vh;
-    width: 50vh;
+    height: 82vh;
+    width: 59vh;
     margin: 0 auto;
     border-radius: 8px;
     background-image: url('../images/site/pokeball-loading.gif');
@@ -278,8 +255,6 @@ div.card {
     background-position-x: center;
 }
 
-
-/* The Close Button */
 .close {
     position: relative;
     color: #f1f1f1;
@@ -295,7 +270,6 @@ div.card {
     cursor: pointer;
 }
 
-/* Add Animation - Zoom in the Modal */
 .modal-content {
     animation-name: zoom;
     animation-duration: 0.6s;

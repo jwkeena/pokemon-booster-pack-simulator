@@ -146,6 +146,13 @@ closeModalButton.onclick = function () {
     document.getElementById("hi-res-card").style.backgroundImage = "url('../images/site/pokeball-loading.gif')"
 }
 
+// When the user clicks anywhere outside of the modal, close it
+modal.onclick = function(e) {
+    if (e.target !== document.getElementById("hi-res-card")) {
+        modal.style.display = "none";
+    }
+  }
+
 const openPackButton = document.getElementsByClassName("open-pack-button")[0];
 openPackButton.onclick = () => {openPack(currentSet)}
 

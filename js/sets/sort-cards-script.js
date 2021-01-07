@@ -7,14 +7,14 @@ const cards = [];
 console.log(cards.length);
 // To check if I'm slicing correctly
 for (let i = 0; i <cards.length; i++ ){
-    console.log (parseInt(cards[i].id.slice(6)))
+    console.log (parseInt(cards[i].number))
 }
-var sorted = cards.sort((a, b) => {return parseInt(a.id.slice(6)) - parseInt(b.id.slice(6))});
+var sorted = cards.sort((a, b) => {return parseInt(a.number) - parseInt(b.number)});
 console.log(sorted);
-copy(sorted);
 
 // Copy this whole file into the dev tools console
 // Finally, mark all the holo rares
 // Get the set info from unused-sets.js
 // Copy to sets.js, add new properties. 
 // Add info for packOrder and probability from https://pokemonboosterpack.neocities.org/pages/about.html
+// Add new set js file to index.html

@@ -157,4 +157,38 @@ const sets = {
         logoUrl: 'https://images.pokemontcg.io/base5/logo.png',
         updatedAt: '08/14/2020 09:35:00'
     },
+    gymHeroes :   {
+        cards: gymHeroesCards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 0,
+        cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon", "Energy"],
+        packArt: [
+            {
+                front: "../images/packart/gymheroes1.jpg",
+                back: "../images/packart/gymheroesback.jpg",
+            },
+            {
+                front: "../images/packart/gymheroes2.jpg",
+                back: "../images/packart/gymheroesback.jpg",
+            },
+            {
+                front: "../images/packart/gymheroes3.jpg",
+                back: "../images/packart/gymheroesback.jpg",
+            },
+            {
+                front: "../images/packart/gymheroes4.jpg",
+                back: "../images/packart/gymheroesback.jpg",
+            },
+        ],
+        code: 'gym1',
+        ptcgoCode: 'G1',
+        name: 'Gym Heroes',
+        series: 'Gym',
+        totalCards: 132,
+        releaseDate: '08/14/2000',
+        symbolUrl: 'https://images.pokemontcg.io/gym1/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/gym1/logo.png',
+        updatedAt: '08/14/2020 09:35:00'
+      },
 }

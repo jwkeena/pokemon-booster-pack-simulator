@@ -1392,19 +1392,6 @@
     updatedAt: '08/14/2020 09:35:00'
   },
   {
-    code: 'gym1',
-    ptcgoCode: 'G1',
-    name: 'Gym Heroes',
-    series: 'Gym',
-    totalCards: 132,
-    standardLegal: false,
-    expandedLegal: false,
-    releaseDate: '08/14/2000',
-    symbolUrl: 'https://images.pokemontcg.io/gym1/symbol.png',
-    logoUrl: 'https://images.pokemontcg.io/gym1/logo.png',
-    updatedAt: '08/14/2020 09:35:00'
-  },
-  {
     code: 'basep',
     ptcgoCode: 'PR',
     name: 'Wizards Black Star Promos',

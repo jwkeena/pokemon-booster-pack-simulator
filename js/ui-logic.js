@@ -24,16 +24,36 @@ function setDisplay() {
     }
 }
 
-function buildCardHTML(classesToAdd, imageUrl) {
+function buildCardHTML(classesToAdd, imageUrl, cardType) {
     const card = document.createElement("div");
     card.classList.add(...classesToAdd);
-    card.style.backgroundImage = "url('" + imageUrl + "')";
+    if (cardType === "packArt") 
+        card.style.backgroundImage = "url('" + imageUrl + "')";
+    else
+        card.style.backgroundImage = "url('../images/site/pokeball-loading.gif')";
+        preloadImage(card, imageUrl);
+        card.setAttribute("data-card-image", imageUrl);
     return card;
 }
 
+// https://www.sitepoint.com/community/t/onload-for-background-image/6462
+function preloadImage(card, imageUrl) {
+    const img = new Image();
+    img.onload = () => onImageLoaded(card);
+    img.src = imageUrl;
+}
+
+function onImageLoaded(card) {
+    const loadedImageUrl = card.getAttribute("data-card-image");
+    card.style.backgroundImage = "url('" + loadedImageUrl + "')";
+    card.classList.remove("loading");
+}
+
 function zoomCard(hiResImageUrl) {
-    const img = document.getElementById("hi-res-card");
-    img.src = hiResImageUrl;
+    const div = document.getElementById("hi-res-card");
+    div.setAttribute("data-card-image", hiResImageUrl);
+    preloadImage(div, hiResImageUrl);
+    // div.style.backgroundImage = "url('" + hiResImageUrl + "')";
     const modal = document.getElementById("card-zoom");
     modal.style.display = "block";
 }
@@ -46,11 +66,10 @@ function deleteChildrenFrom(parentNodes) {
 function singlePackFlip(packArtUrl, pack) {
     deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
     const target = document.getElementById("single-pack-flip-area");
-    const packArtFront = buildCardHTML(["card", "pack-art-card", "card--current"], packArtUrl);
+    const packArtFront = buildCardHTML(["card", "pack-art-card", "card--current"], packArtUrl, "packArt");
     target.append(packArtFront);
-
     for (let i = 0; i < pack.length; i++) {
-        const card = buildCardHTML(["card"], pack[i].imageUrl);
+        const card = buildCardHTML(["card", "loading"], pack[i].imageUrl);
         target.appendChild(card);
     }
     $('.cards').commentCards();
@@ -70,7 +89,7 @@ $.fn.commentCards = function () {
             if ($current.is(this)) { // First, I wanted the condition to only apply to the current card, NOT everything else (so I took the bang out)
                 $cards.removeClass('card--current card--out card--next');
                 $current.addClass('card--out');
-                $current = $(this).next().length === 1 ? $(this).next().addClass('card--current') : $cards.first().addClass('card--current'); // I added a ternary here to apply the "card-current" class to the next item if there is one, or if not, then the first item
+                $current = $(this).next().length === 1 ? $(this).next().addClass('card--current') : $cards.first().addClass('card--current'); // Second, I added a ternary here to apply the "card-current" class to the next item if there is one, or if not, then the first item
                 $next = $current.next().length === 1 ? $current.next() : $cards.first(); // Likewise, and finally, I wanted to apply "card--next" class to the item after the current item if there is one, and if not, then the first card
                 $next.addClass('card--next');
             }
@@ -91,15 +110,14 @@ function displayRowView(packArtUrl, pack) {
     const packWrapper = document.createElement("div");
     packWrapper.classList.add("open-pack");
     document.getElementById("row-view").prepend(packWrapper);
-    const packArtFront = buildCardHTML(["pack-art", "pulled-card"], packArtUrl);
+    const packArtFront = buildCardHTML(["pack-art", "pulled-card"], packArtUrl, "packArt");
     packWrapper.appendChild(packArtFront);
 
-    // Creates elements like this: <div class="pulled-card" style="background-image: url(https://images.pokemontcg.io/base2/64.png)"></div>
     // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks. Must use div tags
     for (let i = 0; i < pack.length; i++) {
-        const card = buildCardHTML(["pulled-card"], pack[i].imageUrl);
+        const card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrl);
         packWrapper.appendChild(card);
-        card.addEventListener("click", e => { zoomCard(pack[i].imageUrlHiRes) });
+        card.addEventListener("click", () => zoomCard(pack[i].imageUrlHiRes) );
     };
     // Event delegation for horizontal scrolling from https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
     packWrapper.addEventListener("wheel", e => {
@@ -121,13 +139,11 @@ function displayGridView(packArt, pack) {
 
 // -----------------------
 // UI - Event listeners
-// const buttonOpenPack = document.querySelector(".button-open-pack");
-// buttonOpenPack.addEventListener("click", () => openPack(sets.fossil));
-
 const modal = document.getElementById("card-zoom");
 const closeModalButton = document.getElementsByClassName("close")[0];
 closeModalButton.onclick = function () {
     modal.style.display = "none";
+    document.getElementById("hi-res-card").style.backgroundImage = "url('../images/site/pokeball-loading.gif')"
 }
 
 const openPackButton = document.getElementsByClassName("open-pack-button")[0];

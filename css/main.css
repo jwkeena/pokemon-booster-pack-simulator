@@ -133,6 +133,12 @@ div.card {
     transform: rotate(-1deg) translateX(0%) scale(1);
 }
 
+.card.loading,
+.pulled-card.loading {
+    background-position-x: center;
+    background-size: cover;
+}
+
 /* --------------------------------------------- */
 /* Archived, opened packs */
 .open-pack:first-child {
@@ -175,7 +181,9 @@ div.card {
     flex-basis: 320px;
     margin: 2.5rem .5rem .5rem .5rem;
     box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.7);
-    transition: 0.2s;
+    transition-property: transform;
+    /* must specify the property to be transitioned to prevent the background-image change from doing a .2s transition also */
+    transition-duration: 0.2s;
 }
 
 .pulled-card img {
@@ -210,14 +218,15 @@ div.card {
     padding: .5rem 2rem .5rem 2rem;
 }
 
-.button.select-set, .button.select-display {
+.button.select-set,
+.button.select-display {
     padding: 10px 10px 10px 22px;
 }
 
 /* --------------------------------------------- */
 /* The Modal (background) */
 
-/* .center {
+.center {
     margin: 0;
     position: absolute;
     top: 50%;
@@ -228,7 +237,7 @@ div.card {
 
 .center-container {
     position: relative;
-} */
+} 
 
 .modal {
     display: none;
@@ -259,10 +268,16 @@ div.card {
     border-radius: 15px;
 }
 
-.modal-content img {
-    max-height: 80vh;
+#hi-res-card {
+    height: 70vh;
+    width: 50vh;
+    margin: 0 auto;
     border-radius: 8px;
+    background-image: url('../images/site/pokeball-loading.gif');
+    background-size: cover;
+    background-position-x: center;
 }
+
 
 /* The Close Button */
 .close {
@@ -321,46 +336,37 @@ div.card {
     #logo {
         max-width: 70%;
     }
+
     .button {
         padding: 10px 5px;
         margin-right: 3px;
         font-size: 1rem;
         display: inline-block;
     }
-    .select-set, .select-display {
+
+    .select-set,
+    .select-display {
         padding: 10px;
         font-size: 1rem;
     }
+
     .cards {
         margin-top: 3.75rem;
         margin-bottom: 2rem;
     }
+
     .card {
-      height: 45vh;
-      width: 33vh;
-      left: 0;
-    }
-    .open-pack {
-        margin: 0 0 1rem .5rem;
-    }
-    .pulled-card {
-        margin-top: 2rem;
-        height: 40vh;
-        width: 29vh;
-        flex-basis: 29vh;
-    }
-    .pulled-card.pack-art {
         height: 45vh;
-        width: 29vh;
-        flex-basis: 29vh;
+        width: 33vh;
+        left: 0;
     }
+
     option[value=rowView] {
-        opacity: .5;
         display: none;
     }
-  }
+}
 
-  @media only screen and (max-width: 700px) {
+@media only screen and (max-width: 700px) {
     .modal-content {
         width: 100%;
     }

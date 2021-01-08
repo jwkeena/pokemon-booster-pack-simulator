@@ -1,38 +1,42 @@
 // Global variables. Card and set info is isolated in other js files already loaded on index.html
-let uiViewType = null;
+let uiViewType = "singlePackFlip"; // This must remain global so that the card-logic.js file can access it easily (tho' I could use a closure instead)
 let pulledPacks = [];
 let currentSet = null;
 // -----------------------
 // UI
-function setDisplay() {
-    type = document.getElementsByClassName("select-display")[0].value;
-    if (uiViewType !== type) {
-        uiViewType = type;
-        if (pulledPacks.length > 0) {
-            switch (type) {
-                case "singlePackFlip":
-                    // Only want to display the most recently opened pack for now. TODO: allow user to toggle through packs opened via carousel
-                    singlePackFlip(pulledPacks[pulledPacks.length - 1].packArtUrl, pulledPacks[0].cards);
-                    break;
-                case "rowView":
-                    pulledPacks.forEach(pack => { displayRowView(pack.packArtUrl, pack.cards) })
-                    break;
-                case "gridView":
-                    pulledPacks.forEach(pack => displayGridView(pack.packArtUrl, pack.cards));
-            }
-        }
+function setDisplay(sortOption) {
+    displayOption = document.querySelector(".select-display").value;
+    uiViewType = displayOption;
+    switch (displayOption) {
+        case "singlePackFlip":
+            showSortButtonForRowView(false);
+            // Only want to display the most recently opened pack for now. TODO: allow user to toggle through packs opened via carousel
+            singlePackFlip(pulledPacks[pulledPacks.length - 1].packArtUrl, pulledPacks[0].cards);
+            break;
+        case "rowView":
+            showSortButtonForRowView(true);
+            if (sortOption !== null)
+                deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
+            else
+                deleteChildrenFrom(["single-pack-flip-area", "grid-view"]);
+            pulledPacks.forEach(pack => { displayRowView(pack.packArtUrl, pack.cards, sortOption) })
+            break;
+        case "gridView":
+            pulledPacks.forEach(pack => displayGridView(pack.packArtUrl, pack.cards, sortOption));
+        default:
+            console.log("Somehow we've passed a nonexistent view type. This should be impossible.")
     }
 }
 
 function buildCardHTML(classesToAdd, imageUrl, cardType) {
     const card = document.createElement("div");
     card.classList.add(...classesToAdd);
-    if (cardType === "packArt") 
+    if (cardType === "packArt")
         card.style.backgroundImage = "url('" + imageUrl + "')";
     else
         card.style.backgroundImage = "url('../images/site/pokeball-loading.gif')";
-        preloadImage(card, imageUrl);
-        card.setAttribute("data-card-image", imageUrl);
+    preloadImage(card, imageUrl);
+    card.setAttribute("data-card-image", imageUrl);
     return card;
 }
 
@@ -105,20 +109,35 @@ $.fn.commentCards = function () {
 
 // -----------------------
 // UI - row view
-function displayRowView(packArtUrl, pack) {
-    deleteChildrenFrom(["single-pack-flip-area", "grid-view"]);
+function displayRowView(packArtUrl, pack, sortOption = null) {
     const packWrapper = document.createElement("div");
     packWrapper.classList.add("open-pack");
     document.getElementById("row-view").prepend(packWrapper);
     const packArtFront = buildCardHTML(["pack-art", "pulled-card"], packArtUrl, "packArt");
     packWrapper.appendChild(packArtFront);
 
+    // Sort cards in pack before rendering
+    if (sortOption !== null)
+        pack = sortThis(pack, sortOption);
+
     // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks. Must use div tags
     for (let i = 0; i < pack.length; i++) {
         const card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrl);
         packWrapper.appendChild(card);
-        card.addEventListener("click", () => zoomCard(pack[i].imageUrlHiRes) );
+        card.addEventListener("click", () => zoomCard(pack[i].imageUrlHiRes));
+
+        // But I can use img tags for the rarity markers
+        const raritySymbol = document.createElement("img");
+        raritySymbol.classList.add("rarity");
+        if (pack[i].rarity === "Common")
+            raritySymbol.src = "../images/site/rarity_common.png";
+        if (pack[i].rarity === "Uncommon")
+            raritySymbol.src = "../images/site/rarity_uncommon.png";
+        if (pack[i].rarity === "Holo Rare" || pack[i].rarity === "Rare" || pack[i].rarity === "Secret Rare")
+            raritySymbol.src = "../images/site/rarity_rare.png";
+        card.appendChild(raritySymbol)
     };
+
     // Event delegation for horizontal scrolling from https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
     packWrapper.addEventListener("wheel", e => {
         const toLeft = e.deltaY < 0 && packWrapper.scrollLeft > 0;
@@ -131,33 +150,76 @@ function displayRowView(packArtUrl, pack) {
     });
 }
 
+function setRowViewSort() {
+    const sortOption = document.querySelector(".select-row-view-sorting").value;
+    setDisplay(sortOption);
+}
+
+function sortThis(pack, sortOption) {
+    // Magic from https://afewminutesofcode.com/how-to-create-a-custom-sort-order-in-javascript
+    let sortedPack, sortBy;
+    const customSort = ({ data, sortBy, sortField }) => {
+        const sortByObject = sortBy.reduce((obj, item, index) => {
+            return {
+                ...obj,
+                [item]: index
+            }
+        }, {})
+        return data.sort((a, b) => sortByObject[a[sortField]] - sortByObject[b[sortField]])
+    }
+
+    switch (sortOption) {
+        case "rarityDescending":
+            sortBy = ["Common", "Uncommon", "Rare", "Holo Rare", "Secret Rare"];
+            sortedPack = customSort({ data: pack, sortBy, sortField: 'rarity' });
+            break;
+        case "rarityAscending":
+            sortBy = ["Secret Rare", "Holo Rare", "Rare", "Uncommon", "Common"];
+            sortedPack = customSort({ data: pack, sortBy, sortField: 'rarity' });
+            break;
+        case "packOrder":
+            sortedPack = pack.sort((a, b) => { return parseInt(a.pullOrder) - parseInt(b.pullOrder)})
+            break;
+        case "setNumberAscending":
+            sortedPack = pack.sort((a, b) => { return parseInt(a.number) - parseInt(b.number)})
+            break;
+        case "setNumberDescending":
+            sortedPack = pack.sort((a, b) => { return parseInt(b.number) - parseInt(a.number)})
+            break;
+    }
+    return sortedPack;
+}
+
+// TODO: Abstract this into a showElement function that takes in an array and spreads it
+function showSortButtonForRowView(bool) {
+    button = document.querySelector(".button.select-row-view-sorting");
+    if (bool)
+        button.style = "display: inline-block;";
+    else
+        button.style = "display: none;";
+}
+
 // -----------------------
 // UI - grid view
-function displayGridView(packArt, pack) {
+function displayGridView(packArt, pack, sortOption) {
     console.log("running displayGridView");
 }
 
 // -----------------------
 // UI - Event listeners
-const modal = document.getElementById("card-zoom");
-const closeModalButton = document.getElementsByClassName("close")[0];
-closeModalButton.onclick = function () {
-    modal.style.display = "none";
-    document.getElementById("hi-res-card").style.backgroundImage = "url('../images/site/pokeball-loading.gif')"
-}
-
 // When the user clicks anywhere outside of the modal, close it
-modal.onclick = function(e) {
+const modal = document.getElementById("card-zoom");
+modal.onclick = function (e) {
     if (e.target !== document.getElementById("hi-res-card")) {
         modal.style.display = "none";
+        document.getElementById("hi-res-card").style.backgroundImage = "url('../images/site/pokeball-loading.gif')";
     }
-  }
+}
 
-const openPackButton = document.getElementsByClassName("open-pack-button")[0];
-openPackButton.onclick = () => {openPack(currentSet)}
+const openPackButton = document.querySelector(".open-pack-button");
+openPackButton.onclick = () => { openPack(currentSet) }
 
 // -----------------------
 // Initialization
 // TODO: retrieve user's choice from localStorage
-setDisplay("singlePackFlip");
 chooseSet();

@@ -33,14 +33,15 @@ function openPack(setName) {
     const secretRarePulled = calculateOdds(set.chanceOfSecretRare);
     const pack = [];
     const randomPackArtUrlFront = set.packArt[randomIndex(set.packArt.length)].front;
-    set.cardsToPull.forEach(cardType => pullCard(cardType, pack, set, holoPulled, secretRarePulled))
+    set.cardsToPull.forEach((cardType, index) => pullCard(cardType, pack, set, holoPulled, secretRarePulled, index))
     pulledPacks.push({ set: set, packArtUrl: randomPackArtUrlFront, cards: [...pack] });
     switch (uiViewType) {
         case "singlePackFlip":
             singlePackFlip(randomPackArtUrlFront, pack);
             break;
         case "rowView":
-            displayRowView(randomPackArtUrlFront, pack);
+            const sortOption = document.querySelector(".select-row-view-sorting").value;
+            displayRowView(randomPackArtUrlFront, pack, sortOption);
             break;
         case "gridView":
             displayGridView(randomPackArtUrlFront, pack);
@@ -59,7 +60,7 @@ function calculateOdds(odds) {
         return false;
 }
 
-function pullCard(cardType, pack, set, holoPulled, secretRarePulled) {
+function pullCard(cardType, pack, set, holoPulled, secretRarePulled, index) {
     let card = null;
     switch (cardType) {
         case "Energy":
@@ -80,10 +81,13 @@ function pullCard(cardType, pack, set, holoPulled, secretRarePulled) {
 
     // Using recursion again. TODO: refactor to keep a duplicate array of possible choices, popping off chosen ones
     if (isDuplicate(card, pack)) {
-        pullCard(cardType, pack, set, holoPulled);
+        pullCard(cardType, pack, set, holoPulled, secretRarePulled, index);
     }
-    else
+    else {
+        card.pullOrder = index;
         pack.push(card);
+
+    }
     return pack;
 }
 

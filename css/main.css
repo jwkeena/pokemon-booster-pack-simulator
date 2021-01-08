@@ -184,6 +184,7 @@ div.card {
     transition-property: transform;
     /* must specify the property to be transitioned to prevent the background-image change from doing a .2s transition also */
     transition-duration: 0.2s;
+    position: relative;
 }
 
 .pulled-card img {
@@ -206,6 +207,14 @@ div.card {
     background-size: 100% 100%;
 }
 
+.rarity {
+    position: absolute;
+    bottom: -2rem;
+    right: 46%;
+    width: 1rem;
+    height: 1rem;
+}
+
 /* --------------------------------------------- */
 /* Buttons */
 .button {
@@ -220,8 +229,13 @@ div.card {
 }
 
 .button.select-set,
-.button.select-display {
+.button.select-display, 
+.button.select-row-view-sorting {
     padding: 10px 10px 10px 22px;
+}
+
+.button.select-row-view-sorting {
+    display: none;
 }
 
 /* --------------------------------------------- */

@@ -81,6 +81,14 @@
                 <option value="rowView">DISPLAY: ROWS</option>
                 <!-- <option value="gridView">grid</option> -->
             </select>
+            <select class="button select-row-view-sorting" onchange="setRowViewSort()">
+              <option value="packOrder">SORT BY: PACK ORDER</option>
+              <option value="rarityAscending">SORT BY: RARITY (DESC)</option>
+              <option value="rarityDescending">SORT BY: RARITY (ASC)</option>
+              <option value="setNumberAscending">SORT BY: SET NUMBER (ASC)</option>
+              <option value="setNumberDescending">SORT BY: SET NUMBER (DESC)</option>
+              <!-- <option value="gridView">grid</option> -->
+          </select>
             <!-- <button class="button">CLEAR</button> -->
 
           <div id="single-pack-flip-area" class="cards"></div>

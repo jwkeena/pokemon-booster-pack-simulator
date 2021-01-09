@@ -11,7 +11,7 @@ function setDisplay(sortOption) {
         case "singlePackFlip":
             showSortButtonForRowView(false);
             // Only want to display the most recently opened pack for now. TODO: allow user to toggle through packs opened via carousel
-            singlePackFlip(pulledPacks[pulledPacks.length - 1].packArtUrl, pulledPacks[0].cards);
+            singlePackFlip(pulledPacks[pulledPacks.length - 1].packArtUrls, pulledPacks[0].cards);
             break;
         case "rowView":
             showSortButtonForRowView(true);

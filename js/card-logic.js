@@ -32,19 +32,19 @@ function openPack(setName) {
     const holoPulled = calculateOdds(set.chanceOfHolo);
     const secretRarePulled = calculateOdds(set.chanceOfSecretRare);
     const pack = [];
-    const randomPackArtUrlFront = set.packArt[randomIndex(set.packArt.length)].front;
+    const randomPackArtUrls = set.packArt[randomIndex(set.packArt.length)];
     set.cardsToPull.forEach((cardType, index) => pullCard(cardType, pack, set, holoPulled, secretRarePulled, index))
-    pulledPacks.push({ set: set, packArtUrl: randomPackArtUrlFront, cards: [...pack] });
+    pulledPacks.push({ set: set, packArtUrls: randomPackArtUrls, cards: [...pack] });
     switch (uiViewType) {
         case "singlePackFlip":
-            singlePackFlip(randomPackArtUrlFront, pack);
+            singlePackFlip(randomPackArtUrls, pack);
             break;
         case "rowView":
             const sortOption = document.querySelector(".select-row-view-sorting").value;
-            displayRowView(randomPackArtUrlFront, pack, sortOption);
+            displayRowView(randomPackArtUrls, pack, sortOption);
             break;
         case "gridView":
-            displayGridView(randomPackArtUrlFront, pack);
+            displayGridView(randomPackArtUrls, pack);
             break;
         default:
             console.log("Default view type - this should be impossible");

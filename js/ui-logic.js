@@ -19,10 +19,10 @@ function setDisplay(sortOption) {
                 deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
             else
                 deleteChildrenFrom(["single-pack-flip-area", "grid-view"]);
-            pulledPacks.forEach(pack => { displayRowView(pack.packArtUrl, pack.cards, sortOption) })
+            pulledPacks.forEach(pack => { displayRowView(pack.packArtUrls, pack.cards, sortOption) })
             break;
         case "gridView":
-            pulledPacks.forEach(pack => displayGridView(pack.packArtUrl, pack.cards, sortOption));
+            pulledPacks.forEach(pack => displayGridView(pack.packArtUrls, pack.cards, sortOption));
         default:
             console.log("Somehow we've passed a nonexistent view type. This should be impossible.")
     }
@@ -38,6 +38,32 @@ function buildCardHTML(classesToAdd, imageUrl, cardType) {
     preloadImage(card, imageUrl);
     card.setAttribute("data-card-image", imageUrl);
     return card;
+}
+
+function buildPackArtHTML(packArtUrls) {
+    const packArt = document.createElement("div")
+    packArt.classList.add("pack-art", "pulled-card");
+
+    const packArtFrontDiv = document.createElement("div");
+    packArtFrontDiv.classList.add("pack-art-front");
+    const packArtFront = new Image();
+    packArtFront.src = packArtUrls.front;
+    packArtFrontDiv.appendChild(packArtFront);
+    packArt.appendChild(packArtFrontDiv);
+
+    const packArtBackDiv = document.createElement("div");
+    packArtBackDiv.classList.add("pack-art-back");
+    const packArtBack = new Image();
+    packArtBack.src = packArtUrls.back;
+    packArtBackDiv.appendChild(packArtBack);
+    packArt.appendChild(packArtBackDiv);
+    
+    // Can't use an arrow function here, since I need the "this" context of the div clicked
+    packArt.addEventListener("click", function() { 
+        this.classList.toggle("flipped");
+    });
+
+    return packArt;
 }
 
 // https://www.sitepoint.com/community/t/onload-for-background-image/6462
@@ -67,10 +93,10 @@ function deleteChildrenFrom(parentNodes) {
 }
 
 // UI - single pack flip
-function singlePackFlip(packArtUrl, pack) {
+function singlePackFlip(packArtUrls, pack) {
     deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
     const target = document.getElementById("single-pack-flip-area");
-    const packArtFront = buildCardHTML(["card", "pack-art-card", "card--current"], packArtUrl, "packArt");
+    const packArtFront = buildCardHTML(["card", "pack-art-card", "card--current"], packArtUrls.front, "packArt");
     target.append(packArtFront);
     for (let i = 0; i < pack.length; i++) {
         const card = buildCardHTML(["card", "loading"], pack[i].imageUrl);
@@ -109,12 +135,13 @@ $.fn.commentCards = function () {
 
 // -----------------------
 // UI - row view
-function displayRowView(packArtUrl, pack, sortOption = null) {
+function displayRowView(packArtUrls, pack, sortOption = null) {
     const packWrapper = document.createElement("div");
     packWrapper.classList.add("open-pack");
     document.getElementById("row-view").prepend(packWrapper);
-    const packArtFront = buildCardHTML(["pack-art", "pulled-card"], packArtUrl, "packArt");
-    packWrapper.appendChild(packArtFront);
+
+    const packArt = buildPackArtHTML(packArtUrls);
+    packWrapper.appendChild(packArt);
 
     // Sort cards in pack before rendering
     if (sortOption !== null)

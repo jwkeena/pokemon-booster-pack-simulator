@@ -157,16 +157,59 @@ div.card {
     overflow-y: auto;
 }
 
+.pack-art {
+    -webkit-transition: -webkit-transform .5s;
+    -moz-transition: -moz-transform .5s;
+    -o-transition: -o-transform .5s;
+    transition: transform .5s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%; 
+    -o-transform-origin: 50% 50%; 
+    transform-origin: 50% 50%;
+}
+
+.pack-art div {
+    position: absolute;
+    cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.pack-art .pack-art-back {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
+.pack-art.flipped {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
 .open-pack::-webkit-scrollbar {
     display: none;
 }
 
 .pulled-card.pack-art {
     background-size: 100% 100%;
-    border-radius: 0px;
     height: 500px;
     flex-basis: 320px;
     margin-top: .5rem;
+}
+
+.pack-art div img {
+    height: 500px;
+    width: 320px;
+    border-radius: 0px;
 }
 
 .pulled-card {
@@ -190,15 +233,18 @@ div.card {
     border-radius: 8px;
 }
 
-/* .pulled-card:not(:first-child) {
-    margin-left: -4rem;
+/* .pulled-card:hover:first-child{
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
 } */
 
-.pulled-card:hover {
+.pulled-card:hover:not(:first-child) {
     transform: translateY(-1.5rem);
 }
 
-.pulled-card:hover~.pulled-card {
+.pulled-card:hover:not(:first-child)~.pulled-card {
     transform: translateX(1.5rem);
 }
 

@@ -58,10 +58,9 @@ header>div {
     position: relative;
     list-style-type: none;
     padding: 0;
-    max-width: 240px;
+    max-width: min-content;
     margin: 5rem auto;
     margin-right: auto;
-    right: 5%;
     vertical-align: middle;
 }
 
@@ -347,14 +346,35 @@ h3 {
     }
 
     .cards {
-        margin-top: 3.75rem;
-        margin-bottom: 2rem;
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
     }
 
     .card {
         height: 45vh;
         width: 33vh;
-        left: 0;
+    }
+
+    @keyframes card-out {
+        0% {
+            z-index: 20;
+            transform: translateY(0px) rotate(-4deg);
+        }
+    
+        50% {
+            transform: translateY(-70%) rotate(-5deg) translateX(-40px);
+        }
+    
+        80% {
+            z-index: 1;
+        }
+    
+        100% {
+            transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+        }
     }
 
 }

@@ -221,9 +221,9 @@ function sortThis(pack, sortOption) {
 function showSortButtonForRowView(bool) {
     button = document.querySelector(".button.select-row-view-sorting");
     if (bool)
-        button.style = "display: inline-block;";
+        button.classList.toggle("hide");
     else
-        button.style = "display: none;";
+        button.classList.toggle("hide");
 }
 
 // -----------------------

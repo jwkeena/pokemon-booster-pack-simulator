@@ -18,6 +18,15 @@ a:hover {
     color: yellow;
 }
 
+.hide {
+    display: none;
+}
+
+.centered-text {
+    margin: 0 auto;
+    text-align: center;
+}
+
 /* --------------------------------------------- */
 /* Sticky footer using CSS Grid */
 /* See https://github.com/mdn/css-examples/blob/master/css-cookbook/sticky-footer--download.html */
@@ -283,6 +292,10 @@ div.card {
     display: none;
 }
 
+.mobile-only {
+    display: none;
+}
+
 /* --------------------------------------------- */
 /* Modal */
 .modal {
@@ -349,14 +362,18 @@ div.card {
 /* About page */
 .boxed {
     display: inline-block;
-    width: 700px;
+    width: 70vw;
     word-wrap: break-word;
     text-align: left;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
     background-color: blue;
     border: 15px solid yellow;
-    padding: 15px;
+    padding: 2rem;
+}
+
+.boxed li::marker {
+    padding-left: 5px;
 }
 
 .rarity_about {
@@ -370,7 +387,7 @@ h3 {
 
 /* --------------------------------------------- */
 /* Media queries */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 850px) {
     #logo {
         max-width: 70%;
     }
@@ -387,7 +404,7 @@ h3 {
         font-size: 1rem;
     }
 
-    .select-display {
+    .button.select-display, .button.select-row-view-sorting, .button.mobile-only {
         display: none;
     }
 
@@ -404,7 +421,7 @@ h3 {
         width: 33vh;
     }
 
-    @keyframes card-out {
+    /* @keyframes card-out {
         0% {
             z-index: 20;
             transform: translateY(0px) rotate(-4deg);
@@ -421,12 +438,27 @@ h3 {
         100% {
             transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
         }
+    } */
+
+    /* Buttons */
+    .button.mobile-only {
+        display: inline-block;
+        font-size: 1rem;
+        margin: 0 auto 2rem auto;
+        padding: 10px 5px;
     }
+
+    .button.desktop-only {
+        display: none;
+    }
+
+    /* About page */
+    /* footer>div,
+    header>div {
+        background: blue;
+        color: yellow;
+        padding: 1rem;
+    } */
 
 }
 
-@media only screen and (max-width: 700px) {
-    .modal-content {
-        width: 100%;
-    }
-}

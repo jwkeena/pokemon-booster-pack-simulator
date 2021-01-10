@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta
       name="description"
-      content="Free Pokemon TCG booster pack simulator, 90s nostalgia edition. The first 14 sets are reproduced in their entirety (base set, jungle, fossil, base set 2, team rocket, gym and neo series, etc), all the way up to e-card series. Game Boy Color cards also available on desktop. Keep track of the number of packs opened--get to 100 for a bonus."
+      content="Free Pokemon TCG booster pack simulator."
     />
     <meta
       name="keywords"
-      content="Pokemon,pokemon,booster,pack,box,simulator,opening,tcg,set,cards"
+      content="Pokemon,pokemon,booster,pack,box,simulator,sim,opening,tcg,set,cards,free"
     />
     <!-- Enables media queries on mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -62,7 +62,7 @@
         </header>
 
         <main>
-            <button class="button open-pack-button">OPEN</button>
+            <button class="button open-pack-button desktop-only">OPEN</button>
             <select class="button select-set" onchange="chooseSet()">
               <option value="baseSet">BASE SET</option>
               <option value="jungle">JUNGLE</option>
@@ -89,11 +89,12 @@
               <option value="setNumberDescending">SORT BY: SET NUMBER (DESC)</option>
               <!-- <option value="gridView">grid</option> -->
           </select>
-            <!-- <button class="button">CLEAR</button> -->
+          <!-- <button class="button">CLEAR</button> -->
 
           <div id="single-pack-flip-area" class="cards"></div>
           <div id="row-view"></div>
           <div id="grid-view"></div>
+          <button class="button open-pack-button mobile-only">OPEN</button>
           <div id="card-zoom" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>

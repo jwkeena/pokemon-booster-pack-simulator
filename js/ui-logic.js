@@ -222,8 +222,9 @@ function showSortButtonForRowView(bool) {
     button = document.querySelector(".button.select-row-view-sorting");
     if (bool)
         button.classList.toggle("hide");
-    else
+    else 
         button.classList.toggle("hide");
+
 }
 
 // -----------------------
@@ -243,10 +244,14 @@ modal.onclick = function (e) {
     }
 }
 
-const openPackButton = document.querySelector(".open-pack-button");
-openPackButton.onclick = () => { openPack(currentSet) }
+const openPackButtons = document.querySelectorAll(".open-pack-button");
+openPackButtons.forEach(button => button.onclick = () => { 
+    openPack(currentSet) 
+})
+
 
 // -----------------------
 // Initialization
 // TODO: retrieve user's choice from localStorage
 chooseSet();
+showSortButtonForRowView(false);

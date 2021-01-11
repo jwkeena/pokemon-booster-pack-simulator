@@ -18,7 +18,7 @@ a:hover {
     color: yellow;
 }
 
-.hide {
+.button.select-row-view-sorting.hide {
     display: none;
 }
 
@@ -288,10 +288,6 @@ div.card {
     padding: 10px 10px 10px 22px;
 }
 
-.button.select-row-view-sorting {
-    display: none;
-}
-
 .mobile-only {
     display: none;
 }
@@ -387,6 +383,12 @@ h3 {
 
 /* --------------------------------------------- */
 /* Media queries */
+@media screen and (min-width: 851px) and (max-width: 1050px) {
+    .button.select-row-view-sorting {
+        display: none;
+    }
+}
+
 @media only screen and (max-width: 850px) {
     #logo {
         max-width: 70%;

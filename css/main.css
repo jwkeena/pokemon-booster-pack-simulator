@@ -416,7 +416,6 @@ h3 {
 
     .magnifying-glass.mobile-only {
         position: absolute;
-        bottom: .5rem;
         width: 6vh;
         height: 6vh;
         cursor: pointer; 

@@ -102,7 +102,12 @@ function singlePackFlip(packArtUrls, pack) {
     const packArtFront = buildCardHTML(["card", "pack-art-card", "card--current"], packArtUrls.front, "none", "packArt");
     target.append(packArtFront);
     for (let i = 0; i < pack.length; i++) {
-        const card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes);
+        let card;
+        if (pack[i].rarity === "Holo Rare" || pack[i].rarity === "Secret Rare") {
+            card = buildCardHTML(["card", "loading", "confetti"], pack[i].imageUrl, pack[i].imageUrlHiRes);
+        } else {
+            card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes);
+        }
         card.addEventListener("contextmenu", (e) => {e.preventDefault(); zoomCard(pack[i].imageUrlHiRes);});
         target.appendChild(card);
     }
@@ -121,11 +126,18 @@ $.fn.commentCards = function () {
         // The crucial changes here was in three parts
         $cards.on('click', function () {
             if ($current.is(this)) { // First, I wanted the condition to only apply to the current card, NOT everything else (so I took the bang out)
+                
                 $cards.removeClass('card--current card--out card--next');
                 $current.addClass('card--out');
                 $current = $(this).next().length === 1 ? $(this).next().addClass('card--current') : $cards.first().addClass('card--current'); // Second, I added a ternary here to apply the "card-current" class to the next item if there is one, or if not, then the first item
                 $next = $current.next().length === 1 ? $current.next() : $cards.first(); // Likewise, and finally, I wanted to apply "card--next" class to the item after the current item if there is one, and if not, then the first card
                 $next.addClass('card--next');
+                if ($current.hasClass("confetti")){
+                    setTimeout(() => {
+                        $current.removeClass("confetti");
+                        confetti({particleCount: 200});
+                    }, 500);
+                }
             }
         });
 

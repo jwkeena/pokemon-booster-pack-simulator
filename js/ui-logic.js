@@ -9,12 +9,14 @@ function setDisplay(sortOption) {
     uiViewType = displayOption;
     switch (displayOption) {
         case "singlePackFlip":
-            showSortButtonForRowView(false);
+            showElement(".button.select-row-view-sorting", false);
+            showElement(".magnifying-glass.mobile-only", true);
             // Only want to display the most recently opened pack for now. TODO: allow user to toggle through packs opened via carousel
             singlePackFlip(pulledPacks[pulledPacks.length - 1].packArtUrls, pulledPacks[0].cards);
             break;
         case "rowView":
-            showSortButtonForRowView(true);
+            showElement(".button.select-row-view-sorting", true);
+            showElement(".magnifying-glass.mobile-only", false);
             if (sortOption !== null)
                 deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
             else
@@ -28,7 +30,7 @@ function setDisplay(sortOption) {
     }
 }
 
-function buildCardHTML(classesToAdd, imageUrl, cardType) {
+function buildCardHTML(classesToAdd, imageUrl, hiResImageUrl, cardType) {
     const card = document.createElement("div");
     card.classList.add(...classesToAdd);
     if (cardType === "packArt")
@@ -37,6 +39,7 @@ function buildCardHTML(classesToAdd, imageUrl, cardType) {
         card.style.backgroundImage = "url('../images/site/pokeball-loading.gif')";
     preloadImage(card, imageUrl);
     card.setAttribute("data-card-image", imageUrl);
+    card.setAttribute("data-card-image-hi-res", hiResImageUrl);
     return card;
 }
 
@@ -96,10 +99,11 @@ function deleteChildrenFrom(parentNodes) {
 function singlePackFlip(packArtUrls, pack) {
     deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
     const target = document.getElementById("single-pack-flip-area");
-    const packArtFront = buildCardHTML(["card", "pack-art-card", "card--current"], packArtUrls.front, "packArt");
+    const packArtFront = buildCardHTML(["card", "pack-art-card", "card--current"], packArtUrls.front, "none", "packArt");
     target.append(packArtFront);
     for (let i = 0; i < pack.length; i++) {
-        const card = buildCardHTML(["card", "loading"], pack[i].imageUrl);
+        const card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes);
+        card.addEventListener("contextmenu", (e) => {e.preventDefault(); zoomCard(pack[i].imageUrlHiRes);});
         target.appendChild(card);
     }
     $('.cards').commentCards();
@@ -218,12 +222,14 @@ function sortThis(pack, sortOption) {
 }
 
 // TODO: Abstract this into a showElement function that takes in an array and spreads it
-function showSortButtonForRowView(bool) {
-    button = document.querySelector(".button.select-row-view-sorting");
-    if (bool)
-        button.classList.toggle("hide");
-    else 
-        button.classList.toggle("hide");
+function showElement(selector, bool) {
+    el = document.querySelector(selector);
+    if (bool) {
+        el.classList.toggle("hide");
+    }
+    else {
+        el.classList.toggle("hide");
+    }
 
 }
 
@@ -247,6 +253,14 @@ modal.onclick = function (e) {
 const openPackButtons = document.querySelectorAll(".open-pack-button");
 openPackButtons.forEach(button => button.onclick = () => { 
     openPack(currentSet) 
+});
+
+const magnifyingGlass = document.querySelector(".magnifying-glass");
+magnifyingGlass.addEventListener("click", () => {
+    const currentCard = document.querySelector(".card--current");
+    const hiResUrl = currentCard.getAttribute("data-card-image-hi-res");
+    if (hiResUrl !== "none") 
+        zoomCard(hiResUrl);
 })
 
 
@@ -254,4 +268,4 @@ openPackButtons.forEach(button => button.onclick = () => {
 // Initialization
 // TODO: retrieve user's choice from localStorage
 chooseSet();
-showSortButtonForRowView(false);
+showElement(".button.select-row-view-sorting", false);

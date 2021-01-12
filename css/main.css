@@ -18,7 +18,7 @@ a:hover {
     color: yellow;
 }
 
-.button.select-row-view-sorting.hide {
+.button.select-row-view-sorting.hide, .magnifying-glass.mobile-only.hide {
     display: none;
 }
 
@@ -40,6 +40,10 @@ body {
 
 section {
     height: 100%;
+}
+
+main {
+    position: relative;
 }
 
 .section-wrapper {
@@ -387,6 +391,36 @@ h3 {
     .button.select-row-view-sorting {
         display: none;
     }
+
+    .magnifying-glass.mobile-only {
+        position: absolute;
+        bottom: .5rem;
+        width: 6vh;
+        height: 6vh;
+        cursor: pointer; 
+        right: 47vw;
+        display: inline-block;
+    }
+    
+    .cards {
+        margin-top: 5rem;
+        margin-bottom: 8rem;
+        margin-right: auto;
+        margin-left: auto;
+    } 
+    
+}
+
+@media only screen and (min-width: 850px) and (max-width: 1050px) and (orientation: landscape) {
+    #hi-res-card {
+        height: 80vh;
+        width: 58vh;
+        margin: 0 auto;
+        border-radius: 8px;
+        background-image: url('../images/site/pokeball-loading.gif');
+        background-size: cover;
+        background-position-x: center;
+    }
 }
 
 @media only screen and (max-width: 850px) {
@@ -423,6 +457,16 @@ h3 {
         width: 33vh;
     }
 
+    #hi-res-card {
+        height: 112vw;
+        width: 80vw;
+        margin: 0 auto;
+        border-radius: 8px;
+        background-image: url('../images/site/pokeball-loading.gif');
+        background-size: cover;
+        background-position-x: center;
+    }
+
     /* @keyframes card-out {
         0% {
             z-index: 20;
@@ -454,6 +498,16 @@ h3 {
         display: none;
     }
 
+    .magnifying-glass.mobile-only {
+        position: absolute;
+        bottom: 1.5rem;
+        width: 6vh;
+        height: 6vh;
+        cursor: pointer; 
+        right: 1.5rem;
+        display: inline-block;
+    }
+
     /* About page */
     /* footer>div,
     header>div {
@@ -464,3 +518,14 @@ h3 {
 
 }
 
+@media only screen and (max-width: 850px) and (orientation: landscape) {
+    #hi-res-card {
+        height: 65vh;
+        width: 47vh;
+        margin: 0 auto;
+        border-radius: 8px;
+        background-image: url('../images/site/pokeball-loading.gif');
+        background-size: cover;
+        background-position-x: center;
+    }
+}

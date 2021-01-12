@@ -137,7 +137,6 @@ div.card {
 
 .card--current {
     cursor: pointer;
-    /* user-select: auto; */
     position: relative;
     z-index: 10;
     opacity: 1;
@@ -245,13 +244,6 @@ div.card {
 .pulled-card img {
     border-radius: 8px;
 }
-
-/* .pulled-card:hover:first-child{
-    -webkit-transform: rotateY( 180deg );
-    -moz-transform: rotateY( 180deg );
-    -o-transform: rotateY( 180deg );
-    transform: rotateY( 180deg );
-} */
 
 .pulled-card:hover:not(:first-child) {
     transform: translateY(-1.5rem);
@@ -394,7 +386,7 @@ h3 {
 
     .magnifying-glass.mobile-only {
         position: absolute;
-        bottom: .5rem;
+        bottom: 1.5rem;
         width: 6vh;
         height: 6vh;
         cursor: pointer; 
@@ -420,6 +412,16 @@ h3 {
         background-image: url('../images/site/pokeball-loading.gif');
         background-size: cover;
         background-position-x: center;
+    }
+
+    .magnifying-glass.mobile-only {
+        position: absolute;
+        bottom: .5rem;
+        width: 6vh;
+        height: 6vh;
+        cursor: pointer; 
+        right: 47vw;
+        display: inline-block;
     }
 }
 
@@ -507,14 +509,6 @@ h3 {
         right: 1.5rem;
         display: inline-block;
     }
-
-    /* About page */
-    /* footer>div,
-    header>div {
-        background: blue;
-        color: yellow;
-        padding: 1rem;
-    } */
 
 }
 

@@ -135,7 +135,7 @@ $.fn.commentCards = function () {
                 if ($current.hasClass("confetti")){
                     setTimeout(() => {
                         $current.removeClass("confetti");
-                        confetti({particleCount: 200});
+                        confetti({particleCount: 200, gravity: .5, origin: {y: .7}, spread: 90});
                     }, 500);
                 }
             }

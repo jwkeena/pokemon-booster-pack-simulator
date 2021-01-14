@@ -1,0 +1,530 @@
+/* --------------------------------------------- */
+/* Whole page styling */
+body {
+    background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
+    background-image: linear-gradient(to right, red, orange, goldenrod, gold);
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    color: yellow;
+    padding: 0;
+    margin: 0;
+}
+
+a:visited,
+a:link,
+a:active,
+a:hover {
+    color: yellow;
+}
+
+.button.select-row-view-sorting.hide, .magnifying-glass.mobile-only.hide {
+    display: none;
+}
+
+.centered-text {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* --------------------------------------------- */
+/* Sticky footer using CSS Grid */
+/* See https://github.com/mdn/css-examples/blob/master/css-cookbook/sticky-footer--download.html */
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+section {
+    height: 100%;
+}
+
+main {
+    position: relative;
+}
+
+.section-wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* --------------------------------------------- */
+/* Header, footer styling */
+#logo {
+    width: 40rem;
+}
+
+footer>div,
+header>div {
+    background: blue;
+    color: yellow;
+    padding: 1rem;
+}
+
+/* --------------------------------------------- */
+/* Reverse holo - tips from https://css-tricks.com/chaining-multiple-blend-modes/ */
+.reverse-holo {
+    background-blend-mode: darken, multiply; 
+}
+
+/* --------------------------------------------- */
+/* Fancy deck flip animation from https://codepen.io/shshaw/pen/KzYXvP*/
+.cards {
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    max-width: min-content;
+    margin: 5rem auto;
+    margin-right: auto;
+    vertical-align: middle;
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 60vh;
+    width: 43vh;
+    border-radius: 8px;
+    transform: translateY(0) rotate(4deg) translateX(25px) scale(1);
+    transform-origin: 0 0;
+    transition: transform 0.6s cubic-bezier(.8, .2, .1, 0.8) 0.1s;
+    cursor: pointer;
+}
+
+div.card {
+    background-size: contain;
+}
+
+.card.pack-art-card {
+    background-size: 100% 100%;
+    border-radius: 0px;
+}
+
+.card:nth-child(-n+3) {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.card--next {
+    z-index: 5;
+    transform: translateY(-25px) rotate(4deg) translateX(25px) scale(1);
+}
+
+.card--out {
+    animation: card-out 0.6s cubic-bezier(.8, .2, .1, 0.8);
+    transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+    z-index: 1;
+    background: #bbb;
+}
+
+@keyframes card-out {
+    0% {
+        z-index: 20;
+        transform: translateY(0px) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-120%) rotate(-5deg) translateX(-40px);
+    }
+
+    80% {
+        z-index: 1;
+    }
+
+    100% {
+        transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+    }
+}
+
+.card--current {
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+    background: #EEE;
+    transform: rotate(-1deg) translateX(0%) scale(1);
+}
+
+.card.loading,
+.pulled-card.loading {
+    background-position-x: center;
+    background-size: cover;
+}
+
+/* --------------------------------------------- */
+/* Row view packs */
+.open-pack:first-child {
+    margin-top: -3rem;
+}
+
+.open-pack {
+    background-color: rgba(0, 0, 0, 0.15);
+    -webkit-text-fill-color: blue;
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: yellow;
+    margin: 1rem 9rem 2rem 8rem;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    overflow-y: auto;
+}
+
+.pack-art {
+    -webkit-transition: -webkit-transform .5s;
+    -moz-transition: -moz-transform .5s;
+    -o-transition: -o-transform .5s;
+    transition: transform .5s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%; 
+    -o-transform-origin: 50% 50%; 
+    transform-origin: 50% 50%;
+}
+
+.pack-art div {
+    position: absolute;
+    cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.pack-art .pack-art-back {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
+.pack-art.flipped {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
+.open-pack::-webkit-scrollbar {
+    display: none;
+}
+
+.pulled-card.pack-art {
+    background-size: 100% 100%;
+    height: 500px;
+    flex-basis: 320px;
+    margin-top: .5rem;
+}
+
+.pack-art div img {
+    height: 500px;
+    width: 320px;
+    border-radius: 0px;
+}
+
+.pulled-card {
+    background-color: none;
+    background-size: contain;
+    border-radius: 8px;
+    display: inline;
+    height: 440px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 320px;
+    margin: 2.5rem .5rem .5rem .5rem;
+    box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.7);
+    transition-property: transform;
+    /* must specify the property to be transitioned to prevent the background-image change from doing a .2s transition also */
+    transition-duration: 0.2s;
+    position: relative;
+}
+
+.pulled-card img {
+    border-radius: 8px;
+}
+
+.pulled-card:hover:not(:first-child) {
+    transform: translateY(-1.5rem);
+}
+
+.pulled-card:hover:not(:first-child)~.pulled-card {
+    transform: translateX(1.5rem);
+}
+
+.card-back {
+    background-size: 100% 100%;
+}
+
+.rarity {
+    position: absolute;
+    bottom: -2rem;
+    right: 46%;
+    width: 1rem;
+    height: 1rem;
+}
+
+/* --------------------------------------------- */
+/* Buttons */
+.button {
+    background: blue;
+    display: inline-block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: yellow;
+    padding: .5rem 2rem .5rem 2rem;
+    border-radius: 3px;
+}
+
+.button.select-set,
+.button.select-display, 
+.button.select-row-view-sorting {
+    padding: 10px 10px 10px 22px;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* --------------------------------------------- */
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    padding-top: 25px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    max-height: 600px;
+    display: block;
+    border-radius: 15px;
+}
+
+#hi-res-card {
+    height: 82vh;
+    width: 59vh;
+    margin: 0 auto;
+    border-radius: 8px;
+    background-image: url('../images/site/pokeball-loading.gif');
+    background-size: cover;
+    background-position-x: center;
+}
+
+.close {
+    position: relative;
+    color: #f1f1f1;
+    font-size: 70px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* --------------------------------------------- */
+/* About page */
+.boxed {
+    display: inline-block;
+    width: 70vw;
+    word-wrap: break-word;
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    background-color: blue;
+    border: 15px solid yellow;
+    padding: 2rem;
+}
+
+.boxed li::marker {
+    padding-left: 5px;
+}
+
+.rarity_about {
+    width: 15px;
+    height: 15px;
+}
+
+h3 {
+    text-align: center;
+}
+
+/* --------------------------------------------- */
+/* Media queries */
+@media screen and (min-width: 851px) and (max-width: 1050px) {
+    .button.select-row-view-sorting {
+        display: none;
+    }
+
+    .magnifying-glass.mobile-only {
+        position: absolute;
+        bottom: 1.5rem;
+        width: 6vh;
+        height: 6vh;
+        cursor: pointer; 
+        right: 47vw;
+        display: inline-block;
+    }
+    
+    .cards {
+        margin-top: 5rem;
+        margin-bottom: 8rem;
+        margin-right: auto;
+        margin-left: auto;
+    } 
+    
+}
+
+@media only screen and (min-width: 850px) and (max-width: 1050px) and (orientation: landscape) {
+    #hi-res-card {
+        height: 80vh;
+        width: 58vh;
+        margin: 0 auto;
+        border-radius: 8px;
+        background-image: url('../images/site/pokeball-loading.gif');
+        background-size: cover;
+        background-position-x: center;
+    }
+
+    .magnifying-glass.mobile-only {
+        position: absolute;
+        width: 6vh;
+        height: 6vh;
+        cursor: pointer; 
+        right: 47vw;
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    #logo {
+        max-width: 70%;
+    }
+
+    .button {
+        padding: 10px 5px;
+        margin: 0 auto;
+        font-size: 1rem;
+        display: inline-block;
+    }
+
+    .select-set {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .button.select-display, .button.select-row-view-sorting, .button.mobile-only {
+        display: none;
+    }
+
+    .cards {
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+    }
+
+    .card {
+        height: 45vh;
+        width: 33vh;
+    }
+
+    #hi-res-card {
+        height: 112vw;
+        width: 80vw;
+        margin: 0 auto;
+        border-radius: 8px;
+        background-image: url('../images/site/pokeball-loading.gif');
+        background-size: cover;
+        background-position-x: center;
+    }
+
+    /* @keyframes card-out {
+        0% {
+            z-index: 20;
+            transform: translateY(0px) rotate(-4deg);
+        }
+    
+        50% {
+            transform: translateY(-70%) rotate(-5deg) translateX(-40px);
+        }
+    
+        80% {
+            z-index: 1;
+        }
+    
+        100% {
+            transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+        }
+    } */
+
+    /* Buttons */
+    .button.mobile-only {
+        display: inline-block;
+        font-size: 1rem;
+        margin: 0 auto 2rem auto;
+        padding: 10px 5px;
+    }
+
+    .button.desktop-only {
+        display: none;
+    }
+
+    .magnifying-glass.mobile-only {
+        position: absolute;
+        bottom: 1.5rem;
+        width: 6vh;
+        height: 6vh;
+        cursor: pointer; 
+        right: 1.5rem;
+        display: inline-block;
+    }
+
+}
+
+@media only screen and (max-width: 850px) and (orientation: landscape) {
+    #hi-res-card {
+        height: 65vh;
+        width: 47vh;
+        margin: 0 auto;
+        border-radius: 8px;
+        background-image: url('../images/site/pokeball-loading.gif');
+        background-size: cover;
+        background-position-x: center;
+    }
+}

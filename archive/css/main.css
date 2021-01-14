@@ -1,0 +1,333 @@
+#deck {
+    position: fixed;
+    right: 10px;
+    text-align: right; 
+    font-size: 15px; 
+    list-style-type: none;
+    color: blue;
+}
+
+.deck:hover {
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#pulls {
+    position: fixed; 
+    left: 0;
+    text-align: left; 
+    font-size: 15px; 
+    left: -32px;
+    list-style-type: none;
+}
+
+.pulls:hover {
+    color: blue;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#eserieslogo {
+    opacity: 0;
+    width: 200px;
+    position: absolute;
+    top: 90px;
+    left: -210px;
+    transition: .25s;
+}
+
+#eserieslogo:hover {
+    opacity: 1;
+    width: 200px;
+    position: absolute;
+    top: 90px;
+    left: -210px;
+    transition: .35s;
+}
+
+.container {
+    text-align: center;
+
+}
+
+.container div {
+    position: relative;
+    display: inline-block;
+}
+
+#gbc-system {
+    position: absolute;
+    top: 40px;
+    width: 125px;
+    height: 210px;
+    right: -180px;
+}
+
+#gbc-screen {
+    position: absolute;
+    top: 64px;
+    width: 68px;
+    height: 60px;
+    right: -152px;
+}
+
+#rarity0, #set1, #set2, #set3 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -25px;
+    left: 154.5px;
+}
+
+#rarity1, #rarity2, #rarity3, #rarity4, #rarity5, #rarity6,
+#rarity7, #rarity8, #rarity9, #rarity10, #rarity11 {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: -20px;
+    left: 154.5px;
+}
+
+.rarity_about {
+    width: 15px;
+    height: 15px;
+}
+
+#topBar, #bottomBar {
+    background: blue;
+    padding: 10px;
+    color: yellow;
+    overflow: auto;
+}
+
+.topBarLeft {
+    float: left;
+}
+
+
+.topBarRight {
+    float: right;
+}
+
+body {
+    background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
+    background-image: linear-gradient(to right, red, orange, goldenrod, gold);
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    color: yellow;
+}
+
+.boxed {
+    display: inline-block;
+    width: 700px;
+    word-wrap: break-word;
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    background-color: blue;
+    border: 15px solid yellow;
+    padding: 15px;
+}
+
+#paypal, .title {
+    text-align: center;
+}
+
+hr {
+    border-color: yellow;
+}
+
+
+#button1, #button2, #button3, #button4, #button5, 
+#button6, #button7, #button8, #button9, #button10 {
+    background: blue;
+    display: inline-block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: yellow;
+    padding: 10px 42px 10px 42px;
+}
+
+#rewardButton, #resetButton {
+    background:yellow;
+    display: inline-block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: blue;
+}
+
+a:visited, a:link, a:active, a:hover {
+    color: yellow;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 25px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    max-height: 600px;
+    display: block;
+    border-radius: 15px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+  
+@keyframes zoom {
+from {transform:scale(0)} 
+to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: relative;
+    color: #f1f1f1;
+    font-size: 70px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+    @media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+/* Style common to all cards, adapted from https://jsfiddle.net/pbnz43gf/ */
+/*Specifies size and edge cropping*/
+.row img {
+    width: 315px;
+    height: 450px;
+    border-radius: 15px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+/* Ensures the back of the card is flipped to the front, not just inverted*/
+.pack .back, .card1 .back1, .card2 .back2, .card3 .back3, 
+.card4 .back4, .card5 .back5, .card6 .back6, .card7 .back7, 
+.card8 .back8, .card9 .back9, .card10 .back10, .card11 .back11 {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
+.pack.flipped, .card1.flipped, .card2.flipped, .card3.flipped, .card4.flipped, 
+.card5.flipped, .card6.flipped, .card7.flipped, .card8.flipped, .card9.flipped, 
+.card10.flipped, .card11.flipped {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
+.pack, .card1, .card2, .card3, .card4, .card5, .card6, .card7, .card8, .card9, .card10, .card11, .card12 {
+    display: inline-block; /*puts all cards in a row. Idea from https://codepen.io/roppazvan/pen/EZVLEy*/
+    padding-left: 5px; /* prevents cards from being stacked on top of each other*/
+    padding-right: 325px; /*same*/
+    -webkit-transition: -webkit-transform .5s;
+    -moz-transition: -moz-transform .5s;
+    -o-transition: -o-transform .5s;
+    transition: transform .5s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%; 
+    -o-transform-origin: 50% 50%; 
+    transform-origin: 50% 50%;
+}
+
+.pack div, .card1 div, .card2 div, .card3 div, .card4 div, .card5 div, .card6 div, .card7 div, .card8 div, .card9 div, .card10 div, .card11 div {
+    position: absolute; /* This keeps the front behind the back*/
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    height: 450px; /*Hides the holo background*/
+}
+
+/*Style common to dropup and dropdown buttons*/
+.dropdown, .dropup {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown:hover .dropdown-content, .dropup:hover .dropup-content {
+    display: block;
+}
+
+.dropdown-content a, .dropup-content a {
+    color: blue;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover, .dropup-content a:hover {
+    background-color: red;
+}
+
+/*Style that differentiates the dropdown and dropup buttons */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color :yellow;
+    width: 100%;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+
+.dropup-content {
+    display: none;
+    position: absolute;
+    bottom: 39px; /*This is the one line of code that differentiates the two elements*/
+    background-color :yellow;
+    width: 100%;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.back1, .back2, .back3,
+.back4, .back5, .back6,
+.back7, .back8, .back9 {
+    background-image: url(../../images/site/foil.jpg);
+    background-size: 315px 450px;
+    border-radius: 15px;    
+}
+
+.holographic {
+    mix-blend-mode: multiply; /*multiply and darken work*/
+}

@@ -66,6 +66,12 @@ header>div {
 }
 
 /* --------------------------------------------- */
+/* Reverse holo */
+.reverse-holo {
+    background-blend-mode: darken, multiply; 
+}
+
+/* --------------------------------------------- */
 /* Fancy deck flip animation from https://codepen.io/shshaw/pen/KzYXvP*/
 .cards {
     position: relative;

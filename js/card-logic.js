@@ -62,31 +62,44 @@ function calculateOdds(odds) {
 
 function pullCard(cardType, pack, set, holoPulled, secretRarePulled, index) {
     let card = null;
-    switch (cardType) {
-        case "Energy":
-            card = set.sortedCards.energy[randomIndex(set.sortedCards.energy.length)];
-            break;
-        case "Rare":
-            if (secretRarePulled) {
-                card = set.sortedCards.secretRares[randomIndex(set.sortedCards.secretRares.length)];
-            } else if (holoPulled) {
-                card = set.sortedCards.holoRares[randomIndex(set.sortedCards.holoRares.length)];
-            } else {
+    // Special rule for e-series cards. This is kind of ugly, though. TODO: integrate with switch statement, take out if/else statement?
+    if (set.holoReplaces5thCommon && holoPulled && index === 4) 
+        card = set.sortedCards.holoRares[randomIndex(set.sortedCards.holoRares.length)];
+    else 
+        switch (cardType) {
+            case "Energy":
+                card = set.sortedCards.energy[randomIndex(set.sortedCards.energy.length)];
+                break;
+            case "Rare":
+                if (secretRarePulled) {
+                    card = set.sortedCards.secretRares[randomIndex(set.sortedCards.secretRares.length)];
+                } else if (holoPulled) {
+                    card = set.sortedCards.holoRares[randomIndex(set.sortedCards.holoRares.length)];
+                } else {
+                    card = set.sortedCards.rares[randomIndex(set.sortedCards.rares.length)];
+                }
+                break;
+            case "Regular Rare":
                 card = set.sortedCards.rares[randomIndex(set.sortedCards.rares.length)];
-            }
-            break;
-        default: // Handles commons, uncommons
-            card = set.sortedCards[cardType.decapitalize() + "s"][randomIndex(set.sortedCards[cardType.decapitalize() + "s"].length)]
-    }
+                break;
+            case "Reverse Holo": 
+                const rarityTypes = ["Rare", "Uncommon", "Common"];
+                const randomRarity = rarityTypes[randomIndex(rarityTypes.length)];
+                card = set.sortedCards[randomRarity.decapitalize() + "s"][randomIndex(set.sortedCards[randomRarity.decapitalize() + "s"].length)];
+                card.isReverseHolo = true;
+                break;
+            default: // Handles commons, uncommons
+                card = set.sortedCards[cardType.decapitalize() + "s"][randomIndex(set.sortedCards[cardType.decapitalize() + "s"].length)]
+        }
 
     // Using recursion again. TODO: refactor to keep a duplicate array of possible choices, popping off chosen ones
-    if (isDuplicate(card, pack)) {
-        pullCard(cardType, pack, set, holoPulled, secretRarePulled, index);
+    // Only run duplicate check if it's not a reverse holo. Reverse holos CAN be duplicates
+    if (isDuplicate(card, pack) && cardType !== "Reverse Holo") {
+            pullCard(cardType, pack, set, holoPulled, secretRarePulled, index);
     }
     else {
         card.pullOrder = index;
         pack.push(card);
-
     }
     return pack;
 }

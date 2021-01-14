@@ -4,6 +4,7 @@ const sets = {
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 0,
+        holoReplaces5thCommon: false,
         cardsToPull: ["Energy", "Common", "Energy", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
         packArt: [
             {
@@ -34,6 +35,7 @@ const sets = {
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 0,
+        holoReplaces5thCommon: false,
         cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
         packArt: [
             {
@@ -64,6 +66,7 @@ const sets = {
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 0,
+        holoReplaces5thCommon: false,
         cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
         packArt: [
             {
@@ -94,6 +97,7 @@ const sets = {
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 0,
+        holoReplaces5thCommon: false,
         cardsToPull: ["Uncommon", "Uncommon", "Uncommon", "Common", "Common", "Common", "Common", "Common", "Rare", "Energy", "Energy"],
         packArt: [
             {
@@ -128,6 +132,7 @@ const sets = {
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 1 / 60,
+        holoReplaces5thCommon: false,
         cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
         packArt: [
             {
@@ -157,11 +162,12 @@ const sets = {
         logoUrl: 'https://images.pokemontcg.io/base5/logo.png',
         updatedAt: '08/14/2020 09:35:00'
     },
-    gymHeroes :   {
+    gymHeroes: {
         cards: gymHeroesCards,
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 0,
+        holoReplaces5thCommon: false,
         cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon", "Energy"],
         packArt: [
             {
@@ -190,12 +196,13 @@ const sets = {
         symbolUrl: 'https://images.pokemontcg.io/gym1/symbol.png',
         logoUrl: 'https://images.pokemontcg.io/gym1/logo.png',
         updatedAt: '08/14/2020 09:35:00'
-      },
-      gymChallenge:   {
+    },
+    gymChallenge: {
         cards: gymChallengeCards,
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 0,
+        holoReplaces5thCommon: false,
         cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon", "Energy"],
         packArt: [
             {
@@ -224,13 +231,14 @@ const sets = {
         symbolUrl: 'https://images.pokemontcg.io/gym2/symbol.png',
         logoUrl: 'https://images.pokemontcg.io/gym2/logo.png',
         updatedAt: '08/14/2020 09:35:00'
-      },
-      neoGenesis:   {
+    },
+    neoGenesis: {
         cards: neoGenesisCards,
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 0,
-        cardsToPull: ["Energy", "Rare", "Uncommon", "Uncommon", "Uncommon", "Common", "Common", "Common", "Common", "Common", "Common", ],
+        holoReplaces5thCommon: false,
+        cardsToPull: ["Energy", "Rare", "Uncommon", "Uncommon", "Uncommon", "Common", "Common", "Common", "Common", "Common", "Common",],
         packArt: [
             {
                 front: "../images/packart/neogenesis1.jpg",
@@ -258,12 +266,13 @@ const sets = {
         symbolUrl: 'https://images.pokemontcg.io/neo1/symbol.png',
         logoUrl: 'https://images.pokemontcg.io/neo1/logo.png',
         updatedAt: '08/14/2020 09:35:00'
-      },
-      neoDiscovery: {
+    },
+    neoDiscovery: {
         cards: neoDiscoveryCards,
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 0,
+        holoReplaces5thCommon: false,
         cardsToPull: ["Uncommon", "Uncommon", "Uncommon", "Rare", "Common", "Common", "Common", "Common", "Common", "Common", "Common"],
         packArt: [
             {
@@ -292,13 +301,14 @@ const sets = {
         symbolUrl: 'https://images.pokemontcg.io/neo2/symbol.png',
         logoUrl: 'https://images.pokemontcg.io/neo2/logo.png',
         updatedAt: '08/14/2020 09:35:00'
-      },
-      neoRevelation:   {
+    },
+    neoRevelation: {
         cards: neoRevelationCards,
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 1 / 12,
-        cardsToPull: [ "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
+        holoReplaces5thCommon: false,
+        cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
         packArt: [
             {
                 front: "../images/packart/neorevelation1.jpg",
@@ -326,13 +336,14 @@ const sets = {
         symbolUrl: 'https://images.pokemontcg.io/neo3/symbol.png',
         logoUrl: 'https://images.pokemontcg.io/neo3/logo.png',
         updatedAt: '08/14/2020 09:35:00'
-      },
-      neoDestiny:   {
+    },
+    neoDestiny: {
         cards: neoDestinyCards,
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 1 / 18,
-        cardsToPull: [ "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
+        holoReplaces5thCommon: false,
+        cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Rare", "Uncommon", "Uncommon", "Uncommon"],
         packArt: [
             {
                 front: "../images/packart/neodestiny1.jpg",
@@ -360,5 +371,110 @@ const sets = {
         symbolUrl: 'https://images.pokemontcg.io/neo4/symbol.png',
         logoUrl: 'https://images.pokemontcg.io/neo4/logo.png',
         updatedAt: '09/25/2020 10:09:00'
-      },
+    },
+    expeditionBaseSet: {
+        cards: expeditionBaseSetCards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 0,
+        holoReplaces5thCommon: true,
+        cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Reverse Holo", "Regular Rare", "Uncommon", "Uncommon"],
+        packArt: [
+            {
+                front: "../images/packart/expeditionbase1.jpg",
+                back: "../images/packart/expeditionbaseback.jpg",
+            },
+            {
+                front: "../images/packart/expeditionbase2.jpg",
+                back: "../images/packart/expeditionbaseback.jpg",
+            },
+            {
+                front: "../images/packart/expeditionbase3.jpg",
+                back: "../images/packart/expeditionbaseback.jpg",
+            },
+            {
+                front: "../images/packart/expeditionbase4.jpg",
+                back: "../images/packart/expeditionbaseback.jpg",
+            },
+        ],
+        code: 'ecard1',
+        ptcgoCode: 'EX',
+        name: 'Expedition Base Set',
+        series: 'E-Card',
+        totalCards: 165,
+        releaseDate: '09/15/2002',
+        symbolUrl: 'https://images.pokemontcg.io/ecard1/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/ecard1/logo.png',
+        updatedAt: '08/14/2020 09:35:00'
+    },
+    aquapolis: {
+        cards: aquapolisCards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 0,
+        holoReplaces5thCommon: true,
+        cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Reverse Holo", "Regular Rare", "Uncommon", "Uncommon"],
+        packArt: [
+            {
+                front: "../images/packart/aquapolis1.jpg",
+                back: "../images/packart/aquapolisback1.jpg",
+            },
+            {
+                front: "../images/packart/aquapolis2.jpg",
+                back: "../images/packart/aquapolisback.jpg",
+            },
+            {
+                front: "../images/packart/aquapolis3.jpg",
+                back: "../images/packart/aquapolisback.jpg",
+            },
+            {
+                front: "../images/packart/aquapolis4.jpg",
+                back: "../images/packart/aquapolisback.jpg",
+            },
+        ],
+        code: 'ecard2',
+        ptcgoCode: 'AQ',
+        name: 'Aquapolis',
+        series: 'E-Card',
+        totalCards: 186,
+        releaseDate: '01/15/2003',
+        symbolUrl: 'https://images.pokemontcg.io/ecard2/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/ecard2/logo.png',
+        updatedAt: '08/14/2020 09:35:00'
+    },
+    skyridge: {
+        cards: skyridgeCards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 0,
+        holoReplaces5thCommon: true,
+        cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Reverse Holo", "Regular Rare", "Uncommon", "Uncommon"],
+        packArt: [
+            {
+                front: "../images/packart/skyridge1.jpg",
+                back: "../images/packart/skyridgeback.jpg",
+            },
+            {
+                front: "../images/packart/skyridge2.jpg",
+                back: "../images/packart/skyridgeback.jpg",
+            },
+            {
+                front: "../images/packart/skyridge3.jpg",
+                back: "../images/packart/skyridgeback.jpg",
+            },
+            {
+                front: "../images/packart/skyridge4.jpg",
+                back: "../images/packart/skyridgeback.jpg",
+            },
+        ],
+        code: 'ecard3',
+        ptcgoCode: 'SK',
+        name: 'Skyridge',
+        series: 'E-Card',
+        totalCards: 182,
+        releaseDate: '05/12/2003',
+        symbolUrl: 'https://images.pokemontcg.io/ecard3/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/ecard3/logo.png',
+        updatedAt: '08/14/2020 09:35:00'
+    },
 }

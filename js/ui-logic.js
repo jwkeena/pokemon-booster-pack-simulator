@@ -37,7 +37,7 @@ function buildCardHTML(classesToAdd, imageUrl, hiResImageUrl, cardType) {
         card.style.backgroundImage = "url('" + imageUrl + "')";
     else
         card.style.backgroundImage = "url('../images/site/pokeball-loading.gif')";
-    preloadImage(card, imageUrl);
+    preloadImage(card, imageUrl, cardType);
     card.setAttribute("data-card-image", imageUrl);
     card.setAttribute("data-card-image-hi-res", hiResImageUrl);
     return card;
@@ -70,15 +70,20 @@ function buildPackArtHTML(packArtUrls) {
 }
 
 // https://www.sitepoint.com/community/t/onload-for-background-image/6462
-function preloadImage(card, imageUrl) {
+function preloadImage(card, imageUrl, cardType) {
     const img = new Image();
-    img.onload = () => onImageLoaded(card);
+    img.onload = () => onImageLoaded(card, cardType);
     img.src = imageUrl;
 }
 
-function onImageLoaded(card) {
+function onImageLoaded(card, cardType) {
     const loadedImageUrl = card.getAttribute("data-card-image");
-    card.style.backgroundImage = "url('" + loadedImageUrl + "')";
+    if (cardType === "reverseHolo") {
+        card.style.backgroundImage = "url('" + loadedImageUrl + "'), url('../images/site/foil.jpg')";
+        card.classList.add("reverse-holo");
+    }
+    else 
+        card.style.backgroundImage = "url('" + loadedImageUrl + "')";
     card.classList.remove("loading");
 }
 
@@ -105,6 +110,8 @@ function singlePackFlip(packArtUrls, pack) {
         let card;
         if (pack[i].rarity === "Holo Rare" || pack[i].rarity === "Secret Rare") {
             card = buildCardHTML(["card", "loading", "confetti"], pack[i].imageUrl, pack[i].imageUrlHiRes);
+        } else if (pack[i].isReverseHolo === true) {
+            card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes, "reverseHolo");
         } else {
             card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes);
         }

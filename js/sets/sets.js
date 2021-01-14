@@ -411,7 +411,7 @@ const sets = {
         cards: aquapolisCards,
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
-        chanceOfSecretRare: 0,
+        chanceOfSecretRare: 1 / 36, // Technically crystal rares, but they work the same way
         holoReplaces5thCommon: true,
         cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Reverse Holo", "Regular Rare", "Uncommon", "Uncommon"],
         packArt: [
@@ -446,7 +446,7 @@ const sets = {
         cards: skyridgeCards,
         cardsAreSorted: false,
         chanceOfHolo: 1 / 3,
-        chanceOfSecretRare: 0,
+        chanceOfSecretRare: 1 / 18, // Technically crystal rares, but they work the same way
         holoReplaces5thCommon: true,
         cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Reverse Holo", "Regular Rare", "Uncommon", "Uncommon"],
         packArt: [

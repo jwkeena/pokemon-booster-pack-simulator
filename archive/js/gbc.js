@@ -347,7 +347,7 @@ function changeScreen1() {
     cutElement = element.slice(0, -4);
     switch(currentSet) {
         case 1: 
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -356,7 +356,7 @@ function changeScreen1() {
             }
             break;
         case 2:
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -365,8 +365,8 @@ function changeScreen1() {
             }
             break;
         case 3:
-            if (element.charAt(14) === "m") {
-                cutElement = cutElement.slice(22);
+            if (element.charAt(17) === "m") {
+                cutElement = cutElement.slice(25);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -374,7 +374,7 @@ function changeScreen1() {
                     return;
                 }
             } else {
-                cutElement = cutElement.slice(24);
+                cutElement = cutElement.slice(27);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -384,7 +384,7 @@ function changeScreen1() {
             }
             break;
         case 4:
-            cutElement = cutElement.slice(25);
+            cutElement = cutElement.slice(28);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -402,7 +402,7 @@ function changeScreen2() {
     cutElement = element.slice(0, -4);
     switch(currentSet) {
         case 1: 
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -411,7 +411,7 @@ function changeScreen2() {
             }
             break;
         case 2:
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -420,8 +420,8 @@ function changeScreen2() {
             }
             break;
         case 3:
-            if (element.charAt(14) === "m") {
-                cutElement = cutElement.slice(22);
+            if (element.charAt(17) === "m") {
+                cutElement = cutElement.slice(25);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -429,7 +429,7 @@ function changeScreen2() {
                     return;
                 }
             } else {
-                cutElement = cutElement.slice(24);
+                cutElement = cutElement.slice(27);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -439,7 +439,7 @@ function changeScreen2() {
             }
             break;
         case 4:
-            cutElement = cutElement.slice(25);
+            cutElement = cutElement.slice(28);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -457,7 +457,7 @@ function changeScreen3() {
     cutElement = element.slice(0, -4);
     switch(currentSet) {
         case 1: 
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -466,7 +466,7 @@ function changeScreen3() {
             }
             break;
         case 2:
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -475,8 +475,8 @@ function changeScreen3() {
             }
             break;
         case 3:
-            if (element.charAt(14) === "m") {
-                cutElement = cutElement.slice(22);
+            if (element.charAt(17) === "m") {
+                cutElement = cutElement.slice(25);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -484,7 +484,7 @@ function changeScreen3() {
                     return;
                 }
             } else {
-                cutElement = cutElement.slice(24);
+                cutElement = cutElement.slice(27);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -494,7 +494,7 @@ function changeScreen3() {
             }
             break;
         case 4:
-            cutElement = cutElement.slice(25);
+            cutElement = cutElement.slice(28);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -512,7 +512,7 @@ function changeScreen4() {
     cutElement = element.slice(0, -4);
     switch(currentSet) {
         case 1: 
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -521,7 +521,7 @@ function changeScreen4() {
             }
             break;
         case 2:
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -530,8 +530,8 @@ function changeScreen4() {
             }
             break;
         case 3:
-            if (element.charAt(14) === "m") {
-                cutElement = cutElement.slice(22);
+            if (element.charAt(17) === "m") {
+                cutElement = cutElement.slice(25);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -539,7 +539,7 @@ function changeScreen4() {
                     return;
                 }
             } else {
-                cutElement = cutElement.slice(24);
+                cutElement = cutElement.slice(27);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -549,7 +549,7 @@ function changeScreen4() {
             }
             break;
         case 4:
-            cutElement = cutElement.slice(25);
+            cutElement = cutElement.slice(28);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -567,7 +567,7 @@ function changeScreen5() {
     cutElement = element.slice(0, -4);
     switch(currentSet) {
         case 1: 
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -576,7 +576,7 @@ function changeScreen5() {
             }
             break;
         case 2:
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -585,8 +585,8 @@ function changeScreen5() {
             }
             break;
         case 3:
-            if (element.charAt(14) === "m") {
-                cutElement = cutElement.slice(22);
+            if (element.charAt(17) === "m") {
+                cutElement = cutElement.slice(25);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -594,7 +594,7 @@ function changeScreen5() {
                     return;
                 }
             } else {
-                cutElement = cutElement.slice(24);
+                cutElement = cutElement.slice(27);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -604,7 +604,7 @@ function changeScreen5() {
             }
             break;
         case 4:
-            cutElement = cutElement.slice(25);
+            cutElement = cutElement.slice(28);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -622,7 +622,7 @@ function changeScreen6() {
     cutElement = element.slice(0, -4);
     switch(currentSet) {
         case 1: 
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -631,7 +631,7 @@ function changeScreen6() {
             }
             break;
         case 2:
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -640,8 +640,8 @@ function changeScreen6() {
             }
             break;
         case 3:
-            if (element.charAt(14) === "m") {
-                cutElement = cutElement.slice(22);
+            if (element.charAt(17) === "m") {
+                cutElement = cutElement.slice(25);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -649,7 +649,7 @@ function changeScreen6() {
                     return;
                 }
             } else {
-                cutElement = cutElement.slice(24);
+                cutElement = cutElement.slice(27);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -659,7 +659,7 @@ function changeScreen6() {
             }
             break;
         case 4:
-            cutElement = cutElement.slice(25);
+            cutElement = cutElement.slice(28);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -677,7 +677,7 @@ function changeScreen7() {
     cutElement = element.slice(0, -4);
     switch(currentSet) {
         case 1: 
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -686,7 +686,7 @@ function changeScreen7() {
             }
             break;
         case 2:
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -695,8 +695,8 @@ function changeScreen7() {
             }
             break;
         case 3:
-            if (element.charAt(14) === "m") {
-                cutElement = cutElement.slice(22);
+            if (element.charAt(17) === "m") {
+                cutElement = cutElement.slice(25);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -704,7 +704,7 @@ function changeScreen7() {
                     return;
                 }
             } else {
-                cutElement = cutElement.slice(24);
+                cutElement = cutElement.slice(27);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -714,7 +714,7 @@ function changeScreen7() {
             }
             break;
         case 4:
-            cutElement = cutElement.slice(25);
+            cutElement = cutElement.slice(28);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -732,7 +732,7 @@ function changeScreen8() {
     cutElement = element.slice(0, -4);
     switch(currentSet) {
         case 1: 
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -741,7 +741,7 @@ function changeScreen8() {
             }
             break;
         case 2:
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -750,8 +750,8 @@ function changeScreen8() {
             }
             break;
         case 3:
-            if (element.charAt(14) === "m") {
-                cutElement = cutElement.slice(22);
+            if (element.charAt(17) === "m") {
+                cutElement = cutElement.slice(25);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -759,7 +759,7 @@ function changeScreen8() {
                     return;
                 }
             } else {
-                cutElement = cutElement.slice(24);
+                cutElement = cutElement.slice(27);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -769,7 +769,7 @@ function changeScreen8() {
             }
             break;
         case 4:
-            cutElement = cutElement.slice(25);
+            cutElement = cutElement.slice(28);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -787,7 +787,7 @@ function changeScreen9() {
     cutElement = element.slice(0, -4);
     switch(currentSet) {
         case 1: 
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -796,7 +796,7 @@ function changeScreen9() {
             }
             break;
         case 2:
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -805,8 +805,8 @@ function changeScreen9() {
             }
             break;
         case 3:
-            if (element.charAt(14) === "m") {
-                cutElement = cutElement.slice(22);
+            if (element.charAt(17) === "m") {
+                cutElement = cutElement.slice(25);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -814,7 +814,7 @@ function changeScreen9() {
                     return;
                 }
             } else {
-                cutElement = cutElement.slice(24);
+                cutElement = cutElement.slice(27);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -824,7 +824,7 @@ function changeScreen9() {
             }
             break;
         case 4:
-            cutElement = cutElement.slice(25);
+            cutElement = cutElement.slice(28);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -842,7 +842,7 @@ function changeScreen10() {
     cutElement = element.slice(0, -4);
     switch(currentSet) {
         case 1: 
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -851,7 +851,7 @@ function changeScreen10() {
             }
             break;
         case 2:
-            cutElement = cutElement.slice(24);
+            cutElement = cutElement.slice(27);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -860,8 +860,8 @@ function changeScreen10() {
             }
             break;
         case 3:
-            if (element.charAt(14) === "m") {
-                cutElement = cutElement.slice(22);
+            if (element.charAt(17) === "m") {
+                cutElement = cutElement.slice(25);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -869,7 +869,7 @@ function changeScreen10() {
                     return;
                 }
             } else {
-                cutElement = cutElement.slice(24);
+                cutElement = cutElement.slice(27);
                 newId = document.getElementById(cutElement);
                 if (newId.className != "collected") {
                     newId.className = "collected";
@@ -879,7 +879,7 @@ function changeScreen10() {
             }
             break;
         case 4:
-            cutElement = cutElement.slice(25);
+            cutElement = cutElement.slice(28);
             newId = document.getElementById(cutElement);
             if (newId.className != "collected") {
                 newId.className = "collected";
@@ -919,7 +919,7 @@ function newPackColosseum() {
     let newRareString = newRare.slice(0, -4);
 
     //Cuts off "/colosseum" from beginning of string
-    newRareString = newRareString.slice(24);
+    newRareString = newRareString.slice(27);
 
     //Prints cut string to console
     document.getElementById(cardSlot1).innerHTML = newRareString;
@@ -941,9 +941,9 @@ function newPackColosseum() {
     let newUncommonString1 = newUncommon1.slice(0, -4);
     let newUncommonString2 = newUncommon2.slice(0, -4);
     let newUncommonString3 = newUncommon3.slice(0, -4);
-    newUncommonString1 = newUncommonString1.slice(24);
-    newUncommonString2 = newUncommonString2.slice(24);
-    newUncommonString3 = newUncommonString3.slice(24);
+    newUncommonString1 = newUncommonString1.slice(27);
+    newUncommonString2 = newUncommonString2.slice(27);
+    newUncommonString3 = newUncommonString3.slice(27);
     document.getElementById(cardSlot2).innerHTML = newUncommonString1;
     document.getElementById(cardSlot3).innerHTML = newUncommonString2;
     document.getElementById(cardSlot4).innerHTML = newUncommonString3;
@@ -988,11 +988,11 @@ function newPackColosseum() {
     let newCommonString3 = newCommon3.slice(0, -4);
     let newCommonString4 = newCommon4.slice(0, -4);
     let newCommonString5 = newCommon5.slice(0, -4);
-    newCommonString1 = newCommonString1.slice(24);
-    newCommonString2 = newCommonString2.slice(24);
-    newCommonString3 = newCommonString3.slice(24);
-    newCommonString4 = newCommonString4.slice(24);
-    newCommonString5 = newCommonString5.slice(24);
+    newCommonString1 = newCommonString1.slice(27);
+    newCommonString2 = newCommonString2.slice(27);
+    newCommonString3 = newCommonString3.slice(27);
+    newCommonString4 = newCommonString4.slice(27);
+    newCommonString5 = newCommonString5.slice(27);
     document.getElementById(cardSlot5).innerHTML = newCommonString1;
     document.getElementById(cardSlot6).innerHTML = newCommonString2;
     document.getElementById(cardSlot7).innerHTML = newCommonString3;
@@ -1019,7 +1019,7 @@ function newPackColosseum() {
     let cardSlot10 = cardOrderGameBoy[9];
     newCardOrderGameBoy.push(newEnergy);
     let newEnergyString = newEnergy.slice(0, -4);
-    newEnergyString = newEnergyString.slice(24);
+    newEnergyString = newEnergyString.slice(27);
     document.getElementById(cardSlot10).innerHTML = newEnergyString;
 }
 
@@ -1037,7 +1037,7 @@ function newPackEvolution() {
     let cardSlot1 = cardOrderGameBoy[0];
     newCardOrderGameBoy.push(newRare);
     let newRareString = newRare.slice(0, -4);
-    newRareString = newRareString.slice(24);
+    newRareString = newRareString.slice(27);
     document.getElementById(cardSlot1).innerHTML = newRareString;
 
     //Same process, for 3 uncommons
@@ -1057,9 +1057,9 @@ function newPackEvolution() {
     let newUncommonString1 = newUncommon1.slice(0, -4);
     let newUncommonString2 = newUncommon2.slice(0, -4);
     let newUncommonString3 = newUncommon3.slice(0, -4);
-    newUncommonString1 = newUncommonString1.slice(24);
-    newUncommonString2 = newUncommonString2.slice(24);
-    newUncommonString3 = newUncommonString3.slice(24);
+    newUncommonString1 = newUncommonString1.slice(27);
+    newUncommonString2 = newUncommonString2.slice(27);
+    newUncommonString3 = newUncommonString3.slice(27);
     document.getElementById(cardSlot2).innerHTML = newUncommonString1;
     document.getElementById(cardSlot3).innerHTML = newUncommonString2;
     document.getElementById(cardSlot4).innerHTML = newUncommonString3;
@@ -1104,11 +1104,11 @@ function newPackEvolution() {
     let newCommonString3 = newCommon3.slice(0, -4);
     let newCommonString4 = newCommon4.slice(0, -4);
     let newCommonString5 = newCommon5.slice(0, -4);
-    newCommonString1 = newCommonString1.slice(24);
-    newCommonString2 = newCommonString2.slice(24);
-    newCommonString3 = newCommonString3.slice(24);
-    newCommonString4 = newCommonString4.slice(24);
-    newCommonString5 = newCommonString5.slice(24);
+    newCommonString1 = newCommonString1.slice(27);
+    newCommonString2 = newCommonString2.slice(27);
+    newCommonString3 = newCommonString3.slice(27);
+    newCommonString4 = newCommonString4.slice(27);
+    newCommonString5 = newCommonString5.slice(27);
     document.getElementById(cardSlot5).innerHTML = newCommonString1;
     document.getElementById(cardSlot6).innerHTML = newCommonString2;
     document.getElementById(cardSlot7).innerHTML = newCommonString3;
@@ -1135,7 +1135,7 @@ function newPackEvolution() {
     let cardSlot10 = cardOrderGameBoy[9];
     newCardOrderGameBoy.push(newEnergy);
     let newEnergyString = newEnergy.slice(0, -4);
-    newEnergyString = newEnergyString.slice(24);
+    newEnergyString = newEnergyString.slice(27);
     document.getElementById(cardSlot10).innerHTML = newEnergyString;
 }
 
@@ -1167,7 +1167,7 @@ function newPackMystery() {
     let cardSlot1 = cardOrderGameBoy[0];
     newCardOrderGameBoy.push(newRare);
     let newRareString = newRare.slice(0, -4);
-    newRareString = newRareString.slice(22);
+    newRareString = newRareString.slice(25);
     document.getElementById(cardSlot1).innerHTML = newRareString;    
     
     //Same process, for 3 uncommons
@@ -1187,9 +1187,9 @@ function newPackMystery() {
     let newUncommonString1 = newUncommon1.slice(0, -4);
     let newUncommonString2 = newUncommon2.slice(0, -4);
     let newUncommonString3 = newUncommon3.slice(0, -4);
-    newUncommonString1 = newUncommonString1.slice(22);
-    newUncommonString2 = newUncommonString2.slice(22);
-    newUncommonString3 = newUncommonString3.slice(22);
+    newUncommonString1 = newUncommonString1.slice(25);
+    newUncommonString2 = newUncommonString2.slice(25);
+    newUncommonString3 = newUncommonString3.slice(25);
     document.getElementById(cardSlot2).innerHTML = newUncommonString1;
     document.getElementById(cardSlot3).innerHTML = newUncommonString2;
     document.getElementById(cardSlot4).innerHTML = newUncommonString3;
@@ -1252,12 +1252,12 @@ function newPackMystery() {
         let newCommonString5 = newCommonsArray[4].slice(0, -4);
         let newCommonString6 = newCommonsArray[5].slice(0, -4);
 
-        newCommonString1 = newCommonString1.slice(22);
-        newCommonString2 = newCommonString2.slice(22);
-        newCommonString3 = newCommonString3.slice(22);
-        newCommonString4 = newCommonString4.slice(22);
-        newCommonString5 = newCommonString5.slice(22);
-        newCommonString6 = newCommonString6.slice(22);
+        newCommonString1 = newCommonString1.slice(25);
+        newCommonString2 = newCommonString2.slice(25);
+        newCommonString3 = newCommonString3.slice(25);
+        newCommonString4 = newCommonString4.slice(25);
+        newCommonString5 = newCommonString5.slice(25);
+        newCommonString6 = newCommonString6.slice(25);
     
         document.getElementById("currentCard5").innerHTML = newCommonString1;
         document.getElementById("currentCard6").innerHTML = newCommonString2;
@@ -1334,40 +1334,40 @@ function newPackMystery() {
         newCommonString5 = newCommonString5.slice(0, -4);
         newCommonString6 = newCommonString6.slice(0, -4);
 
-        if (newCommonString1.charAt(14) === "m") {
-            newCommonString1 = newCommonString1.slice(22);
+        if (newCommonString1.charAt(17) === "m") {
+            newCommonString1 = newCommonString1.slice(25);
         } else {
-            newCommonString1 = newCommonString1.slice(24);
+            newCommonString1 = newCommonString1.slice(27);
         }
         
-        if (newCommonString2.charAt(14) === "m") {
-            newCommonString2 = newCommonString2.slice(22);
+        if (newCommonString2.charAt(17) === "m") {
+            newCommonString2 = newCommonString2.slice(25);
         } else {
-            newCommonString2 = newCommonString2.slice(24);
+            newCommonString2 = newCommonString2.slice(27);
         }
 
-        if (newCommonString3.charAt(14) === "m") {
-            newCommonString3 = newCommonString3.slice(22);
+        if (newCommonString3.charAt(17) === "m") {
+            newCommonString3 = newCommonString3.slice(25);
         } else {
-            newCommonString3 = newCommonString3.slice(24);
+            newCommonString3 = newCommonString3.slice(27);
         }
 
-        if (newCommonString4.charAt(14) === "m") {
-            newCommonString4 = newCommonString4.slice(22);
+        if (newCommonString4.charAt(17) === "m") {
+            newCommonString4 = newCommonString4.slice(25);
         } else {
-            newCommonString4 = newCommonString4.slice(24);
+            newCommonString4 = newCommonString4.slice(27);
         }
 
-        if (newCommonString5.charAt(14) === "m") {
-            newCommonString5 = newCommonString5.slice(22);
+        if (newCommonString5.charAt(17) === "m") {
+            newCommonString5 = newCommonString5.slice(25);
         } else {
-            newCommonString5 = newCommonString5.slice(24);
+            newCommonString5 = newCommonString5.slice(27);
         }
 
-        if (newCommonString6.charAt(14) === "m") {
-            newCommonString6 = newCommonString6.slice(22);
+        if (newCommonString6.charAt(17) === "m") {
+            newCommonString6 = newCommonString6.slice(25);
         } else {
-            newCommonString6 = newCommonString6.slice(24);
+            newCommonString6 = newCommonString6.slice(27);
         }
 
         document.getElementById("currentCard5").innerHTML = newCommonString1;
@@ -1407,7 +1407,7 @@ function newPackLaboratory() {
     let cardSlot1 = cardOrderGameBoy[0];
     newCardOrderGameBoy.push(newRare);
     let newRareString = newRare.slice(0, -4);
-    newRareString = newRareString.slice(25);
+    newRareString = newRareString.slice(28);
     document.getElementById(cardSlot1).innerHTML = newRareString;
 
     //Same process, for 3 uncommons
@@ -1427,9 +1427,9 @@ function newPackLaboratory() {
     let newUncommonString1 = newUncommon1.slice(0, -4);
     let newUncommonString2 = newUncommon2.slice(0, -4);
     let newUncommonString3 = newUncommon3.slice(0, -4);
-    newUncommonString1 = newUncommonString1.slice(25);
-    newUncommonString2 = newUncommonString2.slice(25);
-    newUncommonString3 = newUncommonString3.slice(25);
+    newUncommonString1 = newUncommonString1.slice(28);
+    newUncommonString2 = newUncommonString2.slice(28);
+    newUncommonString3 = newUncommonString3.slice(28);
     document.getElementById(cardSlot2).innerHTML = newUncommonString1;
     document.getElementById(cardSlot3).innerHTML = newUncommonString2;
     document.getElementById(cardSlot4).innerHTML = newUncommonString3;
@@ -1479,12 +1479,12 @@ function newPackLaboratory() {
     let newCommonString4 = newCommon4.slice(0, -4);
     let newCommonString5 = newCommon5.slice(0, -4);
     let newCommonString6 = newCommon6.slice(0, -4);
-    newCommonString1 = newCommonString1.slice(25);
-    newCommonString2 = newCommonString2.slice(25);
-    newCommonString3 = newCommonString3.slice(25);
-    newCommonString4 = newCommonString4.slice(25);
-    newCommonString5 = newCommonString5.slice(25);
-    newCommonString6 = newCommonString6.slice(25);
+    newCommonString1 = newCommonString1.slice(28);
+    newCommonString2 = newCommonString2.slice(28);
+    newCommonString3 = newCommonString3.slice(28);
+    newCommonString4 = newCommonString4.slice(28);
+    newCommonString5 = newCommonString5.slice(28);
+    newCommonString6 = newCommonString6.slice(28);
     document.getElementById(cardSlot5).innerHTML = newCommonString1;
     document.getElementById(cardSlot6).innerHTML = newCommonString2;
     document.getElementById(cardSlot7).innerHTML = newCommonString3;
@@ -1509,277 +1509,277 @@ function newPackLaboratory() {
 const colosseum = [
 
     //Holos and rares at index 0
-    ['../images/gbc/colosseum/A04 Scyther.png',
-    '../images/gbc/colosseum/A05 Pinsir.png',
-    '../images/gbc/colosseum/A18 Gyarados.png',
-    '../images/gbc/colosseum/A20 Raichu.png',
-    '../images/gbc/colosseum/A22 Magneton.png',
-    '../images/gbc/colosseum/A24 Zapdos.png',
-    '../images/gbc/colosseum/A28 Hitmonchan.png',
-    '../images/gbc/colosseum/A34 Wigglytuff.png',
-    '../images/gbc/colosseum/A36 Chansey.png',
-    '../images/gbc/colosseum/A37 Kangaskhan.png',
-    '../images/gbc/colosseum/A38 Snorlax.png',
+    ['../../images/gbc/colosseum/A04 Scyther.png',
+    '../../images/gbc/colosseum/A05 Pinsir.png',
+    '../../images/gbc/colosseum/A18 Gyarados.png',
+    '../../images/gbc/colosseum/A20 Raichu.png',
+    '../../images/gbc/colosseum/A22 Magneton.png',
+    '../../images/gbc/colosseum/A24 Zapdos.png',
+    '../../images/gbc/colosseum/A28 Hitmonchan.png',
+    '../../images/gbc/colosseum/A34 Wigglytuff.png',
+    '../../images/gbc/colosseum/A36 Chansey.png',
+    '../../images/gbc/colosseum/A37 Kangaskhan.png',
+    '../../images/gbc/colosseum/A38 Snorlax.png',
     //Regular rares
-    '../images/gbc/colosseum/A23 Electabuzz.png',
-    '../images/gbc/colosseum/A26 Dugtrio.png',
-    '../images/gbc/colosseum/A47 Item Finder.png',
-    '../images/gbc/colosseum/A43 Scoop Up.png',
-    '../images/gbc/colosseum/A44 Computer Search.png'],
+    '../../images/gbc/colosseum/A23 Electabuzz.png',
+    '../../images/gbc/colosseum/A26 Dugtrio.png',
+    '../../images/gbc/colosseum/A47 Item Finder.png',
+    '../../images/gbc/colosseum/A43 Scoop Up.png',
+    '../../images/gbc/colosseum/A44 Computer Search.png'],
 
     //Uncommons at index 1
-    ['../images/gbc/colosseum/A07 Charmeleon.png',
-    '../images/gbc/colosseum/A08 Growlithe.png',
-    '../images/gbc/colosseum/A09 Arcanine.png',
-    '../images/gbc/colosseum/A11 Magmar.png',
-    '../images/gbc/colosseum/A02 Nidorino.png',
-    '../images/gbc/colosseum/A12 Seel.png',
-    '../images/gbc/colosseum/A13 Dewgong.png',
-    '../images/gbc/colosseum/A17 Magikarp.png',
-    '../images/gbc/colosseum/A15 Seaking.png',
-    '../images/gbc/colosseum/A30 Kadabra.png',
-    '../images/gbc/colosseum/A32 Raticate.png',
-    '../images/gbc/colosseum/A49 Full Heal.png',
-    '../images/gbc/colosseum/A50 Revive.png',
-    '../images/gbc/colosseum/A39 Professor Oak.png',
-    '../images/gbc/colosseum/A45 PlusPower.png',
-    '../images/gbc/colosseum/A46 Defender.png'],
+    ['../../images/gbc/colosseum/A07 Charmeleon.png',
+    '../../images/gbc/colosseum/A08 Growlithe.png',
+    '../../images/gbc/colosseum/A09 Arcanine.png',
+    '../../images/gbc/colosseum/A11 Magmar.png',
+    '../../images/gbc/colosseum/A02 Nidorino.png',
+    '../../images/gbc/colosseum/A12 Seel.png',
+    '../../images/gbc/colosseum/A13 Dewgong.png',
+    '../../images/gbc/colosseum/A17 Magikarp.png',
+    '../../images/gbc/colosseum/A15 Seaking.png',
+    '../../images/gbc/colosseum/A30 Kadabra.png',
+    '../../images/gbc/colosseum/A32 Raticate.png',
+    '../../images/gbc/colosseum/A49 Full Heal.png',
+    '../../images/gbc/colosseum/A50 Revive.png',
+    '../../images/gbc/colosseum/A39 Professor Oak.png',
+    '../../images/gbc/colosseum/A45 PlusPower.png',
+    '../../images/gbc/colosseum/A46 Defender.png'],
 
     //Commons at index 2
-    ['../images/gbc/colosseum/A01 Nidoran(m).png',
-    '../images/gbc/colosseum/A06 Charmander.png',
-    '../images/gbc/colosseum/A10 Ponyta.png',
-    '../images/gbc/colosseum/A03 Tangela.png',
-    '../images/gbc/colosseum/A14 Goldeen.png',
-    '../images/gbc/colosseum/A16 Staryu.png',
-    '../images/gbc/colosseum/A19 Pikachu.png',
-    '../images/gbc/colosseum/A21 Magnemite.png',
-    '../images/gbc/colosseum/A25 Diglett.png',
-    '../images/gbc/colosseum/A27 Machop.png',
-    '../images/gbc/colosseum/A29 Abra.png',
-    '../images/gbc/colosseum/A31 Rattata.png',
-    '../images/gbc/colosseum/A33 Jigglypuff.png',
-    '../images/gbc/colosseum/A35 Meowth.png',
-    '../images/gbc/colosseum/A48 Potion.png',
-    '../images/gbc/colosseum/A40 Bill.png',
-    '../images/gbc/colosseum/A41 Switch.png',
-    '../images/gbc/colosseum/A42 Poke Ball.png'],
+    ['../../images/gbc/colosseum/A01 Nidoran(m).png',
+    '../../images/gbc/colosseum/A06 Charmander.png',
+    '../../images/gbc/colosseum/A10 Ponyta.png',
+    '../../images/gbc/colosseum/A03 Tangela.png',
+    '../../images/gbc/colosseum/A14 Goldeen.png',
+    '../../images/gbc/colosseum/A16 Staryu.png',
+    '../../images/gbc/colosseum/A19 Pikachu.png',
+    '../../images/gbc/colosseum/A21 Magnemite.png',
+    '../../images/gbc/colosseum/A25 Diglett.png',
+    '../../images/gbc/colosseum/A27 Machop.png',
+    '../../images/gbc/colosseum/A29 Abra.png',
+    '../../images/gbc/colosseum/A31 Rattata.png',
+    '../../images/gbc/colosseum/A33 Jigglypuff.png',
+    '../../images/gbc/colosseum/A35 Meowth.png',
+    '../../images/gbc/colosseum/A48 Potion.png',
+    '../../images/gbc/colosseum/A40 Bill.png',
+    '../../images/gbc/colosseum/A41 Switch.png',
+    '../../images/gbc/colosseum/A42 Poke Ball.png'],
 
     //Energy at index 3
-    ['../images/gbc/colosseum/E01 Grass Energy.png',
-    '../images/gbc/colosseum/E02 Fire Energy.png',
-    '../images/gbc/colosseum/E03 Water Energy.png',
-    '../images/gbc/colosseum/E04 Lightning Energy.png',
-    '../images/gbc/colosseum/E05 Fighting Energy.png',
-    '../images/gbc/colosseum/E06 Psychic Energy.png'],
+    ['../../images/gbc/colosseum/E01 Grass Energy.png',
+    '../../images/gbc/colosseum/E02 Fire Energy.png',
+    '../../images/gbc/colosseum/E03 Water Energy.png',
+    '../../images/gbc/colosseum/E04 Lightning Energy.png',
+    '../../images/gbc/colosseum/E05 Fighting Energy.png',
+    '../../images/gbc/colosseum/E06 Psychic Energy.png'],
 ]
 
 const evolution = [
 
     //Holos and rares at index 0
-    ['../images/gbc/evolution/B03 Venusaur.png',
-    '../images/gbc/evolution/B10 Nidoking.png',
-    '../images/gbc/evolution/B13 Victreebel.png',
-    '../images/gbc/evolution/B14 Charizard.png',
-    '../images/gbc/evolution/B16 Flareon.png',
-    '../images/gbc/evolution/B19 Blastoise.png',
-    '../images/gbc/evolution/B23 Vaporeon.png',
-    '../images/gbc/evolution/B24 Jolteon.png',
-    '../images/gbc/evolution/B28 Machamp.png',
-    '../images/gbc/evolution/B36 Gengar.png',
-    '../images/gbc/evolution/B40 Pidgeot.png',
+    ['../../images/gbc/evolution/B03 Venusaur.png',
+    '../../images/gbc/evolution/B10 Nidoking.png',
+    '../../images/gbc/evolution/B13 Victreebel.png',
+    '../../images/gbc/evolution/B14 Charizard.png',
+    '../../images/gbc/evolution/B16 Flareon.png',
+    '../../images/gbc/evolution/B19 Blastoise.png',
+    '../../images/gbc/evolution/B23 Vaporeon.png',
+    '../../images/gbc/evolution/B24 Jolteon.png',
+    '../../images/gbc/evolution/B28 Machamp.png',
+    '../../images/gbc/evolution/B36 Gengar.png',
+    '../../images/gbc/evolution/B40 Pidgeot.png',
     //Regular rares
-    '../images/gbc/evolution/B09 Beedrill.png',
-    '../images/gbc/evolution/B39 Pidgeotto.png',
-    '../images/gbc/evolution/B43 Pokemon Trader.png',
-    '../images/gbc/evolution/B44 Pokemon Breeder.png',
-    '../images/gbc/evolution/B45 Clefairy Doll.png'],
+    '../../images/gbc/evolution/B09 Beedrill.png',
+    '../../images/gbc/evolution/B39 Pidgeotto.png',
+    '../../images/gbc/evolution/B43 Pokemon Trader.png',
+    '../../images/gbc/evolution/B44 Pokemon Breeder.png',
+    '../../images/gbc/evolution/B45 Clefairy Doll.png'],
 
     //Uncommons at index 2
-    ['../images/gbc/evolution/B02 Ivysaur.png',
-    '../images/gbc/evolution/B06 Butterfree.png',
-    '../images/gbc/evolution/B08 Kakuna.png',
-    '../images/gbc/evolution/B12 Weepinbell.png',
-    '../images/gbc/evolution/B15 Rapidash.png',
-    '../images/gbc/evolution/B18 Wartortle.png',
-    '../images/gbc/evolution/B21 Kingler.png',
-    '../images/gbc/evolution/B26 Sandslash.png',
-    '../images/gbc/evolution/B27 Machoke.png',
-    '../images/gbc/evolution/B30 Graveler.png',
-    '../images/gbc/evolution/B31 Golem.png',
-    '../images/gbc/evolution/B33 Marowak.png',
-    '../images/gbc/evolution/B35 Haunter.png',
-    '../images/gbc/evolution/B37 Jynx.png',
-    '../images/gbc/evolution/B46 Energy Retrieval.png',
-    '../images/gbc/evolution/B49 Super Potion.png',
-    '../images/gbc/evolution/B50 Pokemon Flute.png'],
+    ['../../images/gbc/evolution/B02 Ivysaur.png',
+    '../../images/gbc/evolution/B06 Butterfree.png',
+    '../../images/gbc/evolution/B08 Kakuna.png',
+    '../../images/gbc/evolution/B12 Weepinbell.png',
+    '../../images/gbc/evolution/B15 Rapidash.png',
+    '../../images/gbc/evolution/B18 Wartortle.png',
+    '../../images/gbc/evolution/B21 Kingler.png',
+    '../../images/gbc/evolution/B26 Sandslash.png',
+    '../../images/gbc/evolution/B27 Machoke.png',
+    '../../images/gbc/evolution/B30 Graveler.png',
+    '../../images/gbc/evolution/B31 Golem.png',
+    '../../images/gbc/evolution/B33 Marowak.png',
+    '../../images/gbc/evolution/B35 Haunter.png',
+    '../../images/gbc/evolution/B37 Jynx.png',
+    '../../images/gbc/evolution/B46 Energy Retrieval.png',
+    '../../images/gbc/evolution/B49 Super Potion.png',
+    '../../images/gbc/evolution/B50 Pokemon Flute.png'],
 
     //Commons at index 3
-    ['../images/gbc/evolution/B01 Bulbasaur.png',
-    '../images/gbc/evolution/B04 Caterpie.png',
-    '../images/gbc/evolution/B05 Metapod.png',
-    '../images/gbc/evolution/B07 Weedle.png',
-    '../images/gbc/evolution/B11 Bellsprout.png',
-    '../images/gbc/evolution/B17 Squirtle.png',
-    '../images/gbc/evolution/B20 Krabby.png',
-    '../images/gbc/evolution/B22 Starmie.png',
-    '../images/gbc/evolution/B25 Sandshrew.png',
-    '../images/gbc/evolution/B29 Geodude.png',
-    '../images/gbc/evolution/B32 Cubone.png',
-    '../images/gbc/evolution/B34 Gastly.png',
-    '../images/gbc/evolution/B38 Pidgey.png',
-    '../images/gbc/evolution/B41 Jigglypuff.png',
-    '../images/gbc/evolution/B42 Eevee.png',
-    '../images/gbc/evolution/B47 Energy Search.png',
-    '../images/gbc/evolution/B48 Gust of Wind.png'],
+    ['../../images/gbc/evolution/B01 Bulbasaur.png',
+    '../../images/gbc/evolution/B04 Caterpie.png',
+    '../../images/gbc/evolution/B05 Metapod.png',
+    '../../images/gbc/evolution/B07 Weedle.png',
+    '../../images/gbc/evolution/B11 Bellsprout.png',
+    '../../images/gbc/evolution/B17 Squirtle.png',
+    '../../images/gbc/evolution/B20 Krabby.png',
+    '../../images/gbc/evolution/B22 Starmie.png',
+    '../../images/gbc/evolution/B25 Sandshrew.png',
+    '../../images/gbc/evolution/B29 Geodude.png',
+    '../../images/gbc/evolution/B32 Cubone.png',
+    '../../images/gbc/evolution/B34 Gastly.png',
+    '../../images/gbc/evolution/B38 Pidgey.png',
+    '../../images/gbc/evolution/B41 Jigglypuff.png',
+    '../../images/gbc/evolution/B42 Eevee.png',
+    '../../images/gbc/evolution/B47 Energy Search.png',
+    '../../images/gbc/evolution/B48 Gust of Wind.png'],
     
 ]
 
 const mystery = [
 
     //Holos and rarees at index 0
-    ['../images/gbc/mystery/C03 Nidoqueen.png',
-    '../images/gbc/mystery/C06 Vileplume.png',
-    '../images/gbc/mystery/C12 Ninetales.png',
-    '../images/gbc/mystery/C14 Moltres.png',
-    '../images/gbc/mystery/C17 Lapras.png',
-    '../images/gbc/mystery/C21 Articuno.png',
-    '../images/gbc/mystery/C23 Raichu.png',
-    '../images/gbc/mystery/C25 Electrode.png',
-    '../images/gbc/mystery/C27 Zapdos.png',
-    '../images/gbc/mystery/C33 Kabutops.png',
-    '../images/gbc/mystery/C34 Aerodactyl.png',
-    '../images/gbc/mystery/C35 Alakazam.png',
-    '../images/gbc/mystery/C37 Mew.png',
-    '../images/gbc/mystery/C38 Clefairy.png',
-    '../images/gbc/mystery/C46 Dragonite.png',
+    ['../../images/gbc/mystery/C03 Nidoqueen.png',
+    '../../images/gbc/mystery/C06 Vileplume.png',
+    '../../images/gbc/mystery/C12 Ninetales.png',
+    '../../images/gbc/mystery/C14 Moltres.png',
+    '../../images/gbc/mystery/C17 Lapras.png',
+    '../../images/gbc/mystery/C21 Articuno.png',
+    '../../images/gbc/mystery/C23 Raichu.png',
+    '../../images/gbc/mystery/C25 Electrode.png',
+    '../../images/gbc/mystery/C27 Zapdos.png',
+    '../../images/gbc/mystery/C33 Kabutops.png',
+    '../../images/gbc/mystery/C34 Aerodactyl.png',
+    '../../images/gbc/mystery/C35 Alakazam.png',
+    '../../images/gbc/mystery/C37 Mew.png',
+    '../../images/gbc/mystery/C38 Clefairy.png',
+    '../../images/gbc/mystery/C46 Dragonite.png',
     //Regular rare
-    '../images/gbc/mystery/C45 Dragonair.png'],
+    '../../images/gbc/mystery/C45 Dragonair.png'],
 
     //Uncommons at index 1
-    ['../images/gbc/mystery/E07 Double Colorless Energy.png',
-    '../images/gbc/mystery/C50 Pokemon Center.png',
-    '../images/gbc/mystery/C02 Nidorina.png',
-    '../images/gbc/mystery/C05 Gloom.png',
-    '../images/gbc/mystery/C08 Parasect.png',
-    '../images/gbc/mystery/C10 Exeggutor.png',
-    '../images/gbc/mystery/C13 Flareon.png',
-    '../images/gbc/mystery/C16 Cloyster.png',
-    '../images/gbc/mystery/C18 Vaporeon.png',
-    '../images/gbc/mystery/C20 Omastar.png',
-    '../images/gbc/mystery/C26 Jolteon.png',
-    '../images/gbc/mystery/C29 Primeape.png',
-    '../images/gbc/mystery/C31 Rhydon.png',
-    '../images/gbc/mystery/C40 Persian.png',
-    '../images/gbc/mystery/C41 Farfetchd.png',
-    '../images/gbc/mystery/C42 Lickitung.png',
-    '../images/gbc/mystery/C43 Tauros.png',
-    '../images/gbc/mystery/C44 Dratini.png',
-    '../images/gbc/mystery/C47 Mr. Fuji.png',],
+    ['../../images/gbc/mystery/E07 Double Colorless Energy.png',
+    '../../images/gbc/mystery/C50 Pokemon Center.png',
+    '../../images/gbc/mystery/C02 Nidorina.png',
+    '../../images/gbc/mystery/C05 Gloom.png',
+    '../../images/gbc/mystery/C08 Parasect.png',
+    '../../images/gbc/mystery/C10 Exeggutor.png',
+    '../../images/gbc/mystery/C13 Flareon.png',
+    '../../images/gbc/mystery/C16 Cloyster.png',
+    '../../images/gbc/mystery/C18 Vaporeon.png',
+    '../../images/gbc/mystery/C20 Omastar.png',
+    '../../images/gbc/mystery/C26 Jolteon.png',
+    '../../images/gbc/mystery/C29 Primeape.png',
+    '../../images/gbc/mystery/C31 Rhydon.png',
+    '../../images/gbc/mystery/C40 Persian.png',
+    '../../images/gbc/mystery/C41 Farfetchd.png',
+    '../../images/gbc/mystery/C42 Lickitung.png',
+    '../../images/gbc/mystery/C43 Tauros.png',
+    '../../images/gbc/mystery/C44 Dratini.png',
+    '../../images/gbc/mystery/C47 Mr. Fuji.png',],
 
     //Commons at index 2
-    ['../images/gbc/mystery/C01 Nidoran.png',
-    '../images/gbc/mystery/C07 Paras.png',
-    '../images/gbc/mystery/C09 Exeggcute.png',
-    '../images/gbc/mystery/C11 Vulpix.png',
-    '../images/gbc/mystery/C15 Shellder.png',
-    '../images/gbc/mystery/C19 Omanyte.png',
-    '../images/gbc/mystery/C22 Pikachu.png',
-    '../images/gbc/mystery/C24 Voltorb.png',
-    '../images/gbc/mystery/C28 Mankey.png',
-    '../images/gbc/mystery/C30 Rhyhorn.png',
-    '../images/gbc/mystery/C32 Kabuto.png',
-    '../images/gbc/mystery/C36 Drowzee.png',
-    '../images/gbc/mystery/C39 Meowth.png',
-    '../images/gbc/mystery/C04 Oddish.png',
-    '../images/gbc/mystery/C48 Mysterious Fossil.png',
-    '../images/gbc/mystery/C49 Energy Removal.png'],
+    ['../../images/gbc/mystery/C01 Nidoran.png',
+    '../../images/gbc/mystery/C07 Paras.png',
+    '../../images/gbc/mystery/C09 Exeggcute.png',
+    '../../images/gbc/mystery/C11 Vulpix.png',
+    '../../images/gbc/mystery/C15 Shellder.png',
+    '../../images/gbc/mystery/C19 Omanyte.png',
+    '../../images/gbc/mystery/C22 Pikachu.png',
+    '../../images/gbc/mystery/C24 Voltorb.png',
+    '../../images/gbc/mystery/C28 Mankey.png',
+    '../../images/gbc/mystery/C30 Rhyhorn.png',
+    '../../images/gbc/mystery/C32 Kabuto.png',
+    '../../images/gbc/mystery/C36 Drowzee.png',
+    '../../images/gbc/mystery/C39 Meowth.png',
+    '../../images/gbc/mystery/C04 Oddish.png',
+    '../../images/gbc/mystery/C48 Mysterious Fossil.png',
+    '../../images/gbc/mystery/C49 Energy Removal.png'],
     
 ]
 
 const laboratory = [
 
     //Holos and rares at index 0
-    ['../images/gbc/laboratory/D08 Muk.png',
-    '../images/gbc/laboratory/D06 Venomoth.png',
-    '../images/gbc/laboratory/D18 Poliwrath.png',
-    '../images/gbc/laboratory/D24 Magneton.png',
-    '../images/gbc/laboratory/D28 Hitmonlee.png',
-    '../images/gbc/laboratory/D35 Mewtwo.png',
-    '../images/gbc/laboratory/D32 Haunter.png',
-    '../images/gbc/laboratory/D33 Hypno.png',
-    '../images/gbc/laboratory/D34 Mr. Mime.png',
-    '../images/gbc/laboratory/D39 Clefable.png',
+    ['../../images/gbc/laboratory/D08 Muk.png',
+    '../../images/gbc/laboratory/D06 Venomoth.png',
+    '../../images/gbc/laboratory/D18 Poliwrath.png',
+    '../../images/gbc/laboratory/D24 Magneton.png',
+    '../../images/gbc/laboratory/D28 Hitmonlee.png',
+    '../../images/gbc/laboratory/D35 Mewtwo.png',
+    '../../images/gbc/laboratory/D32 Haunter.png',
+    '../../images/gbc/laboratory/D33 Hypno.png',
+    '../../images/gbc/laboratory/D34 Mr. Mime.png',
+    '../../images/gbc/laboratory/D39 Clefable.png',
     //Regular rares
-    '../images/gbc/laboratory/D12 Ninetales.png',
-    '../images/gbc/laboratory/D25 Electrode.png',
-    '../images/gbc/laboratory/D42 Ditto.png',
-    '../images/gbc/laboratory/D36 Pidgeot.png',
-    '../images/gbc/laboratory/D45 Lass.png',
-    '../images/gbc/laboratory/D46 Super Energy Removal.png',
-    '../images/gbc/laboratory/D48 Devolution Spray.png',
-    '../images/gbc/laboratory/D44 Impostor Professor Oak.png'],
+    '../../images/gbc/laboratory/D12 Ninetales.png',
+    '../../images/gbc/laboratory/D25 Electrode.png',
+    '../../images/gbc/laboratory/D42 Ditto.png',
+    '../../images/gbc/laboratory/D36 Pidgeot.png',
+    '../../images/gbc/laboratory/D45 Lass.png',
+    '../../images/gbc/laboratory/D46 Super Energy Removal.png',
+    '../../images/gbc/laboratory/D48 Devolution Spray.png',
+    '../../images/gbc/laboratory/D44 Impostor Professor Oak.png'],
 
     //Uncommons at index 1
-    ['../images/gbc/laboratory/D10 Weezing.png',
-    '../images/gbc/laboratory/D02 Arbok.png',
-    '../images/gbc/laboratory/D04 Golbat.png',
-    '../images/gbc/laboratory/D13 Magmar.png',
-    '../images/gbc/laboratory/D15 Golduck.png',
-    '../images/gbc/laboratory/D17 Poliwhirl.png',
-    '../images/gbc/laboratory/D20 Tentacruel.png',
-    '../images/gbc/laboratory/D22 Seadra.png',
-    '../images/gbc/laboratory/D27 Marowak.png',
-    '../images/gbc/laboratory/D31 Gastly.png',
-    '../images/gbc/laboratory/D43 Porygon.png',
-    '../images/gbc/laboratory/D38 Fearow.png',
-    '../images/gbc/laboratory/D41 Dodrio.png',
-    '../images/gbc/laboratory/D47 Pokedex.png',
-    '../images/gbc/laboratory/D49 Maintenance.png',
-    '../images/gbc/laboratory/D30 Slowbro.png'],
+    ['../../images/gbc/laboratory/D10 Weezing.png',
+    '../../images/gbc/laboratory/D02 Arbok.png',
+    '../../images/gbc/laboratory/D04 Golbat.png',
+    '../../images/gbc/laboratory/D13 Magmar.png',
+    '../../images/gbc/laboratory/D15 Golduck.png',
+    '../../images/gbc/laboratory/D17 Poliwhirl.png',
+    '../../images/gbc/laboratory/D20 Tentacruel.png',
+    '../../images/gbc/laboratory/D22 Seadra.png',
+    '../../images/gbc/laboratory/D27 Marowak.png',
+    '../../images/gbc/laboratory/D31 Gastly.png',
+    '../../images/gbc/laboratory/D43 Porygon.png',
+    '../../images/gbc/laboratory/D38 Fearow.png',
+    '../../images/gbc/laboratory/D41 Dodrio.png',
+    '../../images/gbc/laboratory/D47 Pokedex.png',
+    '../../images/gbc/laboratory/D49 Maintenance.png',
+    '../../images/gbc/laboratory/D30 Slowbro.png'],
 
     //Commons at index 2
-    ['../images/gbc/laboratory/D09 Koffing.png',
-    '../images/gbc/laboratory/D11 Tangela.png',
-    '../images/gbc/laboratory/D01 Ekans.png',
-    '../images/gbc/laboratory/D03 Zubat.png',
-    '../images/gbc/laboratory/D07 Grimer.png',
-    '../images/gbc/laboratory/D05 Venonat.png',
-    '../images/gbc/laboratory/D14 Psyduck.png',
-    '../images/gbc/laboratory/D16 Poliwag.png',
-    '../images/gbc/laboratory/D19 Tentacool.png',
-    '../images/gbc/laboratory/D21 Horsea.png',
-    '../images/gbc/laboratory/D23 Magnemite.png',
-    '../images/gbc/laboratory/D26 Onix.png',
-    '../images/gbc/laboratory/D37 Spearow.png',
-    '../images/gbc/laboratory/D40 Doduo.png',
-    '../images/gbc/laboratory/D50 Gambler.png',
-    '../images/gbc/laboratory/D51 Recycle.png',
-    '../images/gbc/laboratory/D29 Slowpoke.png'],
+    ['../../images/gbc/laboratory/D09 Koffing.png',
+    '../../images/gbc/laboratory/D11 Tangela.png',
+    '../../images/gbc/laboratory/D01 Ekans.png',
+    '../../images/gbc/laboratory/D03 Zubat.png',
+    '../../images/gbc/laboratory/D07 Grimer.png',
+    '../../images/gbc/laboratory/D05 Venonat.png',
+    '../../images/gbc/laboratory/D14 Psyduck.png',
+    '../../images/gbc/laboratory/D16 Poliwag.png',
+    '../../images/gbc/laboratory/D19 Tentacool.png',
+    '../../images/gbc/laboratory/D21 Horsea.png',
+    '../../images/gbc/laboratory/D23 Magnemite.png',
+    '../../images/gbc/laboratory/D26 Onix.png',
+    '../../images/gbc/laboratory/D37 Spearow.png',
+    '../../images/gbc/laboratory/D40 Doduo.png',
+    '../../images/gbc/laboratory/D50 Gambler.png',
+    '../../images/gbc/laboratory/D51 Recycle.png',
+    '../../images/gbc/laboratory/D29 Slowpoke.png'],
 
 ]
 
 const promotional = [
 
-    '../images/gbc/promotional/P01 Arcanine.png',
-    '../images/gbc/promotional/P02 Moltres.png',
-    '../images/gbc/promotional/P03 Articuno.png',
-    '../images/gbc/promotional/P04 Pikachu.png',
-    '../images/gbc/promotional/P05 Pikachu.png',
-    '../images/gbc/promotional/P06 Flying Pikachu.png',
-    '../images/gbc/promotional/P07 Surfing Pikachu.png',
-    '../images/gbc/promotional/P08 Surfing Pikachu.png',
-    '../images/gbc/promotional/P09 Electabuzz.png',
-    '../images/gbc/promotional/P10 Zapdos.png',
-    '../images/gbc/promotional/P11 Slowpoke.png',
-    '../images/gbc/promotional/P12 Mewtwo.png',
-    '../images/gbc/promotional/P13 Mewtwo.png',
-    '../images/gbc/promotional/P14 Mew.png',
-    '../images/gbc/promotional/P15 Jigglypuff.png',
-    '../images/gbc/promotional/P16 Dragonite.png',
-    '../images/gbc/promotional/P17 Imakuni.png',
-    '../images/gbc/promotional/P18 Super Energy Retrieval.png',
-    '../images/gbc/promotional/PXX Venusaur.png',
-    '../images/gbc/promotional/PXX Mew.png'
+    '../../images/gbc/promotional/P01 Arcanine.png',
+    '../../images/gbc/promotional/P02 Moltres.png',
+    '../../images/gbc/promotional/P03 Articuno.png',
+    '../../images/gbc/promotional/P04 Pikachu.png',
+    '../../images/gbc/promotional/P05 Pikachu.png',
+    '../../images/gbc/promotional/P06 Flying Pikachu.png',
+    '../../images/gbc/promotional/P07 Surfing Pikachu.png',
+    '../../images/gbc/promotional/P08 Surfing Pikachu.png',
+    '../../images/gbc/promotional/P09 Electabuzz.png',
+    '../../images/gbc/promotional/P10 Zapdos.png',
+    '../../images/gbc/promotional/P11 Slowpoke.png',
+    '../../images/gbc/promotional/P12 Mewtwo.png',
+    '../../images/gbc/promotional/P13 Mewtwo.png',
+    '../../images/gbc/promotional/P14 Mew.png',
+    '../../images/gbc/promotional/P15 Jigglypuff.png',
+    '../../images/gbc/promotional/P16 Dragonite.png',
+    '../../images/gbc/promotional/P17 Imakuni.png',
+    '../../images/gbc/promotional/P18 Super Energy Retrieval.png',
+    '../../images/gbc/promotional/PXX Venusaur.png',
+    '../../images/gbc/promotional/PXX Mew.png'
     
 ]

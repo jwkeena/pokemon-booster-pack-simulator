@@ -1,5 +1,5 @@
 function newPackSound() {
-    var newPackSound = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/29%20Get%20Booster%20Pack.mp3?raw=true")
+    var newPackSound = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/music/29%20Get%20Booster%20Pack.mp3?raw=true")
     if (toggleSound === 1) {
         newPackSound.play();
     }
@@ -29,7 +29,7 @@ function unlockPromotionalCards() {
     var top = document.getElementById("topBarMiddle")
     top.scrollIntoView();
     pauseMusic()
-    var unlockMusic = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/25%20Win!.mp3?raw=true")
+    var unlockMusic = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/music/25%20Win!.mp3?raw=true")
     unlockMusic.play();
     document.getElementById("hidden1").id = "promotional_div";
     document.getElementById("hidden2").id = "promotional_logo";

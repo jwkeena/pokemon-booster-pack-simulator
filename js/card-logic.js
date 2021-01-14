@@ -15,7 +15,7 @@ function sortSet(setName) {
         holoRares: set.cards.filter(card => card.rarity === "Holo Rare"),
         rares: set.cards.filter(card => card.rarity === "Rare"),
         uncommons: set.cards.filter(card => card.rarity === "Uncommon"),
-        commons: set.cards.filter(card => card.supertype !== "Energy" && card.rarity === "Common"),
+        commons: (set.cardsToPull.includes("Energy") ? set.cards.filter(card => card.supertype !== "Energy" && card.rarity === "Common") : set.cards.filter(card => card.rarity === "Common")),  // Need ternary because some sets guarantee energy cards, some don't; so sometimes we need a list of commons that includes the common energies, sometimes we don't
         energy: set.cards.filter(card => card.supertype === "Energy" && card.rarity === "Common")
     };
     // TODO: refactor perhaps to iterate over all cards just once, instead of using .filter five times?

@@ -243,13 +243,10 @@ function sortThis(pack, sortOption) {
 // TODO: Abstract this into a showElement function that takes in an array and spreads it
 function showElement(selector, bool) {
     el = document.querySelector(selector);
-    if (bool) {
-        el.classList.toggle("hide");
-    }
-    else {
-        el.classList.toggle("hide");
-    }
-
+    if (bool) 
+        el.classList.remove("hide");
+    else 
+        el.classList.add("hide");
 }
 
 // -----------------------

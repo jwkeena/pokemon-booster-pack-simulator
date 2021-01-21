@@ -1173,17 +1173,6 @@
     updatedAt: '03/04/2018 10:35:00'
   },
   {
-    code: 'base6',
-    ptcgoCode: 'LC',
-    name: 'Legendary Collection',
-    series: 'Other',
-    totalCards: 110,
-    releaseDate: '05/24/2002',
-    symbolUrl: 'https://images.pokemontcg.io/base6/symbol.png',
-    logoUrl: 'https://images.pokemontcg.io/base6/logo.png',
-    updatedAt: '08/14/2020 09:35:00'
-  },
-  {
     code: 'si1',
     name: 'Southern Islands',
     series: 'Other',

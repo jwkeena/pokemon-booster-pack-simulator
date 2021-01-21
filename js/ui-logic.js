@@ -111,11 +111,23 @@ function singlePackFlip(packArtUrls, pack) {
         if (pack[i].rarity === "Holo Rare" || pack[i].rarity === "Secret Rare") {
             card = buildCardHTML(["card", "loading", "confetti"], pack[i].imageUrl, pack[i].imageUrlHiRes);
         } else if (pack[i].isReverseHolo === true) {
-            card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes, "reverseHolo");
+            // We have two types of reverse holo. First, the one we have image urls for
+            if (pack[i].set === "Legendary Collection")
+                card = buildCardHTML(["card", "loading"], pack[i].imageUrlReverseHolo, pack[i].imageUrlReverseHolo, "reverseHolo");
+            // And second, the one we apply a css filter for
+            else 
+                card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes, "reverseHolo");
         } else {
             card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes);
         }
-        card.addEventListener("contextmenu", (e) => {e.preventDefault(); zoomCard(pack[i].imageUrlHiRes);});
+        card.addEventListener("contextmenu", (e) => {
+            e.preventDefault(); 
+            if (pack[i].set === "Legendary Collection" && pack[i].isReverseHolo)
+                zoomCard(pack[i].imageUrlReverseHolo);
+            else 
+                zoomCard(pack[i].imageUrlHiRes);
+
+        });
         target.appendChild(card);
     }
     $('.cards').commentCards();
@@ -172,9 +184,18 @@ function displayRowView(packArtUrls, pack, sortOption = null) {
 
     // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks. Must use div tags
     for (let i = 0; i < pack.length; i++) {
-        const card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrl);
-        packWrapper.appendChild(card);
-        card.addEventListener("click", () => zoomCard(pack[i].imageUrlHiRes));
+
+        let card;
+        if (pack[i].set === "Legendary Collection" && pack[i].isReverseHolo) {
+            card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrlReverseHolo);
+            packWrapper.appendChild(card);
+            card.addEventListener("click", () => zoomCard(pack[i].imageUrlReverseHolo));
+        }
+        else {
+            card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrl);
+            packWrapper.appendChild(card);
+            card.addEventListener("click", () => zoomCard(pack[i].imageUrlHiRes));
+        }
 
         // But I can use img tags for the rarity markers
         const raritySymbol = document.createElement("img");

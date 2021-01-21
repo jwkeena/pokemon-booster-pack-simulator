@@ -477,4 +477,39 @@ const sets = {
         logoUrl: 'https://images.pokemontcg.io/ecard3/logo.png',
         updatedAt: '08/14/2020 09:35:00'
     },
+    legendaryCollection:   {
+        cards: legendaryCollectionCards,
+        cardsAreSorted: false,
+        chanceOfHolo: 1 / 3,
+        chanceOfSecretRare: 0,
+        holoReplaces5thCommon: false,
+        cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Uncommon", "Uncommon", "Uncommon", "Reverse Holo", "Rare"],
+        packArt: [
+            {
+                front: "../images/packart/legendarycollection1.jpg",
+                back: "../images/packart/legendarycollectionback.jpg",
+            },
+            {
+                front: "../images/packart/legendarycollection2.jpg",
+                back: "../images/packart/legendarycollectionback.jpg",
+            },
+            {
+                front: "../images/packart/legendarycollection3.jpg",
+                back: "../images/packart/legendarycollectionback.jpg",
+            },
+            {
+                front: "../images/packart/legendarycollection4.jpg",
+                back: "../images/packart/legendarycollectionback.jpg",
+            },
+        ],
+        code: 'base6',
+        ptcgoCode: 'LC',
+        name: 'Legendary Collection',
+        series: 'Other',
+        totalCards: 110,
+        releaseDate: '05/24/2002',
+        symbolUrl: 'https://images.pokemontcg.io/base6/symbol.png',
+        logoUrl: 'https://images.pokemontcg.io/base6/logo.png',
+        updatedAt: '08/14/2020 09:35:00'
+      },
 }

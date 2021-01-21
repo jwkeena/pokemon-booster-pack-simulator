@@ -1,7 +1,7 @@
 // First, get card list for set from https://pokemontcg.io/cards?setCode=base1&pageSize=1000
 // Then convert from JSON here https://json-to-js.com/
 // Then copy the array as a variable cards here
-const cards = []
+const cards =[] 
 
 // This code must be after the cards variable
 console.log(cards.length);

@@ -62,7 +62,7 @@ function calculateOdds(odds) {
 
 function pullCard(cardType, pack, set, holoPulled, secretRarePulled, index) {
     let card = null;
-    // Special rule for e-series cards. This is kind of ugly, though. TODO: integrate with switch statement, take out if/else statement?
+    // Special rule for e-series cards to replace the holo with the fifth common. This is kind of ugly, though. TODO: integrate with switch statement, take out if/else statement?
     if (set.holoReplaces5thCommon && holoPulled && index === 4) 
         card = set.sortedCards.holoRares[randomIndex(set.sortedCards.holoRares.length)];
     else 

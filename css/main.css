@@ -249,7 +249,8 @@ div.card {
 }
 
 .card.crop-reverse-holo-img {
-    border-radius: 24px;
+    border-radius: 2vh;
+    background-size: cover;
 }
 
 .pulled-card.crop-reverse-holo-img {

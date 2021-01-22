@@ -483,7 +483,7 @@ const sets = {
         chanceOfHolo: 1 / 3,
         chanceOfSecretRare: 0,
         holoReplaces5thCommon: false,
-        cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Uncommon", "Uncommon", "Uncommon", "Reverse Holo", "Rare"],
+        cardsToPull: ["Common", "Common", "Common", "Common", "Common", "Common", "Uncommon", "Uncommon", "Uncommon", "Reverse Holo", "Rare"],
         packArt: [
             {
                 front: "../images/packart/legendarycollection1.jpg",

@@ -85,7 +85,11 @@ function pullCard(cardType, pack, set, holoPulled, secretRarePulled, index) {
             case "Reverse Holo": 
                 const rarityTypes = ["Rare", "Uncommon", "Common"];
                 const randomRarity = rarityTypes[randomIndex(rarityTypes.length)];
-                card = set.sortedCards[randomRarity.decapitalize() + "s"][randomIndex(set.sortedCards[randomRarity.decapitalize() + "s"].length)];
+                // Remember js objects are passed by reference, not value. So when I assign card to a random card object, any change I make will change the card in the set.
+                // So I have to create a (shallow) clone of the card object so that it doesn't mutate the card in the set
+                // in which case, whenever this card is pulled again it will appear to be a reverse holo even when it's supposed to be a normal card
+                // See https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript for more options
+                card = Object.assign({}, set.sortedCards[randomRarity.decapitalize() + "s"][randomIndex(set.sortedCards[randomRarity.decapitalize() + "s"].length)]);
                 card.isReverseHolo = true;
                 break;
             default: // Handles commons, uncommons

@@ -113,7 +113,7 @@ function singlePackFlip(packArtUrls, pack) {
         } else if (pack[i].isReverseHolo === true) {
             // We have two types of reverse holo. First, the one we have image urls for
             if (pack[i].set === "Legendary Collection")
-                card = buildCardHTML(["card", "loading"], pack[i].imageUrlReverseHolo, pack[i].imageUrlReverseHolo, "reverseHolo");
+                card = buildCardHTML(["card", "loading", "crop-reverse-holo-img"], pack[i].imageUrlReverseHolo, pack[i].imageUrlReverseHolo, "reverseHolo");
             // And second, the one we apply a css filter for
             else 
                 card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes, "reverseHolo");
@@ -187,11 +187,17 @@ function displayRowView(packArtUrls, pack, sortOption = null) {
 
         let card;
         if (pack[i].set === "Legendary Collection" && pack[i].isReverseHolo) {
-            card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrlReverseHolo);
+            card = buildCardHTML(["pulled-card", "loading", "crop-reverse-holo-img"], pack[i].imageUrlReverseHolo);
             packWrapper.appendChild(card);
             card.addEventListener("click", () => zoomCard(pack[i].imageUrlReverseHolo));
         }
-        else {
+
+        else if (pack[i].isReverseHolo) {
+            card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes, "reverseHolo");
+            packWrapper.appendChild(card);
+            card.addEventListener("click", () => zoomCard(pack[i].imageUrlHiRes));
+        }
+        else { 
             card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrl);
             packWrapper.appendChild(card);
             card.addEventListener("click", () => zoomCard(pack[i].imageUrlHiRes));

@@ -359,7 +359,7 @@ const sets = {
             },
             {
                 front: "../images/packart/neodestiny4.jpg",
-                back: "../images/packart/neodestinyback4.jpg",
+                back: "../images/packart/neodestinyback2.jpg", // TODO: Find the real back for this pack
             },
         ],
         code: 'neo4',
@@ -417,7 +417,7 @@ const sets = {
         packArt: [
             {
                 front: "../images/packart/aquapolis1.jpg",
-                back: "../images/packart/aquapolisback1.jpg",
+                back: "../images/packart/aquapolisback.jpg",
             },
             {
                 front: "../images/packart/aquapolis2.jpg",

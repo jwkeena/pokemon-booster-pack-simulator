@@ -245,6 +245,16 @@ function sortThis(pack, sortOption) {
         return data.sort((a, b) => sortByObject[a[sortField]] - sortByObject[b[sortField]])
     }
 
+    // Within the switch statement below, some cards' set number is like "H4" instead of 4. 
+    // So I strip the "H" here and return "0" so (1) parseInt() can be run on it and 
+    // (2) the holo is always treated as the highest or lowest number in the set
+    function accountForHoloNumbers(rarityString){
+        if (rarityString.charAt(0) === "H")
+            return "0";
+        else 
+            return rarityString;
+    }
+
     switch (sortOption) {
         case "rarityDescending":
             sortBy = ["Common", "Uncommon", "Rare", "Holo Rare", "Secret Rare"];
@@ -258,10 +268,10 @@ function sortThis(pack, sortOption) {
             sortedPack = pack.sort((a, b) => { return parseInt(a.pullOrder) - parseInt(b.pullOrder)})
             break;
         case "setNumberAscending":
-            sortedPack = pack.sort((a, b) => { return parseInt(a.number) - parseInt(b.number)})
+            sortedPack = pack.sort((a, b) => { return parseInt(accountForHoloNumbers(a.number)) - parseInt(accountForHoloNumbers(b.number))})
             break;
         case "setNumberDescending":
-            sortedPack = pack.sort((a, b) => { return parseInt(b.number) - parseInt(a.number)})
+            sortedPack = pack.sort((a, b) => { return parseInt(accountForHoloNumbers(b.number)) - parseInt(accountForHoloNumbers(a.number))})
             break;
     }
     return sortedPack;

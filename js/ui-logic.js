@@ -12,7 +12,7 @@ function setDisplay(sortOption) {
             showElement(".button.select-row-view-sorting", false);
             showElement(".magnifying-glass.mobile-only", true);
             // Only want to display the most recently opened pack for now. TODO: allow user to toggle through packs opened via carousel
-            singlePackFlip(pulledPacks[pulledPacks.length - 1].packArtUrls, pulledPacks[0].cards);
+            singlePackFlip(pulledPacks[pulledPacks.length - 1].packArtUrls, pulledPacks[pulledPacks.length - 1].cards);
             break;
         case "rowView":
             showElement(".button.select-row-view-sorting", true);

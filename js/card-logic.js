@@ -18,17 +18,24 @@ function sortSet(setName) {
         commons: (set.cardsToPull.includes("Energy") ? set.cards.filter(card => card.supertype !== "Energy" && card.rarity === "Common") : set.cards.filter(card => card.rarity === "Common")),  // Need ternary because some sets guarantee energy cards, some don't; so sometimes we need a list of commons that includes the common energies, sometimes we don't
         energy: set.cards.filter(card => card.supertype === "Energy" && card.rarity === "Common")
     };
-    // TODO: refactor perhaps to iterate over all cards just once, instead of using .filter five times?
-    // TODO: if I do just one for loop, use a switch statement. Check for energy cards first.
+    // TODO: refactor perhaps to iterate over all cards just once, instead of using .filter five times? The other advantage would be that I wouldn't miss any cards. Using a default in a switch statement, I'd catch all the cards. Currently I should be checking that the total number of cards in the set equals the total of all the sorted arrays built here.
     set.cardsAreSorted = true;
     return setName;
 }
 
 function openPack(setName) {
-    const set = sets[setName];
+    let set;
+
+    if (setName === "random")
+        return chooseRandomSet();
+    else 
+        set = sets[setName];
+
+    // Sort cards into rarity tiers the first time the set is picked
     if (set.cardsAreSorted === false) {
         return openPack(sortSet(setName))
     }
+
     const holoPulled = calculateOdds(set.chanceOfHolo);
     const secretRarePulled = calculateOdds(set.chanceOfSecretRare);
     const pack = [];
@@ -49,6 +56,12 @@ function openPack(setName) {
         default:
             console.log("Default view type - this should be impossible");
     }
+}
+
+function chooseRandomSet() {
+    const allSets = Object.keys(sets);
+    const randomSet = allSets[randomIndex(allSets.length)];
+    openPack(randomSet);
 }
 
 function calculateOdds(odds) {

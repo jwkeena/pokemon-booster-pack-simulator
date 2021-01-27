@@ -6484,7 +6484,7 @@ const skyridgeCards = [
     id: 'ecard3-145',
     name: 'Celebi',
     nationalPokedexNumber: 251,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/145.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/celebi-skyridge-sk-145.jpg',
     imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/145_hires.png',
     types: [
       'Colorless'
@@ -6541,7 +6541,7 @@ const skyridgeCards = [
     id: 'ecard3-146',
     name: 'Charizard',
     nationalPokedexNumber: 6,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/146.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/charizard-skyridge-sk-146.jpg',
     imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/146_hires.png',
     types: [
       'Colorless'
@@ -6604,7 +6604,7 @@ const skyridgeCards = [
     id: 'ecard3-147',
     name: 'Crobat',
     nationalPokedexNumber: 169,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/147.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/crobat-skyridge-sk-147.jpg',
     imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/147_hires.png',
     types: [
       'Colorless'
@@ -6659,7 +6659,7 @@ const skyridgeCards = [
     id: 'ecard3-148',
     name: 'Golem',
     nationalPokedexNumber: 76,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/148.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/golem-skyridge-sk-148.jpg',
     imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/148_hires.png',
     types: [
       'Colorless'
@@ -6722,7 +6722,7 @@ const skyridgeCards = [
     id: 'ecard3-149',
     name: 'Ho-oh',
     nationalPokedexNumber: 250,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/149.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/ho-oh-skyridge-sk-149.jpg',
     imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/149_hires.png',
     types: [
       'Colorless'
@@ -6782,7 +6782,7 @@ const skyridgeCards = [
     id: 'ecard3-150',
     name: 'Kabutops',
     nationalPokedexNumber: 141,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/150.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/kabutops-skyridge-sk-150.jpg',
     imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/150_hires.png',
     types: [
       'Colorless'
@@ -6844,8 +6844,8 @@ const skyridgeCards = [
     id: 'ecard3-151',
     name: 'Alakazam',
     nationalPokedexNumber: 65,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/151.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/151_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h01.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h01.jpg',
     types: [
       'Psychic'
     ],
@@ -6893,8 +6893,8 @@ const skyridgeCards = [
     id: 'ecard3-152',
     name: 'Arcanine',
     nationalPokedexNumber: 59,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/152.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/152_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h02.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h02.jpg',
     types: [
       'Fire'
     ],
@@ -6951,8 +6951,8 @@ const skyridgeCards = [
     id: 'ecard3-153',
     name: 'Articuno',
     nationalPokedexNumber: 144,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/153.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/153_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h03.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h03.jpg',
     types: [
       'Water'
     ],
@@ -7015,8 +7015,8 @@ const skyridgeCards = [
     id: 'ecard3-154',
     name: 'Beedrill',
     nationalPokedexNumber: 15,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/154.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/154_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h04.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h04.jpg',
     types: [
       'Grass'
     ],
@@ -7058,8 +7058,8 @@ const skyridgeCards = [
     id: 'ecard3-155',
     name: 'Crobat',
     nationalPokedexNumber: 169,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/155.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/155_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h05.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h05.jpg',
     types: [
       'Grass'
     ],
@@ -7102,8 +7102,8 @@ const skyridgeCards = [
     id: 'ecard3-156',
     name: 'Dewgong',
     nationalPokedexNumber: 87,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/156.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/156_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h06.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h06.jpg',
     types: [
       'Water'
     ],
@@ -7157,8 +7157,8 @@ const skyridgeCards = [
     id: 'ecard3-157',
     name: 'Flareon',
     nationalPokedexNumber: 136,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/157.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/157_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h07.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h07.jpg',
     types: [
       'Fire'
     ],
@@ -7214,8 +7214,8 @@ const skyridgeCards = [
     id: 'ecard3-158',
     name: 'Forretress',
     nationalPokedexNumber: 205,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/158.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/158_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h08.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h08.jpg',
     types: [
       'Metal'
     ],
@@ -7274,8 +7274,8 @@ const skyridgeCards = [
     id: 'ecard3-159',
     name: 'Gengar',
     nationalPokedexNumber: 94,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/159.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/159_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h09.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h09.jpg',
     types: [
       'Psychic'
     ],
@@ -7330,8 +7330,8 @@ const skyridgeCards = [
     id: 'ecard3-160',
     name: 'Gyarados',
     nationalPokedexNumber: 130,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/160.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/160_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h10.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h10.jpg',
     types: [
       'Water'
     ],
@@ -7380,8 +7380,8 @@ const skyridgeCards = [
     id: 'ecard3-161',
     name: 'Houndoom',
     nationalPokedexNumber: 229,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/161.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/161_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h11.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h11.jpg',
     types: [
       'Darkness'
     ],
@@ -7439,8 +7439,8 @@ const skyridgeCards = [
     id: 'ecard3-162',
     name: 'Jolteon',
     nationalPokedexNumber: 135,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/162.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/162_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h12.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h12.jpg',
     types: [
       'Lightning'
     ],
@@ -7492,8 +7492,8 @@ const skyridgeCards = [
     id: 'ecard3-163',
     name: 'Kabutops',
     nationalPokedexNumber: 141,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/163.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/163_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h13.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h13.jpg',
     types: [
       'Fighting'
     ],
@@ -7541,8 +7541,8 @@ const skyridgeCards = [
     id: 'ecard3-164',
     name: 'Ledian',
     nationalPokedexNumber: 166,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/164.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/164_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h14.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h14.jpg',
     types: [
       'Grass'
     ],
@@ -7589,8 +7589,8 @@ const skyridgeCards = [
     id: 'ecard3-165',
     name: 'Machamp',
     nationalPokedexNumber: 68,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/165.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/165_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h15.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h15.jpg',
     types: [
       'Fighting'
     ],
@@ -7649,8 +7649,8 @@ const skyridgeCards = [
     id: 'ecard3-166',
     name: 'Magcargo',
     nationalPokedexNumber: 219,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/166.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/166_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h16.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h16.jpg',
     types: [
       'Fire'
     ],
@@ -7705,8 +7705,8 @@ const skyridgeCards = [
     id: 'ecard3-167',
     name: 'Magcargo',
     nationalPokedexNumber: 219,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/167.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/167_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h17.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h17.jpg',
     types: [
       'Fighting'
     ],
@@ -7755,8 +7755,8 @@ const skyridgeCards = [
     id: 'ecard3-168',
     name: 'Magneton',
     nationalPokedexNumber: 82,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/168.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/168_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h18.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h18.jpg',
     types: [
       'Lightning'
     ],
@@ -7803,8 +7803,8 @@ const skyridgeCards = [
     id: 'ecard3-169',
     name: 'Magneton',
     nationalPokedexNumber: 82,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/169.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/169_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h19.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h19.jpg',
     types: [
       'Lightning'
     ],
@@ -7862,8 +7862,8 @@ const skyridgeCards = [
     id: 'ecard3-170',
     name: 'Moltres',
     nationalPokedexNumber: 146,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/170.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/170_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h20.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h20.jpg',
     types: [
       'Fire'
     ],
@@ -7926,8 +7926,8 @@ const skyridgeCards = [
     id: 'ecard3-171',
     name: 'Nidoqueen',
     nationalPokedexNumber: 31,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/171.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/171_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h21.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h21.jpg',
     types: [
       'Grass'
     ],
@@ -7976,8 +7976,8 @@ const skyridgeCards = [
     id: 'ecard3-172',
     name: 'Piloswine',
     nationalPokedexNumber: 221,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/172.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/172_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h22.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h22.jpg',
     types: [
       'Water'
     ],
@@ -8033,8 +8033,8 @@ const skyridgeCards = [
     id: 'ecard3-173',
     name: 'Politoed',
     nationalPokedexNumber: 186,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/173.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/173_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h23.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h23.jpg',
     types: [
       'Water'
     ],
@@ -8099,8 +8099,8 @@ const skyridgeCards = [
     id: 'ecard3-174',
     name: 'Poliwrath',
     nationalPokedexNumber: 62,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/174.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/174_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h24.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h24.jpg',
     types: [
       'Fighting'
     ],
@@ -8148,8 +8148,8 @@ const skyridgeCards = [
     id: 'ecard3-175',
     name: 'Raichu',
     nationalPokedexNumber: 26,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/175.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/175_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h25.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h25.jpg',
     types: [
       'Lightning'
     ],
@@ -8201,8 +8201,8 @@ const skyridgeCards = [
     id: 'ecard3-176',
     name: 'Raikou',
     nationalPokedexNumber: 243,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/176.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/176_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h26.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h26.jpg',
     types: [
       'Lightning'
     ],
@@ -8248,8 +8248,8 @@ const skyridgeCards = [
     id: 'ecard3-177',
     name: 'Rhydon',
     nationalPokedexNumber: 112,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/177.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/177_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h27.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h27.jpg',
     types: [
       'Fighting'
     ],
@@ -8311,8 +8311,8 @@ const skyridgeCards = [
     id: 'ecard3-178',
     name: 'Starmie',
     nationalPokedexNumber: 121,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/178.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/178_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h28.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h28.jpg',
     types: [
       'Psychic'
     ],
@@ -8363,8 +8363,8 @@ const skyridgeCards = [
     id: 'ecard3-179',
     name: 'Steelix',
     nationalPokedexNumber: 208,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/179.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/179_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h29.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h29.jpg',
     types: [
       'Metal'
     ],
@@ -8432,8 +8432,8 @@ const skyridgeCards = [
     id: 'ecard3-180',
     name: 'Umbreon',
     nationalPokedexNumber: 197,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/180.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/180_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h30.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h30.jpg',
     types: [
       'Darkness'
     ],
@@ -8485,8 +8485,8 @@ const skyridgeCards = [
     id: 'ecard3-181',
     name: 'Vaporeon',
     nationalPokedexNumber: 134,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/181.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/181_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h31.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h31.jpg',
     types: [
       'Water'
     ],
@@ -8543,8 +8543,8 @@ const skyridgeCards = [
     id: 'ecard3-182',
     name: 'Xatu',
     nationalPokedexNumber: 178,
-    imageUrl: 'https://images.pokemontcg.io/ecard3/182.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard3/182_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h32.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h32.jpg',
     types: [
       'Psychic'
     ],

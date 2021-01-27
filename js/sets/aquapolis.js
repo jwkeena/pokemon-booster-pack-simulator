@@ -3349,7 +3349,7 @@ const aquapolisCards = [
     id: 'ecard2-67',
     name: 'Aipom',
     nationalPokedexNumber: 190,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/67.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/aipom-aquapolis-aq-67.jpg',
     imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/67_hires.png',
     types: [
       'Colorless'
@@ -6351,7 +6351,7 @@ const aquapolisCards = [
     id: 'ecard2-148',
     name: 'Kingdra',
     nationalPokedexNumber: 230,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/148.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/kingdra-aquapolis-aq-148.jpg',
     imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/148_hires.png',
     types: [
       'Colorless'
@@ -6413,7 +6413,7 @@ const aquapolisCards = [
     id: 'ecard2-149',
     name: 'Lugia',
     nationalPokedexNumber: 249,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/149.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/lugia-aquapolis-aq-149.jpg',
     imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/149_hires.png',
     types: [
       'Colorless'
@@ -6473,7 +6473,7 @@ const aquapolisCards = [
     id: 'ecard2-150',
     name: 'Nidoking',
     nationalPokedexNumber: 34,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/150.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/nidoking-aquapolis-aq-150.jpg',
     imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/150_hires.png',
     types: [
       'Colorless'
@@ -6530,8 +6530,8 @@ const aquapolisCards = [
     id: 'ecard2-151',
     name: 'Ampharos',
     nationalPokedexNumber: 181,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/151.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/151_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h01-ampharos-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h01-ampharos-expedition.jpg',
     types: [
       'Lightning'
     ],
@@ -6583,8 +6583,8 @@ const aquapolisCards = [
     id: 'ecard2-152',
     name: 'Arcanine',
     nationalPokedexNumber: 59,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/152.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/152_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h02-arcanaine-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h02-arcanaine-expedition.jpg',
     types: [
       'Fire'
     ],
@@ -6633,8 +6633,8 @@ const aquapolisCards = [
     id: 'ecard2-153',
     name: 'Ariados',
     nationalPokedexNumber: 168,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/153.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/153_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h03-ariados-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h03-ariados-expedition.jpg',
     types: [
       'Grass'
     ],
@@ -6676,8 +6676,8 @@ const aquapolisCards = [
     id: 'ecard2-154',
     name: 'Azumarill',
     nationalPokedexNumber: 184,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/154.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/154_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h04-azumarill-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h04-azumarill-expedition.jpg',
     types: [
       'Water'
     ],
@@ -6724,8 +6724,8 @@ const aquapolisCards = [
     id: 'ecard2-155',
     name: 'Bellossom',
     nationalPokedexNumber: 182,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/155.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/155_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h05-bellossom-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h05-bellossom-expedition.jpg',
     types: [
       'Grass'
     ],
@@ -6779,8 +6779,8 @@ const aquapolisCards = [
     id: 'ecard2-156',
     name: 'Blissey',
     nationalPokedexNumber: 242,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/156.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/156_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h06-blissey-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h06-blissey-expedition.jpg',
     types: [
       'Colorless'
     ],
@@ -6828,8 +6828,8 @@ const aquapolisCards = [
     id: 'ecard2-157',
     name: 'Electrode',
     nationalPokedexNumber: 101,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/157.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/157_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h07-electrode-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h07-electrode-expedition.jpg',
     types: [
       'Lightning'
     ],
@@ -6875,8 +6875,8 @@ const aquapolisCards = [
     id: 'ecard2-158',
     name: 'Entei',
     nationalPokedexNumber: 244,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/158.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/158_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h08-entei-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h08-entei-expedition.jpg',
     types: [
       'Fire'
     ],
@@ -6922,8 +6922,8 @@ const aquapolisCards = [
     id: 'ecard2-159',
     name: 'Espeon',
     nationalPokedexNumber: 196,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/159.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/159_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h09-espeon-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h09-espeon-expedition.jpg',
     types: [
       'Psychic'
     ],
@@ -6966,8 +6966,8 @@ const aquapolisCards = [
     id: 'ecard2-160',
     name: 'Exeggutor',
     nationalPokedexNumber: 103,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/160.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/160_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h10-exeggutor-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h10-exeggutor-expedition.jpg',
     types: [
       'Grass'
     ],
@@ -7016,8 +7016,8 @@ const aquapolisCards = [
     id: 'ecard2-161',
     name: 'Houndoom',
     nationalPokedexNumber: 229,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/161.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/161_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h11-houndoom-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h11-houndoom-expedition.jpg',
     types: [
       'Darkness'
     ],
@@ -7075,8 +7075,8 @@ const aquapolisCards = [
     id: 'ecard2-162',
     name: 'Hypno',
     nationalPokedexNumber: 97,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/162.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/162_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h12-hypno-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h12-hypno-expedition.jpg',
     types: [
       'Psychic'
     ],
@@ -7123,8 +7123,8 @@ const aquapolisCards = [
     id: 'ecard2-163',
     name: 'Jumpluff',
     nationalPokedexNumber: 189,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/163.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/163_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h13-jumpluff-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h13-jumpluff-expedition.jpg',
     types: [
       'Grass'
     ],
@@ -7171,8 +7171,8 @@ const aquapolisCards = [
     id: 'ecard2-164',
     name: 'Kingdra',
     nationalPokedexNumber: 230,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/164.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/164_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h14-kingdra-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h14-kingdra-expedition.jpg',
     types: [
       'Water'
     ],
@@ -7222,8 +7222,8 @@ const aquapolisCards = [
     id: 'ecard2-165',
     name: 'Lanturn',
     nationalPokedexNumber: 171,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/165.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/165_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h15-lanturn-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h15-lanturn-expedition.jpg',
     types: [
       'Lightning'
     ],
@@ -7269,8 +7269,8 @@ const aquapolisCards = [
     id: 'ecard2-166',
     name: 'Magneton',
     nationalPokedexNumber: 82,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/166.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/166_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h16-magneton-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h16-magneton-expedition.jpg',
     types: [
       'Metal'
     ],
@@ -7324,8 +7324,8 @@ const aquapolisCards = [
     id: 'ecard2-167',
     name: 'Muk',
     nationalPokedexNumber: 89,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/167.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/167_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h17-muk-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h17-muk-expedition.jpg',
     types: [
       'Grass'
     ],
@@ -7371,8 +7371,8 @@ const aquapolisCards = [
     id: 'ecard2-168',
     name: 'Nidoking',
     nationalPokedexNumber: 34,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/168.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/168_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h18-nidoking-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h18-nidoking-expedition.jpg',
     types: [
       'Fighting'
     ],
@@ -7428,8 +7428,8 @@ const aquapolisCards = [
     id: 'ecard2-169',
     name: 'Ninetales',
     nationalPokedexNumber: 38,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/169.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/169_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h19-ninetales-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h19-ninetales-expedition.jpg',
     types: [
       'Fire'
     ],
@@ -7480,8 +7480,8 @@ const aquapolisCards = [
     id: 'ecard2-170',
     name: 'Octillery',
     nationalPokedexNumber: 224,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/170.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/170_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h20-octillery-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h20-octillery-expedition.jpg',
     types: [
       'Water'
     ],
@@ -7529,8 +7529,8 @@ const aquapolisCards = [
     id: 'ecard2-171',
     name: 'Scizor',
     nationalPokedexNumber: 212,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/171.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/171_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h21-scizor-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h21-scizor-expedition.jpg',
     types: [
       'Metal'
     ],
@@ -7588,8 +7588,8 @@ const aquapolisCards = [
     id: 'ecard2-172',
     name: 'Slowking',
     nationalPokedexNumber: 199,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/172.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/172_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h22-slowking-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h22-slowking-expedition.jpg',
     types: [
       'Psychic'
     ],
@@ -7640,8 +7640,8 @@ const aquapolisCards = [
     id: 'ecard2-173',
     name: 'Steelix',
     nationalPokedexNumber: 208,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/173.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/173_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h23-steelix-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h23-steelix-expedition.jpg',
     types: [
       'Metal'
     ],
@@ -7703,8 +7703,8 @@ const aquapolisCards = [
     id: 'ecard2-174',
     name: 'Sudowoodo',
     nationalPokedexNumber: 185,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/174.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/174_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h24-sudowoodo-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h24-sudowoodo-expedition.jpg',
     types: [
       'Fighting'
     ],
@@ -7753,8 +7753,8 @@ const aquapolisCards = [
     id: 'ecard2-175',
     name: 'Suicune',
     nationalPokedexNumber: 245,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/175.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/175_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h25-suicune-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h25-suicune-expedition.jpg',
     types: [
       'Water'
     ],
@@ -7800,8 +7800,8 @@ const aquapolisCards = [
     id: 'ecard2-176',
     name: 'Tentacruel',
     nationalPokedexNumber: 73,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/176.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/176_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h26-tentacruel-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h26-tentacruel-expedition.jpg',
     types: [
       'Water'
     ],
@@ -7843,8 +7843,8 @@ const aquapolisCards = [
     id: 'ecard2-177',
     name: 'Togetic',
     nationalPokedexNumber: 176,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/177.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/177_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h27-togetic-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h27-togetic-expedition.jpg',
     types: [
       'Colorless'
     ],
@@ -7895,8 +7895,8 @@ const aquapolisCards = [
     id: 'ecard2-178',
     name: 'Tyranitar',
     nationalPokedexNumber: 248,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/178.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/178_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h28-tyranitar-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h28-tyranitar-expedition.jpg',
     types: [
       'Darkness'
     ],
@@ -7968,8 +7968,8 @@ const aquapolisCards = [
     id: 'ecard2-179',
     name: 'Umbreon',
     nationalPokedexNumber: 197,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/179.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/179_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h29-umbreon-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h29-umbreon-expedition.jpg',
     types: [
       'Darkness'
     ],
@@ -8022,8 +8022,8 @@ const aquapolisCards = [
     id: 'ecard2-180',
     name: 'Victreebel',
     nationalPokedexNumber: 71,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/180.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/180_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h30-victreebel-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h30-victreebel-expedition.jpg',
     types: [
       'Grass'
     ],
@@ -8071,8 +8071,8 @@ const aquapolisCards = [
     id: 'ecard2-181',
     name: 'Vileplume',
     nationalPokedexNumber: 45,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/181.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/181_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h31-vileplume-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h31-vileplume-expedition.jpg',
     types: [
       'Grass'
     ],
@@ -8124,8 +8124,8 @@ const aquapolisCards = [
     id: 'ecard2-182',
     name: 'Zapdos',
     nationalPokedexNumber: 145,
-    imageUrl: 'https://images.pokemontcg.io/ecard2/182.png',
-    imageUrlHiRes: 'https://images.pokemontcg.io/ecard2/182_hires.png',
+    imageUrl: 'https://pkmncards.com/wp-content/uploads/h32-zapdos-expedition.jpg',
+    imageUrlHiRes: 'https://pkmncards.com/wp-content/uploads/h32-zapdos-expedition.jpg',
     types: [
       'Lightning'
     ],

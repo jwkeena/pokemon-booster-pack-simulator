@@ -108,7 +108,10 @@ function singlePackFlip(packArtUrls, pack) {
     target.append(packArtFront);
     for (let i = 0; i < pack.length; i++) {
         let card;
-        if (pack[i].rarity === "Holo Rare" || pack[i].rarity === "Secret Rare") {
+        if (pack[i].rarity === "Secret Rare" || pack[i].id === "base1-4") {
+            card = buildCardHTML(["card", "loading", "fireworks"], pack[i].imageUrl, pack[i].imageUrlHiRes);
+        }
+        else if (pack[i].rarity === "Holo Rare") {
             card = buildCardHTML(["card", "loading", "confetti"], pack[i].imageUrl, pack[i].imageUrlHiRes);
         } else if (pack[i].isReverseHolo === true) {
             // We have two types of reverse holo. First, the one we have image urls for
@@ -133,6 +136,8 @@ function singlePackFlip(packArtUrls, pack) {
     $('.cards').commentCards();
 }
 
+
+
 // Flip through stack of cards modified from https://codepen.io/shshaw/pen/KzYXvP
 $.fn.commentCards = function () {
     // Closure...but why?
@@ -151,12 +156,22 @@ $.fn.commentCards = function () {
                 $current = $(this).next().length === 1 ? $(this).next().addClass('card--current') : $cards.first().addClass('card--current'); // Second, I added a ternary here to apply the "card-current" class to the next item if there is one, or if not, then the first item
                 $next = $current.next().length === 1 ? $current.next() : $cards.first(); // Likewise, and finally, I wanted to apply "card--next" class to the item after the current item if there is one, and if not, then the first card
                 $next.addClass('card--next');
+
+                if ($current.hasClass("fireworks")) {
+                    const fireworks = function () {
+                        createFirework(27,200,4,2,null,null,null,null,false,true);
+                    }
+                    const fireworksTimer = setInterval(fireworks, 300);
+                    setTimeout(() => {clearInterval(fireworksTimer); $current.removeClass("fireworks");}, 5000)
+                }
+
                 if ($current.hasClass("confetti")){
                     setTimeout(() => {
                         $current.removeClass("confetti");
                         confetti({particleCount: 200, gravity: .5, origin: {y: .7}, spread: 90});
                     }, 500);
                 }
+                
             }
         });
 

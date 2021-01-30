@@ -16,6 +16,12 @@
 
     <!-- CSS-->
     <link type="text/css" rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="fireworks/style/fireworks.css"
+      media="screen"
+    />
 
     <!-- Favicon -->
     <link
@@ -58,7 +64,7 @@
 
       gtag("config", "G-2Q99X8QYJP");
     </script>
-    
+
     <title>Pokemon Booster Pack Simulator</title>
   </head>
 
@@ -142,6 +148,14 @@
           </div>
         </main>
 
+        <div id="fireworks-template">
+          <div id="fw" class="firework"></div>
+          <div id="fp" class="fireworkParticle">
+            <img src="fireworks/image/particles.gif" alt="" />
+          </div>
+        </div>
+        <div id="fireContainer"></div>
+
         <footer>
           <div>
             by
@@ -180,6 +194,11 @@
     <script type="text/javascript" src="js/sets/aquapolis.js"></script>
     <script type="text/javascript" src="js/sets/skyridge.js"></script>
     <script type="text/javascript" src="js/sets/sets.js"></script>
+    <script
+      type="text/javascript"
+      src="fireworks/script/soundmanager2-nodebug-jsmin.js"
+    ></script>
+    <script type="text/javascript" src="fireworks/script/fireworks.js"></script>
     <script type="text/javascript" src="js/card-logic.js"></script>
     <script type="text/javascript" src="js/ui-logic.js"></script>
   </body>

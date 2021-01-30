@@ -44,6 +44,21 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2Q99X8QYJP"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-2Q99X8QYJP");
+    </script>
+    
     <title>Pokemon Booster Pack Simulator</title>
   </head>
 
@@ -52,8 +67,13 @@
       <div class="section-wrapper">
         <header>
           <div>
-            [<a href="pages/about.html" title="Set rarity distribution rules, how to contact the developer, updates log.">about</a>] [<a
-              href="archive/pages/index.html" title="The original version of the site is stored here."
+            [<a
+              href="pages/about.html"
+              title="Set rarity distribution rules, how to contact the developer, updates log."
+              >about</a
+            >] [<a
+              href="archive/pages/index.html"
+              title="The original version of the site is stored here."
               >archive</a
             >]
           </div>
@@ -62,37 +82,44 @@
         </header>
 
         <main>
-            <button class="button open-pack-button desktop-only">OPEN</button>
-            <select class="button select-set" onchange="chooseSet()">
-              <option value="baseSet">BASE SET</option>
-              <option value="jungle">JUNGLE</option>
-              <option value="fossil">FOSSIL</option>
-              <option value="base2">BASE 2</option>
-              <option value="teamRocket">TEAM ROCKET</option>
-              <option value="gymHeroes">GYM HEROES</option>
-              <option value="gymChallenge">GYM CHALLENGE</option>
-              <option value="neoGenesis">NEO GENESIS</option>
-              <option value="neoDiscovery">NEO DISCOVERY</option>
-              <option value="neoRevelation">NEO REVELATION</option>
-              <option value="neoDestiny">NEO DESTINY</option>
-              <option value="legendaryCollection">LEGENDARY COLLECTION</option>
-              <option value="expeditionBaseSet">EXPEDITION BASE</option>
-              <option value="aquapolis">AQUAPOLIS</option>
-              <option value="skyridge">SKYRIDGE</option>
-              <option value="random">RANDOM</option>
-            </select>
-            <select class="button select-display" onchange="setDisplay()">
-                <option value="singlePackFlip">DISPLAY: SINGLE</option>
-                <option value="rowView">DISPLAY: ROWS</option>
-                <!-- <option value="gridView">grid</option> -->
-            </select>
-            <select class="button select-row-view-sorting" onchange="setRowViewSort()">
-              <option value="packOrder">SORT BY: PACK ORDER</option>
-              <option value="rarityAscending">SORT BY: RARITY (DESC)</option>
-              <option value="rarityDescending">SORT BY: RARITY (ASC)</option>
-              <option value="setNumberAscending">SORT BY: SET NUMBER (ASC)</option>
-              <option value="setNumberDescending">SORT BY: SET NUMBER (DESC)</option>
-              <!-- <option value="gridView">grid</option> -->
+          <button class="button open-pack-button desktop-only">OPEN</button>
+          <select class="button select-set" onchange="chooseSet()">
+            <option value="baseSet">BASE SET</option>
+            <option value="jungle">JUNGLE</option>
+            <option value="fossil">FOSSIL</option>
+            <option value="base2">BASE 2</option>
+            <option value="teamRocket">TEAM ROCKET</option>
+            <option value="gymHeroes">GYM HEROES</option>
+            <option value="gymChallenge">GYM CHALLENGE</option>
+            <option value="neoGenesis">NEO GENESIS</option>
+            <option value="neoDiscovery">NEO DISCOVERY</option>
+            <option value="neoRevelation">NEO REVELATION</option>
+            <option value="neoDestiny">NEO DESTINY</option>
+            <option value="legendaryCollection">LEGENDARY COLLECTION</option>
+            <option value="expeditionBaseSet">EXPEDITION BASE</option>
+            <option value="aquapolis">AQUAPOLIS</option>
+            <option value="skyridge">SKYRIDGE</option>
+            <option value="random">RANDOM</option>
+          </select>
+          <select class="button select-display" onchange="setDisplay()">
+            <option value="singlePackFlip">DISPLAY: SINGLE</option>
+            <option value="rowView">DISPLAY: ROWS</option>
+            <!-- <option value="gridView">grid</option> -->
+          </select>
+          <select
+            class="button select-row-view-sorting"
+            onchange="setRowViewSort()"
+          >
+            <option value="packOrder">SORT BY: PACK ORDER</option>
+            <option value="rarityAscending">SORT BY: RARITY (DESC)</option>
+            <option value="rarityDescending">SORT BY: RARITY (ASC)</option>
+            <option value="setNumberAscending">
+              SORT BY: SET NUMBER (ASC)
+            </option>
+            <option value="setNumberDescending">
+              SORT BY: SET NUMBER (DESC)
+            </option>
+            <!-- <option value="gridView">grid</option> -->
           </select>
           <!-- <button class="button">CLEAR</button> -->
 
@@ -102,19 +129,23 @@
           <div id="row-view"></div>
           <div id="grid-view"></div>
           <button class="button open-pack-button mobile-only">OPEN</button>
-          <img src="images/site/magnifying-glass.png" class="mobile-only magnifying-glass">
+          <img
+            src="images/site/magnifying-glass.png"
+            class="mobile-only magnifying-glass"
+          />
           <div id="card-zoom" class="modal">
             <div class="modal-content">
-                <span class="close">&times;</span>
-                <br/>
-                <div id="hi-res-card"> </div>
+              <span class="close">&times;</span>
+              <br />
+              <div id="hi-res-card"></div>
             </div>
           </div>
         </main>
 
         <footer>
           <div>
-          by <a href="https://jwkeena.github.io" target="_blank">justin keena</a>
+            by
+            <a href="https://jwkeena.github.io" target="_blank">justin keena</a>
           </div>
         </footer>
       </div>
@@ -138,8 +169,14 @@
     <script type="text/javascript" src="js/sets/neo-discovery.js"></script>
     <script type="text/javascript" src="js/sets/neo-revelation.js"></script>
     <script type="text/javascript" src="js/sets/neo-destiny.js"></script>
-    <script type="text/javascript" src="js/sets/legendary-collection.js"></script>
-    <script type="text/javascript" src="js/sets/expedition-base-set.js"></script>
+    <script
+      type="text/javascript"
+      src="js/sets/legendary-collection.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="js/sets/expedition-base-set.js"
+    ></script>
     <script type="text/javascript" src="js/sets/aquapolis.js"></script>
     <script type="text/javascript" src="js/sets/skyridge.js"></script>
     <script type="text/javascript" src="js/sets/sets.js"></script>

@@ -37,6 +37,22 @@
     />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2Q99X8QYJP"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-2Q99X8QYJP");
+    </script>
+
     <title>Pokemon Booster Pack Simulator</title>
   </head>
   <body>
@@ -234,7 +250,11 @@
       <ol reversed>
         <li>Fixed holo links for aquapolis and skyridge.</li>
         <li>
-          Fixed bug when switching from row view to list view (cards were always the first pack pulled, not necessarily matching the pack art). Added random pack option. Fixed missing back of pack art for aquapolis and neo destiny. Accounted for H numbered holos in aquapolis and skyridge when sorting by card number.
+          Fixed bug when switching from row view to list view (cards were always
+          the first pack pulled, not necessarily matching the pack art). Added
+          random pack option. Fixed missing back of pack art for aquapolis and
+          neo destiny. Accounted for H numbered holos in aquapolis and skyridge
+          when sorting by card number.
         </li>
         <li>
           Fixed duplicate reverse holo bug in legendary collection; display

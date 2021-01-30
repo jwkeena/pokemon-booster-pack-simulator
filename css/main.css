@@ -343,6 +343,7 @@ div.card {
     font-size: 70px;
     font-weight: bold;
     transition: 0.3s;
+    display: inline-block;
 }
 
 .close:hover,
@@ -355,6 +356,7 @@ div.card {
 .modal-content {
     animation-name: zoom;
     animation-duration: 0.6s;
+    text-align: center;
 }
 
 @keyframes zoom {

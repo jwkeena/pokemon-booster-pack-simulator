@@ -338,8 +338,10 @@ const magnifyingGlass = document.querySelector(".magnifying-glass");
 magnifyingGlass.addEventListener("click", () => {
     const currentCard = document.querySelector(".card--current");
     const hiResUrl = currentCard.getAttribute("data-card-image-hi-res");
-    if (hiResUrl !== "none") 
-        zoomCard(hiResUrl);
+    if (currentCard.classList.contains("reverse-holo-effect")) zoomCard(hiResUrl, "cssEffectReverseHolo")
+    if (currentCard.classList.contains("crop-reverse-holo-img")) zoomCard(hiResUrl, "imageUrlReverseHolo")
+    if (hiResUrl !== "none") zoomCard(hiResUrl);
+    // Pack art is not zoomed, hence it will not be caught here
 })
 
 

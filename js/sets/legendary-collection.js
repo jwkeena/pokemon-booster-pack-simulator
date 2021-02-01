@@ -3821,7 +3821,7 @@ const legendaryCollectionCards = [{
         nationalPokedexNumber: 66,
         imageUrl: 'https://images.pokemontcg.io/base6/79.png',
         imageUrlHiRes: 'https://images.pokemontcg.io/base6/79_hires.png',
-        imageUrlReverseHolo: '../../images/legendary-reverse-holos/29Machop.jpg',
+        imageUrlReverseHolo: '../../images/legendary-reverse-holos/79Machop.jpg',
         types: [
             'Fighting'
         ],

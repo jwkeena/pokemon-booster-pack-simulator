@@ -67,8 +67,12 @@ header>div {
 
 /* --------------------------------------------- */
 /* Reverse holo - tips from https://css-tricks.com/chaining-multiple-blend-modes/ */
-.reverse-holo-effect, .reverse-holo {
+.reverse-holo-effect {
     background-blend-mode: darken, multiply; 
+}
+
+.pulled-card.reverse-holo-effect {
+    background-repeat: initial;
 }
 
 /* --------------------------------------------- */
@@ -248,8 +252,8 @@ div.card {
     position: relative;
 }
 
-.card.crop-reverse-holo-img {
-    border-radius: 2vh;
+.card.crop-reverse-holo-img, #hi-res-card.crop-reverse-holo-img {
+    border-radius: 2.5vh;
     background-size: cover;
 }
 

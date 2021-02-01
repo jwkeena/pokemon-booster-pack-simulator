@@ -2,9 +2,10 @@
 let uiViewType = "singlePackFlip"; // This must remain global so that the card-logic.js file can access it easily (tho' I could use a closure instead)
 let pulledPacks = [];
 let currentSet = null;
+let sortOption = "packOrder"
 // -----------------------
 // UI
-function setDisplay(sortOption) {
+function setDisplay(sortOption = "packOrder") {
     displayOption = document.querySelector(".select-display").value;
     uiViewType = displayOption;
     switch (displayOption) {
@@ -76,22 +77,26 @@ function preloadImage(card, imageUrl, cardType) {
     img.src = imageUrl;
 }
 
-function onImageLoaded(card, cardType) {
+function onImageLoaded(card, reverseHoloType) {
     const loadedImageUrl = card.getAttribute("data-card-image");
-    if (cardType === "reverseHolo") {
+    if (reverseHoloType === "cssEffectReverseHolo") {
         card.style.backgroundImage = "url('" + loadedImageUrl + "'), url('../images/site/foil.jpg')";
-        card.classList.add("reverse-holo");
+        card.classList.add("reverse-holo-effect");
+    }
+    else if (reverseHoloType === "imageUrlReverseHolo") {
+        card.style.backgroundImage = "url('" + loadedImageUrl + "')";
+        card.classList.add("crop-reverse-holo-img");
     }
     else 
         card.style.backgroundImage = "url('" + loadedImageUrl + "')";
     card.classList.remove("loading");
 }
 
-function zoomCard(hiResImageUrl) {
+function zoomCard(url, reverseHoloType = null) {
     const div = document.getElementById("hi-res-card");
-    div.setAttribute("data-card-image", hiResImageUrl);
-    preloadImage(div, hiResImageUrl);
-    // div.style.backgroundImage = "url('" + hiResImageUrl + "')";
+    div.setAttribute("data-card-image", url, reverseHoloType);
+    preloadImage(div, url, reverseHoloType);
+    // div.style.backgroundImage = "url('" + url, reverseHoloType = null + "')";
     const modal = document.getElementById("card-zoom");
     modal.style.display = "block";
 }
@@ -102,7 +107,13 @@ function deleteChildrenFrom(parentNodes) {
 
 // UI - single pack flip
 function singlePackFlip(packArtUrls, pack) {
+    // Clear screen for single pack divs
     deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
+    
+    // Sort cards in pack before rendering
+    pack = sortThis(pack, sortOption);
+    
+    // Render cards
     const target = document.getElementById("single-pack-flip-area");
     const packArtFront = buildCardHTML(["card", "pack-art-card", "card--current"], packArtUrls.front, "none", "packArt");
     target.append(packArtFront);
@@ -116,17 +127,19 @@ function singlePackFlip(packArtUrls, pack) {
         } else if (pack[i].isReverseHolo === true) {
             // We have two types of reverse holo. First, the one we have image urls for
             if (pack[i].set === "Legendary Collection")
-                card = buildCardHTML(["card", "loading", "crop-reverse-holo-img"], pack[i].imageUrlReverseHolo, pack[i].imageUrlReverseHolo, "reverseHolo");
+                card = buildCardHTML(["card", "loading", "crop-reverse-holo-img"], pack[i].imageUrlReverseHolo, pack[i].imageUrlReverseHolo, "imageUrlReverseHolo");
             // And second, the one we apply a css filter for
             else 
-                card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes, "reverseHolo");
+                card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes, "cssEffectReverseHolo");
         } else {
             card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes);
         }
         card.addEventListener("contextmenu", (e) => {
             e.preventDefault(); 
             if (pack[i].set === "Legendary Collection" && pack[i].isReverseHolo)
-                zoomCard(pack[i].imageUrlReverseHolo);
+                zoomCard(pack[i].imageUrlReverseHolo, "imageUrlReverseHolo");
+            else if (pack[i].isReverseHolo)
+                zoomCard(pack[i].imageUrlHiRes, "cssEffectReverseHolo");
             else 
                 zoomCard(pack[i].imageUrlHiRes);
 
@@ -185,7 +198,7 @@ $.fn.commentCards = function () {
 
 // -----------------------
 // UI - row view
-function displayRowView(packArtUrls, pack, sortOption = null) {
+function displayRowView(packArtUrls, pack, sortOption) {
     const packWrapper = document.createElement("div");
     packWrapper.classList.add("open-pack");
     document.getElementById("row-view").prepend(packWrapper);
@@ -194,23 +207,20 @@ function displayRowView(packArtUrls, pack, sortOption = null) {
     packWrapper.appendChild(packArt);
 
     // Sort cards in pack before rendering
-    if (sortOption !== null)
-        pack = sortThis(pack, sortOption);
+    pack = sortThis(pack, sortOption);
 
     // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks. Must use div tags
     for (let i = 0; i < pack.length; i++) {
-
         let card;
         if (pack[i].set === "Legendary Collection" && pack[i].isReverseHolo) {
             card = buildCardHTML(["pulled-card", "loading", "crop-reverse-holo-img"], pack[i].imageUrlReverseHolo);
             packWrapper.appendChild(card);
-            card.addEventListener("click", () => zoomCard(pack[i].imageUrlReverseHolo));
+            card.addEventListener("click", () => zoomCard(pack[i].imageUrlReverseHolo, "imageUrlReverseHolo"));
         }
-
         else if (pack[i].isReverseHolo) {
-            card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes, "reverseHolo");
+            card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes, "cssEffectReverseHolo");
             packWrapper.appendChild(card);
-            card.addEventListener("click", () => zoomCard(pack[i].imageUrlHiRes));
+            card.addEventListener("click", () => zoomCard(pack[i].imageUrlHiRes, "cssEffectReverseHolo"));
         }
         else { 
             card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrl);
@@ -243,7 +253,8 @@ function displayRowView(packArtUrls, pack, sortOption = null) {
 }
 
 function setRowViewSort() {
-    const sortOption = document.querySelector(".select-row-view-sorting").value;
+    const chosenOption = document.querySelector(".select-row-view-sorting").value;
+    sortOption = chosenOption;
     setDisplay(sortOption);
 }
 
@@ -334,6 +345,6 @@ magnifyingGlass.addEventListener("click", () => {
 
 // -----------------------
 // Initialization
-// TODO: retrieve user's choice from localStorage
+// TODO: retrieve user's choices from localStorage
 chooseSet();
 showElement(".button.select-row-view-sorting", false);

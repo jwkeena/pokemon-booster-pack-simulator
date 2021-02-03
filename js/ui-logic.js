@@ -6,6 +6,9 @@ let sortOption = "packOrder"
 // -----------------------
 // UI
 function setDisplay(sortOption = "packOrder") {
+    gtag("event", "change_display", {
+        "event_category": "engagement"
+    });
     displayOption = document.querySelector(".select-display").value;
     uiViewType = displayOption;
     switch (displayOption) {
@@ -93,6 +96,10 @@ function onImageLoaded(card, reverseHoloType) {
 }
 
 function zoomCard(url, reverseHoloType = null) {
+    gtag("event", "zoom_card", {
+        "event_category": "engagement"
+    });
+
     const div = document.getElementById("hi-res-card");
     div.setAttribute("data-card-image", url, reverseHoloType);
     preloadImage(div, url, reverseHoloType);
@@ -331,7 +338,11 @@ modal.onclick = function (e) {
 
 const openPackButtons = document.querySelectorAll(".open-pack-button");
 openPackButtons.forEach(button => button.onclick = () => { 
-    openPack(currentSet) 
+    openPack(currentSet);
+    gtag("event", "new_pack_opened", {
+        "event_category": "engagement",
+        "event_label": "New pack button"
+    });
 });
 
 const magnifyingGlass = document.querySelector(".magnifying-glass");
@@ -343,6 +354,14 @@ magnifyingGlass.addEventListener("click", () => {
     if (hiResUrl !== "none") zoomCard(hiResUrl);
     // Pack art is not zoomed, hence it will not be caught here
 })
+
+const donateButton = document.querySelector("#donate-button");
+donateButton.addEventListener("click", ()=> {
+    gtag("event", "click_donate_button", {
+        "event_category": "engagement"
+    });
+})
+
 
 
 // -----------------------

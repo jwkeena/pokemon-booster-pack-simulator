@@ -1,5 +1,9 @@
 // Card selection logic
 function chooseSet() {
+    gtag("event", "new_pack_opened", {
+        "event_category": "engagement",
+        "event_label": "New set dropdown"
+    });
     currentSet = document.getElementsByClassName("select-set")[0].value;
     openPack(currentSet);
 }

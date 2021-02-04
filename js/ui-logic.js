@@ -353,16 +353,14 @@ magnifyingGlass.addEventListener("click", () => {
     if (currentCard.classList.contains("crop-reverse-holo-img")) zoomCard(hiResUrl, "imageUrlReverseHolo")
     if (hiResUrl !== "none") zoomCard(hiResUrl);
     // Pack art is not zoomed, hence it will not be caught here
-})
+});
 
 const donateButton = document.querySelector("#donate-button");
 donateButton.addEventListener("click", ()=> {
     gtag("event", "click_donate_button", {
         "event_category": "engagement"
     });
-})
-
-
+});
 
 // -----------------------
 // Initialization

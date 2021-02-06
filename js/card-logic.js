@@ -37,24 +37,33 @@ function openPack(setName) {
 
     const holoPulled = calculateOdds(set.chanceOfHolo);
     const secretRarePulled = calculateOdds(set.chanceOfSecretRare);
-    const pack = [];
+    const cardsInPack = [];
     const randomPackArtUrls = set.packArt[randomIndex(set.packArt.length)];
-    set.cardsToPull.forEach((cardType, index) => pullCard(cardType, pack, set, holoPulled, secretRarePulled, index))
-    pulledPacks.push({ set: set, packArtUrls: randomPackArtUrls, cards: [...pack] });
+    set.cardsToPull.forEach((cardType, index) => pullCard(cardType, cardsInPack, set, holoPulled, secretRarePulled, index));
+    const newId = Symbol();
+    pulledPacks.push({ id: newId, set: set, packArtUrls: randomPackArtUrls, cards: [...cardsInPack]});
     switch (uiViewType) {
         case "singlePackFlip":
-            singlePackFlip(randomPackArtUrls, pack);
+            singlePackFlip(randomPackArtUrls, cardsInPack);
             break;
         case "rowView":
             const sortOption = document.querySelector(".select-row-view-sorting").value;
-            displayRowView(randomPackArtUrls, pack, sortOption);
+            displayRowView(newId, randomPackArtUrls, cardsInPack, sortOption);
             break;
         case "gridView":
-            displayGridView(randomPackArtUrls, pack);
+            displayGridView(randomPackArtUrls, cardsInPack);
             break;
         default:
             console.log("Default view type - this should be impossible");
     }
+}
+
+function deletePack(packId) {
+    for (let i = 0; i < pulledPacks.length; i++){
+        if (pulledPacks[i].id === packId) 
+            pulledPacks.splice(i, 1);
+    }
+    setDisplay("rowView"); 
 }
 
 function chooseRandomSet() {

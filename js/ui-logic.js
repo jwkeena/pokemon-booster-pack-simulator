@@ -2,14 +2,13 @@
 let uiViewType = "singlePackFlip"; // This must remain global so that the card-logic.js file can access it easily (tho' I could use a closure instead)
 let pulledPacks = [];
 let currentSet = null;
-let sortOption = "packOrder"
+let sortOption = "packOrder";
 // -----------------------
 // UI
-function setDisplay(sortOption = "packOrder") {
+function setDisplay(displayOption = document.querySelector(".select-display").value, sortOption = "packOrder") {
     gtag("event", "change_display", {
         "event_category": "engagement"
     });
-    displayOption = document.querySelector(".select-display").value;
     uiViewType = displayOption;
     switch (displayOption) {
         case "singlePackFlip":
@@ -21,16 +20,13 @@ function setDisplay(sortOption = "packOrder") {
         case "rowView":
             showElement(".button.select-row-view-sorting", true);
             showElement(".magnifying-glass.mobile-only", false);
-            if (sortOption !== null)
-                deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
-            else
-                deleteChildrenFrom(["single-pack-flip-area", "grid-view"]);
-            pulledPacks.forEach(pack => { displayRowView(pack.packArtUrls, pack.cards, sortOption) })
+            deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
+            pulledPacks.forEach(pack => { displayRowView(pack.id, pack.packArtUrls, pack.cards, sortOption) })
             break;
         case "gridView":
-            pulledPacks.forEach(pack => displayGridView(pack.packArtUrls, pack.cards, sortOption));
+            pulledPacks.forEach(pack => displayGridView(pack.id, pack.packArtUrls, pack.cards, sortOption));
         default:
-            console.log("Somehow we've passed a nonexistent view type. This should be impossible.")
+            console.log("Somehow we've passed a nonexistent view type: " + displayOption + ". This should be impossible.")
     }
 }
 
@@ -47,7 +43,7 @@ function buildCardHTML(classesToAdd, imageUrl, hiResImageUrl, cardType) {
     return card;
 }
 
-function buildPackArtHTML(packArtUrls) {
+function buildPackArtHTML(packArtUrls, packId) {
     const packArt = document.createElement("div")
     packArt.classList.add("pack-art", "pulled-card");
 
@@ -63,11 +59,22 @@ function buildPackArtHTML(packArtUrls) {
     const packArtBack = new Image();
     packArtBack.src = packArtUrls.back;
     packArtBackDiv.appendChild(packArtBack);
+
+    const deleteButton = document.createElement("div");
+    deleteButton.textContent = "DELETE";
+    deleteButton.classList.add("delete-pack-button");
+    packArtBackDiv.appendChild(deleteButton);
+
     packArt.appendChild(packArtBackDiv);
     
     // Can't use an arrow function here, since I need the "this" context of the div clicked
     packArt.addEventListener("click", function() { 
         this.classList.toggle("flipped");
+    });
+
+    deleteButton.addEventListener("click", function(e) {
+        e.stopPropagation();
+        deletePack(packId);
     });
 
     return packArt;
@@ -156,8 +163,6 @@ function singlePackFlip(packArtUrls, pack) {
     $('.cards').commentCards();
 }
 
-
-
 // Flip through stack of cards modified from https://codepen.io/shshaw/pen/KzYXvP
 $.fn.commentCards = function () {
     // Closure...but why?
@@ -205,12 +210,12 @@ $.fn.commentCards = function () {
 
 // -----------------------
 // UI - row view
-function displayRowView(packArtUrls, pack, sortOption) {
+function displayRowView(packId, packArtUrls, pack, sortOption) {
     const packWrapper = document.createElement("div");
     packWrapper.classList.add("open-pack");
     document.getElementById("row-view").prepend(packWrapper);
 
-    const packArt = buildPackArtHTML(packArtUrls);
+    const packArt = buildPackArtHTML(packArtUrls, packId);
     packWrapper.appendChild(packArt);
 
     // Sort cards in pack before rendering
@@ -262,7 +267,7 @@ function displayRowView(packArtUrls, pack, sortOption) {
 function setRowViewSort() {
     const chosenOption = document.querySelector(".select-row-view-sorting").value;
     sortOption = chosenOption;
-    setDisplay(sortOption);
+    setDisplay("rowView", sortOption);
 }
 
 function sortThis(pack, sortOption) {

@@ -168,15 +168,36 @@ div.card {
 
 .open-pack {
     background-color: rgba(0, 0, 0, 0.15);
-    -webkit-text-fill-color: blue;
-    -webkit-text-stroke-width: .3px;
-    -webkit-text-stroke-color: yellow;
     margin: 1rem 9rem 2rem 8rem;
     padding: 2rem;
     border-radius: 8px;
     text-align: left;
     display: flex;
     overflow-y: auto;
+    position: relative;
+}
+
+.delete-pack-button {
+    background: blue;
+    display: inline-block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: yellow;
+    padding: .5rem 2rem .5rem 2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    backface-visibility: hidden;
+    position: absolute;
+    width: 33%;
+    height: 27px;
+    text-align: center;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
 }
 
 .pack-art {

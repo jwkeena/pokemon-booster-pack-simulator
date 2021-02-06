@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<!--Written by justin keena, https://github.com/jwkeena/pokemon-booster-pack-simulator-->
+<!--Written by Justin Keena-->
 <html>
   <head>
     <meta charset="utf-8" />
     <meta
       name="description"
-      content="Free Pokemon TCG booster pack simulator."
+      content="Free Pokémon TCG booster pack opening simulator. Open as many packs as you want without breaking the bank."
     />
     <meta
       name="keywords"
-      content="Pokemon,pokemon,booster,pack,box,simulator,sim,opening,tcg,set,cards,free"
+      content="Pokémon,Pokemon,pokemon,booster,pack,box,simulator,sim,opening,tcg,set,cards,free,pulls,packs,breaks"
     />
     <!-- Enables media queries on mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -110,7 +110,7 @@
           <select class="button select-display" onchange="setDisplay()">
             <option value="singlePackFlip">DISPLAY: SINGLE</option>
             <option value="rowView">DISPLAY: ROWS</option>
-            <!-- <option value="gridView">grid</option> -->
+            <!-- <option value="gridView">DISPLAY: GRID</option> -->
           </select>
           <select
             class="button select-row-view-sorting"
@@ -125,9 +125,7 @@
             <option value="setNumberDescending">
               SORT BY: SET NUMBER (DESC)
             </option>
-            <!-- <option value="gridView">grid</option> -->
           </select>
-          <!-- <button class="button">CLEAR</button> -->
 
           <div id="single-pack-flip-area" class="cards">
             <div id="emitter"></div>
@@ -200,6 +198,8 @@
     ></script>
     <!-- Huge props to https://www.npmjs.com/package/canvas-confetti for such a delightful project -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
+    <!-- Likewise to http://www.schillmania.com/projects/fireworks/ -->
+    <script type="text/javascript" src="fireworks/script/fireworks.js"></script>
     <script type="text/javascript" src="js/sets/base-set.js"></script>
     <script type="text/javascript" src="js/sets/jungle.js"></script>
     <script type="text/javascript" src="js/sets/fossil.js"></script>
@@ -216,7 +216,6 @@
     <script type="text/javascript" src="js/sets/aquapolis.js"></script>
     <script type="text/javascript" src="js/sets/skyridge.js"></script>
     <script type="text/javascript" src="js/sets/sets.js"></script>
-    <script type="text/javascript" src="fireworks/script/fireworks.js"></script>
     <script type="text/javascript" src="js/card-logic.js"></script>
     <script type="text/javascript" src="js/ui-logic.js"></script>
   </body>

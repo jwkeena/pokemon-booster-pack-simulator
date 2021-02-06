@@ -167,8 +167,13 @@
       <br />
 
       <div class="boxed">
-        Current as of 2/1/2021, from most to least recent:
+        Current as of 2/5/2021, from most to least recent:
         <ol reversed>
+          <li>
+            Added ability to delete packs in row view: flip the pack art, and
+            then click the delete button. Switching between row view and single
+            pack view retains selected sorting option.
+          </li>
           <li>
             Single pack view keeps sorting option when switching back from row
             view. Reverse holos display properly in zoom mode.
@@ -411,10 +416,10 @@
 
     <script>
       const donateButton = document.querySelector("#donate-button");
-      donateButton.addEventListener("click", ()=> {
-          gtag("event", "click_donate_button", {
-              "event_category": "engagement"
-          });
+      donateButton.addEventListener("click", () => {
+        gtag("event", "click_donate_button", {
+          event_category: "engagement",
+        });
       });
 
       const modal = document.getElementById("card-zoom");
@@ -424,7 +429,7 @@
         preloadImage(div, hiResImageUrl);
         modal.style.display = "block";
       }
-      
+
       // When the user clicks anywhere outside of the modal, close it
       modal.onclick = function (e) {
         if (e.target !== document.getElementById("hi-res-card")) {

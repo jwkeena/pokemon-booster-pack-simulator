@@ -5,7 +5,7 @@ let currentSet = null;
 let sortOption = "packOrder";
 // -----------------------
 // UI
-function setDisplay(displayOption = document.querySelector(".select-display").value, sortOption = "packOrder") {
+function setDisplay(displayOption = document.querySelector(".select-display").value, sortOption = document.querySelector(".select-row-view-sorting").value) {
     gtag("event", "change_display", {
         "event_category": "engagement"
     });

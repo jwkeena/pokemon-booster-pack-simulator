@@ -363,11 +363,10 @@ function displayGridView(sortOption) {
             card.addEventListener("click", () => zoomCard(allCards[i].imageUrlHiRes));
         }
 
-    // But I can use img tags for the rarity markers
+        // But I can use img tags for the rarity markers
         const setSymbol = document.createElement("img");
         setSymbol.classList.add("set-symbol");
         setSymbol.src = allCards[i].setSymbolUrl;
-        console.log(setSymbol.src);
         card.appendChild(setSymbol)
     };
 }

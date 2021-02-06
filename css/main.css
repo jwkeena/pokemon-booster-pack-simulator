@@ -249,14 +249,14 @@ div.card {
 
 .pulled-card.pack-art {
     background-size: 100% 100%;
-    height: 500px;
-    flex-basis: 320px;
+    height: 23vw;
+    flex-basis: 16.72vw;
     margin-top: .5rem;
 }
 
 .pack-art div img {
-    height: 500px;
-    width: 320px;
+    height: 25vw;
+    width: 16.72vw;
     border-radius: 0px;
 }
 
@@ -266,11 +266,11 @@ div.card {
     background-repeat: no-repeat;
     border-radius: 8px;
     display: inline;
-    height: 440px;
+    height: calc(120vw/5.85); 
+    flex-basis: calc(120vw/8);
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 320px;
-    margin: 2.5rem .5rem .5rem .5rem;
+    margin: 2rem .5rem 2rem .5rem;
     box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.7);
     transition-property: transform;
     /* must specify the property to be transitioned to prevent the background-image change from doing a .2s transition also */
@@ -316,16 +316,15 @@ div.card {
 /* Grid view */
 .grid-wrapper {
     background-color: rgba(0, 0, 0, 0.15);
-    margin: 2rem 10% 2rem 10%;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    margin: 0 12vw 2rem 12vw;
     padding-bottom: 2.5rem;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
+    bottom: 3rem;
 }
 
 .grid-card {
@@ -334,8 +333,8 @@ div.card {
     background-repeat: no-repeat;
     border-radius: 4px;
     /* Maintains 1.375 ratio between height and width */
-    height: calc(100vw/5.85); 
-    flex-basis: calc(100vw/8);
+    height: calc(80vw/5.85); 
+    flex-basis: calc(80vw/8);
     margin-left: .3rem;
     margin-right: .3rem;
     padding-left: .5rem;
@@ -362,7 +361,7 @@ div.card {
 
 .set-symbol {
     position: absolute;
-    bottom: -1.3rem;
+    bottom: -1.5rem;
     right: 41%;
     width: 20px;
     max-height: 100%

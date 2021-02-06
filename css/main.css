@@ -160,6 +160,11 @@ div.card {
     background-size: cover;
 }
 
+.grid-card.loading {
+    background-size: 160% 100%;
+    background-position-x: 48%;
+}
+
 /* --------------------------------------------- */
 /* Row view packs */
 .open-pack {
@@ -311,15 +316,16 @@ div.card {
 /* Grid view */
 .grid-wrapper {
     background-color: rgba(0, 0, 0, 0.15);
-    margin: 1rem 9rem 2rem 8rem;
-    padding: 2rem;
+    margin: 2rem 10% 2rem 10%;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-bottom: 2.5rem;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
-
 }
 
 .grid-card {
@@ -327,13 +333,17 @@ div.card {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 4px;
-    /* Maintain 1.375 ratio between height and width */
+    /* Maintains 1.375 ratio between height and width */
     height: calc(100vw/5.85); 
-    flex-shrink: 1;
     flex-basis: calc(100vw/8);
+    margin-left: .3rem;
+    margin-right: .3rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    flex-shrink: 1;
     align-content: center;
     flex-flow: column wrap;
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
     box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.7);
     transition-property: transform;
     /* must specify the property to be transitioned to prevent the background-image change from doing a .2s transition also */
@@ -348,6 +358,14 @@ div.card {
 
 .grid-card:hover {
     transform: translateY(-1.5rem);
+}
+
+.set-symbol {
+    position: absolute;
+    bottom: -1.3rem;
+    right: 41%;
+    width: 20px;
+    max-height: 100%
 }
 
 /* --------------------------------------------- */

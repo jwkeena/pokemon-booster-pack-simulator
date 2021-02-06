@@ -122,6 +122,7 @@ function pullCard(cardType, pack, set, holoPulled, secretRarePulled, index) {
     }
     else {
         card.pullOrder = index;
+        card.setSymbolUrl = set.symbolUrl;
         pack.push(card);
     }
     return pack;

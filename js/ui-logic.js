@@ -345,7 +345,7 @@ function displayGridView(sortOption) {
     // pack = sortThis(pack, sortOption);
 
     // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks. Must use div tags
-    for (let i = 0; i < allCards.length; i++) {
+    for (let i = allCards.length - 1; i >= 0; i--) {
         let card;
         if (allCards[i].set === "Legendary Collection" && allCards[i].isReverseHolo) {
             card = buildCardHTML(["grid-card", "loading", "crop-reverse-holo-img"], allCards[i].imageUrlReverseHolo);
@@ -363,16 +363,12 @@ function displayGridView(sortOption) {
             card.addEventListener("click", () => zoomCard(allCards[i].imageUrlHiRes));
         }
 
-    //     But I can use img tags for the rarity markers
-    //     const raritySymbol = document.createElement("img");
-    //     raritySymbol.classList.add("rarity");
-    //     if (allCards[i].rarity === "Common")
-    //         raritySymbol.src = "../images/site/rarity_common.png";
-    //     if (allCards[i].rarity === "Uncommon")
-    //         raritySymbol.src = "../images/site/rarity_uncommon.png";
-    //     if (allCards[i].rarity === "Holo Rare" || allCards[i].rarity === "Rare" || allCards[i].rarity === "Secret Rare")
-    //         raritySymbol.src = "../images/site/rarity_rare.png";
-    //     card.appendChild(raritySymbol)
+    // But I can use img tags for the rarity markers
+        const setSymbol = document.createElement("img");
+        setSymbol.classList.add("set-symbol");
+        setSymbol.src = allCards[i].setSymbolUrl;
+        console.log(setSymbol.src);
+        card.appendChild(setSymbol)
     };
 }
 

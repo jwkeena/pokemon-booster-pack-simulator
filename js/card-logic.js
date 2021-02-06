@@ -42,16 +42,16 @@ function openPack(setName) {
     set.cardsToPull.forEach((cardType, index) => pullCard(cardType, cardsInPack, set, holoPulled, secretRarePulled, index));
     const newId = Symbol();
     pulledPacks.push({ id: newId, set: set, packArtUrls: randomPackArtUrls, cards: [...cardsInPack]});
+    const sortOption = document.querySelector(".select-row-view-sorting").value;
     switch (uiViewType) {
         case "singlePackFlip":
             singlePackFlip(randomPackArtUrls, cardsInPack);
             break;
         case "rowView":
-            const sortOption = document.querySelector(".select-row-view-sorting").value;
             displayRowView(newId, randomPackArtUrls, cardsInPack, sortOption);
             break;
         case "gridView":
-            displayGridView(randomPackArtUrls, cardsInPack);
+            displayGridView(sortOption);
             break;
         default:
             console.log("Default view type - this should be impossible");

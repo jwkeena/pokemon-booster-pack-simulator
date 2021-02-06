@@ -110,11 +110,11 @@
           <select class="button select-display" onchange="setDisplay()">
             <option value="singlePackFlip">DISPLAY: SINGLE</option>
             <option value="rowView">DISPLAY: ROWS</option>
-            <!-- <option value="gridView">DISPLAY: GRID</option> -->
+            <option value="gridView">DISPLAY: GRID</option>
           </select>
           <select
             class="button select-row-view-sorting"
-            onchange="setRowViewSort()"
+            onchange="resortRowView()"
           >
             <option value="packOrder">SORT BY: PACK ORDER</option>
             <option value="rarityAscending">SORT BY: RARITY (DESC)</option>

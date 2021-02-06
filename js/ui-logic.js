@@ -10,6 +10,7 @@ function setDisplay(displayOption = document.querySelector(".select-display").va
         "event_category": "engagement"
     });
     uiViewType = displayOption;
+    
     switch (displayOption) {
         case "singlePackFlip":
             showElement(".button.select-row-view-sorting", false);
@@ -24,7 +25,9 @@ function setDisplay(displayOption = document.querySelector(".select-display").va
             pulledPacks.forEach(pack => { displayRowView(pack.id, pack.packArtUrls, pack.cards, sortOption) })
             break;
         case "gridView":
-            pulledPacks.forEach(pack => displayGridView(pack.id, pack.packArtUrls, pack.cards, sortOption));
+            deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
+            displayGridView(sortOption);
+            break;
         default:
             console.log("Somehow we've passed a nonexistent view type: " + displayOption + ". This should be impossible.")
     }
@@ -264,7 +267,7 @@ function displayRowView(packId, packArtUrls, pack, sortOption) {
     });
 }
 
-function setRowViewSort() {
+function resortRowView() {
     const chosenOption = document.querySelector(".select-row-view-sorting").value;
     sortOption = chosenOption;
     setDisplay("rowView", sortOption);
@@ -326,8 +329,51 @@ function showElement(selector, bool) {
 
 // -----------------------
 // UI - grid view
-function displayGridView(packArt, pack, sortOption) {
-    console.log("running displayGridView");
+function displayGridView(sortOption) {
+    deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
+
+    const gridWrapper = document.createElement("div");
+    gridWrapper.classList.add("grid-wrapper");
+    document.getElementById("grid-view").prepend(gridWrapper);
+
+    // Get all cards. Can't one line this...
+    let allCards = [];
+    pulledPacks.forEach(pack => allCards.push(...pack.cards));
+
+    // Sort cards in pack before rendering
+    // Create new sort option for grid view
+    // pack = sortThis(pack, sortOption);
+
+    // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks. Must use div tags
+    for (let i = 0; i < allCards.length; i++) {
+        let card;
+        if (allCards[i].set === "Legendary Collection" && allCards[i].isReverseHolo) {
+            card = buildCardHTML(["grid-card", "loading", "crop-reverse-holo-img"], allCards[i].imageUrlReverseHolo);
+            gridWrapper.appendChild(card);
+            card.addEventListener("click", () => zoomCard(allCards[i].imageUrlReverseHolo, "imageUrlReverseHolo"));
+        }
+        else if (allCards[i].isReverseHolo) {
+            card = buildCardHTML(["grid-card", "loading"], allCards[i].imageUrl, allCards[i].imageUrlHiRes, "cssEffectReverseHolo");
+            gridWrapper.appendChild(card);
+            card.addEventListener("click", () => zoomCard(allCards[i].imageUrlHiRes, "cssEffectReverseHolo"));
+        }
+        else { 
+            card = buildCardHTML(["grid-card", "loading"], allCards[i].imageUrl);
+            gridWrapper.appendChild(card);
+            card.addEventListener("click", () => zoomCard(allCards[i].imageUrlHiRes));
+        }
+
+    //     But I can use img tags for the rarity markers
+    //     const raritySymbol = document.createElement("img");
+    //     raritySymbol.classList.add("rarity");
+    //     if (allCards[i].rarity === "Common")
+    //         raritySymbol.src = "../images/site/rarity_common.png";
+    //     if (allCards[i].rarity === "Uncommon")
+    //         raritySymbol.src = "../images/site/rarity_uncommon.png";
+    //     if (allCards[i].rarity === "Holo Rare" || allCards[i].rarity === "Rare" || allCards[i].rarity === "Secret Rare")
+    //         raritySymbol.src = "../images/site/rarity_rare.png";
+    //     card.appendChild(raritySymbol)
+    };
 }
 
 // -----------------------

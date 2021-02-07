@@ -114,11 +114,13 @@
           </select>
           <select
             class="button select-row-view-sorting"
-            onchange="resortRowView()"
+            onchange="resortCardsOnDisplay()"
           >
             <option value="packOrder">SORT BY: PACK ORDER</option>
-            <option value="rarityAscending">SORT BY: RARITY (DESC)</option>
-            <option value="rarityDescending">SORT BY: RARITY (ASC)</option>
+            <option value="cardNameDescending">SORT BY: CARD NAME (A-Z)</option>
+            <option value="cardNameAscending">SORT BY: CARD NAME (Z-A)</option>
+            <option value="rarityDescending">SORT BY: RARITY (DESC)</option>
+            <option value="rarityAscending">SORT BY: RARITY (ASC)</option>
             <option value="setNumberAscending">
               SORT BY: SET NUMBER (ASC)
             </option>

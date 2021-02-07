@@ -25,6 +25,8 @@ function setDisplay(displayOption = document.querySelector(".select-display").va
             pulledPacks.forEach(pack => { displayRowView(pack.id, pack.packArtUrls, pack.cards, sortOption) })
             break;
         case "gridView":
+            showElement(".button.select-row-view-sorting", true);
+            showElement(".magnifying-glass.mobile-only", false);
             deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
             displayGridView(sortOption);
             break;
@@ -267,15 +269,15 @@ function displayRowView(packId, packArtUrls, pack, sortOption) {
     });
 }
 
-function resortRowView() {
+function resortCardsOnDisplay() {
     const chosenOption = document.querySelector(".select-row-view-sorting").value;
     sortOption = chosenOption;
-    setDisplay("rowView", sortOption);
+    setDisplay(displayOption = document.querySelector(".select-display").value, sortOption);
 }
 
-function sortThis(pack, sortOption) {
+function sortThis(cards, sortOption) {
     // Magic from https://afewminutesofcode.com/how-to-create-a-custom-sort-order-in-javascript
-    let sortedPack, sortBy;
+    let sortedCards, sortBy;
     const customSort = ({ data, sortBy, sortField }) => {
         const sortByObject = sortBy.reduce((obj, item, index) => {
             return {
@@ -297,25 +299,45 @@ function sortThis(pack, sortOption) {
     }
 
     switch (sortOption) {
+        case "packOrder":
+            sortedCards = cards.sort((a, b) => { return parseInt(a.pullOrder) - parseInt(b.pullOrder)})
+            break;
         case "rarityDescending":
             sortBy = ["Common", "Uncommon", "Rare", "Holo Rare", "Secret Rare"];
-            sortedPack = customSort({ data: pack, sortBy, sortField: 'rarity' });
+            sortedCards = customSort({ data: cards, sortBy, sortField: 'rarity' });
+            // Secondary sort by ascending card number
+            // console.log(sortedCards)
+            // sortedCards = sortedCards.sort((a, b) => { return parseInt(accountForHoloNumbers(a.number)) - parseInt(accountForHoloNumbers(b.number))});
+            // console.log(sortedCards)
             break;
         case "rarityAscending":
             sortBy = ["Secret Rare", "Holo Rare", "Rare", "Uncommon", "Common"];
-            sortedPack = customSort({ data: pack, sortBy, sortField: 'rarity' });
-            break;
-        case "packOrder":
-            sortedPack = pack.sort((a, b) => { return parseInt(a.pullOrder) - parseInt(b.pullOrder)})
-            break;
-        case "setNumberAscending":
-            sortedPack = pack.sort((a, b) => { return parseInt(accountForHoloNumbers(a.number)) - parseInt(accountForHoloNumbers(b.number))})
+            sortedCards = customSort({ data: cards, sortBy, sortField: 'rarity' });
             break;
         case "setNumberDescending":
-            sortedPack = pack.sort((a, b) => { return parseInt(accountForHoloNumbers(b.number)) - parseInt(accountForHoloNumbers(a.number))})
+            sortedCards = cards.sort((a, b) => { return parseInt(accountForHoloNumbers(b.number)) - parseInt(accountForHoloNumbers(a.number))})
             break;
+        case "setNumberAscending":
+            sortedCards = cards.sort((a, b) => { return parseInt(accountForHoloNumbers(a.number)) - parseInt(accountForHoloNumbers(b.number))})
+            break;
+        case "cardNameDescending":
+            sortedCards = cards.sort((a, b) => {
+                const name1 = a.name;
+                const name2 = b.name;
+                return (name1 < name2) ? -1 : (name1 > name2) ? 1 : 0;
+            });
+            break;
+        case "cardNameAscending":
+            sortedCards = cards.sort((a, b) => {
+                const name1 = a.name;
+                const name2 = b.name;
+                return (name1 > name2) ? -1 : (name1 < name2) ? 1 : 0;
+            });
+            break;
+        default:
+            console.log("Unknown sorting method.");
     }
-    return sortedPack;
+    return sortedCards;
 }
 
 // TODO: Abstract this into a showElement function that takes in an array and spreads it
@@ -341,11 +363,10 @@ function displayGridView(sortOption) {
     pulledPacks.forEach(pack => allCards.push(...pack.cards));
 
     // Sort cards in pack before rendering
-    // Create new sort option for grid view
-    // pack = sortThis(pack, sortOption);
+    allCards = sortThis(allCards, sortOption);
 
     // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks. Must use div tags
-    for (let i = allCards.length - 1; i >= 0; i--) {
+    for (let i = 0; i < allCards.length; i++) {
         let card;
         if (allCards[i].set === "Legendary Collection" && allCards[i].isReverseHolo) {
             card = buildCardHTML(["grid-card", "loading", "crop-reverse-holo-img"], allCards[i].imageUrlReverseHolo);

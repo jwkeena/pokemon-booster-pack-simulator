@@ -169,8 +169,9 @@ div.card {
 /* Row view packs */
 .open-pack {
     background-color: rgba(0, 0, 0, 0.15);
-    margin: 1rem 9rem 2rem 8rem;
-    padding: 2rem;
+    margin: 1rem 8rem 2rem 8rem;
+    padding: 1rem;
+    padding-bottom: 2rem;
     border-radius: 8px;
     text-align: left;
     display: flex;
@@ -249,14 +250,14 @@ div.card {
 
 .pulled-card.pack-art {
     background-size: 100% 100%;
-    height: 23vw;
-    flex-basis: 16.72vw;
+    height: 22vw;
+    flex-basis: 16.27vw;
     margin-top: .5rem;
 }
 
 .pack-art div img {
-    height: 25vw;
-    width: 16.72vw;
+    height: 22vw;
+    width: 16.27vw;
     border-radius: 0px;
 }
 
@@ -266,11 +267,11 @@ div.card {
     background-repeat: no-repeat;
     border-radius: 8px;
     display: inline;
-    height: calc(120vw/5.85); 
-    flex-basis: calc(120vw/8);
+    height: calc(110vw/5.85); 
+    flex-basis: calc(110vw/8);
     flex-grow: 0;
     flex-shrink: 0;
-    margin: 2rem .5rem 2rem .5rem;
+    margin: 2rem .5rem 0rem .5rem;
     box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.7);
     transition-property: transform;
     /* must specify the property to be transitioned to prevent the background-image change from doing a .2s transition also */
@@ -306,10 +307,10 @@ div.card {
 
 .rarity {
     position: absolute;
-    bottom: -2rem;
+    bottom: -1.75rem;
     right: 46%;
-    width: 1rem;
-    height: 1rem;
+    width: .85rem;
+    height: .85rem;
 }
 
 /* --------------------------------------------- */

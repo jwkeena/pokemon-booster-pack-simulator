@@ -322,10 +322,31 @@ function sortThis(cards, sortOption) {
             sortedCards = customSort({ data: cards, sortBy, sortField: 'rarity' });
             break;
         case "setNumberDescending":
-            sortedCards = cards.sort((a, b) => { return parseInt(accountForHoloNumbers(b.number)) - parseInt(accountForHoloNumbers(a.number)) })
+            sortedCards = cards.sort((a, b) => { 
+                // First sort by set
+                if (a.set > b.set) return 1;
+                if (a.set < b.set) return -1;
+
+                // Then set by number
+                if (parseInt(accountForHoloNumbers(a.number)) < parseInt(accountForHoloNumbers(b.number))) return 1;
+                if (parseInt(accountForHoloNumbers(a.number)) > parseInt(accountForHoloNumbers(b.number))) return -1;
+                
+                return 0;
+            })
+            break;
             break;
         case "setNumberAscending":
-            sortedCards = cards.sort((a, b) => { return parseInt(accountForHoloNumbers(a.number)) - parseInt(accountForHoloNumbers(b.number)) })
+            sortedCards = cards.sort((a, b) => { 
+                // First sort by set
+                if (a.set > b.set) return 1;
+                if (a.set < b.set) return -1;
+
+                // Then set by number
+                if (parseInt(accountForHoloNumbers(a.number)) > parseInt(accountForHoloNumbers(b.number))) return 1;
+                if (parseInt(accountForHoloNumbers(a.number)) < parseInt(accountForHoloNumbers(b.number))) return -1;
+                
+                return 0;
+            })
             break;
         // https://stackoverflow.com/questions/8900732/sort-objects-in-an-array-alphabetically-on-one-property-of-the-array
         case "cardNameDescending":

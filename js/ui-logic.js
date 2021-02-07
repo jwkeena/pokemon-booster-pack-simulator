@@ -10,7 +10,7 @@ function setDisplay(displayOption = document.querySelector(".select-display").va
         "event_category": "engagement"
     });
     uiViewType = displayOption;
-    
+
     switch (displayOption) {
         case "singlePackFlip":
             showElement(".button.select-row-view-sorting", false);
@@ -71,13 +71,13 @@ function buildPackArtHTML(packArtUrls, packId) {
     packArtBackDiv.appendChild(deleteButton);
 
     packArt.appendChild(packArtBackDiv);
-    
+
     // Can't use an arrow function here, since I need the "this" context of the div clicked
-    packArt.addEventListener("click", function() { 
+    packArt.addEventListener("click", function () {
         this.classList.toggle("flipped");
     });
 
-    deleteButton.addEventListener("click", function(e) {
+    deleteButton.addEventListener("click", function (e) {
         e.stopPropagation();
         deletePack(packId);
     });
@@ -102,7 +102,7 @@ function onImageLoaded(card, reverseHoloType) {
         card.style.backgroundImage = "url('" + loadedImageUrl + "')";
         card.classList.add("crop-reverse-holo-img");
     }
-    else 
+    else
         card.style.backgroundImage = "url('" + loadedImageUrl + "')";
     card.classList.remove("loading");
 }
@@ -128,10 +128,10 @@ function deleteChildrenFrom(parentNodes) {
 function singlePackFlip(packArtUrls, pack) {
     // Clear screen for single pack divs
     deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
-    
+
     // Sort cards in pack before rendering
     pack = sortThis(pack, sortOption);
-    
+
     // Render cards
     const target = document.getElementById("single-pack-flip-area");
     const packArtFront = buildCardHTML(["card", "pack-art-card", "card--current"], packArtUrls.front, "none", "packArt");
@@ -148,18 +148,18 @@ function singlePackFlip(packArtUrls, pack) {
             if (pack[i].set === "Legendary Collection")
                 card = buildCardHTML(["card", "loading", "crop-reverse-holo-img"], pack[i].imageUrlReverseHolo, pack[i].imageUrlReverseHolo, "imageUrlReverseHolo");
             // And second, the one we apply a css filter for
-            else 
+            else
                 card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes, "cssEffectReverseHolo");
         } else {
             card = buildCardHTML(["card", "loading"], pack[i].imageUrl, pack[i].imageUrlHiRes);
         }
         card.addEventListener("contextmenu", (e) => {
-            e.preventDefault(); 
+            e.preventDefault();
             if (pack[i].set === "Legendary Collection" && pack[i].isReverseHolo)
                 zoomCard(pack[i].imageUrlReverseHolo, "imageUrlReverseHolo");
             else if (pack[i].isReverseHolo)
                 zoomCard(pack[i].imageUrlHiRes, "cssEffectReverseHolo");
-            else 
+            else
                 zoomCard(pack[i].imageUrlHiRes);
 
         });
@@ -180,7 +180,7 @@ $.fn.commentCards = function () {
         // The crucial changes here was in three parts
         $cards.on('click', function () {
             if ($current.is(this)) { // First, I wanted the condition to only apply to the current card, NOT everything else (so I took the bang out)
-                
+
                 $cards.removeClass('card--current card--out card--next');
                 $current.addClass('card--out');
                 $current = $(this).next().length === 1 ? $(this).next().addClass('card--current') : $cards.first().addClass('card--current'); // Second, I added a ternary here to apply the "card-current" class to the next item if there is one, or if not, then the first item
@@ -189,19 +189,19 @@ $.fn.commentCards = function () {
 
                 if ($current.hasClass("fireworks")) {
                     const fireworks = function () {
-                        createFirework(27,200,4,2,null,null,null,null,false,true);
+                        createFirework(27, 200, 4, 2, null, null, null, null, false, true);
                     }
                     const fireworksTimer = setInterval(fireworks, 300);
-                    setTimeout(() => {clearInterval(fireworksTimer); $current.removeClass("fireworks");}, 5000)
+                    setTimeout(() => { clearInterval(fireworksTimer); $current.removeClass("fireworks"); }, 5000)
                 }
 
-                if ($current.hasClass("confetti")){
+                if ($current.hasClass("confetti")) {
                     setTimeout(() => {
                         $current.removeClass("confetti");
-                        confetti({particleCount: 200, gravity: .5, origin: {y: .7}, spread: 90});
+                        confetti({ particleCount: 200, gravity: .5, origin: { y: .7 }, spread: 90 });
                     }, 500);
                 }
-                
+
             }
         });
 
@@ -239,7 +239,7 @@ function displayRowView(packId, packArtUrls, pack, sortOption) {
             packWrapper.appendChild(card);
             card.addEventListener("click", () => zoomCard(pack[i].imageUrlHiRes, "cssEffectReverseHolo"));
         }
-        else { 
+        else {
             card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrl);
             packWrapper.appendChild(card);
             card.addEventListener("click", () => zoomCard(pack[i].imageUrlHiRes));
@@ -285,41 +285,49 @@ function sortThis(cards, sortOption) {
                 [item]: index
             }
         }, {})
-        return data.sort((a, b) => sortByObject[a[sortField]] - sortByObject[b[sortField]])
+        return data.sort((a, b) => {
+            // Using a logic funnel to sort in multiple layers
+            // Check custom sort first
+            if (sortByObject[a[sortField]] > sortByObject[b[sortField]]) return 1;
+            if (sortByObject[a[sortField]] < sortByObject[b[sortField]]) return -1;
+
+            // Then sort by name
+            if (a.name > b.name) return 1;
+            if (a.name < b.name) return -1;
+
+            return 0;
+        })
     }
 
     // Within the switch statement below, some cards' set number is like "H4" instead of 4. 
     // So I strip the "H" here and return "0" so (1) parseInt() can be run on it and 
     // (2) the holo is always treated as the highest or lowest number in the set
-    function accountForHoloNumbers(rarityString){
+    function accountForHoloNumbers(rarityString) {
         if (rarityString.charAt(0) === "H")
             return "0";
-        else 
+        else
             return rarityString;
     }
 
     switch (sortOption) {
         case "packOrder":
-            sortedCards = cards.sort((a, b) => { return parseInt(a.pullOrder) - parseInt(b.pullOrder)})
+            sortedCards = cards.sort((a, b) => { return parseInt(a.pullOrder) - parseInt(b.pullOrder) })
             break;
         case "rarityDescending":
-            sortBy = ["Common", "Uncommon", "Rare", "Holo Rare", "Secret Rare"];
-            sortedCards = customSort({ data: cards, sortBy, sortField: 'rarity' });
-            // Secondary sort by ascending card number
-            // console.log(sortedCards)
-            // sortedCards = sortedCards.sort((a, b) => { return parseInt(accountForHoloNumbers(a.number)) - parseInt(accountForHoloNumbers(b.number))});
-            // console.log(sortedCards)
-            break;
-        case "rarityAscending":
             sortBy = ["Secret Rare", "Holo Rare", "Rare", "Uncommon", "Common"];
             sortedCards = customSort({ data: cards, sortBy, sortField: 'rarity' });
             break;
+        case "rarityAscending":
+            sortBy = ["Common", "Uncommon", "Rare", "Holo Rare", "Secret Rare"];
+            sortedCards = customSort({ data: cards, sortBy, sortField: 'rarity' });
+            break;
         case "setNumberDescending":
-            sortedCards = cards.sort((a, b) => { return parseInt(accountForHoloNumbers(b.number)) - parseInt(accountForHoloNumbers(a.number))})
+            sortedCards = cards.sort((a, b) => { return parseInt(accountForHoloNumbers(b.number)) - parseInt(accountForHoloNumbers(a.number)) })
             break;
         case "setNumberAscending":
-            sortedCards = cards.sort((a, b) => { return parseInt(accountForHoloNumbers(a.number)) - parseInt(accountForHoloNumbers(b.number))})
+            sortedCards = cards.sort((a, b) => { return parseInt(accountForHoloNumbers(a.number)) - parseInt(accountForHoloNumbers(b.number)) })
             break;
+        // https://stackoverflow.com/questions/8900732/sort-objects-in-an-array-alphabetically-on-one-property-of-the-array
         case "cardNameDescending":
             sortedCards = cards.sort((a, b) => {
                 const name1 = a.name;
@@ -343,9 +351,9 @@ function sortThis(cards, sortOption) {
 // TODO: Abstract this into a showElement function that takes in an array and spreads it
 function showElement(selector, bool) {
     el = document.querySelector(selector);
-    if (bool) 
+    if (bool)
         el.classList.remove("hide");
-    else 
+    else
         el.classList.add("hide");
 }
 
@@ -378,7 +386,7 @@ function displayGridView(sortOption) {
             gridWrapper.appendChild(card);
             card.addEventListener("click", () => zoomCard(allCards[i].imageUrlHiRes, "cssEffectReverseHolo"));
         }
-        else { 
+        else {
             card = buildCardHTML(["grid-card", "loading"], allCards[i].imageUrl);
             gridWrapper.appendChild(card);
             card.addEventListener("click", () => zoomCard(allCards[i].imageUrlHiRes));
@@ -404,7 +412,7 @@ modal.onclick = function (e) {
 }
 
 const openPackButtons = document.querySelectorAll(".open-pack-button");
-openPackButtons.forEach(button => button.onclick = () => { 
+openPackButtons.forEach(button => button.onclick = () => {
     openPack(currentSet);
     gtag("event", "new_pack_opened", {
         "event_category": "engagement",
@@ -423,7 +431,7 @@ magnifyingGlass.addEventListener("click", () => {
 });
 
 const donateButton = document.querySelector("#donate-button");
-donateButton.addEventListener("click", ()=> {
+donateButton.addEventListener("click", () => {
     gtag("event", "click_donate_button", {
         "event_category": "engagement"
     });

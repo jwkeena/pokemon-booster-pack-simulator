@@ -352,8 +352,7 @@ div.card {
 }
 
 .grid-card.crop-reverse-holo-img {
-    flex-basis: 315px;
-    border-radius: 14px;
+    border-radius: 4px;
 }
 
 .grid-card:hover {

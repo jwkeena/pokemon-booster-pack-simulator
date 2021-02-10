@@ -301,8 +301,8 @@ div.card {
 }
 
 .pulled-card.crop-reverse-holo-img {
-    flex-basis: 315px;
-    border-radius: 14px;
+    flex-basis: calc(107.5vw/8);
+    border-radius: 6px;
 }
 
 .pulled-card img {
@@ -349,8 +349,8 @@ div.card {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 4px;
-    /* Maintains 1.375 ratio between height and width */
-    height: calc(80vw/5.85); 
+    /* Maintains approx. 1.375 ratio between height and width without looking too short */
+    height: calc(86vw/5.85); 
     flex-basis: calc(80vw/8);
     margin-left: .3rem;
     margin-right: .3rem;

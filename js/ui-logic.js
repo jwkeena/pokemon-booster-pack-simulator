@@ -474,16 +474,6 @@ donateButton.addEventListener("click", () => {
     });
 });
 
-// Sticky navbar test
-// window.onscroll = function () {
-//     const navbar = document.querySelector("nav");
-//     const stickyOffset = navbar.offsetTop;
-//     console.log(stickyOffset)
-//     console.log(window.pageYOffset)
-//     if (window.pageYOffset >= stickyOffset) navbar.classList.add("sticky");
-//     else navbar.classList.remove("sticky");
-// };
-
 // -----------------------
 // Initialization
 // TODO: retrieve user's choices from localStorage

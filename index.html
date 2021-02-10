@@ -88,57 +88,69 @@
         </header>
 
         <main>
-          <button class="button open-pack-button desktop-only">OPEN</button>
-          <select class="button select-set" onchange="chooseSet()">
-            <option value="baseSet">BASE SET</option>
-            <option value="jungle">JUNGLE</option>
-            <option value="fossil">FOSSIL</option>
-            <option value="base2">BASE 2</option>
-            <option value="teamRocket">TEAM ROCKET</option>
-            <option value="gymHeroes">GYM HEROES</option>
-            <option value="gymChallenge">GYM CHALLENGE</option>
-            <option value="neoGenesis">NEO GENESIS</option>
-            <option value="neoDiscovery">NEO DISCOVERY</option>
-            <option value="neoRevelation">NEO REVELATION</option>
-            <option value="neoDestiny">NEO DESTINY</option>
-            <option value="legendaryCollection">LEGENDARY COLLECTION</option>
-            <option value="expeditionBaseSet">EXPEDITION BASE</option>
-            <option value="aquapolis">AQUAPOLIS</option>
-            <option value="skyridge">SKYRIDGE</option>
-            <option value="random">RANDOM</option>
-          </select>
-          <select class="button select-display" onchange="setDisplay()">
-            <option value="singlePackFlip">DISPLAY: SINGLE</option>
-            <option value="rowView">DISPLAY: ROWS</option>
-            <option value="gridView">DISPLAY: GRID</option>
-          </select>
-          <select
-            class="button select-row-view-sorting"
-            onchange="resortCardsOnDisplay()"
-          >
-            <option value="packOrder">SORT BY: PACK ORDER</option>
-            <option value="cardNameDescending">SORT BY: CARD NAME (A-Z)</option>
-            <option value="cardNameAscending">SORT BY: CARD NAME (Z-A)</option>
-            <option value="rarityDescending">SORT BY: RARITY (DESC)</option>
-            <option value="rarityAscending">SORT BY: RARITY (ASC)</option>
-            <option value="setNumberAscending">
-              SORT BY: SET NUMBER (ASC)
-            </option>
-            <option value="setNumberDescending">
-              SORT BY: SET NUMBER (DESC)
-            </option>
-          </select>
+          <nav>
+            <button class="button open-pack-button desktop-only">OPEN</button>
+            <select class="button select-set" onchange="chooseSet()">
+              <option value="baseSet">BASE SET</option>
+              <option value="jungle">JUNGLE</option>
+              <option value="fossil">FOSSIL</option>
+              <option value="base2">BASE 2</option>
+              <option value="teamRocket">TEAM ROCKET</option>
+              <option value="gymHeroes">GYM HEROES</option>
+              <option value="gymChallenge">GYM CHALLENGE</option>
+              <option value="neoGenesis">NEO GENESIS</option>
+              <option value="neoDiscovery">NEO DISCOVERY</option>
+              <option value="neoRevelation">NEO REVELATION</option>
+              <option value="neoDestiny">NEO DESTINY</option>
+              <option value="legendaryCollection">LEGENDARY COLLECTION</option>
+              <option value="expeditionBaseSet">EXPEDITION BASE</option>
+              <option value="aquapolis">AQUAPOLIS</option>
+              <option value="skyridge">SKYRIDGE</option>
+              <option value="random">RANDOM</option>
+            </select>
+            <select class="button select-display" onchange="setDisplay()">
+              <option value="singlePackFlip">DISPLAY: SINGLE</option>
+              <option value="rowView">DISPLAY: ROWS</option>
+              <option value="gridView">DISPLAY: GRID</option>
+            </select>
+            <select
+              class="button select-row-view-sorting"
+              onchange="resortCardsOnDisplay()"
+            >
+              <option class="row-view-only" value="packOrder">SORT: PACK ORDER</option>
+              <option value="cardNameDescending">
+                SORT: CARD NAME (A-Z)
+              </option>
+              <option value="cardNameAscending">
+                SORT: CARD NAME (Z-A)
+              </option>
+              <option value="rarityDescending">SORT: RARITY (DESC)</option>
+              <option value="rarityAscending">SORT: RARITY (ASC)</option>
+              <option value="setNumberAscending">
+                SORT: SET NUMBER (ASC)
+              </option>
+              <option value="setNumberDescending">
+                SORT: SET NUMBER (DESC)
+              </option>
+              <!-- <option value="type">
+              SORT BY: TYPE
+            </option> -->
+            </select>
+          </nav>
 
-          <div id="single-pack-flip-area" class="cards">
-            <div id="emitter"></div>
+          <div class="all-views">
+            <div id="single-pack-flip-area" class="cards">
+              <div id="emitter"></div>
+            </div>
+            <div id="row-view"></div>
+            <div id="grid-view"></div>
+            <button class="button open-pack-button mobile-only">OPEN</button>
+            <img
+              src="images/site/magnifying-glass.png"
+              class="mobile-only magnifying-glass"
+            />
           </div>
-          <div id="row-view"></div>
-          <div id="grid-view"></div>
-          <button class="button open-pack-button mobile-only">OPEN</button>
-          <img
-            src="images/site/magnifying-glass.png"
-            class="mobile-only magnifying-glass"
-          />
+
           <div id="card-zoom" class="modal">
             <div class="modal-content">
               <span class="close">&times;</span>
@@ -160,7 +172,7 @@
           <div>
             <form
               id="donate-button"
-              style="position: relative; left: .5vh;"
+              style="position: relative; left: 0.5vh"
               action="https://www.paypal.com/donate"
               method="post"
               target="_top"
@@ -213,8 +225,14 @@
     <script type="text/javascript" src="js/sets/neo-discovery.js"></script>
     <script type="text/javascript" src="js/sets/neo-revelation.js"></script>
     <script type="text/javascript" src="js/sets/neo-destiny.js"></script>
-    <script type="text/javascript" src="js/sets/legendary-collection.js"></script>
-    <script type="text/javascript" src="js/sets/expedition-base-set.js"></script>
+    <script
+      type="text/javascript"
+      src="js/sets/legendary-collection.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="js/sets/expedition-base-set.js"
+    ></script>
     <script type="text/javascript" src="js/sets/aquapolis.js"></script>
     <script type="text/javascript" src="js/sets/skyridge.js"></script>
     <script type="text/javascript" src="js/sets/sets.js"></script>

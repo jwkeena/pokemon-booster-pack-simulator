@@ -18,7 +18,7 @@ a:hover {
     color: yellow;
 }
 
-.button.select-row-view-sorting.hide, .magnifying-glass.mobile-only.hide {
+.button.select-row-view-sorting.hide, .magnifying-glass.mobile-only.hide, .row-view-only.hide {
     display: none;
 }
 
@@ -26,6 +26,22 @@ a:hover {
     margin: 0 auto;
     text-align: center;
 }
+
+/* --------------------------------------------- */
+/* Sticky control bar */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+/* .all-views {
+    padding: 100px;
+}
+
+.sticky + .all-views {
+    padding-top: 100px;
+} */
 
 /* --------------------------------------------- */
 /* Sticky footer using CSS Grid */
@@ -373,10 +389,11 @@ div.card {
     display: inline-block;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: yellow;
     padding: .5rem 2rem .5rem 2rem;
     border-radius: 3px;
+    max-width: 20%;
 }
 
 .button.select-set,
@@ -483,10 +500,6 @@ h3 {
 /* --------------------------------------------- */
 /* Media queries */
 @media screen and (min-width: 851px) and (max-width: 1050px) {
-    .button.select-row-view-sorting {
-        display: none;
-    }
-
     .magnifying-glass.mobile-only {
         position: absolute;
         bottom: 1.5rem;

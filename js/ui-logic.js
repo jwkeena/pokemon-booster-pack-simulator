@@ -21,12 +21,14 @@ function setDisplay(displayOption = document.querySelector(".select-display").va
         case "rowView":
             showElement(".button.select-row-view-sorting", true);
             showElement(".magnifying-glass.mobile-only", false);
+            showElement("option.row-view-only", true);
             deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
             pulledPacks.forEach(pack => { displayRowView(pack.id, pack.packArtUrls, pack.cards, sortOption) })
             break;
         case "gridView":
             showElement(".button.select-row-view-sorting", true);
             showElement(".magnifying-glass.mobile-only", false);
+            showElement(".row-view-only", false);
             deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
             displayGridView(sortOption);
             break;
@@ -363,6 +365,12 @@ function sortThis(cards, sortOption) {
                 return (name1 > name2) ? -1 : (name1 < name2) ? 1 : 0;
             });
             break;
+        case "type":
+            // Get type chosen from ui
+            // Filter out non-matching types (using card.types array);
+            // Sort by name
+            // Return
+            break;
         default:
             console.log("Unknown sorting method.");
     }
@@ -381,6 +389,13 @@ function showElement(selector, bool) {
 // -----------------------
 // UI - grid view
 function displayGridView(sortOption) {
+    
+    // Don't allow pack order sorting in grid view. Default to name a-z    
+    if (sortOption === "packOrder") {
+        document.querySelector(".button.select-row-view-sorting").value="cardNameDescending";
+        sortOption = "cardNameDescending";
+    }
+    
     deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
 
     const gridWrapper = document.createElement("div");
@@ -421,6 +436,7 @@ function displayGridView(sortOption) {
     };
 }
 
+
 // -----------------------
 // UI - Event listeners
 // When the user clicks anywhere outside of the modal, close it
@@ -457,6 +473,16 @@ donateButton.addEventListener("click", () => {
         "event_category": "engagement"
     });
 });
+
+// Sticky navbar test
+// window.onscroll = function () {
+//     const navbar = document.querySelector("nav");
+//     const stickyOffset = navbar.offsetTop;
+//     console.log(stickyOffset)
+//     console.log(window.pageYOffset)
+//     if (window.pageYOffset >= stickyOffset) navbar.classList.add("sticky");
+//     else navbar.classList.remove("sticky");
+// };
 
 // -----------------------
 // Initialization

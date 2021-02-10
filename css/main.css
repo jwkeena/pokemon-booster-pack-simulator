@@ -33,7 +33,7 @@ nav {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 99;
     background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
     background-image: linear-gradient(to right, red, orange, goldenrod, gold);
     padding-top: 10px;

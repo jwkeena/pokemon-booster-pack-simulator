@@ -6,31 +6,36 @@ let sortOption = "packOrder";
 // -----------------------
 // UI
 function setDisplay(displayOption = document.querySelector(".select-display").value, sortOption = document.querySelector(".select-row-view-sorting").value) {
-    gtag("event", "change_display", {
-        "event_category": "engagement"
-    });
     uiViewType = displayOption;
-
+    displayOption = (pulledPacks.length === 0) ? "noCards" : displayOption;
     switch (displayOption) {
         case "singlePackFlip":
             showElement(".button.select-row-view-sorting", false);
+            showElement(".button.clear-cards", false);
             showElement(".magnifying-glass.mobile-only", true);
             // Only want to display the most recently opened pack for now. TODO: allow user to toggle through packs opened via carousel
             singlePackFlip(pulledPacks[pulledPacks.length - 1].packArtUrls, pulledPacks[pulledPacks.length - 1].cards);
             break;
         case "rowView":
             showElement(".button.select-row-view-sorting", true);
+            showElement(".button.clear-cards", true);
             showElement(".magnifying-glass.mobile-only", false);
-            showElement("option.row-view-only", true);
-            deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
+            showElement(".row-view-only", true);
             pulledPacks.forEach(pack => { displayRowView(pack.id, pack.packArtUrls, pack.cards, sortOption) })
             break;
         case "gridView":
             showElement(".button.select-row-view-sorting", true);
+            showElement(".button.clear-cards", true);
             showElement(".magnifying-glass.mobile-only", false);
             showElement(".row-view-only", false);
-            deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
             displayGridView(sortOption);
+            break;
+        case "noCards":
+            deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
+            const target = document.getElementById("single-pack-flip-area");
+            const card = buildCardHTML(["card", "card--current", "no-card"], "../images/site/cardback.jpg");
+            card.title = "No cards to display!"
+            target.appendChild(card);
             break;
         default:
             console.log("Somehow we've passed a nonexistent view type: " + displayOption + ". This should be impossible.")
@@ -218,10 +223,13 @@ $.fn.commentCards = function () {
 // -----------------------
 // UI - row view
 function displayRowView(packId, packArtUrls, pack, sortOption) {
+
+    deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
+
     const packWrapper = document.createElement("div");
     packWrapper.classList.add("open-pack");
     document.getElementById("row-view").prepend(packWrapper);
-
+    
     const packArt = buildPackArtHTML(packArtUrls, packId);
     packWrapper.appendChild(packArt);
 
@@ -445,8 +453,8 @@ modal.onclick = function (e) {
     if (e.target !== document.getElementById("hi-res-card")) {
         modal.style.display = "none";
         document.getElementById("hi-res-card").style.backgroundImage = "url('../images/site/pokeball-loading.gif')";
-    }
-}
+    };
+};
 
 const openPackButtons = document.querySelectorAll(".open-pack-button");
 openPackButtons.forEach(button => button.onclick = () => {
@@ -456,6 +464,15 @@ openPackButtons.forEach(button => button.onclick = () => {
         "event_label": "New pack button"
     });
 });
+
+const clearPackButton = document.querySelector(".clear-cards");
+clearPackButton.onclick = () => {
+    if (pulledPacks.length === 0) return alert("There are no cards to delete.")
+    if (confirm("Are you sure you want to delete all your cards? This action cannot be undone.")) {
+        pulledPacks = [];
+        setDisplay();
+    };
+};
 
 const magnifyingGlass = document.querySelector(".magnifying-glass");
 magnifyingGlass.addEventListener("click", () => {
@@ -479,3 +496,4 @@ donateButton.addEventListener("click", () => {
 // TODO: retrieve user's choices from localStorage
 chooseSet();
 showElement(".button.select-row-view-sorting", false);
+showElement(".button.clear-cards", false);

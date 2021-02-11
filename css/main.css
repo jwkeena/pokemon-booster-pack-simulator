@@ -18,8 +18,20 @@ a:hover {
     color: yellow;
 }
 
-.button.select-row-view-sorting.hide, .magnifying-glass.mobile-only.hide, .row-view-only.hide {
+.button.select-row-view-sorting.hide, .magnifying-glass.mobile-only.hide, .row-view-only.hide, .button.clear-cards.hide {
     display: none;
+}
+
+.trash-icon {
+    filter:brightness(2);
+    position: relative;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+}
+
+.card.card--current.no-card {
+    cursor: initial;
 }
 
 .centered-text {
@@ -27,8 +39,6 @@ a:hover {
     text-align: center;
 }
 
-/* --------------------------------------------- */
-/* Sticky control bar */
 nav {
     position: -webkit-sticky;
     position: sticky;
@@ -38,7 +48,6 @@ nav {
     background-image: linear-gradient(to right, red, orange, goldenrod, gold);
     padding-top: 10px;
     padding-bottom: 10px;
-    /* border-bottom: 3px solid grey; */
 }
 
 /* --------------------------------------------- */
@@ -69,7 +78,7 @@ main {
 /* --------------------------------------------- */
 /* Header, footer styling */
 #logo {
-    width: 40rem;
+    width: 35rem;
 }
 
 footer>div,
@@ -387,17 +396,18 @@ div.card {
     display: inline-block;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: yellow;
     padding: .5rem 2rem .5rem 2rem;
     border-radius: 3px;
-    max-width: 23%;
+    max-width: 20%;
 }
 
 .button.select-set,
 .button.select-display, 
-.button.select-row-view-sorting {
-    padding: 10px 10px 10px 22px;
+.button.select-row-view-sorting,
+.button.clear-cards {
+    padding: 10px;
 }
 
 .mobile-only {
@@ -548,6 +558,7 @@ h3 {
         margin: 0 auto;
         font-size: 1rem;
         display: inline-block;
+        max-width: 100%;
     }
 
     .select-set {

@@ -367,6 +367,7 @@ function displayGridView(sortOption) {
     // For some unfathomable reason I can't create img tags, or the flexbox overflow-y breaks. Must use div tags
     for (let i = 0; i < allCards.length; i++) {
         let card;
+
         if (allCards[i].set === "Legendary Collection" && allCards[i].isReverseHolo) {
             card = buildCardHTML(["grid-card", "loading", "crop-reverse-holo-img"], allCards[i].imageUrlReverseHolo);
             gridWrapper.appendChild(card);
@@ -382,6 +383,9 @@ function displayGridView(sortOption) {
             gridWrapper.appendChild(card);
             card.addEventListener("click", () => zoomCard(allCards[i].imageUrlHiRes));
         }
+
+        // Mark fresh pulls as new
+        if (allCards[i].isFreshPull) card.classList.add("fresh-pull");
 
         // But I can use img tags for the rarity markers
         const setSymbol = document.createElement("img");
@@ -414,6 +418,10 @@ openPackButtons.forEach(button => button.onclick = () => {
 
 const clearPackButton = document.querySelector(".clear-cards");
 clearPackButton.onclick = () => {
+    gtag("event", "clear_cards", {
+        "event_category": "engagement"
+    });
+
     if (pulledPacks.length === 0) return alert("There are no cards to delete.")
     if (confirm("Are you sure you want to delete all your cards? This action cannot be undone.")) {
         pulledPacks = [];

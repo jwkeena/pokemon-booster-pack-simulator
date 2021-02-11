@@ -18,12 +18,15 @@ a:hover {
     color: yellow;
 }
 
-.button.select-row-view-sorting.hide, .magnifying-glass.mobile-only.hide, .row-view-only.hide, .button.clear-cards.hide {
+.button.select-row-view-sorting.hide,
+.magnifying-glass.mobile-only.hide,
+.row-view-only.hide,
+.button.clear-cards.hide {
     display: none;
 }
 
 .trash-icon {
-    filter:brightness(2);
+    filter: brightness(2);
     position: relative;
     top: 2px;
     width: 20px;
@@ -91,7 +94,7 @@ header>div {
 /* --------------------------------------------- */
 /* Reverse holo - tips from https://css-tricks.com/chaining-multiple-blend-modes/ */
 .reverse-holo-effect {
-    background-blend-mode: darken, multiply; 
+    background-blend-mode: darken, multiply;
 }
 
 .pulled-card.reverse-holo-effect {
@@ -239,8 +242,8 @@ div.card {
     -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-transform-origin: 50% 50%;
-    -moz-transform-origin: 50% 50%; 
-    -o-transform-origin: 50% 50%; 
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
 }
 
@@ -254,17 +257,17 @@ div.card {
 }
 
 .pack-art .pack-art-back {
-    -webkit-transform: rotateY( 180deg );
-    -moz-transform: rotateY( 180deg );
-    -o-transform: rotateY( 180deg );
-    transform: rotateY( 180deg );
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .pack-art.flipped {
-    -webkit-transform: rotateY( 180deg );
-    -moz-transform: rotateY( 180deg );
-    -o-transform: rotateY( 180deg );
-    transform: rotateY( 180deg );
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .open-pack::-webkit-scrollbar {
@@ -290,7 +293,7 @@ div.card {
     background-repeat: no-repeat;
     border-radius: 8px;
     display: inline;
-    height: calc(110vw/5.85); 
+    height: calc(110vw/5.85);
     flex-basis: calc(110vw/8);
     flex-grow: 0;
     flex-shrink: 0;
@@ -302,7 +305,8 @@ div.card {
     position: relative;
 }
 
-.card.crop-reverse-holo-img, #hi-res-card.crop-reverse-holo-img {
+.card.crop-reverse-holo-img,
+#hi-res-card.crop-reverse-holo-img {
     border-radius: 2.5vh;
     background-size: cover;
 }
@@ -357,7 +361,7 @@ div.card {
     background-repeat: no-repeat;
     border-radius: 4px;
     /* Maintains approx. 1.375 ratio between height and width without looking too short */
-    height: calc(86vw/5.85); 
+    height: calc(86vw/5.85);
     flex-basis: calc(80vw/8);
     margin-left: .3rem;
     margin-right: .3rem;
@@ -404,7 +408,7 @@ div.card {
 }
 
 .button.select-set,
-.button.select-display, 
+.button.select-display,
 .button.select-row-view-sorting,
 .button.clear-cards {
     padding: 10px;
@@ -513,18 +517,18 @@ h3 {
         bottom: 1.5rem;
         width: 6vh;
         height: 6vh;
-        cursor: pointer; 
+        cursor: pointer;
         right: 47vw;
         display: inline-block;
     }
-    
+
     .cards {
         margin-top: 5rem;
         margin-bottom: 8rem;
         margin-right: auto;
         margin-left: auto;
-    } 
-    
+    }
+
 }
 
 @media only screen and (min-width: 850px) and (max-width: 1050px) and (orientation: landscape) {
@@ -542,7 +546,7 @@ h3 {
         position: absolute;
         width: 6vh;
         height: 6vh;
-        cursor: pointer; 
+        cursor: pointer;
         right: 47vw;
         display: inline-block;
     }
@@ -566,7 +570,9 @@ h3 {
         font-size: 1rem;
     }
 
-    .button.select-display, .button.select-row-view-sorting, .button.mobile-only {
+    .button.select-display,
+    .button.select-row-view-sorting,
+    .button.mobile-only {
         display: none;
     }
 
@@ -610,7 +616,7 @@ h3 {
         bottom: 1.5rem;
         width: 6vh;
         height: 6vh;
-        cursor: pointer; 
+        cursor: pointer;
         right: 1.5rem;
         display: inline-block;
     }

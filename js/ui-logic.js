@@ -8,6 +8,7 @@ let sortOption = "packOrder";
 function setDisplay(displayOption = document.querySelector(".select-display").value, sortOption = document.querySelector(".select-row-view-sorting").value) {
     uiViewType = displayOption;
     displayOption = (pulledPacks.length === 0) ? "noCards" : displayOption;
+    deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
     switch (displayOption) {
         case "singlePackFlip":
             showElement(".button.select-row-view-sorting", false);
@@ -31,7 +32,6 @@ function setDisplay(displayOption = document.querySelector(".select-display").va
             displayGridView(sortOption);
             break;
         case "noCards":
-            deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
             const target = document.getElementById("single-pack-flip-area");
             const card = buildCardHTML(["card", "card--current", "no-card"], "../images/site/cardback.jpg");
             card.title = "No cards to display!"
@@ -39,8 +39,8 @@ function setDisplay(displayOption = document.querySelector(".select-display").va
             break;
         default:
             console.log("Somehow we've passed a nonexistent view type: " + displayOption + ". This should be impossible.")
-    }
-}
+    };
+};
 
 function buildCardHTML(classesToAdd, imageUrl, hiResImageUrl, cardType) {
     const card = document.createElement("div");
@@ -53,7 +53,7 @@ function buildCardHTML(classesToAdd, imageUrl, hiResImageUrl, cardType) {
     card.setAttribute("data-card-image", imageUrl);
     card.setAttribute("data-card-image-hi-res", hiResImageUrl);
     return card;
-}
+};
 
 function buildPackArtHTML(packArtUrls, packId) {
     const packArt = document.createElement("div")
@@ -90,14 +90,14 @@ function buildPackArtHTML(packArtUrls, packId) {
     });
 
     return packArt;
-}
+};
 
 // https://www.sitepoint.com/community/t/onload-for-background-image/6462
 function preloadImage(card, imageUrl, cardType) {
     const img = new Image();
     img.onload = () => onImageLoaded(card, cardType);
     img.src = imageUrl;
-}
+};
 
 function onImageLoaded(card, reverseHoloType) {
     const loadedImageUrl = card.getAttribute("data-card-image");
@@ -112,7 +112,7 @@ function onImageLoaded(card, reverseHoloType) {
     else
         card.style.backgroundImage = "url('" + loadedImageUrl + "')";
     card.classList.remove("loading");
-}
+};
 
 function zoomCard(url, reverseHoloType = null) {
     gtag("event", "zoom_card", {
@@ -122,21 +122,16 @@ function zoomCard(url, reverseHoloType = null) {
     const div = document.getElementById("hi-res-card");
     div.setAttribute("data-card-image", url, reverseHoloType);
     preloadImage(div, url, reverseHoloType);
-    // div.style.backgroundImage = "url('" + url, reverseHoloType = null + "')";
     const modal = document.getElementById("card-zoom");
     modal.style.display = "block";
-}
+};
 
 function deleteChildrenFrom(parentNodes) {
     parentNodes.forEach(node => { document.getElementById(node).innerHTML = "" });
-}
+};
 
 // UI - single pack flip
 function singlePackFlip(packArtUrls, pack) {
-    // Clear screen for single pack divs
-    deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
-
-    // Sort cards in pack before rendering
     pack = sortThis(pack, sortOption);
 
     // Render cards
@@ -175,56 +170,9 @@ function singlePackFlip(packArtUrls, pack) {
     $('.cards').commentCards();
 }
 
-// Flip through stack of cards modified from https://codepen.io/shshaw/pen/KzYXvP
-$.fn.commentCards = function () {
-    // Closure...but why?
-    return this.each(function () {
-        var $this = $(this),
-            $cards = $this.find('.card'),
-            $current = $cards.filter('.card--current'),
-            $next;
-
-        // The crucial changes here was in three parts
-        $cards.on('click', function () {
-            if ($current.is(this)) { // First, I wanted the condition to only apply to the current card, NOT everything else (so I took the bang out)
-
-                $cards.removeClass('card--current card--out card--next');
-                $current.addClass('card--out');
-                $current = $(this).next().length === 1 ? $(this).next().addClass('card--current') : $cards.first().addClass('card--current'); // Second, I added a ternary here to apply the "card-current" class to the next item if there is one, or if not, then the first item
-                $next = $current.next().length === 1 ? $current.next() : $cards.first(); // Likewise, and finally, I wanted to apply "card--next" class to the item after the current item if there is one, and if not, then the first card
-                $next.addClass('card--next');
-
-                if ($current.hasClass("fireworks")) {
-                    const fireworks = function () {
-                        createFirework(27, 200, 4, 2, null, null, null, null, false, true);
-                    }
-                    const fireworksTimer = setInterval(fireworks, 300);
-                    setTimeout(() => { clearInterval(fireworksTimer); $current.removeClass("fireworks"); }, 5000)
-                }
-
-                if ($current.hasClass("confetti")) {
-                    setTimeout(() => {
-                        $current.removeClass("confetti");
-                        confetti({ particleCount: 200, gravity: .5, origin: { y: .7 }, spread: 90 });
-                    }, 500);
-                }
-
-            }
-        });
-
-        if (!$current.length) {
-            $current = $cards.first();
-            $cards.first().trigger('click');
-        }
-
-    })
-};
-
 // -----------------------
 // UI - row view
 function displayRowView(packId, packArtUrls, pack, sortOption) {
-
-    deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
 
     const packWrapper = document.createElement("div");
     packWrapper.classList.add("open-pack");
@@ -403,8 +351,6 @@ function displayGridView(sortOption) {
         document.querySelector(".button.select-row-view-sorting").value="cardNameDescending";
         sortOption = "cardNameDescending";
     }
-    
-    deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
 
     const gridWrapper = document.createElement("div");
     gridWrapper.classList.add("grid-wrapper");
@@ -490,6 +436,51 @@ donateButton.addEventListener("click", () => {
         "event_category": "engagement"
     });
 });
+
+// Flip through stack of cards modified from https://codepen.io/shshaw/pen/KzYXvP
+$.fn.commentCards = function () {
+    // Closure...but why?
+    return this.each(function () {
+        var $this = $(this),
+            $cards = $this.find('.card'),
+            $current = $cards.filter('.card--current'),
+            $next;
+
+        // The crucial changes here was in three parts
+        $cards.on('click', function () {
+            if ($current.is(this)) { // First, I wanted the condition to only apply to the current card, NOT everything else (so I took the bang out)
+
+                $cards.removeClass('card--current card--out card--next');
+                $current.addClass('card--out');
+                $current = $(this).next().length === 1 ? $(this).next().addClass('card--current') : $cards.first().addClass('card--current'); // Second, I added a ternary here to apply the "card-current" class to the next item if there is one, or if not, then the first item
+                $next = $current.next().length === 1 ? $current.next() : $cards.first(); // Likewise, and finally, I wanted to apply "card--next" class to the item after the current item if there is one, and if not, then the first card
+                $next.addClass('card--next');
+
+                if ($current.hasClass("fireworks")) {
+                    const fireworks = function () {
+                        createFirework(27, 200, 4, 2, null, null, null, null, false, true);
+                    }
+                    const fireworksTimer = setInterval(fireworks, 300);
+                    setTimeout(() => { clearInterval(fireworksTimer); $current.removeClass("fireworks"); }, 5000)
+                }
+
+                if ($current.hasClass("confetti")) {
+                    setTimeout(() => {
+                        $current.removeClass("confetti");
+                        confetti({ particleCount: 200, gravity: .5, origin: { y: .7 }, spread: 90 });
+                    }, 500);
+                }
+
+            }
+        });
+
+        if (!$current.length) {
+            $current = $cards.first();
+            $cards.first().trigger('click');
+        }
+
+    })
+};
 
 // -----------------------
 // Initialization

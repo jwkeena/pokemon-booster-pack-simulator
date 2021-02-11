@@ -45,13 +45,13 @@ function openPack(setName) {
     const sortOption = document.querySelector(".select-row-view-sorting").value;
     switch (uiViewType) {
         case "singlePackFlip":
-            singlePackFlip(randomPackArtUrls, cardsInPack);
+            setDisplay("singlePackFlip");
             break;
         case "rowView":
-            displayRowView(newId, randomPackArtUrls, cardsInPack, sortOption);
+            setDisplay("rowView")
             break;
         case "gridView":
-            displayGridView(sortOption);
+            setDisplay("gridView")
             break;
         default:
             console.log("Default view type - this should be impossible");

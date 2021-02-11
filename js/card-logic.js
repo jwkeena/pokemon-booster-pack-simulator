@@ -6,11 +6,11 @@ function chooseSet() {
     });
     currentSet = document.getElementsByClassName("select-set")[0].value;
     openPack(currentSet);
-}
+};
 
 String.prototype.decapitalize = function () {
     return this.charAt(0).toLowerCase() + this.slice(1);
-}
+};
 
 function sortSet(setName) {
     const set = sets[setName];
@@ -25,6 +25,16 @@ function sortSet(setName) {
     // TODO: refactor perhaps to iterate over all cards just once, instead of using .filter five times? The other advantage would be that I wouldn't miss any cards. Using a default in a switch statement, I'd catch all the cards. Currently I should be checking that the total number of cards in the set equals the total of all the sorted arrays built here.
     set.cardsAreSorted = true;
     return setName;
+};
+
+function noRepeatPackArtFrom(set) {
+    let packArt = set.packArt[randomIndex(set.packArt.length)];
+    // If there's no packs, whatever we pick is good
+    if (pulledPacks.length === 0) return packArt;
+    // If what we picked matches the least recent pack (which is displayed first), pick another
+    if (packArt === pulledPacks[pulledPacks.length-1].packArtUrls) return noRepeatPackArtFrom(set);
+    // Whatever we found must be good
+    return packArt;
 }
 
 function openPack(setName) {
@@ -38,10 +48,10 @@ function openPack(setName) {
     const holoPulled = calculateOdds(set.chanceOfHolo);
     const secretRarePulled = calculateOdds(set.chanceOfSecretRare);
     const cardsInPack = [];
-    const randomPackArtUrls = set.packArt[randomIndex(set.packArt.length)];
+    const newPackArtUrls = noRepeatPackArtFrom(set)
     set.cardsToPull.forEach((cardType, index) => pullCard(cardType, cardsInPack, set, holoPulled, secretRarePulled, index));
     const newId = Symbol();
-    pulledPacks.push({ id: newId, set: set, packArtUrls: randomPackArtUrls, cards: [...cardsInPack]});
+    pulledPacks.push({ id: newId, set: set, packArtUrls: newPackArtUrls, cards: [...cardsInPack]});
     const sortOption = document.querySelector(".select-row-view-sorting").value;
     switch (uiViewType) {
         case "singlePackFlip":
@@ -55,29 +65,29 @@ function openPack(setName) {
             break;
         default:
             console.log("Default view type - this should be impossible");
-    }
-}
+    };
+};
 
 function deletePack(packId) {
     for (let i = 0; i < pulledPacks.length; i++){
         if (pulledPacks[i].id === packId) 
             pulledPacks.splice(i, 1);
-    }
+    };
     setDisplay("rowView"); 
-}
+};
 
 function chooseRandomSet() {
     const allSets = Object.keys(sets);
     const randomSet = allSets[randomIndex(allSets.length)];
     openPack(randomSet);
-}
+};
 
 function calculateOdds(odds) {
     const diceRoll = Math.random();
     if (diceRoll <= odds) return true;
     else return false;
     // I know the else statement is optional since js coerces undefined to false but this reads better OKAY?!
-}
+};
 
 function pullCard(cardType, pack, set, holoPulled, secretRarePulled, index) {
     let card = null;
@@ -113,7 +123,7 @@ function pullCard(cardType, pack, set, holoPulled, secretRarePulled, index) {
                 break;
             default: // Handles commons, uncommons
                 card = set.sortedCards[cardType.decapitalize() + "s"][randomIndex(set.sortedCards[cardType.decapitalize() + "s"].length)]
-        }
+        };
 
     // Using recursion again. TODO: refactor to keep a duplicate array of possible choices, popping off chosen ones
     // Only run duplicate check if it's not a reverse holo. Reverse holos CAN be duplicates
@@ -124,16 +134,16 @@ function pullCard(cardType, pack, set, holoPulled, secretRarePulled, index) {
         card.pullOrder = index;
         card.setSymbolUrl = set.symbolUrl;
         pack.push(card);
-    }
+    };
     return pack;
-}
+};
 
 function randomIndex(arrayLength) {
     return Math.floor(Math.random() * arrayLength);
-}
+};
 
-function isDuplicate(card, pack) {
-    for (let i = 0; i < pack.length; i++) {
-        if (pack[i] === card) return true;
-    }
-}
+function isDuplicate(item, arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === item) return true;
+    };
+};

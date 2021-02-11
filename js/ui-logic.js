@@ -3,6 +3,7 @@ let uiViewType = "singlePackFlip"; // This must remain global so that the card-l
 let pulledPacks = [];
 let currentSet = null;
 let sortOption = "packOrder";
+
 // -----------------------
 // UI
 function setDisplay(displayOption = document.querySelector(".select-display").value, sortOption = document.querySelector(".select-row-view-sorting").value) {

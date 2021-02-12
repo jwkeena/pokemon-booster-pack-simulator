@@ -400,6 +400,7 @@ function displayGridView(sortOption) {
         const setSymbol = document.createElement("img");
         setSymbol.classList.add("set-symbol");
         setSymbol.src = allCards[i].setSymbolUrl;
+        setSymbol.title = allCards[i].set;
         card.appendChild(setSymbol)
     };
 }

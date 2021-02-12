@@ -401,8 +401,8 @@ div.card {
     display: inline-block;
     position: absolute;
     z-index: 0;
-    top: -1vw;
-    right: -1vw;
+    top: -.5vw;
+    right: -.5vw;
     height: 2.5vw;
     width: 2.5vw;
 }

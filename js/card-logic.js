@@ -153,6 +153,6 @@ function randomIndex(arrayLength) {
 
 function isDuplicate(item, arr) {
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === item) return true;
+        if (arr[i].id === item.id) return true;
     };
 };

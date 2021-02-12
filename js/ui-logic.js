@@ -202,7 +202,7 @@ function displayRowView(packId, packArtUrls, pack, sortOption) {
             card = buildCardHTML(["pulled-card", "loading"], pack[i].imageUrl);
             packWrapper.appendChild(card);
             card.addEventListener("click", () => zoomCard(pack[i].imageUrlHiRes));
-        }
+        };
 
         // But I can use img tags for the rarity markers
         const raritySymbol = document.createElement("img");
@@ -213,26 +213,26 @@ function displayRowView(packId, packArtUrls, pack, sortOption) {
             raritySymbol.src = "../images/site/rarity_uncommon.png";
         if (pack[i].rarity === "Holo Rare" || pack[i].rarity === "Rare" || pack[i].rarity === "Secret Rare")
             raritySymbol.src = "../images/site/rarity_rare.png";
-        card.appendChild(raritySymbol)
+        card.appendChild(raritySymbol);
     };
 
     // Event delegation for horizontal scrolling from https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div
-    packWrapper.addEventListener("wheel", e => {
+    packWrapper.addEventListener("wheel", (e) => {
         const toLeft = e.deltaY < 0 && packWrapper.scrollLeft > 0;
         const toRight = e.deltaY > 0 && packWrapper.scrollLeft < packWrapper.scrollWidth - packWrapper.clientWidth;
 
         if (toLeft || toRight) {
             e.preventDefault();
             packWrapper.scrollLeft += e.deltaY;
-        }
+        };
     });
-}
+};
 
 function resortCardsOnDisplay() {
     const chosenOption = document.querySelector(".select-row-view-sorting").value;
     sortOption = chosenOption;
     setDisplay(displayOption = document.querySelector(".select-display").value, sortOption);
-}
+};
 
 function sortThis(cards, sortOption) {
     // Magic from https://afewminutesofcode.com/how-to-create-a-custom-sort-order-in-javascript
@@ -255,8 +255,8 @@ function sortThis(cards, sortOption) {
             if (a.name < b.name) return -1;
 
             return 0;
-        })
-    }
+        });
+    };
 
     // Within the switch statement below, some cards' set number is like "H4" instead of 4. 
     // So I strip the "H" here and return "0" so (1) parseInt() can be run on it and 
@@ -266,7 +266,7 @@ function sortThis(cards, sortOption) {
             return "0";
         else
             return rarityString;
-    }
+    };
 
     switch (sortOption) {
         case "packOrder":
@@ -291,8 +291,7 @@ function sortThis(cards, sortOption) {
                 if (parseInt(accountForHoloNumbers(a.number)) > parseInt(accountForHoloNumbers(b.number))) return -1;
                 
                 return 0;
-            })
-            break;
+            });
             break;
         case "setNumberAscending":
             sortedCards = cards.sort((a, b) => { 
@@ -305,7 +304,7 @@ function sortThis(cards, sortOption) {
                 if (parseInt(accountForHoloNumbers(a.number)) < parseInt(accountForHoloNumbers(b.number))) return -1;
                 
                 return 0;
-            })
+            });
             break;
         // https://stackoverflow.com/questions/8900732/sort-objects-in-an-array-alphabetically-on-one-property-of-the-array
         case "cardNameDescending":
@@ -330,9 +329,9 @@ function sortThis(cards, sortOption) {
             break;
         default:
             console.log("Unknown sorting method.");
-    }
+    };
     return sortedCards;
-}
+};
 
 // TODO: Abstract this into a showElement function that takes in an array and spreads it
 function showElement(selector, bool) {
@@ -341,7 +340,7 @@ function showElement(selector, bool) {
         el.classList.remove("hide");
     else
         el.classList.add("hide");
-}
+};
 
 // -----------------------
 // UI - grid view
@@ -391,7 +390,7 @@ function displayGridView(sortOption) {
                 e.target.classList.remove("fresh-pull");
                 zoomCard(allCards[i].imageUrlHiRes)
             });
-        }
+        };
 
         // Mark fresh pulls as new
         if (allCards[i].isFreshPull) card.classList.add("fresh-pull");
@@ -403,7 +402,13 @@ function displayGridView(sortOption) {
         setSymbol.title = allCards[i].set;
         card.appendChild(setSymbol)
     };
-}
+
+    const freshPulls = document.querySelectorAll(".fresh-pull");
+    freshPulls.forEach(div => div.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        e.target.classList.remove("fresh-pull");
+    }));
+};
 
 
 // -----------------------

@@ -393,6 +393,20 @@ div.card {
     max-height: 15px;
 }
 
+.fresh-pull::after {
+    content: "";
+    background-image: url("../images/site/fresh-pull.png");
+    background-size: 2.5vw;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: absolute;
+    z-index: 0;
+    top: -1vw;
+    right: -1vw;
+    height: 2.5vw;
+    width: 2.5vw;
+}
+
 /* --------------------------------------------- */
 /* Buttons */
 .button {

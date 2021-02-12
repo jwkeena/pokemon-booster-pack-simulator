@@ -371,17 +371,26 @@ function displayGridView(sortOption) {
         if (allCards[i].set === "Legendary Collection" && allCards[i].isReverseHolo) {
             card = buildCardHTML(["grid-card", "loading", "crop-reverse-holo-img"], allCards[i].imageUrlReverseHolo);
             gridWrapper.appendChild(card);
-            card.addEventListener("click", () => zoomCard(allCards[i].imageUrlReverseHolo, "imageUrlReverseHolo"));
+            card.addEventListener("click", e => {
+                e.target.removeClass("fresh-pull");
+                zoomCard(allCards[i].imageUrlReverseHolo, "imageUrlReverseHolo")
+            });
         }
         else if (allCards[i].isReverseHolo) {
             card = buildCardHTML(["grid-card", "loading"], allCards[i].imageUrl, allCards[i].imageUrlHiRes, "cssEffectReverseHolo");
             gridWrapper.appendChild(card);
-            card.addEventListener("click", () => zoomCard(allCards[i].imageUrlHiRes, "cssEffectReverseHolo"));
+            card.addEventListener("click", e => {
+                e.target.removeClass("fresh-pull");
+                zoomCard(allCards[i].imageUrlHiRes, "cssEffectReverseHolo")
+            });
         }
         else {
             card = buildCardHTML(["grid-card", "loading"], allCards[i].imageUrl);
             gridWrapper.appendChild(card);
-            card.addEventListener("click", () => zoomCard(allCards[i].imageUrlHiRes));
+            card.addEventListener("click", e => {
+                e.target.classList.remove("fresh-pull");
+                zoomCard(allCards[i].imageUrlHiRes)
+            });
         }
 
         // Mark fresh pulls as new

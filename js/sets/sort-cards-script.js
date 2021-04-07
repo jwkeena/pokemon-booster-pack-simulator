@@ -16,5 +16,5 @@ console.log(sorted);
 // Mark all the holo rares
 // Get the set info from unused-sets.js
 // Copy to sets.js, add new properties. 
-// Add info for packOrder and probability from https://pokemonboosterpack.neocities.org/pages/about.html
+// Add info for packOrder and probability from https://pokemonboosterpack.com/pages/about.html
 // Add new set js file to index.html

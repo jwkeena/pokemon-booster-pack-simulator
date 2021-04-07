@@ -11,6 +11,16 @@
       name="keywords"
       content="Pokémon,Pokemon,pokemon,booster,pack,box,simulator,sim,opening,tcg,set,cards,free,pulls,packs,breaks"
     />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Pokémon Booster Pack Simulator"
+    />
+    <meta name="twitter:description" content="Free Pokémon TCG booster pack opening simulator. Open as many packs as you want without breaking the bank." />
+    <meta
+      name="twitter:image"
+      content="https://pokemonboosterpack.neocities.org/images/site/twitter-card-screenshot.png"
+    />
     <!-- Enables media queries on mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -117,18 +127,14 @@
               class="button select-row-view-sorting"
               onchange="resortCardsOnDisplay()"
             >
-              <option class="row-view-only" value="packOrder">SORT: PACK ORDER</option>
-              <option value="cardNameDescending">
-                SORT: CARD NAME (A-Z)
+              <option class="row-view-only" value="packOrder">
+                SORT: PACK ORDER
               </option>
-              <option value="cardNameAscending">
-                SORT: CARD NAME (Z-A)
-              </option>
+              <option value="cardNameDescending">SORT: CARD NAME (A-Z)</option>
+              <option value="cardNameAscending">SORT: CARD NAME (Z-A)</option>
               <option value="rarityDescending">SORT: RARITY (DESC)</option>
               <option value="rarityAscending">SORT: RARITY (ASC)</option>
-              <option value="setNumberAscending">
-                SORT: SET NUMBER (ASC)
-              </option>
+              <option value="setNumberAscending">SORT: SET NUMBER (ASC)</option>
               <option value="setNumberDescending">
                 SORT: SET NUMBER (DESC)
               </option>
@@ -136,7 +142,9 @@
               SORT BY: TYPE
             </option> -->
             </select>
-            <button class="button clear-cards desktop-only"><img class="trash-icon" src="images/site/trash.png"></button>
+            <button class="button clear-cards desktop-only">
+              <img class="trash-icon" src="images/site/trash.png" />
+            </button>
           </nav>
 
           <div class="all-views">

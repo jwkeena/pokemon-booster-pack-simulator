@@ -1,8 +1,9 @@
 /* --------------------------------------------- */
 /* Whole page styling */
 body {
-    background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
-    background-image: linear-gradient(to right, red, orange, goldenrod, gold);
+    /* background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
+    background-image: linear-gradient(to right, red, orange, goldenrod, gold); */
+    background: lightblue;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
@@ -47,8 +48,9 @@ nav {
     position: sticky;
     top: 0;
     z-index: 15;
-    background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
-    background-image: linear-gradient(to right, red, orange, goldenrod, gold);
+    /* background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
+    background-image: linear-gradient(to right, red, orange, goldenrod, gold); */
+    background: lightblue;
     padding-top: 10px;
     padding-bottom: 10px;
 }

@@ -78,21 +78,9 @@
     <title>Pokemon Booster Pack Simulator</title>
   </head>
 
-  <body>
+  <body style="background: lightblue;">
 
     <section>
-
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <!-- display-horizontal-top -->
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-2488924801450429"
-           data-ad-slot="1159054645"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
 
       <div class="section-wrapper">
         <header>
@@ -102,7 +90,7 @@
 
         <main class="front-page">
 
-          <nav>
+          <nav style="background: lightblue;">
             <button class="button open-pack-button desktop-only">OPEN</button>
 
             <select class="button select-set" onchange="chooseSet()">
@@ -186,22 +174,22 @@
         </div>
         <div id="fireContainer"></div>
 
-        <footer></footer>
+        <footer style="background: transparent;">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- horizontal-display-bottom -->
+          <ins class="adsbygoogle"
+              style="display:block"
+              data-ad-client="ca-pub-2488924801450429"
+              data-ad-slot="3363094891"
+              data-ad-format="auto"
+              data-full-width-responsive="true"></ins>
+          <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </footer>
 
       </div>
     </section>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- horizontal-display-bottom -->
-    <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-2488924801450429"
-        data-ad-slot="3363094891"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
 
     <!-- Javascript must be at end so it can access the loaded DOM -->
     <script
@@ -213,6 +201,8 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
     <!-- Likewise to http://www.schillmania.com/projects/fireworks/ -->
     <script type="text/javascript" src="fireworks/script/fireworks.js"></script>
+    <!-- And thanks to https://github.com/alexgibson/shake.js/ -->
+    <script type="text/javascript" src="js/shake.js"></script>
     <script type="text/javascript" src="js/sets/base-set.js"></script>
     <script type="text/javascript" src="js/sets/jungle.js"></script>
     <script type="text/javascript" src="js/sets/fossil.js"></script>

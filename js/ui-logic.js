@@ -422,6 +422,27 @@ modal.onclick = function (e) {
     };
 };
 
+// Zoom on card
+const magnifyingGlass = document.querySelector(".magnifying-glass");
+magnifyingGlass.addEventListener("click", () => {
+    const currentCard = document.querySelector(".card--current");
+    const hiResUrl = currentCard.getAttribute("data-card-image-hi-res");
+    if (currentCard.classList.contains("reverse-holo-effect")) zoomCard(hiResUrl, "cssEffectReverseHolo")
+    if (currentCard.classList.contains("crop-reverse-holo-img")) zoomCard(hiResUrl, "imageUrlReverseHolo")
+    if (hiResUrl !== "none") zoomCard(hiResUrl);
+    // Pack art is not zoomed, hence it will not be caught here
+});
+
+// Shake phone to get next card in single pack flip only
+const myShakeEvent = new Shake({});
+myShakeEvent.start();
+$(window).on('shake', function() {
+    if (uiViewType === "singlePackFlip") {
+        $(".card--current").click();
+    }
+});
+
+// Analytics tracking
 const openPackButtons = document.querySelectorAll(".open-pack-button");
 openPackButtons.forEach(button => button.onclick = () => {
     openPack(currentSet);
@@ -444,15 +465,6 @@ clearPackButton.onclick = () => {
     };
 };
 
-const magnifyingGlass = document.querySelector(".magnifying-glass");
-magnifyingGlass.addEventListener("click", () => {
-    const currentCard = document.querySelector(".card--current");
-    const hiResUrl = currentCard.getAttribute("data-card-image-hi-res");
-    if (currentCard.classList.contains("reverse-holo-effect")) zoomCard(hiResUrl, "cssEffectReverseHolo")
-    if (currentCard.classList.contains("crop-reverse-holo-img")) zoomCard(hiResUrl, "imageUrlReverseHolo")
-    if (hiResUrl !== "none") zoomCard(hiResUrl);
-    // Pack art is not zoomed, hence it will not be caught here
-});
 
 const ads = document.querySelector(".adsbygoogle");
 ads.addEventListener("click", () => {

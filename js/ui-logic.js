@@ -454,9 +454,9 @@ magnifyingGlass.addEventListener("click", () => {
     // Pack art is not zoomed, hence it will not be caught here
 });
 
-const donateButton = document.querySelector("#donate-button");
-donateButton.addEventListener("click", () => {
-    gtag("event", "click_donate_button", {
+const ads = document.querySelector(".adsbygoogle");
+ads.addEventListener("click", () => {
+    gtag("event", "click_ad", {
         "event_category": "engagement"
     });
 });

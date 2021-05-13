@@ -46,7 +46,7 @@ nav {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 15;
     background-image: -webkit-linear-gradient(to right, red, orange, goldenrod, gold);
     background-image: linear-gradient(to right, red, orange, goldenrod, gold);
     padding-top: 10px;
@@ -84,8 +84,8 @@ main {
     width: 35rem;
 }
 
-footer>div,
-header>div {
+header>div,
+footer>div {
     background: blue;
     color: yellow;
     padding: 1rem;
@@ -159,7 +159,12 @@ div.card {
     }
 
     50% {
+        z-index: 20;
         transform: translateY(-120%) rotate(-5deg) translateX(-40px);
+    }
+
+    65% {
+        z-index: 20;
     }
 
     80% {

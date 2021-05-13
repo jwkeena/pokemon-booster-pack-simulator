@@ -1,5 +1,5 @@
 function newPackSound() {
-    var newPackSound = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/music/29%20Get%20Booster%20Pack.mp3?raw=true")
+    var newPackSound = new Audio("../../music/29 Get Booster Pack.mp3")
     if (toggleSound === 1) {
         newPackSound.play();
     }
@@ -29,7 +29,7 @@ function unlockPromotionalCards() {
     var top = document.getElementById("topBarMiddle")
     top.scrollIntoView();
     pauseMusic()
-    var unlockMusic = new Audio("https://github.com/jwkeena/Pokemon-Booster-Pack-Simulator/blob/master/music/25%20Win!.mp3?raw=true")
+    var unlockMusic = new Audio("../../music/25 Win!.mp3")
     unlockMusic.play();
     document.getElementById("hidden1").id = "promotional_div";
     document.getElementById("hidden2").id = "promotional_logo";
@@ -301,7 +301,6 @@ function goRight() {
 }
 
 // Adapted from https://stackoverflow.com/questions/27368778/how-to-toggle-audio-play-pause-with-one-button-or-link
-
 
 var audio1 = document.getElementById("audio1");
 var audio2 = document.getElementById("audio2");

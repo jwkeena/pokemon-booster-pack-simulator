@@ -68,8 +68,9 @@ section {
     height: 100%;
 }
 
-main {
+main.front-page {
     position: relative;
+    padding-bottom: 4rem;
 }
 
 .section-wrapper {
@@ -81,6 +82,7 @@ main {
 /* --------------------------------------------- */
 /* Header, footer styling */
 #logo {
+    padding-top: 4rem;
     width: 35rem;
 }
 

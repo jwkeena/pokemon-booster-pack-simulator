@@ -22,15 +22,18 @@ a:hover {
 .button.select-row-view-sorting.hide,
 .magnifying-glass.mobile-only.hide,
 .row-view-only.hide,
-.button.clear-cards.hide {
+.button.grid-only-button.hide,
+.button.no-duplicates.hide,
+.grid-view-only.hide {
     display: none;
 }
 
-.trash-icon {
+.trash-icon, .duplicate-icon {
     filter: brightness(2);
     position: relative;
     top: 2px;
     width: 20px;
+    max-width: 20px;
     height: 20px;
 }
 
@@ -433,7 +436,8 @@ div.card {
 .button.select-set,
 .button.select-display,
 .button.select-row-view-sorting,
-.button.clear-cards {
+.button.clear-cards,
+.button.no-duplicates {
     padding: 10px;
 }
 

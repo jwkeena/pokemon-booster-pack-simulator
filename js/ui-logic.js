@@ -3,6 +3,7 @@ let uiViewType = "singlePackFlip"; // This must remain global so that the card-l
 let pulledPacks = [];
 let currentSet = null;
 let sortOption = "packOrder";
+let noDuplicates = false;
 
 // -----------------------
 // UI
@@ -12,25 +13,25 @@ function setDisplay(displayOption = document.querySelector(".select-display").va
     deleteChildrenFrom(["single-pack-flip-area", "row-view", "grid-view"]);
     switch (displayOption) {
         case "singlePackFlip":
-            showElement(".button.select-row-view-sorting", false);
-            showElement(".button.clear-cards", false);
-            showElement(".magnifying-glass.mobile-only", true);
+            showElements(".button.select-row-view-sorting", false);
+            showElements(".magnifying-glass.mobile-only", true);
+            showElements(".grid-view-only", false);
             // Only want to display the most recently opened pack for now. TODO: allow user to toggle through packs opened via carousel
             singlePackFlip(pulledPacks[pulledPacks.length - 1].packArtUrls, pulledPacks[pulledPacks.length - 1].cards);
             break;
         case "rowView":
-            showElement(".button.select-row-view-sorting", true);
-            showElement(".button.clear-cards", true);
-            showElement(".magnifying-glass.mobile-only", false);
-            showElement(".row-view-only", true);
+            showElements(".button.select-row-view-sorting", true);
+            showElements(".magnifying-glass.mobile-only", false);
+            showElements(".row-view-only", true);
+            showElements(".grid-view-only", false);
             pulledPacks.forEach(pack => { displayRowView(pack.id, pack.packArtUrls, pack.cards, sortOption) })
             break;
         case "gridView":
-            showElement(".button.select-row-view-sorting", true);
-            showElement(".button.clear-cards", true);
-            showElement(".magnifying-glass.mobile-only", false);
-            showElement(".row-view-only", false);
-            displayGridView(sortOption);
+            showElements(".button.select-row-view-sorting", true);
+            showElements(".magnifying-glass.mobile-only", false);
+            showElements(".row-view-only", false);
+            showElements(".grid-view-only", true);
+            displayGridView(sortOption, noDuplicates);
             break;
         case "noCards":
             const target = document.getElementById("single-pack-flip-area");
@@ -333,13 +334,10 @@ function sortThis(cards, sortOption) {
     return sortedCards;
 };
 
-// TODO: Abstract this into a showElement function that takes in an array and spreads it
-function showElement(selector, bool) {
-    el = document.querySelector(selector);
-    if (bool)
-        el.classList.remove("hide");
-    else
-        el.classList.add("hide");
+function showElements(selector, bool) {
+    elements = document.querySelectorAll(selector);
+    if (bool) elements.forEach(element => element.classList.remove("hide"));
+    else elements.forEach(element => element.classList.add("hide"));
 };
 
 // -----------------------
@@ -359,6 +357,7 @@ function displayGridView(sortOption) {
     // Get all cards. Can't one line this...
     let allCards = [];
     pulledPacks.forEach(pack => allCards.push(...pack.cards));
+    if (noDuplicates) allCards = removeDuplicates(allCards);
 
     // Sort cards in pack before rendering
     allCards = sortThis(allCards, sortOption);
@@ -410,6 +409,25 @@ function displayGridView(sortOption) {
     }));
 };
 
+function removeDuplicates(allCards) {
+    const nonReverseHolos = allCards.filter(card => !card.isReverseHolo);
+    const reverseHolos = allCards.filter(card => card.isReverseHolo);
+
+    function getUniqueCardsFrom(cardArr) {
+        const uniques = [];
+        let uniqueNames = [...new Set(cardArr.map(card => card.name))] // Extract unique names by putting array of all names into a set 
+        uniqueNames.forEach(name => {
+            const firstMatchingCard = cardArr.find(card => card.name === name); // Then use the names array to find a single match for each name
+            uniques.push(firstMatchingCard);
+        });
+        return uniques;
+    }
+
+    const uniqueReverseHolos = getUniqueCardsFrom(reverseHolos);
+    const uniqueNonReverseHolos = getUniqueCardsFrom(nonReverseHolos);
+    const uniqueCards = [...uniqueReverseHolos, ...uniqueNonReverseHolos]
+    return uniqueCards;
+}
 
 // -----------------------
 // UI - Event listeners
@@ -458,13 +476,26 @@ clearPackButton.onclick = () => {
         "event_category": "engagement"
     });
 
-    if (pulledPacks.length === 0) return alert("There are no cards to delete.")
+    if (pulledPacks.length === 0) return alert("There are no cards to delete.");
     if (confirm("Are you sure you want to delete all your cards? This action cannot be undone.")) {
         pulledPacks = [];
         setDisplay();
     };
 };
 
+const noDuplicatesButton = document.querySelector(".no-duplicates");
+noDuplicatesButton.onclick = () => {
+    gtag("event", "no_duplicates", {
+        "event_category": "engagement"
+    });
+
+    if (pulledPacks.length === 0) return;
+    noDuplicates = !noDuplicates;
+    if (noDuplicates) document.querySelector(".duplicate-icon").src = "images/site/duplicate-icon.png";
+    else document.querySelector(".duplicate-icon").src = "images/site/duplicate-icon-alt.png";
+    deleteChildrenFrom(["grid-view"]);
+    displayGridView(sortOption, noDuplicates);
+}
 
 const ads = document.querySelector(".adsbygoogle");
 ads.addEventListener("click", () => {
@@ -482,7 +513,7 @@ $.fn.commentCards = function () {
             $current = $cards.filter('.card--current'),
             $next;
 
-        // The crucial changes here was in three parts
+        // The crucial changes here were in three parts
         $cards.on('click', function () {
             if ($current.is(this)) { // First, I wanted the condition to only apply to the current card, NOT everything else (so I took the bang out)
 
@@ -522,5 +553,5 @@ $.fn.commentCards = function () {
 // Initialization
 // TODO: retrieve user's choices from localStorage
 chooseSet();
-showElement(".button.select-row-view-sorting", false);
-showElement(".button.clear-cards", false);
+showElements(".button.select-row-view-sorting", false);
+showElements(".button.clear-cards", false);

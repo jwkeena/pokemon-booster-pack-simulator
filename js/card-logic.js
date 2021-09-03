@@ -4,7 +4,15 @@ function chooseSet() {
         "event_category": "engagement",
         "event_label": "New set dropdown"
     });
-    currentSet = document.getElementsByClassName("select-set")[0].value;
+    const selectSetButtons = document.querySelectorAll(".select-set");
+    if (window.innerWidth >= 850) {
+        currentSet = selectSetButtons[0].value;
+        selectSetButtons[1].value = currentSet;
+    }
+    else  {
+        currentSet = selectSetButtons[1].value;
+        selectSetButtons[0].value = currentSet;
+    }
     openPack(currentSet);
 };
 
@@ -70,7 +78,7 @@ function openPack(setName) {
             setDisplay("gridView")
             break;
         default:
-            console.log("Default view type - this should be impossible");
+            alert("Default view type - this should be impossible");
     };
 };
 

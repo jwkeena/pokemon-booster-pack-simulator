@@ -540,13 +540,19 @@ h3 {
 /* Media queries */
 @media screen and (min-width: 851px) and (max-width: 1050px) {
     .magnifying-glass.mobile-only {
-        position: absolute;
-        bottom: 1.5rem;
-        width: 6vh;
-        height: 6vh;
-        cursor: pointer;
-        right: 47vw;
-        display: inline-block;
+        display: none;
+    }
+
+    main.front-page {
+        top: -4rem;
+    }
+
+    header {
+        margin-bottom: 4rem;
+    }
+
+    div.section-wrapper {
+        max-height: 100%;
     }
 
     .cards {
@@ -588,8 +594,9 @@ h3 {
         padding: 10px 5px;
         margin: 0 auto;
         font-size: 1rem;
-        display: inline-block;
-        max-width: 100%;
+        display: block;
+        width: 50vw;
+        max-width: 50vw;
     }
 
     .select-set {
@@ -597,10 +604,12 @@ h3 {
         font-size: 1rem;
     }
 
-    .button.select-display,
-    .button.select-row-view-sorting,
-    .button.mobile-only {
+    .button.select-display {
         display: none;
+    }
+
+    .button.select-row-view-sorting {
+        margin-top: 1rem;
     }
 
     .cards {
@@ -628,10 +637,10 @@ h3 {
 
     /* Buttons */
     .button.mobile-only {
-        display: inline-block;
-        font-size: 1rem;
-        margin: 0 auto 2rem auto;
-        padding: 10px 5px;
+        position: relative;
+        top: 1rem;
+        margin-top: 1rem;
+        text-align: left;
     }
 
     .button.desktop-only {
@@ -639,13 +648,18 @@ h3 {
     }
 
     .magnifying-glass.mobile-only {
-        position: absolute;
+        display: none;
+        /* position: absolute;
         bottom: 1.5rem;
         width: 6vh;
         height: 6vh;
         cursor: pointer;
         right: 1.5rem;
-        display: inline-block;
+        display: inline-block; */
+    }
+
+    nav {
+        display: none;
     }
 
 }
